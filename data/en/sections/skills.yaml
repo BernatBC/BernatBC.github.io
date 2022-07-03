@@ -1,0 +1,42 @@
+
+# section information
+section:
+  name: Skills
+  id: skills
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your Skills.
+# Give a summary of you each skill in the summary section.
+skills:
+
+- name: C, C++, C#
+  logo: /images/c++.png
+  summary: "Using it as the main programming langauge. Used for college, contest programming and for game developing."
+
+- name: Unity
+  logo: /images/unity.png
+  summary: "Medium understanding. Used to develop some videogames."
+  url: "https://unity.com/"
+
+- name: PostgreSQL
+  logo: /images/postgresql.png
+  summary: "Basic knowledege of this object-relational database system. I have use it in college in DataBases courses."
+  url: "https://www.postgresql.org/"
+
+- name: OpenGL
+  logo: /images/opengl.png
+  summary: "Good understanding of it. I have made some graphic applications in college with it."
+  url: "https://www.opengl.org/"
+
+- name: Linux
+  logo: /images/linux.png
+  summary: "Using as the main operating system. I have a good understanding of it."
+
+- name: Git
+  logo: /images/git.png
+  summary: "Experienced with git-based development. Mostly, use Github. Also, have experience in working with GitLab."
+  url: "https://git-scm.com/"
