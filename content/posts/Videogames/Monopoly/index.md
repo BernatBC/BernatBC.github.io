@@ -1,6 +1,6 @@
 ---
 title: "Monopoly"
-date: 2022-07-01T06:00:23+06:00
+date: 2022-07-01T06:00:22+06:00
 description: Monopoly
 theme: Toha
 menu:
