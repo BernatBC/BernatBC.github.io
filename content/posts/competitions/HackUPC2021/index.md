@@ -1,0 +1,30 @@
+---
+title: "HackUPC 2021"
+date: 2021-05-16T06:00:23+06:00
+description: HackUPC 2021
+theme: Toha
+menu:
+  sidebar:
+    name: HackUPC 2021
+    identifier: hackupc2021
+    parent: competitions
+    weight: 500
+hero: gallery.jpg
+draft: false
+---
+
+## About HackUPC
+[HackUPC](https://hackupc.com/) is the first student hackathon in Spain. Once a year, we aim to provide a space for students of all experience levels from all around the world where they can improve and learn new skills, meet awesome people, and overall have a great experience! This year's edition will be held in a hybrid format, meaning that you can come in person but also participate from home.
+
+## Our project
+[@miquelt9](https://github.com/miquelt9), [@JCasahuga](https://github.com/JCasahuga) and myself decided to pariticipate in this hackaton in the first year of the degree. We were just competing for fun and especially to learn new things. HackUPC is a hackaton that participants are free to choose their own theme. Neither of us knew how to make any kind of frontend, but [@JCasahuga](https://github.com/JCasahuga) and myself had used [Unity](https://unity.com/) game engine, so we decided to develop a 2D game using it. After some brain storming we decided to make a space shooter.
+
+All the struggles and more info can be found in [Devpost](https://devpost.com/software/spaceshooter-5hi4of), the plattform were we submitted our project. Right below there's a demo of our game, and don't forget to check out the project on [Devpost](https://devpost.com/software/spaceshooter-5hi4of) and the code on [Github](https://github.com/BernatBC/Coding-Competitions/tree/main/HackUPC2021).
+
+{{< youtube -AzCSZg9y1A >}}
+
+### [View Project on Devpost](https://devpost.com/software/spaceshooter-5hi4of)
+
+### [View Code on Github](https://github.com/BernatBC/Coding-Competitions/tree/main/HackUPC2021)
+
+### [Download executable file for Windows 64bit](https://github.com/BernatBC/Coding-Competitions/raw/main/HackUPC2021/Build.rar)
