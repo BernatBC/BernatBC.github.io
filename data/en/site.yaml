@@ -3,3 +3,9 @@ copyright: © 2022 Copyright.
 
 # Meta description for your site.  This will help the search engines to find your site.
 description: Personal portfolio of Bernat Borràs Civil.
+
+customMenus:
+- name: Posts
+  url: https://bernatbc.tk/posts/
+  hideFromNavbar: true
+  showOnFooter: true

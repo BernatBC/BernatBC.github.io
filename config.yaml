@@ -29,7 +29,6 @@ outputs:
     - RSS
     - JSON
 
-
 # Site parameters
 params:
   background: "images/background4.jpg"
