@@ -11,6 +11,7 @@ menu:
     weight: 500
 hero: gallery.jpg
 draft: false
+tags: ["C#", "Unity", "Competition"]
 ---
 
 ## About HackUPC

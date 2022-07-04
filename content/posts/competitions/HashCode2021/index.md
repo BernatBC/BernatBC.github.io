@@ -11,6 +11,7 @@ menu:
     weight: 500
 hero: hash2021.png
 draft: false
+tags: ["C++", "Competition"]
 ---
 
 ## About Google Hash Code

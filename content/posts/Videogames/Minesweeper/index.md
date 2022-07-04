@@ -11,6 +11,7 @@ menu:
     weight: 500
 hero: Minesweeper.png
 draft: false
+tags: ["C#", "Unity", "Videogame"]
 ---
 
 ## The project

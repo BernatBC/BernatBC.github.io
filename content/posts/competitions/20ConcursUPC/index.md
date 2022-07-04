@@ -11,6 +11,7 @@ menu:
     weight: 500
 hero: concursUPC.png
 draft: false
+tags: ["C++", "Competition"]
 ---
 
 ## About the contest

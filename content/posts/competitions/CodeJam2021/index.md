@@ -11,6 +11,7 @@ menu:
     weight: 500
 hero: codejam.png
 draft: false
+tags: ["C++", "Competition"]
 ---
 
 ## About Google Code Jam

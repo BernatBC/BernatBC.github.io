@@ -11,6 +11,7 @@ menu:
     weight: 500
 hero: monopoly2.png
 draft: false
+tags: ["C#", "Unity", "Videogame"]
 ---
 ## The project
 After making the [minesweeper](https://bernatbc.tk/posts/videogames/minesweeper/) I wanted to create something more elaborated. I decided to make a clone of Monopoly. Almost everybody has played at least one time to monolpoly, so I don't need to make an introduction.
