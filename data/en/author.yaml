@@ -7,6 +7,7 @@ image: "images/avatar3.png"
 # give your some contact information. they will be used in the footer
 contactInfo:
   email: "bernat.borrasc@gmail.com"
+  github: "BernatBC"
 
 # some summary about what you do
 summary:
