@@ -55,8 +55,10 @@ degrees:
   #publications: #(optional)
   #- title: An IoT based System for Riverine Vessel Monitoring
   #  url: "#"
-  #extracurricularActivities: #(optional)
-  #- Participated in various national and international Programming contests
+  extracurricularActivities: #(optional)
+  - Contribuitor of RepoFIBtori, a platform to share class notes and solved exercices.
+  - Competitor in II UPC Online  Chess Tournament.
+  - Competitor in Vintè Concurs de Programació de la UPC.
   #- Worked as instructor of CUET Computer Club
 #- name: Higher Secondary School Certificate
  # icon: fa-university
