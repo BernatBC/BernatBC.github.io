@@ -34,9 +34,3 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: main # if your main branch is `master` use that here.
         publish_dir: ./public
-    
-    - name: Assign domain 
-      uses: "finnp/create-file-action@master"
-        env:
-          FILE_NAME: "./CNAME"
-          FILE_DATA: "bernatbc.tk"
