@@ -38,5 +38,5 @@ jobs:
     - name: Assign domain 
       uses: "finnp/create-file-action@master"
         env:
-          FILE_NAME: "CNAME"
+          FILE_NAME: "./CNAME"
           FILE_DATA: "bernatbc.tk"
