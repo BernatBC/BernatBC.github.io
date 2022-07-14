@@ -35,7 +35,8 @@ jobs:
         publish_branch: main # if your main branch is `master` use that here.
         publish_dir: ./public
     
-    - uses: "finnp/create-file-action@master"
-      env:
-        FILE_NAME: "CNAME"
-        FILE_DATA: "bernatbc.tk"
+    - name: Assign domain 
+      uses: "finnp/create-file-action@master"
+        env:
+          FILE_NAME: "CNAME"
+          FILE_DATA: "bernatbc.tk"
