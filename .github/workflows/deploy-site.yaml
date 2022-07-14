@@ -34,16 +34,3 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: main # if your main branch is `master` use that here.
         publish_dir: ./public
-  #Assign domain
-  createFile:
-    name: Assing domain
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: 1arp/create-a-file-action@0.2
-        with:
-          path: './'
-          file: 'test'
-          content: |
-            Hello
-            World
