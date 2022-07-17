@@ -15,7 +15,7 @@ degrees:
   timeframe: September 2020 - Present
   institution:
     name: Universitat Politècnica de Catalunya - Facultat d'Informàtica de Barcelona
-    url: "www.fib.upc.edu/en"
+    url: "https://www.fib.upc.edu/en"
   grade: #(optional)
     scale: ECTS
     achieved: 120
