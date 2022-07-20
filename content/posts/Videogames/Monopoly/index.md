@@ -30,4 +30,4 @@ I still have to implement the fundamental mechanich, __trading__. Actions will a
 
 ### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Monopoly)
 
-### [Download executable file for Windows 64bit](https://github.com/BernatBC/Monopoly/raw/main/Demo.zip)
+### [<i class="fa-solid fa-cloud-arrow-down"></i> for Windows 64bit](https://github.com/BernatBC/Monopoly/raw/main/Demo.zip)

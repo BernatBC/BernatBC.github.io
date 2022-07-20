@@ -26,7 +26,7 @@ For more details please check the problem statement:
 ## Our submission
 The team was composed with [@miquelt9](https://github.com/miquelt9), [@alexland7219](https://github.com/alexland7219) and myself, three friends studying Computer Science at Universitat Politècnica de Catalunya. At first we tackled the problem counting the potential number of cars that had to go through each traffic light and assigning greater slots of time to those that had more traffic. We were running out of time and compilation errors and several bugs were flourishing. At that time, [@miquelt9](https://github.com/miquelt9) had a great idea to submit a solution where all traffic lights had the same duration. This was a simple solution, definetly worse than the first one but it saved the day! 
 
-You can check both algorithms programs alongside the submittion files in my [Github repository](https://github.com/BernatBC/Coding-Competitions/tree/main/GoogleHashCode2021).
+You can check both algorithms programs alongside the submittion files in my [<i class="fab fa-github"></i>Github repository](https://github.com/BernatBC/Coding-Competitions/tree/main/GoogleHashCode2021).
 
 In the end with our simple submittion we obtained 7,886,739 points positioning ourselves in 4432 out of 9004. Not bad at all for our first ever coding competition.
 

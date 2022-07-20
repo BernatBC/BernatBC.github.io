@@ -15,11 +15,11 @@ tags: ["C#", "Unity", "Videogame"]
 ---
 
 ## The project
-Before making this project, I'd used [Unity](https://unity.com/) game engine for making a couple of games like tetris by following some youtube tutorials. Also I made [Space Shooter](https://bernatbc.tk/posts/competitions/hackupc2021/) during [HackUPC2021](https://hackupc.com/) but I wasn't on my own. Now I wanted to do a project on my own and decided to start with a simple game. Minesweeper was a good candidate as it didn't seem too complex. I didn't reinvent the wheel and made a clone of minesweeper.
+Before making this project, I'd used [<i class="fa-brands fa-unity"></i>Unity](https://unity.com/) game engine for making a couple of games like tetris by following some youtube tutorials. Also I made [Space Shooter](https://bernatbc.tk/posts/competitions/hackupc2021/) during [HackUPC2021](https://hackupc.com/) but I wasn't on my own. Now I wanted to do a project on my own and decided to start with a simple game. Minesweeper was a good candidate as it didn't seem too complex. I didn't reinvent the wheel and made a clone of minesweeper.
 
 ## How it works
 Basically I defined a matrix with a fixed size and with the help of a random number generator, mines are placed randomly across the board. Each cell has some parameters like a boolean to check if it has a flag, if it's opened, an integer that determines the number of mines next to it, etc. Each state of the cell has its own sprite. When the game detects a mouse click in a cell the game updates the cell state and shows a new sprite corresponding to its new state. The most complex part of this project it wasn't too hard. To open the adjacent cells when there's no mine in a cell I made a dfs algorithm.
 
 ### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Minesweeper) 
 
-### [Download executable file for Windows 64bit](https://github.com/BernatBC/Minesweeper/raw/main/MinesWeeper.zip)
+### [<i class="fa-solid fa-cloud-arrow-down"></i> for Windows 64bit](https://github.com/BernatBC/Minesweeper/raw/main/MinesWeeper.zip)

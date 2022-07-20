@@ -26,7 +26,7 @@ For more details please check the [problem statement](https://codingcompetitions
 ## Our submission
 The team was composed with [@miquelt9](https://github.com/miquelt9), [@alexland7219](https://github.com/alexland7219) and myself, three friends studying Computer Science at Universitat Politècnica de Catalunya. After some brainstorming we decided to attempt to fill the first project available with lowest skilled contribuitors. As soon a project has finalized the contribuitors are assigned to the first project available that they can fit in. After some debugging we decided to generate our submittion files. Little did we know that they were taking forever. We were the three of us using 100% of our CPUs and waiting for the last minute to submit the files. Luckily when submitting partial files, score is still computed. At the end we ended with partial sumbitions.
 
-You can check our algorithm alongside the submittion files in my [Github repository](https://github.com/BernatBC/Coding-Competitions/tree/main/GoogleHashCode2022).
+You can check our algorithm alongside the submittion files in my [<i class="fab fa-github"></i>Github repository](https://github.com/BernatBC/Coding-Competitions/tree/main/GoogleHashCode2022).
 
 In the end with our partial submittion we obtained 1,477,643 points positioning ourselves in 3259 out of 10100-10200, a little better than in 2021.
 
