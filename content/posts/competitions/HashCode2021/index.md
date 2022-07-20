@@ -33,4 +33,4 @@ In the end with our simple submittion we obtained 7,886,739 points positioning o
 You can chech the full rankings [here](https://codingcompetitions.withgoogle.com/hashcode/archive/2021).
 
 
-### [View Code on Github](https://github.com/BernatBC/Coding-Competitions/tree/main/GoogleHashCode2021)
+### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Coding-Competitions/tree/main/GoogleHashCode2021)

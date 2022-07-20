@@ -33,4 +33,4 @@ In the end with our partial submittion we obtained 1,477,643 points positioning 
 You can chech the full rankings [here](https://codingcompetitions.withgoogle.com/hashcode/round/00000000008caae7).
 
 
-### [View Code on Github](https://github.com/BernatBC/Coding-Competitions/tree/main/GoogleHashCode2022)
+### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Coding-Competitions/tree/main/GoogleHashCode2022)

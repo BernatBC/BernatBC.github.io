@@ -28,6 +28,6 @@ I still have to implement the fundamental mechanich, __trading__. Actions will a
  
 {{< figure src="monopoly3.png" height="360" width="640">}}
 
-### [View Code on Github](https://github.com/BernatBC/Monopoly)
+### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Monopoly)
 
 ### [Download executable file for Windows 64bit](https://github.com/BernatBC/Monopoly/raw/main/Demo.zip)

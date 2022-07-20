@@ -34,4 +34,4 @@ At the end I got 59/100 points after 25h and 37minutes of time penalization. I r
 
 You can chech the full rankings [here](https://codingcompetitions.withgoogle.com/codejam/round/000000000043580a).
 
-### [View Code on Github](https://github.com/BernatBC/Coding-Competitions/tree/main/GoogleCodeJam2021/Qualification)
+### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Coding-Competitions/tree/main/GoogleCodeJam2021/Qualification)

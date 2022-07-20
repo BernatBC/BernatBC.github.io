@@ -26,6 +26,6 @@ All the struggles and more info can be found in [Devpost](https://devpost.com/so
 
 ### [View Project on Devpost](https://devpost.com/software/spaceshooter-5hi4of)
 
-### [View Code on Github](https://github.com/BernatBC/Coding-Competitions/tree/main/HackUPC2021)
+### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Coding-Competitions/tree/main/HackUPC2021)
 
 ### [Download executable file for Windows 64bit](https://github.com/BernatBC/Coding-Competitions/raw/main/HackUPC2021/Build.rar)

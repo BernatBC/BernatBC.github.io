@@ -37,4 +37,4 @@ At the end I got 4 problems right with a penalization time of 545 (including wro
 You can chech the full rankings [here](https://contest.jutge.org/watch/Jutge:Semifinal2022/static).
 
 
-### [View Code on Github](https://github.com/BernatBC/Coding-Competitions/tree/main/Vint%C3%A8%20Concurs%20de%20Programaci%C3%B3%20de%20la%20UPC%20-%20Semifinal%202022)
+### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Coding-Competitions/tree/main/Vint%C3%A8%20Concurs%20de%20Programaci%C3%B3%20de%20la%20UPC%20-%20Semifinal%202022)
