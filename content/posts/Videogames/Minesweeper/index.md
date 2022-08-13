@@ -20,6 +20,8 @@ Before making this project, I'd used [<i class="fa-brands fa-unity"></i>Unity](h
 ## How it works
 Basically I defined a matrix with a fixed size and with the help of a random number generator, mines are placed randomly across the board. Each cell has some parameters like a boolean to check if it has a flag, if it's opened, an integer that determines the number of mines next to it, etc. Each state of the cell has its own sprite. When the game detects a mouse click in a cell the game updates the cell state and shows a new sprite corresponding to its new state. The most complex part of this project it wasn't too hard. To open the adjacent cells when there's no mine in a cell I made a dfs algorithm.
 
+{{< youtube JId6stZPivI>}}
+
 ### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Minesweeper) 
 
 ### [<i class="fa-solid fa-cloud-arrow-down"></i> for Windows 64bit](https://github.com/BernatBC/Minesweeper/raw/main/MinesWeeper.zip)
