@@ -29,13 +29,15 @@ socialLinks:
 - name: Github
   icon: "fab fa-github"
   url: "https://github.com/bernatbc"
+- name: Youtube
+  icon: "fa-brands fa-youtube"
+  url: "https://www.youtube.com/channel/UCWuKGhwo6zB_ptObwrumZXw/videos"
 - name: LinkedIn
   icon: "fab fa-linkedin"
   url: "https://www.linkedin.com/in/bernat-borr%c3%a0s-i-civil/"
 - name: Devpost
   icon : "fa-solid fa-d"
   url: "https://devpost.com/bernat-borras-civil"
-
 # your soft skills
 # give the percentage between 50 to 100 with 5 intervals.
 # currently supported colors: blue, yellow, pink, green, sky, orange
