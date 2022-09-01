@@ -15,16 +15,16 @@ skills:
 
 - name: C, C++, C#
   logo: /images/c++.png
-  summary: "Using it as the main programming langauge. Used for college, contest programming and for game developing."
+  summary: "Using it as the main programming language. Used for college, contest programming and for game developing."
 
 - name: Unity
   logo: /images/unity.png
-  summary: "Medium understanding. Used to develop some videogames."
+  summary: "Medium understanding. Used to develop some video games."
   url: "https://unity.com/"
 
 - name: PostgreSQL
   logo: /images/postgresql.png
-  summary: "Basic knowledege of this object-relational database system. I have use it in college in DataBases courses."
+  summary: "Basic knowledge of this object-relational database system. I have used it in college in Data Bases courses."
   url: "https://www.postgresql.org/"
 
 - name: OpenGL
@@ -38,5 +38,5 @@ skills:
 
 - name: Git
   logo: /images/git.png
-  summary: "Experienced with git-based development. Mostly, use Github. Also, have experience in working with GitLab."
+  summary: "Experienced with git-based development. Mostly, use GitHub. Also, have experience in working with GitLab."
   url: "https://git-scm.com/"
