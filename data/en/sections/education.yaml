@@ -52,6 +52,13 @@ degrees:
       - name: Interaction and Interface Design
       - name: Introduction to Software Engineering
       - name: Computer Networks
+
+      - name: Programming Projecs
+      - name: Algorithmics
+      - name: Graphics
+      - name: Artificial Intelligence
+      - name: Theory of Computation
+
   #publications: #(optional)
   #- title: An IoT based System for Riverine Vessel Monitoring
   #  url: "#"
