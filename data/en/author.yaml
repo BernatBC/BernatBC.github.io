@@ -8,7 +8,15 @@ image: "images/avatar3.png"
 contactInfo:
   email: "bernat.borrasc@gmail.com"
   github: "BernatBC"
+  h-youtube:
+    icon: "fa-brands fa-youtube"
+    url: "https://www.youtube.com/channel/UCWuKGhwo6zB_ptObwrumZXw"
+    text: BernatBC
   linkedin: "bernat-borràs-i-civil"
+  z-devpost:
+    icon : "fa-solid fa-d"
+    url: "https://devpost.com/bernat-borras-civil"
+    text: Bernat Borràs Civil
 
 # some summary about what you do
 summary:
