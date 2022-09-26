@@ -22,11 +22,11 @@ I started with the player movement and the dice. When everything was smooth and 
 ## What's next?
 I still have to implement the fundamental mechanic, __trading__. Actions will also be implemented in the future. Finally, I will make the UI as it deserves. Now it's just a couple of text boxes and buttons. I will also add the capability to play against the computer by making some kind of AI.
  
-{{< figure src="monopoly4.png" height="360" width="640">}}
+{{< figure src="monopoly4.png">}}
  
-{{< figure src="monopoly1.png" height="360" width="640">}}
+{{< figure src="monopoly1.png">}}
  
-{{< figure src="monopoly3.png" height="360" width="640">}}
+{{< figure src="monopoly3.png">}}
 
 ### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Monopoly)
 
