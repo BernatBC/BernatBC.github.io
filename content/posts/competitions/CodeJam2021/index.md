@@ -9,7 +9,6 @@ menu:
     identifier: codejam2021
     parent: competitions
     weight: 500
-hero: codejam.png
 draft: false
 tags: ["C++", "Competition"]
 ---

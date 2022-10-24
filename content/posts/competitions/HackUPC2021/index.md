@@ -9,7 +9,6 @@ menu:
     identifier: hackupc2021
     parent: competitions
     weight: 500
-hero: gallery.jpg
 draft: false
 tags: ["C#", "Unity", "Competition", "Videogame"]
 ---

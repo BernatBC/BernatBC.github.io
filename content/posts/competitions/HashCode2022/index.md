@@ -9,7 +9,6 @@ menu:
     identifier: hashcode2022
     parent: competitions
     weight: 500
-hero: hash2022.jpg
 draft: false
 tags: ["C++", "Competition"]
 ---

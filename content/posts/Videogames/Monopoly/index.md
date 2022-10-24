@@ -9,7 +9,6 @@ menu:
     identifier: monopoly
     parent: videogames
     weight: 500
-hero: monopoly2.png
 draft: false
 tags: ["C#", "Unity", "Videogame"]
 ---

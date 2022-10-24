@@ -9,7 +9,6 @@ menu:
     identifier: localsearch
     parent: education
     weight: 500
-hero: localsearch.png
 draft: false
 tags: ["Artificial-Intelligence", "Education", "Java"]
 ---
