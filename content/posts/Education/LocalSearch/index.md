@@ -54,5 +54,4 @@ where
 
 `energy` is the squared summation of all power plants. This makes the algorithm use fewer power plants.
 
-
 ### [View Code and report on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/LocalSearch) 
