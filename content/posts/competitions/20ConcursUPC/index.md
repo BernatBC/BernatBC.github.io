@@ -9,7 +9,7 @@ menu:
     identifier: 20concursupc
     parent: competitions
     weight: 500
-hero: concursUPC.png
+hero: hero.png
 draft: false
 tags: ["C++", "Competition"]
 ---
