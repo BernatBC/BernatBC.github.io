@@ -20,7 +20,7 @@ They ask us to solve the problem using [Hill Climbing](https://en.wikipedia.org/
 
 The full statement is in the document below. Note that the statement is in Spanish.
 
-<embed src="PracticaBusqueda-local.pdf" width="800" height="500" type="application/pdf">
+<embed src="PracticaBusqueda-local.pdf" width="100%" height="700" type="application/pdf">
 
 ## Our solution
 [@alexland7219](https://github.com/alexland7219), [@Loparc](https://github.com/Loparc) and I were allowed to use [AIMA](https://github.com/aimacode/aima-java), a library where both algorithms are implemented. For each algorithm we had to determine the state representation, the initial state generation, the operands and the heuristic function. By trying and studying different options, we selected the following ideas:

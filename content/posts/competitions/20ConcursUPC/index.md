@@ -18,7 +18,7 @@ Each year, [School of Mathematics and Statistics](https://fme.upc.edu/en) from [
 
 All 9 problems given are in the document below:
 
-<embed src="concurs.pdf" width="800" height="500" type="application/pdf">
+<embed src="concurs.pdf" width="100%" height="700" type="application/pdf">
 
 ## My submissions
 After reading all 9 problems, I decided to start with the last one as it was the easiest. It consisted of comparing two numbers, but with a twist. A number could have up to 10k digits. Because of the rush, I didn't read this last part well and compared to Integers. I sent it, and I got a Wrong Answer. After reading it again, I understood well the problem and made the comparison using strings.

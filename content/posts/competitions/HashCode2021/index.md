@@ -20,7 +20,7 @@ tags: ["C++", "Competition"]
 Given the description of a city plan and planned paths for all cars in that city, optimize the schedule of traffic lights to minimize the total amount of time spent in traffic, and help as many cars as possible reach their destination before a given deadline.
 
 For more details, please check the problem statement:
-<embed src="hashcode_2021_online_qualification_round.pdf" width="800" height="500" type="application/pdf">
+<embed src="hashcode_2021_online_qualification_round.pdf" width="100%" height="700" type="application/pdf">
 
 ## Our submission
 The team was composed with [@miquelt9](https://github.com/miquelt9), [@alexland7219](https://github.com/alexland7219) and I, three friends studying Computer Science at Universitat Politècnica de Catalunya. At first, we tackled the problem by counting the potential number of cars that had to go through each traffic light and assigning greater slots of time to those that had more traffic. We were running out of time and compilation errors and several bugs were flourishing. At that time, [@miquelt9](https://github.com/miquelt9) had a great idea to submit a solution where all traffic lights had the same duration. This was a simple solution, definitely worse than the first one, but it saved the day! 
