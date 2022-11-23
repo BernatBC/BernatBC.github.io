@@ -1,6 +1,6 @@
 ---
 title: "Monopoly"
-date: 2022-07-05T06:00:22+06:00
+date: 2022-11-23T06:00:22+06:00
 description: Monopoly
 theme: Toha
 menu:
@@ -12,6 +12,11 @@ menu:
 draft: false
 tags: ["C#", "Unity", "Videogame"]
 ---
+
+{{< alert type="danger" >}}
+Pictures on this post are outdated. I will update them soon.
+{{< /alert >}}
+
 ## The project
 After making the [Minesweeper](https://bernatbc.tk/posts/videogames/minesweeper/), I wanted to create something more elaborated. I decided to make a clone of Monopoly. Almost everybody has played at least one time to Monopoly, so I don't need to make an introduction.
 
@@ -29,4 +34,4 @@ I still have to implement the fundamental mechanic, __trading__. Actions will al
 
 ### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Monopoly)
 
-### [<i class="fa-solid fa-cloud-arrow-down"></i> for Windows 64bit](https://github.com/BernatBC/Monopoly/raw/main/Demo.zip)
+### [<i class="fa-solid fa-cloud-arrow-down"></i> for Windows 64bit](https://github.com/BernatBC/Monopoly/releases/download/Pre-release/Monopoly_demo.zip)
