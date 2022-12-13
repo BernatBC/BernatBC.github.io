@@ -17,47 +17,73 @@ degrees:
     name: Universitat Politècnica de Catalunya - Facultat d'Informàtica de Barcelona
     url: "https://www.fib.upc.edu/en"
   grade: #(optional)
-    scale: ECTS
-    achieved: 120
-    outOf: 240
+    scale: Average mark
+    achieved: 7.53
+    outOf: 10
   takenCourses: #(optional)
   #   # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
-  #   showGrades: true
+    showGrades: true
     courses:
-      - name: Physics
-  #     achieved: 3.75
-  #     outOf: 4
-      - name: Fundamentals of Mathematics
-  #     achieved: 3.80
-  #     outOf: 4
-      - name: Programming I
-  #     achieved: 3.5
-  #     outOf: 4
-      - name: Introduction to Computers
-  #     achieved: 3.75
-  #     outOf: 4
-      - name: Computer Organization
-      - name: Mathematics I
-      - name: Mathematics II
-      - name: Programming II
-
-      - name: Databases
-      - name: Computer Interfacing
       - name: Data Structures and Algorithms
+        achieved: 9.1
+        outOf: 10
+      - name: Programming II
+        achieved: 9.0
+        outOf: 10
+      - name: Computer Interfacing
+        achieved: 8.7
+        outOf: 10
+      - name: Databases
+        achieved: 8.5
+        outOf: 10
       - name: Probability and Statistics
-      - name: Operating Systems
-
-      - name: Computer Architecture
-      - name: Bussiness and Economic Environment
+        achieved: 8.0
+        outOf: 10
       - name: Interaction and Interface Design
+        achieved: 8.0
+        outOf: 10
+      - name: Introduction to Computers
+        achieved: 7.7
+        outOf: 10
       - name: Introduction to Software Engineering
-      - name: Computer Networks
+        achieved: 7.7
+        outOf: 10
 
-      - name: (taking) Programming Projecs
-      - name: (taking) Algorithmics
-      - name: (taking) Graphics
-      - name: (taking) Artificial Intelligence
-      - name: (taking) Theory of Computation
+      - name: Physics
+        achieved: 7.2
+        outOf: 10
+      - name: Fundamentals of Mathematics
+        achieved: 7.4
+        outOf: 10
+      - name: Programming I
+        achieved: 7.5
+        outOf: 10
+      - name: Computer Architecture
+        achieved: 7.4
+        outOf: 10
+      - name: Bussiness and Economic Environment
+        achieved: 7.2
+        outOf: 10
+      - name: Computer Organization
+        achieved: 7.1
+        outOf: 10
+      - name: Computer Networks
+        achieved: 7.0
+        outOf: 10
+      - name: Mathematics I
+        achieved: 6.2
+        outOf: 10
+      - name: Mathematics II
+        achieved: 6.2
+        outOf: 10
+      - name: Operating Systems
+        achieved: 6.2
+        outOf: 10
+      - name: (Taking) Programming Projecs
+      - name: (Taking) Algorithmics
+      - name: (Taking) Graphics
+      - name: (Taking) Artificial Intelligence
+      - name: (Taking) Theory of Computation
 
   #publications: #(optional)
   #- title: An IoT based System for Riverine Vessel Monitoring
