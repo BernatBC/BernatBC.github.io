@@ -17,7 +17,7 @@ math: true
 ## The statement
 The progressive aging of the population is showing the importance of maintaining a set of healthy habits and promote physical exercise throughout life. When you reach a certain age it is necessary to have help to determine what types of exercises and activities are the most appropriate taking into account all factors that may affect the performance of those activities.
 
-Basically, we had to make a [CLIPS](https://clipsrules.net/) script that after given certain information about a person, we had to output an exercise planning suitable for him/her. We were given a bunch of documents where we had to extract the information. 
+Basically, we had to make a [CLIPS](https://clipsrules.net/) script that after given certain information about a person, we had to output an exercise planning suitable for him/her. We were given a bunch of documents about exercises for elder people where we had to extract the information. 
 
 The full statement is in the document below. Note that the statement is in Spanish.
 
