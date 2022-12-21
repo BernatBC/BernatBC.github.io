@@ -10,7 +10,7 @@ menu:
     parent: competitions
     weight: 500
 draft: false
-tags: ["C#", "Unity", "Competition", "Videogame"]
+tags: ["Competition", "C#", "Unity", "Videogame"]
 ---
 
 ## About HackUPC

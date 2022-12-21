@@ -10,7 +10,7 @@ menu:
     parent: competitions
     weight: 500
 draft: false
-tags: ["C++", "Competition"]
+tags: ["Competition", "C++"]
 ---
 
 ## About the contest
