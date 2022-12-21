@@ -11,6 +11,7 @@ menu:
     weight: 500
 draft: false
 tags: ["Artificial-Intelligence", "Education", "Java"]
+math: true
 ---
 
 ## The statement
@@ -41,16 +42,22 @@ The first strategy is to assign each "guaranteed" client to the closest power pl
 ### Heuristic Function
 Our first guess was to use the benefit as the heuristic function. This worked fairy well until we noticed that the algorithm shut down all power plants. A better option would be to provide energy to as many clients as possible. After testing a lot of functions, we got
 
-{{< highlight java >}}
-(distance * log(distance) + A*energy)*(nonAssignedG + 1)
-{{< /highlight>}}
-
-where
-
-`distance` is the summation of all distances between power plants and clients.
-
-`nonAssignedG` is the number of "guaranteed" clients who are not assigned to a power plant, so we can penalize having them without a power plant.
-
-`energy` is the squared summation of all power plants. This makes the algorithm use fewer power plants.
+$$
+\begin{aligned}
+ & h = (dist * \log(dist) + energy) *(nonAssignedG + 1) \newline
+ & dist = \sum_{n=1}^{numPowerPlants}\sum_{m=1}^{numClients}
+ \begin{cases}
+ distance(powerPlants[n], clients[m]) &\text{if } assigned(powerPlants[n], clients[m]) \newline
+ 0 &\text{else }
+ \end{cases} \newline
+& energy = \sum_{n=1}^{numPowerPlants} powerPlants[n].energyLeft² \newline
+& where, \newline
+& powerPlants[] \to \text{an array containing power plants} \newline
+& clients[] \to \text{an array containing clients} \newline
+& numPowerPlants \to \text{number of power plants} \newline
+& numClients \to \text{number of clients} \newline
+& energyLeft \to \text{energy the specified power plant has available}
+\end{aligned}
+$$
 
 ### [View Code and report on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/LocalSearch) 
