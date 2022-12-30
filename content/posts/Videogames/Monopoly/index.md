@@ -22,7 +22,7 @@ I started with the player movement and the dice. When everything was smooth and 
 The main functionality of the game, trading, has been implemented after spending long hours in front of the computer. It wasn't difficult, but it took a long time. The panel where you can select which properties you want to trade is generated each time using the information of the game at that stage.
 
 ## What's next?
-Actions will be implemented in the future. I will also make the UI as it deserves. Now it's just a couple of text boxes and buttons. Finally, I will computer player by making some kind of AI. Now the bot is dumb and does not trade nor buy/sell houses.
+Actions will be implemented in the future. I will also make the UI as it deserves. Now it's just a couple of text boxes and buttons. Finally, I will add a computer player by making some kind of AI. Now the bot is dumb and does not trade nor sell houses nor mortgaging.
 
  
 {{< figure src="Monopoly1.png">}}
@@ -42,4 +42,4 @@ Actions will be implemented in the future. I will also make the UI as it deserve
 
 ### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Monopoly)
 
-### [<i class="fa-solid fa-cloud-arrow-down"></i> for Windows 64bit](https://github.com/BernatBC/Monopoly/releases/download/Pre-release-0.4/Monopoly.zip)
+### [<i class="fa-solid fa-cloud-arrow-down"></i> for Windows 64bit](https://github.com/BernatBC/Monopoly/releases/download/Pre-release-0.5/Monopoly.zip)
