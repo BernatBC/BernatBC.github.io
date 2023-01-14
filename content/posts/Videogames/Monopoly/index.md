@@ -13,6 +13,27 @@ draft: false
 tags: ["C#", "Unity", "Videogame"]
 ---
 
+<div style="position:relative;padding-bottom:55.66%;     zoom: 0.6;
+    -moz-transform: scale(0.6);">
+ <iframe style="width:166%;height:174%;position:absolute; margin-left: -33%; marginheight: -50%"
+ frameborder="0"
+ src="
+https://bernatbc.tk/webgl/MonopolyWebGL/index.html
+"
+mozallowfullscreen="true" allow="autoplay; fullscreen" style="border:0px #000000 none;" name="Monopoly" scrolling="no" msallowfullscreen="true" allowfullscreen="true" webkitallowfullscreen="true" allowtransparency="true"
+>
+</iframe>
+</div>
+
+{{< line_break >}}
+{{< line_break >}}
+{{< line_break >}}
+{{< line_break >}}
+{{< line_break >}}
+{{< line_break >}}
+{{< line_break >}}
+{{< line_break >}}
+
 ## The project
 After making the [Minesweeper](https://bernatbc.tk/posts/videogames/minesweeper/), I wanted to create something more elaborated. I decided to make a clone of Monopoly. Almost everybody has played at least one time to Monopoly, so I don't need to make an introduction.
 
@@ -42,4 +63,4 @@ Actions will be implemented in the future. I will also make the UI as it deserve
 
 ### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Monopoly)
 
-### [<i class="fa-solid fa-cloud-arrow-down"></i> for Windows 64bit](https://github.com/BernatBC/Monopoly/releases/download/Pre-release-0.6/Monopoly.zip)
+### [<i class="fa-solid fa-cloud-arrow-down"></i> for Windows 64bit](https://github.com/BernatBC/Monopoly/releases/download/Pre-release-0.6.1/Monopoly.zip)
