@@ -31,7 +31,7 @@ After the domain layer was reviewed by our tutor, he asked us to make some chang
 ## Gallery
 
 {{< figure src="general.png">}}
-<p style="text-align: center;">An overview of the main screen of the application.</p>
+<p style="text-align: center;">An overview of the home screen of the application.</p>
 
 {{< line_break >}}
 
