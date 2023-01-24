@@ -17,15 +17,14 @@ skills:
   logo: /images/c++.png
   summary: "Using it as the main programming language. Used for college, contest programming and for game developing."
 
+- name: Java
+  logo: /images/java.png
+  summary: "After the C family, Java is the language that I used the most, creating some projects with it."
+
 - name: Unity
   logo: /images/unity.png
   summary: "Medium understanding. Used to develop some video games."
   url: "https://unity.com/"
-
-- name: PostgreSQL
-  logo: /images/postgresql.png
-  summary: "Basic knowledge of this object-relational database system. I have used it in college in Data Bases courses."
-  url: "https://www.postgresql.org/"
 
 - name: OpenGL
   logo: /images/opengl.png
@@ -40,3 +39,8 @@ skills:
   logo: /images/git.png
   summary: "Experienced with git-based development. Mostly, use GitHub. Also, have experience in working with GitLab."
   url: "https://git-scm.com/"
+
+- name: PostgreSQL
+  logo: /images/postgresql.png
+  summary: "Basic knowledge of this object-relational database system. I have used it in college in Data Bases courses."
+  url: "https://www.postgresql.org/"
