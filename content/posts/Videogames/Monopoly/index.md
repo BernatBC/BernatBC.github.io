@@ -45,6 +45,7 @@ The main functionality of the game, trading, has been implemented after spending
 ## What's next?
 Actions will be implemented in the future. I will also make the UI as it deserves. Now it's just a couple of text boxes and buttons. I will also add a computer player by making some kind of AI. Now the bot is dumb and does not trade nor sell houses nor mortgaging. Finally, I might try to add multiplayer, probably Peer 2 Peer.
 
+## Gallery
  
 {{< figure src="Monopoly1.png">}}
 
@@ -63,4 +64,4 @@ Actions will be implemented in the future. I will also make the UI as it deserve
 
 ### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Monopoly)
 
-### [<i class="fa-solid fa-cloud-arrow-down"></i> for Windows 64bit](https://github.com/BernatBC/Monopoly/releases/download/Pre-release-0.6.1/Monopoly.zip)
+### [<i class="fa-solid fa-cloud-arrow-down"></i> for Windows 64bit](https://github.com/BernatBC/Monopoly/releases/download/Pre-release-0.6.2/Monopoly.zip)
