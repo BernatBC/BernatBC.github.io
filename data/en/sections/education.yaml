@@ -18,7 +18,7 @@ degrees:
     url: "https://www.fib.upc.edu/en"
   grade: #(optional)
     scale: Average mark
-    achieved: 7.6
+    achieved: 7.58
     outOf: 10
   takenCourses: #(optional)
   #   # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
@@ -93,12 +93,12 @@ degrees:
       - name: Operating Systems
         achieved: 6.2
         outOf: 10
+      - name: (Taking) Advanced Algorithmics
+      - name: (Taking) Computer Vision
+      - name: (Taking) Logics in Information Technology
+      - name: (Taking) Parallelism
+      - name: (Taking) Programming Languages
       
-      
-      
-
-      
-
   #publications: #(optional)
   #- title: An IoT based System for Riverine Vessel Monitoring
   #  url: "#"
