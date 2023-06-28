@@ -21,6 +21,10 @@ skills:
   logo: /images/java.png
   summary: "After the C family, Java is the language that I used the most, creating some projects with it."
 
+- name: Python
+  logo: /images/python.png
+  summary: "I've use it in a couple of college subjects. I created a Telegram Bot, and some scripting for a Neural Network."
+
 - name: Unity
   logo: /images/unity.png
   summary: "Medium understanding. Used to develop some video games."

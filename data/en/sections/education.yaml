@@ -94,10 +94,20 @@ degrees:
         achieved: 6.2
         outOf: 10
       - name: (Taking) Advanced Algorithmics
+        achieved:
+        outOf: 10
       - name: (Taking) Computer Vision
+        achieved:
+        outOf: 10
       - name: (Taking) Logics in Information Technology
+        achieved:
+        outOf: 10
       - name: (Taking) Parallelism
+        achieved:
+        outOf: 10
       - name: (Taking) Programming Languages
+        achieved:
+        outOf: 10
       
   #publications: #(optional)
   #- title: An IoT based System for Riverine Vessel Monitoring
@@ -105,6 +115,7 @@ degrees:
   extracurricularActivities: #(optional)
   - Contributor of RepoFIBtori, a platform to share class notes and solved exercises.
   - Competitor in II UPC Online  Chess Tournament.
+  - Competitor in III UPC Online  Chess Tournament.
   - Competitor in Vintè Concurs de Programació de la UPC.
   #- Worked as instructor of CUET Computer Club
 #- name: Higher Secondary School Certificate
