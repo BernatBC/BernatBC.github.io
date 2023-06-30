@@ -18,7 +18,7 @@ degrees:
     url: "https://www.fib.upc.edu/en"
   grade: #(optional)
     scale: Average mark
-    achieved: 7.58
+    achieved: 7.74
     outOf: 10
   takenCourses: #(optional)
   #   # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
@@ -27,13 +27,22 @@ degrees:
       - name: Data Structures and Algorithms
         achieved: 9.1
         outOf: 10
+      - name: Computer Vision
+        achieved: 9.1
+        outOf: 10
       - name: Programming II
         achieved: 9.0
         outOf: 10
       - name: Graphics
         achieved: 9.0
         outOf: 10
+      - name: Parallelism
+        achieved: 9.0
+        outOf: 10
       - name: Artificial Intelligence
+        achieved: 8.7
+        outOf: 10
+      - name: Advanced Algorithmics
         achieved: 8.7
         outOf: 10
       - name: Computer Interfacing
@@ -45,8 +54,14 @@ degrees:
       - name: Probability and Statistics
         achieved: 8.0
         outOf: 10
+      - name: Logics in Information Technology
+        achieved: 8.0
+        outOf: 10
       - name: Interaction and Interface Design
         achieved: 8.0
+        outOf: 10
+      - name: Programming Languages
+        achieved: 7.8
         outOf: 10
       - name: Introduction to Computers
         achieved: 7.7
@@ -57,17 +72,17 @@ degrees:
       - name: Theory of Computation
         achieved: 7.6
         outOf: 10
-      - name: Physics
-        achieved: 7.2
+      - name: Programming I
+        achieved: 7.5
         outOf: 10
       - name: Fundamentals of Mathematics
         achieved: 7.4
         outOf: 10
-      - name: Programming I
-        achieved: 7.5
-        outOf: 10
       - name: Computer Architecture
         achieved: 7.4
+        outOf: 10
+      - name: Physics
+        achieved: 7.2
         outOf: 10
       - name: Bussiness and Economic Environment
         achieved: 7.2
@@ -93,21 +108,6 @@ degrees:
       - name: Operating Systems
         achieved: 6.2
         outOf: 10
-      - name: (Taking) Advanced Algorithmics
-        achieved:
-        outOf: 10
-      - name: (Taking) Computer Vision
-        achieved:
-        outOf: 10
-      - name: (Taking) Logics in Information Technology
-        achieved:
-        outOf: 10
-      - name: (Taking) Parallelism
-        achieved:
-        outOf: 10
-      - name: (Taking) Programming Languages
-        achieved:
-        outOf: 10
       
   #publications: #(optional)
   #- title: An IoT based System for Riverine Vessel Monitoring
@@ -117,6 +117,40 @@ degrees:
   - Competitor in II UPC Online  Chess Tournament.
   - Competitor in III UPC Online  Chess Tournament.
   - Competitor in Vintè Concurs de Programació de la UPC.
+
+- name: Exchange studies (Erasmus+ Programme)
+  icon: fa-graduation-cap
+  timeframe: August 2023 - December 2023
+  institution:
+    name: Aalto University - School of Sicence
+    url: "https://www.aalto.fi/en/school-of-science"
+  grade: #(optional)
+    #scale: Average mark
+    #achieved:
+    #outOf: 10
+  takenCourses: #(optional)
+  #   # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
+    showGrades: false
+    courses:
+      - name: Competitive Programming D
+        achieved:
+        outOf: 10
+      - name: Cryptography D
+        achieved:
+        outOf: 10
+      - name: Distributed Algorithms D
+        achieved:
+        outOf: 10
+      - name: Explorative Information Visualization D
+        achieved:
+        outOf: 10
+      - name: Information Security
+        achieved:
+        outOf: 10
+      - name: Machine Learning D
+        achieved:
+        outOf: 10
+  
   #- Worked as instructor of CUET Computer Club
 #- name: Higher Secondary School Certificate
  # icon: fa-university
