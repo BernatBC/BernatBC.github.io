@@ -14,7 +14,7 @@ contactInfo:
     text: BernatBC
   linkedin: "bernat-borràs-i-civil"
   z-devpost:
-    icon : "fa-solid fa-d"
+    icon : "fa-regular fa-d"
     url: "https://devpost.com/bernat-borras-civil"
     text: Bernat Borràs Civil
 

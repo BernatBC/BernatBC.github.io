@@ -7,5 +7,5 @@ description: Personal portfolio of Bernat Borràs Civil.
 customMenus:
 - name: Posts
   url: https://bernatbc.tk/posts/
-  hideFromNavbar: true
+  hideFromNavbar: false
   showOnFooter: true
