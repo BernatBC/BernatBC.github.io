@@ -1,11 +1,11 @@
 ---
-title: "LocalSearch"
+title: "Local Search"
 date: 2022-10-24T06:00:23+06:00
 description: Localsearch
 theme: Toha
 menu:
   sidebar:
-    name: LocalSearch
+    name: Local Search
     identifier: localsearch
     parent: education
     weight: 500

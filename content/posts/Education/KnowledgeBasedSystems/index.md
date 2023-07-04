@@ -5,7 +5,7 @@ description: KnowledgeBasedSystems
 theme: Toha
 menu:
   sidebar:
-    name: KnowledgeBasedSystems
+    name: Knowledge Based Systems
     identifier: knowledgebasedsystems
     parent: education
     weight: 500

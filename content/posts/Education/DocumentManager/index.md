@@ -5,7 +5,7 @@ description: Document manager
 theme: Toha
 menu:
   sidebar:
-    name: DocumentManager
+    name: Document Manager
     identifier: documentmanager
     parent: education
     weight: 500

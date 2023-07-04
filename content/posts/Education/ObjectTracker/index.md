@@ -5,7 +5,7 @@ description: Object Tracker for Long-Term Visual Object Tracking Benchmark
 theme: Toha
 menu:
   sidebar:
-    name: ObjectTracker
+    name: Object Tracker
     identifier: objecttracker
     parent: education
     weight: 500
