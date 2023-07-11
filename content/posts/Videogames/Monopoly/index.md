@@ -18,7 +18,7 @@ tags: ["C#", "Unity", "Videogame"]
  <iframe style="width:166%;height:174%;position:absolute; margin-left: -33%; marginheight: -50%"
  frameborder="0"
  src="
-https://bernatbc.tk/webgl/Monopoly_WebGL/index.html
+https://bernatbc.tk/webgl/MonopolyWebGL/index.html
 "
 mozallowfullscreen="true" allow="autoplay; fullscreen" style="border:0px #000000 none;" name="Monopoly" scrolling="no" msallowfullscreen="true" allowfullscreen="true" webkitallowfullscreen="true" allowtransparency="true"
 >
