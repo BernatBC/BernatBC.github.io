@@ -45,4 +45,4 @@ All the struggles and more info can be found in [Devpost](https://devpost.com/so
 
 ### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Coding-Competitions/tree/main/HackUPC2021)
 
-### [<i class="fa-solid fa-cloud-arrow-down"></i> for Windows 64bit](https://github.com/BernatBC/Coding-Competitions/raw/main/HackUPC2021/Build.rar)
+### [<i class="fa-solid fa-cloud-arrow-down"></i> for <i class="fa-brands fa-windows"></i>Windows 64bit](https://github.com/BernatBC/Coding-Competitions/raw/main/HackUPC2021/Build.rar)

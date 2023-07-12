@@ -52,4 +52,4 @@ Everyone around the world deserves a shark plushie.
 
 ## [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Plushistics)
 
-## [<i class="fa-solid fa-cloud-arrow-down"></i> for Windows 64bit](https://github.com/Loparc/Plushistics/releases/download/release-1.1/Plushistics.zip)
+## [<i class="fa-solid fa-cloud-arrow-down"></i> for <i class="fa-brands fa-windows"></i>Windows 64bit](https://github.com/Loparc/Plushistics/releases/download/release-1.1/Plushistics.zip)

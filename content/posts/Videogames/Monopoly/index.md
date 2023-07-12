@@ -64,4 +64,6 @@ Actions will be implemented in the future. I will also make the UI as it deserve
 
 ### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Monopoly)
 
-### [<i class="fa-solid fa-cloud-arrow-down"></i> for Windows 64bit](https://github.com/BernatBC/Monopoly/releases/download/Pre-release-0.6.2/Monopoly.zip)
+### [<i class="fa-solid fa-cloud-arrow-down"></i> for <i class="fa-brands fa-windows"></i>Windows 64bit](https://github.com/BernatBC/Monopoly/releases/download/Pre-release-0.7/Monopoly_Windows64.zip)
+
+### [<i class="fa-solid fa-cloud-arrow-down"></i> for <i class="fa-brands fa-android"></i></i>Andorid](https://github.com/BernatBC/Monopoly/releases/download/Pre-release-0.7/Monopoly_Android.apk)

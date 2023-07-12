@@ -45,4 +45,4 @@ Basically I defined a matrix with a fixed size and with the help of a random num
 
 ### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Minesweeper) 
 
-### [<i class="fa-solid fa-cloud-arrow-down"></i> for Windows 64bit](https://github.com/BernatBC/Minesweeper/raw/main/MinesWeeper.zip)
+### [<i class="fa-solid fa-cloud-arrow-down"></i> for <i class="fa-brands fa-windows"></i>Windows 64bit](https://github.com/BernatBC/Minesweeper/raw/main/MinesWeeper.zip)
