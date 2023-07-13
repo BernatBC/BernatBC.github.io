@@ -20,7 +20,7 @@
   <div class="container">
     <div class="row" id="recent-post-cards">
       {{ range (where (where site.RegularPages.ByDate.Reverse "Type" "posts" ) "Layout" "!=" "search") }}
-        {{if eq (.Title) "Monopoly"}}
+        {{if eq (.Title) "Europoly"}}
           {{ partial "cards/recent-post.html" . }}
         {{ end }}
       {{ end }}

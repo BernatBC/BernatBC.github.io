@@ -1,12 +1,12 @@
 ---
-title: "Monopoly"
+title: "Europoly"
 date: 2022-11-26T06:00:22+06:00
-description: Monopoly
+description: Europoly
 theme: Toha
 menu:
   sidebar:
-    name: Monopoly
-    identifier: monopoly
+    name: Europoly
+    identifier: europoly
     parent: videogames
     weight: 500
 draft: false
@@ -44,26 +44,10 @@ The main functionality of the game, trading, has been implemented after spending
 
 ## What's next?
 Actions will be implemented in the future. I will also make the UI as it deserves. Now it's just a couple of text boxes and buttons. I will also add a computer player by making some kind of AI. Now the bot is dumb and does not trade nor sell houses nor mortgaging. Finally, I might try to add multiplayer, probably Peer 2 Peer.
-
-## Gallery
- 
-{{< figure src="Monopoly1.png">}}
-
-{{< line_break >}}
-
-{{< figure src="Monopoly2.png">}}
-
-{{< line_break >}}
-
-{{< figure src="Monopoly3.png">}}  
- 
-{{< line_break >}}
-
-{{< figure src="Monopoly4.png">}} 
   
 
-### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Monopoly)
+### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Europoly)
 
-### [<i class="fa-solid fa-cloud-arrow-down"></i> for <i class="fa-brands fa-windows"></i>Windows 64bit](https://github.com/BernatBC/Monopoly/releases/download/Pre-release-0.7/Monopoly_Windows64.zip)
+### [<i class="fa-solid fa-cloud-arrow-down"></i> for <i class="fa-brands fa-windows"></i>Windows 64bit](https://github.com/BernatBC/Europoly/releases/download/Pre-release-0.7/Monopoly_Windows64.zip)
 
-### [<i class="fa-solid fa-cloud-arrow-down"></i> for <i class="fa-brands fa-android"></i></i>Andorid](https://github.com/BernatBC/Monopoly/releases/download/Pre-release-0.7/Monopoly_Android.apk)
+### [<i class="fa-solid fa-cloud-arrow-down"></i> for <i class="fa-brands fa-android"></i></i>Andorid](https://github.com/BernatBC/Europoly/releases/download/Pre-release-0.7/Monopoly_Android.apk)
