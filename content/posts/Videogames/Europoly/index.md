@@ -14,7 +14,9 @@ tags: ["C#", "Unity", "Videogame"]
 ---
 
 <div style="position:relative;padding-bottom:55.66%;     zoom: 0.6;
-    -moz-transform: scale(0.6);">
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6)">
  <iframe style="width:166%;height:174%;position:absolute; margin-left: -33%; marginheight: -50%"
  frameborder="0"
  src="

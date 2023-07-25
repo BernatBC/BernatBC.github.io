@@ -14,7 +14,9 @@ tags: ["Competition", "C#", "Unity", "Videogame"]
 ---
 
 <div style="position:relative;padding-bottom:55.66%;     zoom: 0.9;
-    -moz-transform: scale(0.9);">
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    transform: scale(0.9)">
  <iframe style="width:110%;height:118%;position:absolute; margin-left: -5%; marginheight: px"
  frameborder="0"
  src="
