@@ -20,7 +20,7 @@ tags: ["C#", "Unity", "Videogame"]
  <iframe style="width:166%;height:174%;position:absolute; margin-left: -33%; marginheight: -50%"
  frameborder="0"
  src="
-https://bernatbc.tk/webgl/Monopoly_WebGL/index.html
+https://bernatbc.tk/webgl/Europoly_WebGL/index.html
 "
 mozallowfullscreen="true" allow="autoplay; fullscreen" style="border:0px #000000 none;" name="Monopoly" scrolling="no" msallowfullscreen="true" allowfullscreen="true" webkitallowfullscreen="true" allowtransparency="true"
 >
@@ -50,6 +50,6 @@ Actions will be implemented in the future. I will also make the UI as it deserve
 
 ### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/Europoly)
 
-### [<i class="fa-solid fa-cloud-arrow-down"></i> for <i class="fa-brands fa-windows"></i>Windows 64bit](https://github.com/BernatBC/Europoly/releases/download/Pre-release-0.7/Monopoly_Windows64.zip)
+### [<i class="fa-solid fa-cloud-arrow-down"></i> for <i class="fa-brands fa-windows"></i>Windows 64bit](https://github.com/BernatBC/Europoly/releases/download/Pre-release-0.8/Europoly_Windows64.zip)
 
-### [<i class="fa-solid fa-cloud-arrow-down"></i> for <i class="fa-brands fa-android"></i></i>Andorid](https://github.com/BernatBC/Europoly/releases/download/Pre-release-0.7/Monopoly_Android.apk)
+### [<i class="fa-solid fa-cloud-arrow-down"></i> for <i class="fa-brands fa-android"></i></i>Andorid](https://github.com/BernatBC/Europoly/releases/download/Pre-release-0.8/Europoly_Android.apk)
