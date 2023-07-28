@@ -122,7 +122,7 @@ degrees:
   icon: fa-graduation-cap
   timeframe: August 2023 - December 2023
   institution:
-    name: Aalto University - School of Sicence
+    name: Aalto University - School of Science
     url: "https://www.aalto.fi/en/school-of-science"
   grade: #(optional)
     #scale: Average mark
