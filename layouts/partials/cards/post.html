@@ -10,7 +10,7 @@
       </div>
       <div class="card-footer">
         {{ if site.Params.features.tags.enable }}
-        <div class="taxonomy-terms">
+        <div class="taxonomy-terms-card">
           <ul style="padding-left: 0;">
             {{ range .Params.tags }}
             {{ $url:= printf "tags/%s/" . }}
