@@ -147,6 +147,7 @@ params:
     # Show tags under the post title
     tags:
       enable: true
+      on_card: true
 
     # Specify whether to show flag in the language selector. Default is true.
     flags:
