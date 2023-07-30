@@ -6,6 +6,6 @@ description: Personal portfolio of Bernat Borràs Civil.
 
 customMenus:
 - name: Posts
-  url: https://bernatbc.tk/posts/
+  url: posts/
   hideFromNavbar: false
   showOnFooter: true
