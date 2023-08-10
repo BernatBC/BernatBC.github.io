@@ -7,3 +7,7 @@ section:
   hideTitle: false # Can optionally hide the title in sections (default: false)
 
   showMoreButton: false
+
+# show specific posts posts
+posts:
+  - Europoly
