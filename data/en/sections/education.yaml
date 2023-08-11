@@ -141,9 +141,6 @@ degrees:
       - name: Distributed Algorithms D
         achieved:
         outOf: 10
-      - name: Explorative Information Visualization D
-        achieved:
-        outOf: 10
       - name: Information Security
         achieved:
         outOf: 10
