@@ -132,19 +132,22 @@ degrees:
   #   # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
     showGrades: false
     courses:
-      - name: Competitive Programming D
+      - name: Competitive Programming
         achieved:
         outOf: 10
       - name: Cryptography D
         achieved:
         outOf: 10
-      - name: Distributed Algorithms D
+      - name: Distributed Algorithms
         achieved:
         outOf: 10
       - name: Information Security
         achieved:
         outOf: 10
-      - name: Machine Learning D
+      - name: Machine Learning
+        achieved:
+        outOf: 10
+      - name: Web Software Development
         achieved:
         outOf: 10
   
