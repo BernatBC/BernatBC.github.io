@@ -135,7 +135,7 @@ degrees:
       - name: Competitive Programming
         achieved:
         outOf: 10
-      - name: Cryptography D
+      - name: Cryptography
         achieved:
         outOf: 10
       - name: Distributed Algorithms
