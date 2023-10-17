@@ -151,6 +151,9 @@ degrees:
         achieved:
         outOf: 10
   
+  extracurricularActivities:
+  - Competitor in [Nordic Collegiate Programming Contest](https://nordic.icpc.io/ncpc2023/).
+  
   #- Worked as instructor of CUET Computer Club
 #- name: Higher Secondary School Certificate
  # icon: fa-university
