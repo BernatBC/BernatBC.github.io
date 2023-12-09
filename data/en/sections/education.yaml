@@ -23,6 +23,7 @@ degrees:
   takenCourses: #(optional)
   #   # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
     showGrades: true
+    collapseAfter: 3
     courses:
       - name: Data Structures and Algorithms
         achieved: 9.1
@@ -131,25 +132,26 @@ degrees:
   takenCourses: #(optional)
   #   # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
     showGrades: false
+    collapseAfter: 3
     courses:
       - name: Competitive Programming
         achieved:
-        outOf: 10
+        outOf: 5
       - name: Cryptography
         achieved:
-        outOf: 10
+        outOf: Pass/Fail
       - name: Distributed Algorithms
         achieved:
-        outOf: 10
+        outOf: 5
       - name: Information Security
         achieved:
-        outOf: 10
+        outOf: 5
       - name: Machine Learning
         achieved:
-        outOf: 10
+        outOf: 5
       - name: Web Software Development
         achieved:
-        outOf: 10
+        outOf: 5
   
   extracurricularActivities:
   - Competitor in [Nordic Collegiate Programming Contest](https://nordic.icpc.io/ncpc2023/).
