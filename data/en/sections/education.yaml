@@ -135,22 +135,22 @@ degrees:
     collapseAfter: 3
     courses:
       - name: Competitive Programming
-        achieved:
+        achieved: 5
         outOf: 5
       - name: Cryptography
-        achieved:
+        achieved: Pass
         outOf: Pass/Fail
       - name: Distributed Algorithms
         achieved:
         outOf: 5
       - name: Information Security
-        achieved:
+        achieved: 4
         outOf: 5
       - name: Machine Learning
-        achieved:
+        achieved: 5
         outOf: 5
       - name: Web Software Development
-        achieved:
+        achieved: 5
         outOf: 5
   
   extracurricularActivities:
