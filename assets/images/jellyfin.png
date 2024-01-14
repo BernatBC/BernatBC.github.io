@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+
+ 
+<html lang="en">
+ 
+
+
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Jellyfin - your media in your hands! | F-Droid - Free and Open Source Android App Repository</title>
+  <meta property="og:title" content="Jellyfin - your media in your hands! | F-Droid - Free and Open Source Android App Repository">
+
+  
+
+  <meta name="description" content="Mobile client for Jellyfin, the free software media system">
+  <meta property="og:description" content="Mobile client for Jellyfin, the free software media system">
+
+  
+    <meta property="og:image" content="https://f-droid.org/repo/org.jellyfin.mobile/en-US/icon_Y46m-eV538ASL9vG0piH5BI4dC1PHilt0tKyKCVp_F0=.png">
+  
+
+  <link rel="preload" href="/assets/roboto_ln5c7Pv79kCZw8EjInNILddDbwVxQmaVPE0sjunCivU=.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" as="style" href="/css/main.css"/>
+  <link rel="dns-prefetch" href="https://search.f-droid.org"/>
+  <link rel="stylesheet" href="/css/main.css"/>
+  
+  <link rel="canonical" href='https://f-droid.org/packages/org.jellyfin.mobile/'/>
+  
+  <link rel="alternate" type="application/rss+xml" title="F-Droid - Free and Open Source Android App Repository" href="/feed.xml"/>
+
+  <link href="/en/osd.xml" rel="search" title="F-Droid" type="application/opensearchdescription+xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon_ypJwtCrcixeH_qV6LdcMYk1anFIR9o-_ufR__1wNdJY=.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon_AfYQ36xPEzFjJiCTyBFVmfWkajkehilUd2geASywhxM=.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32_Dk3aeG3k_A20gYe5zAlPSBx_CEcpJaCI89K2X2z6CFY=.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16_7yyppfDSTAVyGb3ycHY84PYjHUwP96NKICAibLRpnXw=.png">
+  <link rel="manifest" href="/assets/site_J9OLInBmO2hLlutzRFC4mdstNJjL44B6NzBbT0ecmA0=.webmanifest">
+  <link rel="mask-icon" href="/assets/safari-pinned-tab_jVj0QIYK2TEAcXlrhjrienjgRnccBVzvX22tYumPb9Q=.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/assets/favicon_yJPr4UNteJc-cseeq16P0Hvl1kDbJjTVYcj-KA6-_Fs=.ico">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-config" content="/assets/browserconfig_sI0d7L-NQ2rondQpLn2DRSqXxvj7iPI0-WPzXn-uLZA=.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="alternate" hreflang="ar" href='https://f-droid.org/ar/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="bo" href='https://f-droid.org/bo/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="en" href='https://f-droid.org/en/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="de" href='https://f-droid.org/de/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="es" href='https://f-droid.org/es/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="fa" href='https://f-droid.org/fa/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="fr" href='https://f-droid.org/fr/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="he" href='https://f-droid.org/he/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="hu" href='https://f-droid.org/hu/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="id" href='https://f-droid.org/id/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="is" href='https://f-droid.org/is/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="it" href='https://f-droid.org/it/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="ja" href='https://f-droid.org/ja/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="ko" href='https://f-droid.org/ko/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="pl" href='https://f-droid.org/pl/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="pt" href='https://f-droid.org/pt/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="pt-BR" href='https://f-droid.org/pt_BR/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="ro" href='https://f-droid.org/ro/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="ru" href='https://f-droid.org/ru/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="sq" href='https://f-droid.org/sq/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="tr" href='https://f-droid.org/tr/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="uk" href='https://f-droid.org/uk/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="zh-Hans" href='https://f-droid.org/zh_Hans/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="zh-Hant" href='https://f-droid.org/zh_Hant/packages/org.jellyfin.mobile/'>
+  <link rel="alternate" hreflang="x-default" href='https://f-droid.org/packages/org.jellyfin.mobile/'>
+  </head>
+
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <header class="site-header">
+
+  <a class="site-title" href="/en/">
+    <img src="/assets/fdroid-logo-text_S0MUfk_FsnAYL7n2MQye-34IoSNm6QM6xYjDnMqkufo=.svg" alt="F-Droid" />
+  </a>
+
+  <nav class="site-nav">
+    
+      
+        
+        
+          <a class="page-link  current " href="/en/packages/">Apps</a>
+        
+      
+    
+      
+        
+        
+          <a class="page-link" href="https://forum.f-droid.org">Forum</a>
+        
+      
+    
+      
+        
+        
+          <a class="page-link " href="/en/docs/">Docs</a>
+        
+      
+    
+      
+        
+        
+          <a class="page-link " href="/en/news/">News</a>
+        
+      
+    
+      
+        
+        
+          <a class="page-link " href="/en/issues/">Issues</a>
+        
+      
+    
+      
+        
+        
+          <a class="page-link " href="/en/contribute/">Contribute</a>
+        
+      
+    
+      
+        
+        
+          <a class="page-link " href="/en/about/">About</a>
+        
+      
+    
+  </nav>
+
+</header>
+
+
+      <div class="main-content with-sidebar">
+
+        <div class="article-area">
+          
+
+<article class="package">
+	<header class="package-header">
+		
+		<img class="package-icon" src="https://f-droid.org/repo/org.jellyfin.mobile/en-US/icon_Y46m-eV538ASL9vG0piH5BI4dC1PHilt0tKyKCVp_F0=.png" alt="package icon" />
+		
+		<div class="package-title">
+			<h3 class="package-name">
+				Jellyfin - your media in your hands!
+			</h3>
+			<div class="package-summary">
+				Mobile client for Jellyfin, the free software media system
+			</div>
+		</div>
+	</header>
+	
+	<div class="package-whats-new">
+		
+		<div class="new-in-version">New in version 2.6.0</div>
+		<div dir="auto">
+			Thank you for using Jellyfin for Android! Using the latest released Jellyfin Server is always recommended.<br /><br />For more information, please see our blog at jellyfin.org, or read the full changelog on GitHub.<br />
+		</div>
+	</div>
+	
+	<div class="package-description" dir="auto">
+		Your media, on your terms.<br /><br />The Jellyfin project is an open source, free software media server. No fees, no tracking, no hidden agenda. Get our free server to collect all your audio, video, photos, and more in one place.<br /><br />To use the app, you must have a Jellyfin server set up and running. Find out more at <a href="https://jellyfin.org/" rel="external nofollow noopener" target="_blank">jellyfin.org</a>.<br /><br />With a Jellyfin server, you can:<br /><br />* Watch Live TV and recorded shows from your Jellyfin server (additional hardware/services required)<br />* Stream to a Chromecast device on your network<br />* Stream your media to your Android device<br />* View your collection in an easy to use interface<br /><br />This is the official Jellyfin companion app for Android. Thank you for using Jellyfin!<br />
+	</div>
+	
+	<ul class="package-links">
+		
+		<li class="package-link">
+			Author:
+			<a href="mailto:apps@jellyfin.org?subject=F-Droid - Free and Open Source Android App Repository%20on%20">
+				
+				Jellyfin
+				
+			</a>
+		</li>
+		
+		<li class="package-link">
+			License:
+			
+			<a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html">GNU General Public License v2.0 or later</a>
+		</li>
+		
+		<li class="package-link">
+			<a href="https://jellyfin.org/">Website</a>
+		</li>
+		
+		
+		<li class="package-link">
+			<a href="https://github.com/jellyfin/jellyfin-android/issues">Issue Tracker</a>
+		</li>
+		
+		
+		<li class="package-link">
+			<a href="https://translate.jellyfin.org/engage/jellyfin-android/">Translation</a>
+		</li>
+		
+		
+		<li class="package-link">
+			<a href="https://github.com/jellyfin/jellyfin-android">Source Code</a>
+		</li>
+		
+		
+		<li class="package-link">
+			<a href="https://github.com/jellyfin/jellyfin-android/releases">Changelog</a>
+		</li>
+		
+		<li class="package-link">
+			<a href="https://gitlab.com/fdroid/fdroiddata/tree/master/metadata/org.jellyfin.mobile.yml">Build Metadata</a>
+		</li>
+	</ul>
+
+	
+	<h3>Donate</h3>
+	<ul class="package-links donate-options">
+		
+		<li class="package-link opencollective">
+			<a href="https://opencollective.com/jellyfin"><img src="/assets/opencollective_button_iIGF0Hixdj0EaYR3Sd7FRigTVcl7QPGu6kaoBmXHjZI=.png" alt=""/></a>
+		</li>
+		
+		
+		
+		
+		
+	</ul>
+	
+
+	
+	<div id="screenshots" class="js_slides screenshots">
+		<div class="frame js_frame">
+			<ul class="slides js_slides gallery">
+				
+				<li class="js_slide screenshot"><img src="https://f-droid.org/repo/org.jellyfin.mobile/en-US/phoneScreenshots/screenshot_phone_1.png" alt="app screenshot" /></li>
+				
+				<li class="js_slide screenshot"><img src="https://f-droid.org/repo/org.jellyfin.mobile/en-US/phoneScreenshots/screenshot_phone_2.png" alt="app screenshot" /></li>
+				
+				<li class="js_slide screenshot"><img src="https://f-droid.org/repo/org.jellyfin.mobile/en-US/phoneScreenshots/screenshot_phone_3.png" alt="app screenshot" /></li>
+				
+				<li class="js_slide screenshot"><img src="https://f-droid.org/repo/org.jellyfin.mobile/en-US/phoneScreenshots/screenshot_phone_4.png" alt="app screenshot" /></li>
+				
+				<li class="js_slide screenshot"><img src="https://f-droid.org/repo/org.jellyfin.mobile/en-US/phoneScreenshots/screenshot_phone_5.png" alt="app screenshot" /></li>
+				
+				<li class="js_slide screenshot"><img src="https://f-droid.org/repo/org.jellyfin.mobile/en-US/phoneScreenshots/screenshot_phone_6.png" alt="app screenshot" /></li>
+				
+				<li class="js_slide screenshot"><img src="https://f-droid.org/repo/org.jellyfin.mobile/en-US/phoneScreenshots/screenshot_phone_7.png" alt="app screenshot" /></li>
+				
+				<li class="js_slide screenshot"><img src="https://f-droid.org/repo/org.jellyfin.mobile/en-US/phoneScreenshots/screenshot_phone_8.png" alt="app screenshot" /></li>
+				
+			</ul>
+		</div>
+		<span class="js_prev slider_nav prev" style="display: none">
+			<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 501.5 501.5"><g><path fill="#2E435A" d="M302.67 90.877l55.77 55.508L254.575 250.75 358.44 355.116l-55.77 55.506L143.56 250.75z"/></g></svg>
+		</span>
+		<span class="js_next slider_nav next" style="display: none">
+			<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 501.5 501.5"><g><path fill="#2E435A" d="M199.33 410.622l-55.77-55.508L247.425 250.75 143.56 146.384l55.77-55.507L358.44 250.75z"/></g></svg>
+		</span>
+	</div>
+	
+
+	<div class="package-versions">
+		<a name="versions"></a>
+		<h3>Versions</h3>
+		<p>
+			Although APK downloads are available below to give you the choice, you should be aware that by installing that way you will not receive update notifications and it's a less secure way to download. We recommend that you install the F-Droid client and use that.
+		</p>
+		<a href="https://f-droid.org/F-Droid.apk" class="material-button">Download F-Droid</a>
+		<ul class="package-versions-list">
+			
+			<li class="package-version" id="latest">
+			<a name="suggested"></a>
+				<div class="package-version-header">
+					
+					
+					<a name="2.6.0"></a>
+					<a name="2060099"></a>
+					
+					
+					<b>Version 2.6.0</b> (2060099)
+					<span class="suggested-badge">suggested</span>
+					
+					Added on 2023-12-16
+				</div>
+				<p class="package-version-nativecode">
+					
+					<code class="package-nativecode">arm64-v8a</code>
+					
+					<code class="package-nativecode">armeabi-v7a</code>
+					
+					<code class="package-nativecode">x86</code>
+					
+					<code class="package-nativecode">x86_64</code>
+					
+				</p>
+				<p class="package-version-requirement">
+					
+					
+					This version requires Android 5.0 or newer.
+				</p>
+
+				<p class="package-version-source">
+					
+					
+					
+					It is built and signed by F-Droid, and guaranteed to correspond to <a href="https://f-droid.org/repo/org.jellyfin.mobile_2060099_src.tar.gz">this source tarball</a>.
+					
+				</p>
+
+				
+
+				
+				<div class="package-version-permissions">
+					<details open>
+						<summary class="package-version-permissions-summary">
+							Permissions
+						</summary>
+						<ul class="package-version-permissions-list">
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">view Wi-Fi connections</div>
+								<div class="permission-description">Allows the app to view information about Wi-Fi networking, such as whether Wi-Fi is enabled and name of connected Wi-Fi devices.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">have full network access</div>
+								<div class="permission-description">Allows the app to create network sockets and use custom network protocols. The browser and other applications provide means to send data to the internet, so this permission is not required to send data to the internet.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">pair with Bluetooth devices</div>
+								<div class="permission-description">Allows the app to view the configuration of the Bluetooth on the phone, and to make and accept connections with paired devices.</div>
+							
+
+							
+							(11)
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">connect to paired Bluetooth devices</div>
+								<div class="permission-description">Allows the app to connect to paired Bluetooth devices</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">prevent phone from sleeping</div>
+								<div class="permission-description">Allows the app to prevent the phone from going to sleep.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">run foreground service</div>
+								<div class="permission-description">Allows the app to make use of foreground services.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">run foreground service with the type "mediaPlayback"</div>
+								<div class="permission-description">Allows the app to make use of foreground services with the type "mediaPlayback"</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">modify or delete the contents of your shared storage</div>
+								<div class="permission-description">Allows the app to write the contents of your shared storage.</div>
+							
+
+							
+							(9.0)
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">view network connections</div>
+								<div class="permission-description">Allows the app to view information about network connections such as which networks exist and are connected.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								<div class="permission-label">org.jellyfin.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">read the contents of your shared storage</div>
+								<div class="permission-description">Allows the app to read the contents of your shared storage.</div>
+							
+
+							
+							(9.0)
+							
+
+							</li>
+							
+						</ul>
+					</details>
+				</div>
+				
+
+				
+				<p class="package-version-download">
+					<b>
+						<a href="https://f-droid.org/repo/org.jellyfin.mobile_2060099.apk">
+							
+							Download APK
+						</a>
+					</b>
+					18 MiB
+					<a href="https://f-droid.org/repo/org.jellyfin.mobile_2060099.apk.asc">PGP Signature</a>
+					&#124;
+					<a href="https://f-droid.org/repo/org.jellyfin.mobile_2060099.log.gz">Build Log</a>
+				</p>
+
+			</li>
+
+			
+			<li class="package-version" >
+			
+				<div class="package-version-header">
+					
+					
+					<a name="2.5.3"></a>
+					<a name="2050399"></a>
+					
+					
+					<b>Version 2.5.3</b> (2050399)
+					 - 
+					
+					Added on 2023-08-26
+				</div>
+				<p class="package-version-nativecode">
+					
+					<code class="package-nativecode">arm64-v8a</code>
+					
+					<code class="package-nativecode">armeabi-v7a</code>
+					
+					<code class="package-nativecode">x86</code>
+					
+					<code class="package-nativecode">x86_64</code>
+					
+				</p>
+				<p class="package-version-requirement">
+					
+					
+					This version requires Android 5.0 or newer.
+				</p>
+
+				<p class="package-version-source">
+					
+					
+					
+					It is built and signed by F-Droid, and guaranteed to correspond to <a href="https://f-droid.org/repo/org.jellyfin.mobile_2050399_src.tar.gz">this source tarball</a>.
+					
+				</p>
+
+				
+
+				
+				<div class="package-version-permissions">
+					<details >
+						<summary class="package-version-permissions-summary">
+							Permissions
+						</summary>
+						<ul class="package-version-permissions-list">
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">view Wi-Fi connections</div>
+								<div class="permission-description">Allows the app to view information about Wi-Fi networking, such as whether Wi-Fi is enabled and name of connected Wi-Fi devices.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">have full network access</div>
+								<div class="permission-description">Allows the app to create network sockets and use custom network protocols. The browser and other applications provide means to send data to the internet, so this permission is not required to send data to the internet.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">pair with Bluetooth devices</div>
+								<div class="permission-description">Allows the app to view the configuration of the Bluetooth on the phone, and to make and accept connections with paired devices.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">prevent phone from sleeping</div>
+								<div class="permission-description">Allows the app to prevent the phone from going to sleep.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">run foreground service</div>
+								<div class="permission-description">Allows the app to make use of foreground services.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">modify or delete the contents of your shared storage</div>
+								<div class="permission-description">Allows the app to write the contents of your shared storage.</div>
+							
+
+							
+							(9.0)
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">view network connections</div>
+								<div class="permission-description">Allows the app to view information about network connections such as which networks exist and are connected.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								<div class="permission-label">org.jellyfin.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">read the contents of your shared storage</div>
+								<div class="permission-description">Allows the app to read the contents of your shared storage.</div>
+							
+
+							
+							(9.0)
+							
+
+							</li>
+							
+						</ul>
+					</details>
+				</div>
+				
+
+				
+				<p class="package-version-download">
+					<b>
+						<a href="https://f-droid.org/repo/org.jellyfin.mobile_2050399.apk">
+							
+							Download APK
+						</a>
+					</b>
+					18 MiB
+					<a href="https://f-droid.org/repo/org.jellyfin.mobile_2050399.apk.asc">PGP Signature</a>
+					&#124;
+					<a href="https://f-droid.org/repo/org.jellyfin.mobile_2050399.log.gz">Build Log</a>
+				</p>
+
+			</li>
+
+			
+			<li class="package-version" >
+			
+				<div class="package-version-header">
+					
+					
+					<a name="2.5.2"></a>
+					<a name="2050299"></a>
+					
+					
+					<b>Version 2.5.2</b> (2050299)
+					 - 
+					
+					Added on 2023-05-26
+				</div>
+				<p class="package-version-nativecode">
+					
+					<code class="package-nativecode">arm64-v8a</code>
+					
+					<code class="package-nativecode">armeabi-v7a</code>
+					
+					<code class="package-nativecode">x86</code>
+					
+					<code class="package-nativecode">x86_64</code>
+					
+				</p>
+				<p class="package-version-requirement">
+					
+					
+					This version requires Android 5.0 or newer.
+				</p>
+
+				<p class="package-version-source">
+					
+					
+					
+					It is built and signed by F-Droid, and guaranteed to correspond to <a href="https://f-droid.org/repo/org.jellyfin.mobile_2050299_src.tar.gz">this source tarball</a>.
+					
+				</p>
+
+				
+
+				
+				<div class="package-version-permissions">
+					<details >
+						<summary class="package-version-permissions-summary">
+							Permissions
+						</summary>
+						<ul class="package-version-permissions-list">
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">view Wi-Fi connections</div>
+								<div class="permission-description">Allows the app to view information about Wi-Fi networking, such as whether Wi-Fi is enabled and name of connected Wi-Fi devices.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">have full network access</div>
+								<div class="permission-description">Allows the app to create network sockets and use custom network protocols. The browser and other applications provide means to send data to the internet, so this permission is not required to send data to the internet.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">prevent phone from sleeping</div>
+								<div class="permission-description">Allows the app to prevent the phone from going to sleep.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">pair with Bluetooth devices</div>
+								<div class="permission-description">Allows the app to view the configuration of the Bluetooth on the phone, and to make and accept connections with paired devices.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">modify or delete the contents of your shared storage</div>
+								<div class="permission-description">Allows the app to write the contents of your shared storage.</div>
+							
+
+							
+							(9.0)
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">view network connections</div>
+								<div class="permission-description">Allows the app to view information about network connections such as which networks exist and are connected.</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								<div class="permission-label">org.jellyfin.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</div>
+							
+
+							
+
+							</li>
+							
+
+							<li class="permission">
+
+							
+								
+								<div class="permission-label">read the contents of your shared storage</div>
+								<div class="permission-description">Allows the app to read the contents of your shared storage.</div>
+							
+
+							
+							(9.0)
+							
+
+							</li>
+							
+						</ul>
+					</details>
+				</div>
+				
+
+				
+				<p class="package-version-download">
+					<b>
+						<a href="https://f-droid.org/repo/org.jellyfin.mobile_2050299.apk">
+							
+							Download APK
+						</a>
+					</b>
+					18 MiB
+					<a href="https://f-droid.org/repo/org.jellyfin.mobile_2050299.apk.asc">PGP Signature</a>
+					&#124;
+					<a href="https://f-droid.org/repo/org.jellyfin.mobile_2050299.log.gz">Build Log</a>
+				</p>
+
+			</li>
+
+			
+
+		</ul>
+
+	</div>
+
+</article>
+
+<script src="/assets/lory.min_OaktEa_IE1cqFYLsDaFgRzumQ-2V78rnwaWt6g4I2gE=.js" async></script>
+<script src="/assets/package_VaovpUKD2zvazIPjOxsnE2QDGaK4nhQF6oFrjx2ZvO8=.js" async></script>
+
+        </div>
+
+        <div class="sidebar">
+          <div class="sidebar-widget language">
+            
+
+
+
+<form action="/packages/org.jellyfin.mobile/index.html" method="get">
+
+  <select id="language-chooser-select" name="lang" autocomplete="off">
+    
+      <option value="ar" >
+        العربية
+      </option>
+    
+      <option value="bo" >
+        བོད་སྐད་
+      </option>
+    
+      <option value="en" selected="selected">
+        English
+      </option>
+    
+      <option value="de" >
+        Deutsch
+      </option>
+    
+      <option value="es" >
+        español
+      </option>
+    
+      <option value="fa" >
+        فارسی
+      </option>
+    
+      <option value="fr" >
+        français
+      </option>
+    
+      <option value="he" >
+        עברית
+      </option>
+    
+      <option value="hu" >
+        magyar
+      </option>
+    
+      <option value="id" >
+        Bahasa Indonesia
+      </option>
+    
+      <option value="is" >
+        íslenska
+      </option>
+    
+      <option value="it" >
+        italiano
+      </option>
+    
+      <option value="ja" >
+        日本語
+      </option>
+    
+      <option value="ko" >
+        한국어
+      </option>
+    
+      <option value="pl" >
+        polski
+      </option>
+    
+      <option value="pt" >
+        português
+      </option>
+    
+      <option value="pt_BR" >
+        português do Brasil
+      </option>
+    
+      <option value="ro" >
+        română
+      </option>
+    
+      <option value="ru" >
+        русский
+      </option>
+    
+      <option value="sq" >
+        shqip
+      </option>
+    
+      <option value="tr" >
+        Türkçe
+      </option>
+    
+      <option value="uk" >
+        українська
+      </option>
+    
+      <option value="zh_Hans" >
+        简体中文
+      </option>
+    
+      <option value="zh_Hant" >
+        繁體中文
+      </option>
+    
+  </select>
+
+  <script src="/assets/sidebar-lang_j4kvB8VghKUiWGs4HpqMvN0Ucx0tTmJ_lRfuoUmiaqc=.js" async></script>
+
+  <noscript>
+    <input id="language-chooser-submit" type="submit" value="Change" />
+  </noscript>
+
+</form>
+
+          </div>
+
+          <div class="sidebar-widget">
+            <h3>Find Apps</h3>
+
+<div>
+  <form method="get" class="search-form" action="https://search.f-droid.org/">
+    <div class="search-input-wrp">
+      <input type="search" class="search-input" name="q">
+    </div>
+    <input type="hidden" name="lang" value="en">
+    <input type="submit" value="Search" class="material-button" />
+  </form>
+</div>
+
+          </div>
+
+          <div class="sidebar-widget">
+            <h3>Last Updated</h3>
+
+
+
+
+
+<a class="package-header" href="/en/packages/rs.ltt.android/">
+    
+	<img class="package-icon" src="https://f-droid.org/repo/rs.ltt.android/en-US/icon_Z_RsaXt3HHZzoTMzGelLteXy8K_Mej2CRUCuDtSbwf4=.png" width="40" height="40" />
+	
+
+	<div class="package-info">
+		<h4 class="package-name">
+			Ltt.rs
+		</h4>
+
+		<div class="package-desc">
+			<span class="package-summary">Simple and maintainable Android e-mail client</span>
+		</div>
+	</div>
+</a>
+
+
+
+
+
+
+
+
+
+<a class="package-header" href="/en/packages/player.phonograph.plus/">
+    
+	<img class="package-icon" src="https://f-droid.org/repo/player.phonograph.plus/en-US/icon_ncl9cm4Mr4U0edpzvu_8H--zCPmHTHhroPKmj3ABwA4=.png" width="40" height="40" />
+	
+
+	<div class="package-info">
+		<h4 class="package-name">
+			Phonograph Plus
+		</h4>
+
+		<div class="package-desc">
+			<span class="package-summary">A revived classic material designed local music player for Android</span>
+		</div>
+	</div>
+</a>
+
+
+
+
+
+
+<a class="package-header" href="/en/packages/org.tengel.timescale/">
+    
+	<img class="package-icon" src="https://f-droid.org/repo/org.tengel.timescale/en-US/icon_CjYNl5NZP4MP_nIml9ZkY0KyTBo_L1Q4Tlz8J8ud2ZY=.png" width="40" height="40" />
+	
+
+	<div class="package-info">
+		<h4 class="package-name">
+			Geological Time Scale
+		</h4>
+
+		<div class="package-desc">
+			<span class="package-summary">Display the geological time scale of the Earth&#x27;s history.</span>
+		</div>
+	</div>
+</a>
+
+
+
+
+
+
+
+
+<!-- no nice ones found, failing back to any -->
+
+
+
+          </div>
+
+          <div class="sidebar-widget">
+            <h3>Latest Apps</h3>
+
+
+
+
+
+
+
+
+
+
+
+<a class="package-header" href="/en/packages/org.fossify.gallery/">
+    
+	<img class="package-icon" src="https://f-droid.org/repo/org.fossify.gallery/en-US/icon_PacTnoui8YxLsg0xPUkfzomGKFZemSHSr4p2qqrTn1Q=.png" width="40" height="40" />
+	
+
+	<div class="package-info">
+		<h4 class="package-name">
+			Fossify Gallery
+		</h4>
+
+		<div class="package-desc">
+			<span class="package-summary">Gallery with Photo editor. No Ads, Open-source, Private. No strings attached.</span>
+		</div>
+	</div>
+</a>
+
+
+
+
+
+
+<a class="package-header" href="/en/packages/com.froxot.cuscon.foss/">
+    
+	<img class="package-icon" src="https://f-droid.org/repo/com.froxot.cuscon.foss/en-US/icon_z_3TFjp61mPLG2xmrNnQzX54aQDtcQrM5crwFuOp4dc=.png" width="40" height="40" />
+	
+
+	<div class="package-info">
+		<h4 class="package-name">
+			Cuscon
+		</h4>
+
+		<div class="package-desc">
+			<span class="package-summary">Icon pack with varied shapes</span>
+		</div>
+	</div>
+</a>
+
+
+
+
+
+
+
+
+
+
+
+
+<a class="package-header" href="/en/packages/com.donnnno.arcticons/">
+    
+	<img class="package-icon" src="https://f-droid.org/repo/com.donnnno.arcticons/en-US/icon_JihEdjaYKIdDjLJ8bn2d_NecBrI7KmFuhrhCdF1gEgw=.png" width="40" height="40" />
+	
+
+	<div class="package-info">
+		<h4 class="package-name">
+			Arcticons
+		</h4>
+
+		<div class="package-desc">
+			<span class="package-summary">A monotone line-based icon pack for dark themed setups.</span>
+		</div>
+	</div>
+</a>
+
+
+
+
+
+
+
+
+<!-- no nice ones found, failing back to any -->
+
+
+
+          </div>
+        </div>
+
+      </div>
+
+      <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="site-description">
+      <p>
+        © 2010-2023 F-Droid Contributors
+        <span class="version">
+          (F-Droid 2024-01-11, fdroid-website <a href="https://gitlab.com/fdroid/fdroid-website/tree/1cd0d0c8b6">2.188</a>)
+        </span>
+	<span class="edit-this-page-area">
+	  <a href="https://fdroidstatus.org/" target="_blank">
+	    Status
+	  </a>
+	  &#124;<a href="https://gitlab.com/fdroid/fdroid-website/edit/master/" target="_blank">
+	    Edit on GitLab
+	  </a></span>
+      </p>
+    </div>
+  </div>
+
+</footer>
+
+
+    </div>
+
+  </body>
+
+</html>
