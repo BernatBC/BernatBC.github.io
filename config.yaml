@@ -60,7 +60,6 @@ params:
   # Configure various features of this theme
   features:
 
-        
     pagination:
       maxPostsPerPage: 60
 
