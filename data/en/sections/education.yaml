@@ -126,31 +126,31 @@ degrees:
     name: Aalto University - School of Science
     url: "https://www.aalto.fi/en/school-of-science"
   grade: #(optional)
-    #scale: Average mark
-    #achieved:
-    #outOf: 10
+    scale: Average mark
+    achieved: 4.8
+    outOf: 5
   takenCourses: #(optional)
   #   # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
-    showGrades: false
+    showGrades: true
     collapseAfter: 3
     courses:
       - name: Competitive Programming
         achieved: 5
         outOf: 5
-      - name: Cryptography
-        achieved: Pass
-        outOf: Pass/Fail
       - name: Distributed Algorithms
-        achieved:
-        outOf: 5
-      - name: Information Security
-        achieved: 4
+        achieved: 5
         outOf: 5
       - name: Machine Learning
         achieved: 5
         outOf: 5
       - name: Web Software Development
         achieved: 5
+        outOf: 5
+      - name: Cryptography
+        achieved: Pass
+        outOf: Pass/Fail
+      - name: Information Security
+        achieved: 4
         outOf: 5
   
   extracurricularActivities:
