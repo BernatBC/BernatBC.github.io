@@ -74,6 +74,8 @@ params:
     # Enable and configure blog posts
     blog:
       enable: false
+      showAuthor: true # defaults true
+  
       # Share post on different social medi
 
     # Enable & configure "Notes" features
