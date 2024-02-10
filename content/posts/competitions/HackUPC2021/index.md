@@ -20,7 +20,7 @@ tags: ["Competition", "C#", "Unity", "Videogame"]
  <iframe style="width:110%;height:118%;position:absolute; margin-left: -5%; marginheight: px"
  frameborder="0"
  src="
-https://bernatbc.tk/webgl/SpaceShooterWebGL/index.html
+https://bernatbc.me/webgl/SpaceShooterWebGL/index.html
 "
 mozallowfullscreen="true" allow="autoplay; fullscreen" style="border:0px #000000 none;" name="SpaceShooter" scrolling="no" msallowfullscreen="true" allowfullscreen="true" webkitallowfullscreen="true" allowtransparency="true"
 >
