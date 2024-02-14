@@ -16,6 +16,7 @@ degrees:
   institution:
     name: Universitat Politècnica de Catalunya - Facultat d'Informàtica de Barcelona
     url: "https://www.fib.upc.edu/en"
+    logo: /images/upc.png 
   grade: #(optional)
     scale: Average mark
     achieved: 7.74
@@ -125,6 +126,8 @@ degrees:
   institution:
     name: Aalto University - School of Science
     url: "https://www.aalto.fi/en/school-of-science"
+    logo: /images/aalto.png
+    type: to-invert
   grade: #(optional)
     scale: Average mark
     achieved: 4.8
