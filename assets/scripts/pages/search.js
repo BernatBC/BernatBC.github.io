@@ -1,6 +1,5 @@
 import Fuse from 'fuse.js'
 import Mark from 'mark.js'
-import * as params from '@params'
 
 window.addEventListener('DOMContentLoaded', () => {
   const summaryInclude = 60
@@ -81,8 +80,6 @@ window.addEventListener('DOMContentLoaded', () => {
       const templateDefinition = document.getElementById('search-result-template').innerHTML
       // replace values
       function adaptTags() {
-        console.log(params.tags)
-        if (!params.tags) return '';
         const tags = value.item.tags;
         let string = '<ul style="padding-left: 0;">';
         tags.forEach((t) => {string += '<li class="rounded"><a href="/tags/' + t.toLowerCase() + '/" class="btn btn-sm btn-info">' + t + "</a></li>"});
