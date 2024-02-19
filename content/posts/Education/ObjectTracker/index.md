@@ -10,7 +10,7 @@ menu:
     parent: education
     weight: 500
 draft: false
-tags: ["Artificial-Intelligence", "Computer Vision", "Matlab", "Python", "Education"]
+tags: ["AI", "Computer Vision", "Matlab", "Python", "Education"]
 math: true
 ---
 

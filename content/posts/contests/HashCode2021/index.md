@@ -7,10 +7,10 @@ menu:
   sidebar:
     name: Google Hash Code 2021
     identifier: hashcode2021
-    parent: competitions
+    parent: contests
     weight: 500
 draft: false
-tags: ["Competition", "C++"]
+tags: ["Contest", "C++"]
 ---
 
 ## About Google Hash Code

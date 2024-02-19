@@ -7,10 +7,10 @@ menu:
   sidebar:
     name: HackUPC 2021
     identifier: hackupc2021
-    parent: competitions
+    parent: contests
     weight: 500
 draft: false
-tags: ["Competition", "C#", "Unity", "Videogame"]
+tags: ["Contest", "C#", "Unity", "Videogame"]
 ---
 
 <div style="position:relative;padding-bottom:55.66%;     zoom: 0.9;

@@ -10,7 +10,7 @@ menu:
     parent: education
     weight: 500
 draft: false
-tags: ["Artificial-Intelligence", "Clips", "Education"]
+tags: ["AI", "Clips", "Education"]
 math: true
 ---
 

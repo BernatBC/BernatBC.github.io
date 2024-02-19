@@ -7,10 +7,10 @@ menu:
   sidebar:
     name: Royal Hackaway v6
     identifier: royalhackawayv6
-    parent: competitions
+    parent: contests
     weight: 500
 draft: false
-tags: ["Artificial-Intelligence", "Competition", "C#", "PDDL", "Unity", "Videogame"]
+tags: ["AI", "Contest", "C#", "PDDL", "Unity", "Videogame"]
 ---
 
 ## About Royal Hackaway

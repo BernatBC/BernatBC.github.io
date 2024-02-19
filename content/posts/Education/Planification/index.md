@@ -10,7 +10,7 @@ menu:
     parent: education
     weight: 500
 draft: false
-tags: ["Artificial-Intelligence", "PDDL", "Education"]
+tags: ["AI", "PDDL", "Education"]
 math: true
 ---
 
