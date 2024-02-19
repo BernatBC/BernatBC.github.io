@@ -7,10 +7,10 @@ menu:
   sidebar:
     name: NCPC 2023
     identifier: ncpc2023
-    parent: competitions
+    parent: contests
     weight: 500
 draft: false
-tags: ["Competition", "C++"]
+tags: ["Contest", "C++"]
 ---
 
 ## About NCPC 2023

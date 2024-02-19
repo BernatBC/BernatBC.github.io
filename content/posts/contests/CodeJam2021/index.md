@@ -7,10 +7,10 @@ menu:
   sidebar:
     name: Google Code Jam 2021
     identifier: codejam2021
-    parent: competitions
+    parent: contests
     weight: 500
 draft: false
-tags: ["Competition", "C++"]
+tags: ["Contest", "C++"]
 ---
 
 ## About Google Code Jam

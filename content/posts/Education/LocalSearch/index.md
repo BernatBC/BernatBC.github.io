@@ -10,7 +10,7 @@ menu:
     parent: education
     weight: 500
 draft: false
-tags: ["Artificial-Intelligence", "Education", "Java"]
+tags: ["AI", "Education", "Java"]
 math: true
 ---
 

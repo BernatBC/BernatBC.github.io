@@ -7,10 +7,10 @@ menu:
   sidebar:
     name: Vintè Concurs de Programació de la UPC - Semifinal-2022
     identifier: 20concursupc
-    parent: competitions
+    parent: contests
     weight: 500
 draft: false
-tags: ["Competition", "C++"]
+tags: ["Contest", "C++"]
 ---
 
 ## About the contest

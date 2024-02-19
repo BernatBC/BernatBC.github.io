@@ -7,10 +7,10 @@ menu:
   sidebar:
     name: Junction 2023
     identifier: junction2023
-    parent: competitions
+    parent: contests
     weight: 500
 draft: false
-tags: ["Competition", "Figma"]
+tags: ["Contest", "Figma"]
 ---
 
 ## About Junction 2023
