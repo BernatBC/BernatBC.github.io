@@ -31,10 +31,10 @@
 <section class="content-section" id="content-section">
   <div class="content container-fluid" id="content">
     <div class="container-fluid post-card-holder" id="post-card-holder">
-      <div id="search-results">
+      <div id="search-results" style="display: flex;">
 
         <script id="search-result-template" type="text/x-js-template">
-          <div class="post-card" style="height: 550px;">
+          <div class="post-card">
               <div class="card">
                 <div class="card-head">
                   <a href="${link}" class="post-card-link">
@@ -46,9 +46,11 @@
                     <h5 class="card-title">${title}</h5>
                     <p class="card-text post-summary">${summary}</p>
                   </a>
+                  {{ if site.Params.features.tags.on_card }}
                   <div class="tags">
                     ${tags}
                   </div>
+                  {{ end }}
                 </div>
                 <div class="card-footer">
                   <span class="float-left">${date}</span>
