@@ -28,10 +28,13 @@
 {{ end }}
 
 {{ define "content" }}
+<script>
+  document.body.classList.replace('kind-page', 'kind-section');
+</script>
 <section class="content-section" id="content-section">
   <div class="content container-fluid" id="content">
     <div class="container-fluid post-card-holder" id="post-card-holder">
-      <div id="search-results" style="display: flex;">
+      <div id="search-results" style="display: flex; flex-wrap: wrap;">
 
         <script id="search-result-template" type="text/x-js-template">
           <div class="post-card">
@@ -48,7 +51,9 @@
                   </a>
                   {{ if site.Params.features.tags.on_card }}
                   <div class="tags">
+                    <ul style="padding-left: 0;">
                     ${tags}
+                    </ul>
                   </div>
                   {{ end }}
                 </div>
