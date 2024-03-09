@@ -127,7 +127,7 @@ degrees:
     name: Aalto University - School of Science
     url: "https://www.aalto.fi/en/school-of-science"
     logo: /images/aalto.png
-    type: to-invert
+    darkLogo: /images/aalto-dark.png
   grade: #(optional)
     scale: Average mark
     achieved: 4.8
