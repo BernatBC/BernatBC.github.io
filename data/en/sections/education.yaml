@@ -19,13 +19,19 @@ degrees:
     logo: /images/upc.png 
   grade: #(optional)
     scale: Average mark
-    achieved: 7.74
+    achieved: 8.04
     outOf: 10
   takenCourses: #(optional)
   #   # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
     showGrades: true
     collapseAfter: 3
     courses:
+      - name: Complementary course on computing in Mobility
+        achieved: 10
+        outOf: 10
+      - name: Exchange program
+        achieved: 9.8
+        outOf: 10
       - name: Data Structures and Algorithms
         achieved: 9.1
         outOf: 10
