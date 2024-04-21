@@ -5,3 +5,11 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 900;
 }
+
+.tags {
+    a{
+        background-color: get-light-color('bg-card') !important;
+        color: get-light-color('text-color') !important;
+        border: 1px solid get-light-color('muted-text-color') !important;
+    }
+}
