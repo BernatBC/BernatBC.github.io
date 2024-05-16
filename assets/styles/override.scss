@@ -26,4 +26,9 @@ html[data-theme='dark'] {
 
 button {
     text-decoration: none !important;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline !important;
+      }
 }
