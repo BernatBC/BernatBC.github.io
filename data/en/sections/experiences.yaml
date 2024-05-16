@@ -15,6 +15,7 @@ experiences:
     url: "https://build38.com/"
     location: Barcelona, Spain
     logo: /images/build38.png
+    darkLogo: /images/build38-dark.png
     # company overview
     overview: Build38 is the innovative and cutting-edge provider of the next generation AI-based app protection and management platform.
   positions:
@@ -24,7 +25,8 @@ experiences:
     # end: Dec 2020
     # give some points about what was your responsibilities at the company.
     responsibilities:
-    - Developing mobile apps
-    - Creating examples for application protection in many different programming languages
-    - Developing security tools
-    - Writing technical documentation
+      - Integrating cybersecurity SDK to Android & iOS apps
+      - Developing apps using Kotlin, Swift, React Native and Flutter
+      - Developing security tools such as obfuscator
+      - Testing SpringBoot backend
+      - Writing techinchal documentation

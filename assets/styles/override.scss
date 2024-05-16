@@ -13,3 +13,17 @@ h1, h2, h3, h4, h5, h6 {
         border: 1px solid get-light-color('muted-text-color') !important;
     }
 }
+
+h6 {
+    color: get-light-color('text-color')
+}
+
+html[data-theme='dark'] {
+    h6 {
+      color: get-dark-color('text-color');
+    }
+}
+
+button {
+    text-decoration: none !important;
+}
