@@ -19,13 +19,16 @@ degrees:
     logo: /images/upc.png 
   grade: #(optional)
     scale: Average mark
-    achieved: 8.04
+    achieved: 8.28
     outOf: 10
   takenCourses: #(optional)
   #   # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
     showGrades: true
     collapseAfter: 3
     courses:
+      - name: Bachelor Thesis
+        achieved: "10 (MH)"
+        outOf: 10
       - name: Complementary course on computing in Mobility
         achieved: 10
         outOf: 10
@@ -117,9 +120,9 @@ degrees:
         achieved: 6.2
         outOf: 10
       
-  #publications: #(optional)
-  #- title: An IoT based System for Riverine Vessel Monitoring
-  #  url: "#"
+  publications: #(optional)
+  - title: Creació d'un visualitzador de fotografies en 3D
+    url: "/posts/education/3dimageviewer/"
   extracurricularActivities: #(optional)
   - Contributor of [RepoFIBtori](https://github.com/RepoFIBtori/RepoFIBtori), a platform to share class notes and solved exercises.
   - Competitor in [II UPC Online  Chess Tournament](https://www.chess.com/tournament/ii-torneig-esports-upc).
