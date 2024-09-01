@@ -15,7 +15,7 @@ math: true
 ---
 
 ## Introduction
-This project was made for my bachelor thesis. You can take a look the full report [here](Memoria-bernat.borras.civil.pdf) (note that's in catalan).                          
+This project was made for my bachelor thesis. You can take a look the full report [here](https://upcommons.upc.edu/handle/2117/411671) (note that's in catalan).                          
 
 ## Abstract
 
@@ -122,4 +122,4 @@ Once it's loaded, you can open your browser and navigate to `http://localhost:51
 {{< youtube 4iaSXIId2zU>}}
 
 ### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/visualitzador-de-fotografies-en-3D/tree/web3d-bernat) 
-### [Download the report in <i class="fa-solid fa-file-pdf"></i>PDF](Memoria-bernat.borras.civil.pdf) 
+### [Download the report in <i class="fa-solid fa-file-pdf"></i>PDF](https://upcommons.upc.edu/handle/2117/411671) 
