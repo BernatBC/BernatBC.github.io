@@ -60,6 +60,9 @@ params:
   # Configure various features of this theme
   features:
 
+    copyCodeButton:
+      enable: true
+
     pagination:
       maxPostsPerPage: 60
 
