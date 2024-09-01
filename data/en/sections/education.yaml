@@ -10,9 +10,38 @@ section:
   # hideTitle: true
 
 degrees:
-- name: Bachelor Degree in Informatics Engineering specialization in Computer Science
+- name: Master's Degree in Informatics Engineering
   icon: fa-graduation-cap
-  timeframe: September 2020 - Present
+  timeframe: September 2024 - Present
+  institution:
+    name: Universitat Politècnica de Catalunya - Facultat d'Informàtica de Barcelona
+    url: "https://www.fib.upc.edu/en"
+    logo: /images/upc.png 
+  #grade: #(optional)
+  #  scale: Average mark
+  #  achieved:
+  #  outOf: 10
+  takenCourses: #(optional)
+  #   # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
+    showGrades: true
+    collapseAfter: 3
+    courses:
+      - name: Computing and Intelligent Systems
+        #achieved:
+        #outOf: 10
+      - name: Interactive Graphic Systems
+        #achieved:
+        #outOf: 10
+      - name: Strategic Planning and IT Governance
+        #achieved:
+        #outOf: 10
+      - name: Sustainability, Economy and Social Commitment
+        #achieved:
+        #outOf: 10
+
+- name: Bachelor's Degree in Informatics Engineering specialization in Computer Science
+  icon: fa-graduation-cap
+  timeframe: "September 2020 - June 2024"
   institution:
     name: Universitat Politècnica de Catalunya - Facultat d'Informàtica de Barcelona
     url: "https://www.fib.upc.edu/en"
@@ -122,7 +151,7 @@ degrees:
       
   publications: #(optional)
   - title: Creació d'un visualitzador de fotografies en 3D
-    url: "/posts/education/3dimageviewer/"
+    url: "https://upcommons.upc.edu/handle/2117/411671"
   extracurricularActivities: #(optional)
   - Contributor of [RepoFIBtori](https://github.com/RepoFIBtori/RepoFIBtori), a platform to share class notes and solved exercises.
   - Competitor in [II UPC Online  Chess Tournament](https://www.chess.com/tournament/ii-torneig-esports-upc).
