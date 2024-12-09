@@ -1,7 +1,7 @@
 ---
 title: "Planification project"
 date: 2023-01-14T06:00:23+06:00
-description: Planfication porject
+description: Planfication project
 theme: Toha
 menu:
   sidebar:
