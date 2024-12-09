@@ -1,3 +1,76 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Videogame on BernatBC</title><link>https://www.bernatbc.me/tags/videogame/</link><description>Recent content in Videogame on BernatBC</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 07 Feb 2023 06:00:23 +0600</lastBuildDate><atom:link href="https://www.bernatbc.me/tags/videogame/index.xml" rel="self" type="application/rss+xml"/><item><title>Royal Hackaway v6</title><link>https://www.bernatbc.me/posts/contests/royalhackawayv6/</link><pubDate>Tue, 07 Feb 2023 06:00:23 +0600</pubDate><guid>https://www.bernatbc.me/posts/contests/royalhackawayv6/</guid><description>About Royal Hackaway Royal Hackaway is Royal Holloway&amp;rsquo;s annual hackathon. Open to students from all around the world, in this two-day hackathon you&amp;rsquo;ll work as a team to build a project. You&amp;rsquo;ll pick up new skills, try out new tech, and meet new people.
-This is our sixth time running this event, and we&amp;rsquo;re excited to create a more inclusive and rewarding event for all. You can join us in-person, or online!</description></item><item><title>Europoly</title><link>https://www.bernatbc.me/posts/videogames/europoly/</link><pubDate>Sat, 26 Nov 2022 06:00:22 +0600</pubDate><guid>https://www.bernatbc.me/posts/videogames/europoly/</guid><description>The project After making the Minesweeper, I wanted to create something more elaborated. I decided to make a clone of Monopoly. Almost everybody has played at least one time to Monopoly, so I don&amp;rsquo;t need to make an introduction.
-How it works I started with the player movement and the dice. When everything was smooth and playable, I started to make the cards. One thing I like about them is the fact that they aren&amp;rsquo;t images.</description></item><item><title>Minesweeper</title><link>https://www.bernatbc.me/posts/videogames/minesweeper/</link><pubDate>Fri, 11 Feb 2022 06:00:23 +0600</pubDate><guid>https://www.bernatbc.me/posts/videogames/minesweeper/</guid><description>The project Before making this project, I&amp;rsquo;d used Unity game engine for making a couple of games like Tetris by following some Youtube tutorials. Also, I made Space Shooter during HackUPC2021, but I wasn&amp;rsquo;t on my own. Now I wanted to do a project on my own and decided to start with a simple game. Minesweeper was a good candidate as it didn&amp;rsquo;t seem too complex. I didn&amp;rsquo;t reinvent the wheel and made a clone of minesweeper.</description></item><item><title>HackUPC 2021</title><link>https://www.bernatbc.me/posts/contests/hackupc2021/</link><pubDate>Sun, 16 May 2021 06:00:23 +0600</pubDate><guid>https://www.bernatbc.me/posts/contests/hackupc2021/</guid><description>About HackUPC HackUPC is the first student hackathon in Spain. Once a year, we aim to provide a space for students of all experience levels from all around the world where they can improve and learn new skills, meet awesome people, and overall have a great experience! This year&amp;rsquo;s edition will be held in a hybrid format, meaning that you can come in person but also participate from home.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Videogame on BernatBC</title><link>https://www.bernatbc.me/tags/videogame/</link><description>Recent content in Videogame on BernatBC</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 07 Feb 2023 06:00:23 +0600</lastBuildDate><atom:link href="https://www.bernatbc.me/tags/videogame/index.xml" rel="self" type="application/rss+xml"/><item><title>Royal Hackaway v6</title><link>https://www.bernatbc.me/posts/contests/royalhackawayv6/</link><pubDate>Tue, 07 Feb 2023 06:00:23 +0600</pubDate><guid>https://www.bernatbc.me/posts/contests/royalhackawayv6/</guid><description>&lt;h2 id="about-royal-hackaway">About Royal Hackaway&lt;/h2>
+&lt;p>
+&lt;a href="https://royalhackaway.com/" target="_blank" rel="noopener">Royal Hackaway&lt;/a> is
+&lt;a href="https://www.royalholloway.ac.uk/" target="_blank" rel="noopener">Royal Holloway&amp;rsquo;s&lt;/a> annual hackathon.
+Open to students from all around the world, in this two-day hackathon you&amp;rsquo;ll work as a team to build a project. You&amp;rsquo;ll pick up new skills, try out new tech, and meet new people.&lt;/p>
+&lt;p>This is our sixth time running this event, and we&amp;rsquo;re excited to create a more inclusive and rewarding event for all. You can join us in-person, or online!&lt;/p></description></item><item><title>Europoly</title><link>https://www.bernatbc.me/posts/videogames/europoly/</link><pubDate>Sat, 26 Nov 2022 06:00:22 +0600</pubDate><guid>https://www.bernatbc.me/posts/videogames/europoly/</guid><description>&lt;div style="position:relative;padding-bottom:55.66%; zoom: 0.6;
+-webkit-transform: scale(0.6);
+-moz-transform: scale(0.6);
+transform: scale(0.6)">
+&lt;iframe style="width:166%;height:174%;position:absolute; margin-left: -33%; marginheight: -50%"
+frameborder="0"
+src="
+https://bernatbc.me/webgl/Europoly_WebGL/index.html
+"
+mozallowfullscreen="true" allow="autoplay; fullscreen" style="border:0px #000000 none;" name="Monopoly" scrolling="no" msallowfullscreen="true" allowfullscreen="true" webkitallowfullscreen="true" allowtransparency="true"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;p>&lt;br />
+&lt;br />
+&lt;br />
+&lt;br />
+&lt;br />
+&lt;br />
+&lt;br />
+&lt;br />&lt;/p>
+&lt;h2 id="the-project">The project&lt;/h2>
+&lt;p>After making the
+&lt;a href="https://bernatbc.me/posts/videogames/minesweeper/" target="_blank" rel="noopener">Minesweeper&lt;/a>, I wanted to create something more elaborated. I decided to make a clone of Monopoly. Almost everybody has played at least one time to Monopoly, so I don&amp;rsquo;t need to make an introduction.&lt;/p>
+&lt;h2 id="how-it-works">How it works&lt;/h2>
+&lt;p>I started with the player movement and the dice. When everything was smooth and playable, I started to make the cards. One thing I like about them is the fact that they aren&amp;rsquo;t images. Cards are rendered based in the info assigned to its cell. With this method I don&amp;rsquo;t need to be hours making each card, and if I want to change a value, I just do it once and the card will change automatically. The cash flow of each player is pretty easy to implement. The jail cell has given me headaches with the go to jail movement and several bugs I&amp;rsquo;ve already fixed. Houses and hotels were also very buggy, especially when you sold them. I also had troubles implementing the functionality of some Chance and Community Chest cards, as I had to change the way I made some functions. With the functionality of mortgages/unmortgages I learnt to access to a child object parameter in Unity. It&amp;rsquo;s a little different from most common programming languages. Be in mind that now you can have negative cash due to testing.&lt;/p></description></item><item><title>Minesweeper</title><link>https://www.bernatbc.me/posts/videogames/minesweeper/</link><pubDate>Fri, 11 Feb 2022 06:00:23 +0600</pubDate><guid>https://www.bernatbc.me/posts/videogames/minesweeper/</guid><description>&lt;div style="position:relative;padding-bottom:55.66%; zoom: 0.6;
+-webkit-transform: scale(0.6);
+-moz-transform: scale(0.6);
+transform: scale(0.6)">
+&lt;iframe style="width:166%;height:174%;position:absolute; margin-left: -33%; marginheight: -50%"
+frameborder="0"
+src="
+https://bernatbc.me/webgl/MinesweeperWebGL/index.html
+"
+mozallowfullscreen="true" allow="autoplay; fullscreen" style="border:0px #000000 none;" name="MinesWeeper" scrolling="no" msallowfullscreen="true" allowfullscreen="true" webkitallowfullscreen="true" allowtransparency="true"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;p>&lt;br />
+&lt;br />
+&lt;br />
+&lt;br />
+&lt;br />
+&lt;br />
+&lt;br />
+&lt;br />&lt;/p>
+&lt;h2 id="the-project">The project&lt;/h2>
+&lt;p>Before making this project, I&amp;rsquo;d used
+&lt;a href="https://unity.com/" target="_blank" rel="noopener">&lt;i class="fa-brands fa-unity">&lt;/i>Unity&lt;/a> game engine for making a couple of games like Tetris by following some Youtube tutorials. Also, I made
+&lt;a href="https://www.bernatbc.me/posts/competitions/hackupc2021/">Space Shooter&lt;/a> during
+&lt;a href="https://hackupc.com/" target="_blank" rel="noopener">HackUPC2021&lt;/a>, but I wasn&amp;rsquo;t on my own. Now I wanted to do a project on my own and decided to start with a simple game. Minesweeper was a good candidate as it didn&amp;rsquo;t seem too complex. I didn&amp;rsquo;t reinvent the wheel and made a clone of minesweeper.&lt;/p></description></item><item><title>HackUPC 2021</title><link>https://www.bernatbc.me/posts/contests/hackupc2021/</link><pubDate>Sun, 16 May 2021 06:00:23 +0600</pubDate><guid>https://www.bernatbc.me/posts/contests/hackupc2021/</guid><description>&lt;div style="position:relative;padding-bottom:55.66%; zoom: 0.9;
+-webkit-transform: scale(0.9);
+-moz-transform: scale(0.9);
+transform: scale(0.9)">
+&lt;iframe style="width:110%;height:118%;position:absolute; margin-left: -5%; marginheight: px"
+frameborder="0"
+src="
+https://bernatbc.me/webgl/SpaceShooterWebGL/index.html
+"
+mozallowfullscreen="true" allow="autoplay; fullscreen" style="border:0px #000000 none;" name="SpaceShooter" scrolling="no" msallowfullscreen="true" allowfullscreen="true" webkitallowfullscreen="true" allowtransparency="true"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;p>&lt;br />
+&lt;br />
+&lt;br />
+&lt;br />
+&lt;br />&lt;/p>
+&lt;h2 id="about-hackupc">About HackUPC&lt;/h2>
+&lt;p>
+&lt;a href="https://hackupc.com/" target="_blank" rel="noopener">HackUPC&lt;/a> is the first student hackathon in Spain. Once a year, we aim to provide a space for students of all experience levels from all around the world where they can improve and learn new skills, meet awesome people, and overall have a great experience! This year&amp;rsquo;s edition will be held in a hybrid format, meaning that you can come in person but also participate from home.&lt;/p></description></item></channel></rss>
