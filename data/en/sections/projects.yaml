@@ -29,3 +29,10 @@ projects:
   repo: https://github.com/jellyfin/jellyfin
   summary: An open-source media server designed to organize, manage, and share digital media files to networked devices. Used it alongside my Raspberry Pi to host my media. So far, only contributing to translating it.
   tags: ["docker","raspberry pi"]
+- name: Sourcegit
+  logo: /images/sourcegit.png
+  role: Contributor
+  timeline: "Oct 2024 - Present"
+  repo: https://github.com/sourcegit-scm/sourcegit
+  summary: An open source Windows/macOS/Linux GUI client for GIT users. So far, only contributing to documentation and translating it.
+  tags: ["git"]
