@@ -19,10 +19,17 @@ experiences:
     # company overview
     overview: Build38 is the innovative and cutting-edge provider of the next generation AI-based app protection and management platform.
   positions:
-  - designation: Solutions Engineer Intern
-    start: February 2024
+  - designation: SDK Software Engineer Intern
+    start: October 2024
     # don't provide end date if you are currently working there. It will be replaced by "Present"
     # end: Dec 2020
+    # give some points about what was your responsibilities at the company.
+    responsibilities:
+      - Developing cybersecurity SDK using C
+      - Developing wrappers for Android & iOS using Swift, Java and Ionic
+  - designation: Solutions Engineer Intern
+    start: February 2024
+    end: September 2024
     # give some points about what was your responsibilities at the company.
     responsibilities:
       - Integrating cybersecurity SDK to Android & iOS apps
