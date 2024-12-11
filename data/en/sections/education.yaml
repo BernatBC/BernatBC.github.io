@@ -154,9 +154,9 @@ degrees:
     url: "https://upcommons.upc.edu/handle/2117/411671"
   extracurricularActivities: #(optional)
   - Contributor of [RepoFIBtori](https://github.com/RepoFIBtori/RepoFIBtori), a platform to share class notes and solved exercises.
-  - Competitor in [II UPC Online  Chess Tournament](https://www.chess.com/tournament/ii-torneig-esports-upc).
-  - Competitor in [III UPC Online  Chess Tournament](https://www.chess.com/tournament/iii-torneig-esports-upc).
-  - Competitor in [Vintè Concurs de Programació de la UPC](posts/competitions/20concursupc/).
+  - Contestant in [II UPC Online  Chess Tournament](https://www.chess.com/tournament/ii-torneig-esports-upc).
+  - Contestant in [III UPC Online  Chess Tournament](https://www.chess.com/tournament/iii-torneig-esports-upc).
+  - Contestant in [Vintè Concurs de Programació de la UPC](posts/competitions/20concursupc/).
 
 - name: Exchange studies (Erasmus+ Programme)
   icon: fa-graduation-cap
@@ -195,7 +195,7 @@ degrees:
         outOf: 5
   
   extracurricularActivities:
-  - Competitor in [Nordic Collegiate Programming Contest](https://nordic.icpc.io/ncpc2023/).
+  - Contestant in [Nordic Collegiate Programming Contest](https://nordic.icpc.io/ncpc2023/).
   
   #- Worked as instructor of CUET Computer Club
 #- name: Higher Secondary School Certificate
