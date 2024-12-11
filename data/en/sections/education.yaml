@@ -10,7 +10,7 @@ section:
   # hideTitle: true
 
 degrees:
-- name: Master's Degree in Informatics Engineering
+- name: Master's Degree in Informatics Engineering · 90 ects
   icon: fa-graduation-cap
   timeframe: September 2024 - Present
   institution:
@@ -39,7 +39,7 @@ degrees:
         #achieved:
         #outOf: 10
 
-- name: Bachelor's Degree in Informatics Engineering specialization in Computer Science
+- name: Bachelor's Degree in Informatics Engineering specialization in Computer Science · 240 ects
   icon: fa-graduation-cap
   timeframe: "September 2020 - June 2024"
   institution:
@@ -158,7 +158,7 @@ degrees:
   - Contestant in [III UPC Online  Chess Tournament](https://www.chess.com/tournament/iii-torneig-esports-upc).
   - Contestant in [Vintè Concurs de Programació de la UPC](posts/competitions/20concursupc/).
 
-- name: Exchange studies (Erasmus+ Programme)
+- name: Exchange studies (Erasmus+ Programme) · 30 ects
   icon: fa-graduation-cap
   timeframe: August 2023 - December 2023
   institution:
