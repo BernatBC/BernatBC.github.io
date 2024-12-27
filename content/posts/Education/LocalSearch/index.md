@@ -1,7 +1,7 @@
 ---
-title: "Local Search"
+title: "Grid Power Optimization"
 date: 2022-10-24T06:00:23+06:00
-description: Localsearch
+description: Grid Power Optimization
 theme: Toha
 menu:
   sidebar:
