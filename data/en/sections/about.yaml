@@ -8,9 +8,16 @@ section:
   template: sections/about.html
 
 # your designation
-designation: Computer Science Student
+designation: Cibersecurity Software Engineer
 # your company information
 company:
+  name: Build38
+  url: "https://build38.com/"
+
+# your designation
+designation2: Computer Science Student
+# your company information
+company2:
   name: Universitat Politècnica de Catalunya
   url: "https://www.fib.upc.edu/"
 
