@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BernatBC</title><link>https://www.bernatbc.tk/</link><description>Recent content on BernatBC</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 15 Nov 2024 06:00:23 +0600</lastBuildDate><atom:link href="https://www.bernatbc.tk/index.xml" rel="self" type="application/rss+xml"/><item><title>VR Battlefield</title><link>https://www.bernatbc.tk/posts/education/vr-battlefield/</link><pubDate>Fri, 15 Nov 2024 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/vr-battlefield/</guid><description>&lt;h2 id="the-statement">The statement&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BernatBC</title><link>https://www.bernatbc.tk/</link><description>Recent content on BernatBC</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 19 Dec 2024 06:00:23 +0600</lastBuildDate><atom:link href="https://www.bernatbc.tk/index.xml" rel="self" type="application/rss+xml"/><item><title>MiniChef AR</title><link>https://www.bernatbc.tk/posts/education/minichef-ar/</link><pubDate>Thu, 19 Dec 2024 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/minichef-ar/</guid><description>&lt;h2 id="the-statement">The statement&lt;/h2>
+&lt;p>We were asked to develop an Augmented Reality application using
+&lt;a href="https://unity.com/" target="_blank" rel="noopener">Unity&lt;/a> and either
+&lt;a href="https://www.artoolkitx.org/" target="_blank" rel="noopener">AR Toolkit&lt;/a>,
+&lt;a href="https://developer.vuforia.com/" target="_blank" rel="noopener">Vuforia&lt;/a>,
+&lt;a href="https://www.easyar.com/" target="_blank" rel="noopener">EasyAR&lt;/a> or
+&lt;a href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@6.0/manual/index.html" target="_blank" rel="noopener">ARFoundation&lt;/a>. The app needed to have the following features:&lt;/p>
+&lt;ul>
+&lt;li>Possibility of detection of more than one marker at the same time, or the use of more than one virtual object recorded in the real world.&lt;/li>
+&lt;li>The user must be able to apply some geometric transformations to each of them virtual objects relative to their initial position (or marker). You can apply these geometric transformations, if you want, doing some animation with (or between) the virtual objects, as long as this animation has been programmed by you.&lt;/li>
+&lt;li>Presence of an animated 3D character (humanoid) with which the user can interact somehow. This character must make sense within the context of the project.&lt;/li>
+&lt;li>Offer the user some interaction mechanism (apart from the already included tracking), both with the virtual objects (directly or indirectly) as with application control.&lt;/li>
+&lt;/ul>
+&lt;h2 id="what-weve-made">What we&amp;rsquo;ve made&lt;/h2>
+&lt;p>We&amp;rsquo;ve decided to go with
+&lt;a href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@6.0/manual/index.html" target="_blank" rel="noopener">ARFoundation&lt;/a> as it seemed to be the recommended one by
+&lt;a href="https://unity.com/" target="_blank" rel="noopener">Unity&lt;/a>, as it was already preinstalled when selecting the AR template.
+In the video below you can take a look at the resulting app. To sum it up, we&amp;rsquo;re tracking a Menu, where you can check the available dishes alongside its information. Afterwards, you can tell the chef to cook a certain dish, and a few seconds later, the dish will appear in a 3rd tracker.&lt;/p></description></item><item><title>VR Battlefield</title><link>https://www.bernatbc.tk/posts/education/vr-battlefield/</link><pubDate>Fri, 15 Nov 2024 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/vr-battlefield/</guid><description>&lt;h2 id="the-statement">The statement&lt;/h2>
 &lt;p>We were asked to develop a Virtual Reality application using
 &lt;a href="https://unity.com/" target="_blank" rel="noopener">Unity&lt;/a> and
 &lt;a href="https://arvr.google.com/cardboard/" target="_blank" rel="noopener">Google Cardboard&lt;/a>. The app needed to have the following features:&lt;/p>
