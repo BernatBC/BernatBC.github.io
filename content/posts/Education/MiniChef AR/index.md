@@ -24,7 +24,7 @@ We were asked to develop an Augmented Reality application using [Unity](https://
 ## What we've made
 
 We've decided to go with [ARFoundation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@6.0/manual/index.html) as it seemed to be the recommended one by [Unity](https://unity.com/), as it was already preinstalled when selecting the AR template. 
-In the video below you can take a look at the resulting app. To sum it up, we created a battleground environment where you can interact with several objects, such as grenades, mines and guns.
+In the video below you can take a look at the resulting app. To sum it up, we're tracking a Menu, where you can check the available dishes alongside its information. Afterwards, you can tell the chef to cook a certain dish, and a few seconds later, the dish will appear in a 3rd tracker.
 
 {{< youtube n8KnyEHTFLk>}}
 
