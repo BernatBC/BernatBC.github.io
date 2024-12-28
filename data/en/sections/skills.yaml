@@ -15,36 +15,39 @@ skills:
 
 - name: C, C++, C#
   logo: /images/c++.png
-  summary: "Using it as the main programming language. Used for college, contest programming and for game developing."
+  summary: "Using it as the main programming language. Used in Build38, college, contest programming and for game developing."
 
-- name: Java
+- name: Java & Kotlin
   logo: /images/java.png
-  summary: "After the C family, Java is the language that I used the most, creating some projects with it."
+  summary: "Used mainly for developing Android wrappers and apps in Build38. Also used in side projects."
+
+- name: Swift
+  logo: /images/swift.png
+  summary: "Used for developing iOS wrappers and apps in Build38."
 
 - name: Python
   logo: /images/python.png
-  summary: "I've use it in a couple of college subjects. I created a Telegram Bot, and some scripting for a Neural Network."
+  summary: "I've use it in many college subjects. I created a Telegram Bot, used for various machine learning models, and some scripting for a Neural Network."
 
 - name: Unity
   logo: /images/unity.png
-  summary: "Medium understanding. Used to develop some video games."
+  summary: "Medium understanding. Used to develop some video games, as well as a VR and an AR app."
   url: "https://unity.com/"
 
-- name: OpenGL
-  logo: /images/opengl.png
-  summary: "Good understanding of it. I have made some graphic applications in college with it."
-  url: "https://www.opengl.org/"
-
-- name: Linux
-  logo: /images/linux.png
-  summary: "Using as the main operating system. I have a good understanding of it."
-
-- name: Git
-  logo: /images/git.png
-  summary: "Experienced with git-based development. Mostly, use GitHub. Also, have experience in working with GitLab."
-  url: "https://git-scm.com/"
+- name: Web development
+  logo: /images/web.webp
+  summary: "Created some websites with it, including this one. Also contributed to the theme of this site."
 
 - name: PostgreSQL
   logo: /images/postgresql.png
   summary: "Basic knowledge of this object-relational database system. I have used it in college in Data Bases courses."
   url: "https://www.postgresql.org/"
+
+- name: Git
+  logo: /images/git.png
+  summary: "Experienced with git-based development. Mostly, use GitHub and Bitbucket. Also, have experience in working with GitLab."
+  url: "https://git-scm.com/"
+
+- name: Linux
+  logo: /images/linux.png
+  summary: "Using as the main operating system. I'm used to interact with it via the command line. Shell scripting is also one of my strengths."

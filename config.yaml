@@ -51,7 +51,7 @@ enableEmoji: true
 # Site parameters
 params:
   # Background image of the landing page
-  background: "images/background4.jpg"
+  background: "images/alps.webp"
 
   # Configure the number of section title visible in the top navbar
   topNavbar:
@@ -78,7 +78,7 @@ params:
     blog:
       enable: false
       showAuthor: true # defaults true
-  
+
       # Share post on different social medi
 
     # Enable & configure "Notes" features
