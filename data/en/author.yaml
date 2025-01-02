@@ -3,7 +3,7 @@ name: "Bernat Borràs Civil"
 nickname: "Bernat"
 # greeting message before your name. it will default to "Hi! I am" if not provided
 greeting: "Hi, I am"
-image: "images/avatar3.png"
+image: "images/profile.jpg"
 # give your some contact information. they will be used in the footer
 contactInfo:
   email: "bernat.borrasc@gmail.com"
@@ -20,7 +20,7 @@ contactInfo:
 
 # some summary about what you do
 summary:
-  - I am a Developer
-  - I am a Student
-  - I am a Coding Competitor
+  - I am a Cybersecurity Software Engineer
+  - I am a Computer Engineering Student
+  - I like participating in coding contests
   - I develop games for fun

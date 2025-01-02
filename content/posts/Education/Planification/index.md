@@ -1,7 +1,7 @@
 ---
-title: "Planification project"
+title: "Mars Planification"
 date: 2023-01-14T06:00:23+06:00
-description: Planfication project
+description: Mars Planification
 theme: Toha
 menu:
   sidebar:

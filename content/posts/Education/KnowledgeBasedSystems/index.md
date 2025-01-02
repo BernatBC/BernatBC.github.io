@@ -1,5 +1,5 @@
 ---
-title: "Knowledge Based Systems"
+title: "Workout Planner"
 date: 2022-12-19T06:00:23+06:00
 description: KnowledgeBasedSystems
 theme: Toha
