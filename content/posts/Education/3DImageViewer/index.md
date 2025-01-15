@@ -121,5 +121,5 @@ Once it's loaded, you can open your browser and navigate to `http://localhost:51
 
 {{< youtube 4iaSXIId2zU>}}
 
-### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/visualitzador-de-fotografies-en-3D/tree/web3d-bernat) 
+### [View Code on <i class="fab fa-github"></i>Github](https://github.com/BernatBC/visualitzador-de-fotografies-en-3D) 
 ### [Download the report in <i class="fa-solid fa-file-pdf"></i>PDF](https://upcommons.upc.edu/handle/2117/411671) 
