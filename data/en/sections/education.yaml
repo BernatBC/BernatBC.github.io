@@ -17,27 +17,42 @@ degrees:
     name: Universitat Politècnica de Catalunya - Facultat d'Informàtica de Barcelona
     url: "https://www.fib.upc.edu/en"
     logo: /images/upc.png 
-  #grade: #(optional)
-  #  scale: Average mark
-  #  achieved:
-  #  outOf: 10
+  grade: #(optional)
+    scale: Average mark
+    achieved: 8.48
+    outOf: 10
   takenCourses: #(optional)
   #   # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
     showGrades: true
     collapseAfter: 3
     courses:
-      - name: Computing and Intelligent Systems
-        #achieved:
-        #outOf: 10
-      - name: Interactive Graphic Systems
-        #achieved:
-        #outOf: 10
+      - name: Industrial Practices
+        achieved: 9
+        outOf: 10
       - name: Strategic Planning and IT Governance
-        #achieved:
-        #outOf: 10
+        achieved: 8.7
+        outOf: 10
+      - name: Interactive Graphic Systems
+        achieved: 8.3
+        outOf: 10
+      - name: Computing and Intelligent Systems
+        achieved: 7.8
+        outOf: 10
       - name: Sustainability, Economy and Social Commitment
-        #achieved:
-        #outOf: 10
+        achieved: 7
+        outOf: 10
+      - name: Development and Management of Information Systems
+        achieved: Enrolled
+        outOf: 10
+      - name: Internet, Security and Multimedia Contents Distribution
+        achieved: Enrolled
+        outOf: 10
+      - name: Viability of Innovative Business Projects
+        achieved: Enrolled
+        outOf: 10
+      - name: Financing for Innovative Business Projects
+        achieved: Enrolled
+        outOf: 10
 
 - name: Bachelor's Degree in Informatics Engineering specialization in Computer Science · 240 ects
   icon: fa-graduation-cap
@@ -59,6 +74,9 @@ degrees:
         achieved: "10 (MH)"
         outOf: 10
       - name: Complementary course on computing in Mobility
+        achieved: 10
+        outOf: 10
+      - name: Industrial Practices
         achieved: 10
         outOf: 10
       - name: Exchange program
