@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mini-Hackathon on BernatBC</title><link>https://www.bernatbc.tk/tags/mini-hackathon/</link><description>Recent content in Mini-Hackathon on BernatBC</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 27 Feb 2025 06:00:23 +0600</lastBuildDate><atom:link href="https://www.bernatbc.tk/tags/mini-hackathon/index.xml" rel="self" type="application/rss+xml"/><item><title>Web to Markdown</title><link>https://www.bernatbc.tk/posts/education/web-to-markdown/</link><pubDate>Thu, 27 Feb 2025 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/web-to-markdown/</guid><description>&lt;h1 id="web-to-markdown">Web-to-Markdown&lt;/h1>
+&lt;p>The purpose of this project is to be able to convert the information from any website into a Markdown bucket.&lt;/p>
+&lt;h2 id="usage">Usage&lt;/h2>
+&lt;p>This website has a UI with a text field in the middle. Enter the base URL of the website you want to extract information from and it will automatically find all the attached links to it and also extract information from them.&lt;/p>
+&lt;p>To extract this information we get the HTML using the library trafilatura and parse it using BeautifulSoup and html2text.&lt;/p></description></item><item><title>Subtitle Generator</title><link>https://www.bernatbc.tk/posts/education/subtitle-generator/</link><pubDate>Thu, 20 Feb 2025 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/subtitle-generator/</guid><description>&lt;h1 id="subtitle-generator">Subtitle Generator&lt;/h1>
+&lt;video class="video-player" id="video-139" playsinline controls>
+&lt;source src="subtitle_generator.mp4" type="video/mp4" />
+&lt;/video>
+&lt;p>This project provides a web application that automatically generates subtitles (in SRT or VTT format) from audio files. It leverages the power of OpenAI&amp;rsquo;s Whisper speech recognition model for transcription and pyannote.audio for speaker diarization, all wrapped in a user-friendly FastAPI web interface.&lt;/p>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Web Interface:&lt;/strong> A clean, simple HTML interface for uploading audio files. No complex command-line usage is required.&lt;/li>
+&lt;li>&lt;strong>Multiple Audio Formats:&lt;/strong> Supports &lt;code>.wav&lt;/code>, &lt;code>.mp3&lt;/code>, &lt;code>.m4a&lt;/code>, and &lt;code>.flac&lt;/code> files. Automatic conversion to WAV is handled internally.&lt;/li>
+&lt;li>&lt;strong>Speaker Diarization:&lt;/strong> Identifies different speakers in the audio and includes speaker labels in the generated subtitles.&lt;/li>
+&lt;li>&lt;strong>Subtitle Formats:&lt;/strong> Generates subtitles in either &lt;code>.srt&lt;/code> (SubRip) or &lt;code>.vtt&lt;/code> (WebVTT) format, selectable via the web interface.&lt;/li>
+&lt;li>&lt;strong>Fast and Efficient:&lt;/strong> Utilizes a dynamically selected Whisper model (from &lt;code>tiny&lt;/code> to &lt;code>large&lt;/code>) based on your system&amp;rsquo;s available RAM and VRAM (GPU memory), optimizing for performance and accuracy.&lt;/li>
+&lt;li>&lt;strong>Easy Deployment:&lt;/strong> Can be run directly with Uvicorn or easily deployed using Docker and Docker Compose.&lt;/li>
+&lt;li>&lt;strong>Well-Defined API:&lt;/strong> A single &lt;code>/upload-audio/&lt;/code> endpoint handles file uploads and subtitle generation, with clear request and response formats.&lt;/li>
+&lt;li>&lt;strong>File Size Limit:&lt;/strong> The maximum upload file is limited to 50MB.&lt;/li>
+&lt;/ul>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;p>Before you get started, make sure you have the following:&lt;/p></description></item></channel></rss>
