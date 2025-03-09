@@ -1,5 +1,26 @@
+// Custom color overrides for light theme
+$light-colors: (
+  'text-color': #2d3748,
+  'heading-color': #1a202c,
+  'muted-text-color': #4a5568,
+  'accent-color': #3182ce,
+  'bg-card': #ffffff,
+  'bg-body': #f7fafc,
+);
+
+// Custom color overrides for dark theme
+$dark-colors: (
+  'text-color': #e2e8f0,
+  'heading-color': #f7fafc,
+  'muted-text-color': #a0aec0,
+  'accent-color': #63b3ed,
+  'bg-card': #2d3748,
+  'bg-body': #1a202c,
+);
+
 body {
     font-weight: 500;
+    background-color: get-light-color('bg-body');
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -233,6 +254,10 @@ button:not(.github-button):not(.project-btn),
 
 // Dark mode adjustments
 html[data-theme='dark'] {
+    body {
+        background-color: get-dark-color('bg-body');
+    }
+
     .card {
         background: get-dark-color('bg-card');
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 
