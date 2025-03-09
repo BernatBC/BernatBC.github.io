@@ -1,9 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on BernatBC</title><link>https://www.bernatbc.tk/posts/</link><description>Recent content in Posts on BernatBC</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 27 Feb 2025 06:00:23 +0600</lastBuildDate><atom:link href="https://www.bernatbc.tk/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Web to Markdown</title><link>https://www.bernatbc.tk/posts/education/web-to-markdown/</link><pubDate>Thu, 27 Feb 2025 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/web-to-markdown/</guid><description>&lt;h1 id="web-to-markdown">Web-to-Markdown&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on BernatBC</title><link>https://www.bernatbc.tk/posts/</link><description>Recent content in Posts on BernatBC</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 06 Mar 2025 06:00:23 +0600</lastBuildDate><atom:link href="https://www.bernatbc.tk/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Database Embedding</title><link>https://www.bernatbc.tk/posts/education/database-embedding/</link><pubDate>Thu, 06 Mar 2025 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/database-embedding/</guid><description>&lt;h1 id="markdown-to-chromadb-indexer">Markdown to ChromaDB Indexer&lt;/h1>
+&lt;p>This tool indexes markdown files into ChromaDB for efficient semantic search capabilities, with support for both default embeddings and OpenAI&amp;rsquo;s text-embedding-3-small model for enhanced search quality.&lt;/p>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;ul>
+&lt;li>Flexible embedding options:
+&lt;ul>
+&lt;li>Default ChromaDB embeddings (no API key required)&lt;/li>
+&lt;li>Optional OpenAI text-embedding-3-small model for enhanced quality&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Recursively processes markdown files in a directory&lt;/li>
+&lt;li>Intelligent text chunking with configurable size and overlap&lt;/li>
+&lt;li>Sentence-aware splitting to maintain context&lt;/li>
+&lt;li>Extracts and preserves frontmatter metadata&lt;/li>
+&lt;li>Converts markdown to searchable text&lt;/li>
+&lt;li>Stores documents with their metadata in ChromaDB&lt;/li>
+&lt;li>Supports semantic search queries&lt;/li>
+&lt;li>Batch processing for large datasets&lt;/li>
+&lt;/ul>
+&lt;h2 id="installation">Installation&lt;/h2>
+&lt;ol>
+&lt;li>Install the required dependencies:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pip install -r requirements.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>(Optional) Set up OpenAI embeddings:
+&lt;ul>
+&lt;li>Create a &lt;code>.env&lt;/code> file with your OpenAI API key:&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>OPENAI_API_KEY&lt;span style="color:#f92672">=&lt;/span>your_api_key_here
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="usage">Usage&lt;/h2>
+&lt;p>To index your markdown files:&lt;/p></description></item><item><title>Web to Markdown</title><link>https://www.bernatbc.tk/posts/education/web-to-markdown/</link><pubDate>Thu, 27 Feb 2025 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/web-to-markdown/</guid><description>&lt;h1 id="web-to-markdown">Web-to-Markdown&lt;/h1>
 &lt;p>The purpose of this project is to be able to convert the information from any website into a Markdown bucket.&lt;/p>
 &lt;h2 id="usage">Usage&lt;/h2>
 &lt;p>This website has a UI with a text field in the middle. Enter the base URL of the website you want to extract information from and it will automatically find all the attached links to it and also extract information from them.&lt;/p>
 &lt;p>To extract this information we get the HTML using the library trafilatura and parse it using BeautifulSoup and html2text.&lt;/p></description></item><item><title>Subtitle Generator</title><link>https://www.bernatbc.tk/posts/education/subtitle-generator/</link><pubDate>Thu, 20 Feb 2025 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/subtitle-generator/</guid><description>&lt;h1 id="subtitle-generator">Subtitle Generator&lt;/h1>
-&lt;video class="video-player" id="video-139" playsinline controls>
+&lt;video class="video-player" id="video-51" playsinline controls>
 &lt;source src="subtitle_generator.mp4" type="video/mp4" />
 &lt;/video>
 &lt;p>This project provides a web application that automatically generates subtitles (in SRT or VTT format) from audio files. It leverages the power of OpenAI&amp;rsquo;s Whisper speech recognition model for transcription and pyannote.audio for speaker diarization, all wrapped in a user-friendly FastAPI web interface.&lt;/p>
