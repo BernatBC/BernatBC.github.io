@@ -168,6 +168,110 @@ button:not(.github-button):not(.project-btn),
     position: relative;
 }
 
+// Modern card styling
+.card {
+    border: none;
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background: get-light-color('bg-card');
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -2px rgba(0, 0, 0, 0.05);
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.12), 
+                    0 4px 8px -4px rgba(0, 0, 0, 0.07);
+    }
+
+    .card-header {
+        background: transparent;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 1.5rem 1.5rem 1rem;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .card-footer {
+        background: transparent;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 1rem 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: get-light-color('heading-color');
+    }
+
+    .card-text {
+        color: get-light-color('text-color');
+        opacity: 0.9;
+        line-height: 1.6;
+    }
+
+    .sub-title {
+        font-size: 0.9rem;
+        color: get-light-color('text-color');
+        opacity: 0.7;
+    }
+
+    // Modern image styling
+    .card-img-top {
+        border-radius: 16px 16px 0 0;
+        object-fit: cover;
+    }
+
+    .card-img-xs {
+        width: 24px;
+        height: 24px;
+        margin-right: 0.75rem;
+        object-fit: contain;
+    }
+}
+
+// Dark mode adjustments
+html[data-theme='dark'] {
+    .card {
+        background: get-dark-color('bg-card');
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 
+                    0 2px 4px -2px rgba(0, 0, 0, 0.15);
+
+        &:hover {
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3), 
+                        0 4px 8px -4px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card-title {
+            color: get-dark-color('heading-color');
+        }
+
+        .card-text {
+            color: get-dark-color('text-color');
+        }
+
+        .sub-title {
+            color: get-dark-color('text-color');
+        }
+    }
+}
+
+// Modern button styling in cards
+.card .btn {
+    padding: 0.5rem 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
 .project-btn-holder {
     position: absolute;
     top: 1rem;
