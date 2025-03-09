@@ -7,10 +7,47 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tags {
-    a{
-        background-color: get-light-color('bg-card') !important;
+    ul {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 0.5rem !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    li {
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    a {
+        display: inline-block !important;
+        background-color: rgba(0, 0, 0, 0.05) !important;
         color: get-light-color('text-color') !important;
-        border: 1px solid get-light-color('muted-text-color') !important;
+        border: none !important;
+        padding: 0.4rem 1rem !important;
+        border-radius: 20px !important;
+        font-size: 0.9rem !important;
+        transition: all 0.2s ease !important;
+        text-decoration: none !important;
+        margin: 0 !important;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.1) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+        }
+    }
+}
+
+.project-card-footer {
+    .tags {
+        margin-bottom: 1rem;
+        
+        ul {
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -21,6 +58,15 @@ h6 {
 html[data-theme='dark'] {
     h6 {
       color: get-dark-color('text-color');
+    }
+
+    .tags a {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        color: get-dark-color('text-color') !important;
+        
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
     }
 }
 
@@ -66,4 +112,75 @@ pre {
         border-color: get-light-color('muted-text-color');
         opacity: 0.3;
     }
+}
+
+// Common button styles (excluding GitHub and project buttons)
+.btn:not(.project-btn),
+button:not(.github-button):not(.project-btn),
+[class*="btn-"]:not(.project-btn) {
+    border-radius: 20px !important;
+    transition: all 0.2s ease !important;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}
+
+// Project buttons specific styling
+.project-btn {
+    all: unset !important;
+    &:hover {
+        all: unset !important;
+    }
+}
+
+// Reset any inherited styles for GitHub buttons
+.github-button {
+    appearance: none !important;
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font: inherit !important;
+    cursor: pointer !important;
+    outline: none !important;
+    
+    &:hover {
+        all: unset !important;
+        cursor: pointer !important;
+    }
+}
+
+// Project card layout adjustments
+.card {
+    position: relative;
+}
+
+.project-btn-holder {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+}
+
+// Reset GitHub button styles completely
+.github-button {
+    all: revert;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    
+    &:hover {
+        all: revert;
+        background: transparent !important;
+        border: none !important;
+    }
+}
+
+// Remove specific hover styles from GitHub buttons
+.github-button:hover {
+    transform: none !important;
+    box-shadow: none !important;
 }
