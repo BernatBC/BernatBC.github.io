@@ -377,12 +377,13 @@ html[data-theme='dark'] {
         .company-meta {
             display: flex;
             flex-direction: column;
-            gap: 0.25rem;
-            margin-bottom: 0.5rem;  // Changed from 1rem
+            gap: 0rem;  // Changed from 0.25rem
+            margin-bottom: 0.5rem;
             min-width: 175%; // Added to make fields wider
 
-            p {
+            p, span {
                 margin: 0;
+                line-height: 1.5;
             }
         }
     }

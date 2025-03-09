@@ -35,7 +35,6 @@
         </div>
         <!-- Add the responsibilities handled at this position -->
         {{ if $position.responsibilities }}
-            <h6 class="text-heading">{{ i18n "responsibilities" }}</h6>
             <ul class="justify-content-around">
                 {{ range $position.responsibilities }}
                     <li>{{ . | markdownify }}</li>

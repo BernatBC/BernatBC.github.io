@@ -34,21 +34,20 @@
               {{ else }}
                 <h5>{{ .institution.name }}</h5>
               {{ end }}
+              <h5 class="designation">{{ .name }}</h5>
               <div class="company-meta text-muted">
                 <p>{{ .timeframe }}</p>
                 {{ if .grade }}
-                <p><span class="text-heading">{{ .grade.scale }}: </span><span>{{ .grade.achieved }}</span> {{ i18n "out_of"}} <span>{{ .grade.outOf }}</span></p>
+                <span class="text-heading">{{ .grade.scale }}: </span><span>{{ .grade.achieved }}</span> {{ i18n "out_of"}} <span>{{ .grade.outOf }}</span>
                 {{ end }}
               </div>
             </div>
-            <h5 class="designation">{{ .name }}</h5>
           </div>
         </div>
 
         {{ if .takenCourses }}
         {{ $collapseAfter := .takenCourses.collapseAfter | default 2 }}
         <div class="taken-courses">
-          <h6 class="text-heading">{{ i18n "taken_courses"}}:</h6>
           {{ if .takenCourses.showGrades }}
           {{ $hideScale := .takenCourses.hideScale }}
           <table class="table">
