@@ -507,5 +507,15 @@ html[data-theme='dark'] {
                 box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
             }
         }
+
+        table {
+            color: get-dark-color('text-color');
+
+            th, td {
+                background-color: get-dark-color('bg-card');
+                border-color: rgba(255, 255, 255, 0.1);
+                color: get-dark-color('text-color');
+            }
+        }
     }
 }
