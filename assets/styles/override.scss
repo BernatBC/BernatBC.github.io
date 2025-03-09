@@ -48,3 +48,22 @@ pre {
 .highlight pre { 
     margin: 0;
 }
+
+// Footer styling for light mode
+.footer {
+    background-color: get-light-color('bg-card');
+    color: get-light-color('text-color');
+
+    h5 {
+        color: get-light-color('heading-color');
+    }
+
+    a {
+        color: get-light-color('text-color');
+    }
+
+    hr {
+        border-color: get-light-color('muted-text-color');
+        opacity: 0.3;
+    }
+}
