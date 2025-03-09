@@ -656,7 +656,8 @@ html[data-theme='dark'] {
             outline: none !important;
         }
         
-        &::after {
+        // Only show underline animation for main navbar items
+        &:not(.dropdown-item)::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -670,13 +671,71 @@ html[data-theme='dark'] {
             transition: all 0.2s ease;
         }
         
+        // Adjust underline for dropdown items
+        &.dropdown-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%; // Start at 25% of the width
+            right: 25%; // End at 75% of the width
+            height: 2px;
+            background-color: currentColor;
+            border-radius: 2px;
+            opacity: 0;
+            transform: scaleX(0);
+            transition: all 0.2s ease;
+        }
+        
+        &:hover::after,
+        &.active::after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+    }
+
+    // Override Bootstrap's default dropdown styles
+    .dropdown-item {
+        text-decoration: none !important;
+        
         &:hover,
+        &:focus,
+        &:active,
         &.active {
-            font-weight: 600;
+            text-decoration: none !important;
+            background: transparent !important;
+        }
+    }
+
+    .dropdown-menu {
+        .dropdown-item {
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: transparent !important;
+            }
+        }
+    }
+
+    // Update dropdown menu styles
+    .dropdown-menu {
+        .nav-link {
+            text-decoration: none !important;
+            position: relative; // Ensure position is relative for the underline
+
+            &:hover {
+                text-decoration: none !important;
+                background: transparent !important;
+            }
+        }
+
+        .dropdown-item {
+            text-decoration: none !important;
             
-            &::after {
-                opacity: 1;
-                transform: scaleX(1);
+            &:hover,
+            &:active,
+            &:focus {
+                text-decoration: none !important;
+                background: transparent !important;
             }
         }
     }
