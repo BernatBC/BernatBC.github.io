@@ -41,6 +41,11 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+// Add margin after tags in card body
+.card-body .tags {
+    margin-bottom: 1rem !important;
+}
+
 .tags-centered {
     .tags ul {
         justify-content: center !important;
