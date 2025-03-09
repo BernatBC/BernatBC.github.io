@@ -425,3 +425,87 @@ html[data-theme='dark'] {
         }
     }
 }
+
+// Education Section Styling (matching experiences)
+.education-section {
+    .timeline {
+        position: relative;
+        padding: 2rem 0;
+    }
+
+    .col-10 {
+        background: get-light-color('bg-card');
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        margin-bottom: 2rem;
+        width: 100%;
+        max-width: 1000px;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.12);
+        }
+    }
+
+    .experience-entry-heading {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+
+        .logo-holder {
+            flex-shrink: 0;
+            
+            img {
+                width: 60px;
+                height: 60px;
+                object-fit: contain;
+            }
+        }
+
+        .company-details {
+            flex-grow: 1;
+        }
+    }
+
+    .taken-courses {
+        margin-top: 1.5rem;
+        
+        table {
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .hidden-course {
+            display: none;
+        }
+
+        .show-more-btn {
+            &.hidden {
+                display: none;
+            }
+        }
+    }
+
+    .extracurricular-activities,
+    .custom-sections {
+        margin-top: 1.5rem;
+    }
+}
+
+// Dark mode adjustments for education
+html[data-theme='dark'] {
+    .education-section {
+        .col-10 {
+            background: get-dark-color('bg-card');
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+
+            &:hover {
+                box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+}
