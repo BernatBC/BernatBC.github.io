@@ -1,5 +1,26 @@
+// Custom color overrides for light theme
+$light-colors: (
+  'text-color': #2d3748,
+  'heading-color': #1a202c,
+  'muted-text-color': #4a5568,
+  'accent-color': #3182ce,
+  'bg-card': #ffffff,
+  'bg-body': #f7fafc,
+);
+
+// Custom color overrides for dark theme
+$dark-colors: (
+  'text-color': #e2e8f0,
+  'heading-color': #f7fafc,
+  'muted-text-color': #a0aec0,
+  'accent-color': #63b3ed,
+  'bg-card': #2d3748,
+  'bg-body': #1a202c,
+);
+
 body {
     font-weight: 500;
+    background-color: get-light-color('bg-body');
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -7,10 +28,58 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tags {
-    a{
-        background-color: get-light-color('bg-card') !important;
+    ul {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 0.5rem !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    li {
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    a {
+        display: inline-block !important;
+        background-color: rgba(0, 0, 0, 0.05) !important;
         color: get-light-color('text-color') !important;
-        border: 1px solid get-light-color('muted-text-color') !important;
+        border: none !important;
+        padding: 0.4rem 1rem !important;
+        border-radius: 20px !important;
+        font-size: 0.9rem !important;
+        transition: all 0.2s ease !important;
+        text-decoration: none !important;
+        margin: 0 !important;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.1) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+        }
+    }
+}
+
+// Add margin after tags in card body
+.card-body .tags {
+    margin-bottom: 1rem !important;
+}
+
+.tags-centered {
+    .tags ul {
+        justify-content: center !important;
+    }
+}
+
+.project-card-footer {
+    .tags {
+        margin-bottom: 1rem;
+        
+        ul {
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -21,6 +90,15 @@ h6 {
 html[data-theme='dark'] {
     h6 {
       color: get-dark-color('text-color');
+    }
+
+    .tags a {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        color: get-dark-color('text-color') !important;
+        
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
     }
 }
 
@@ -47,4 +125,825 @@ pre {
 
 .highlight pre { 
     margin: 0;
+}
+
+// Footer styling for light mode
+.footer {
+    background-color: get-light-color('bg-card');
+    color: get-light-color('text-color');
+
+    h5 {
+        color: get-light-color('heading-color');
+    }
+
+    a {
+        color: get-light-color('text-color');
+    }
+
+    hr {
+        border-color: get-light-color('muted-text-color');
+        opacity: 0.3;
+    }
+}
+
+// Common button styles (excluding GitHub and project buttons)
+.btn:not(.project-btn),
+button:not(.github-button):not(.project-btn),
+[class*="btn-"]:not(.project-btn) {
+    border-radius: 20px !important;
+    transition: all 0.2s ease !important;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}
+
+// Project buttons specific styling
+.project-btn {
+    all: unset !important;
+    &:hover {
+        all: unset !important;
+    }
+}
+
+// Reset any inherited styles for GitHub buttons
+.github-button {
+    appearance: none !important;
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font: inherit !important;
+    cursor: pointer !important;
+    outline: none !important;
+    
+    &:hover {
+        all: unset !important;
+        cursor: pointer !important;
+    }
+}
+
+// Project card layout adjustments
+.card {
+    position: relative;
+}
+
+// Modern card styling
+.card {
+    border: none;
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background: get-light-color('bg-card');
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -2px rgba(0, 0, 0, 0.05);
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.12), 
+                    0 4px 8px -4px rgba(0, 0, 0, 0.07);
+    }
+
+    .card-header {
+        background: transparent;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 1.5rem 1.5rem 1rem;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .card-footer {
+        background: transparent;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 1rem 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: get-light-color('heading-color');
+    }
+
+    .card-text {
+        color: get-light-color('text-color');
+        opacity: 0.9;
+        line-height: 1.6;
+    }
+
+    .sub-title {
+        font-size: 0.9rem;
+        color: get-light-color('text-color');
+        opacity: 0.7;
+    }
+
+    // Modern image styling
+    .card-img-top {
+        border-radius: 16px 16px 0 0;
+        object-fit: cover;
+    }
+
+    .card-img-xs {
+        width: 24px;
+        height: 24px;
+        margin-right: 0.75rem;
+        object-fit: contain;
+    }
+}
+
+// Dark mode adjustments
+html[data-theme='dark'] {
+    body {
+        background-color: get-dark-color('bg-body');
+    }
+
+    .card {
+        background: get-dark-color('bg-card');
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 
+                    0 2px 4px -2px rgba(0, 0, 0, 0.15);
+
+        &:hover {
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3), 
+                        0 4px 8px -4px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card-title {
+            color: get-dark-color('heading-color');
+        }
+
+        .card-text {
+            color: get-dark-color('text-color');
+        }
+
+        .sub-title {
+            color: get-dark-color('text-color');
+        }
+    }
+}
+
+// Modern button styling in cards
+.card .btn {
+    padding: 0.5rem 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.project-btn-holder {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+}
+
+// Reset GitHub button styles completely
+.github-button {
+    all: revert;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    
+    &:hover {
+        all: revert;
+        background: transparent !important;
+        border: none !important;
+    }
+}
+
+// Remove specific hover styles from GitHub buttons
+.github-button:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+// Modern Experiences Section Styling
+.experiences-section {
+    .timeline {
+        position: relative;
+        padding: 2rem 0;
+    }
+
+    .col-10 {
+        background: get-light-color('bg-card');
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        margin-bottom: 2rem;
+        width: 100%;
+        max-width: 1200px;  // Increased from 1000px
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.12);
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: get-light-color('bg-card');
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .justify-content-end .col-10::before {
+        left: -10px;
+    }
+
+    .col-10:not(.justify-content-end .col-10)::before {
+        right: -10px;
+    }
+
+    .experience-entry-heading {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+
+        .logo-holder {
+            flex-shrink: 0;
+            
+            img {
+                width: 60px;
+                height: 60px;
+                object-fit: contain;
+            }
+        }
+
+        .company-details {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;  // Changed from 1rem
+        }
+
+        .company-heading {
+            flex-grow: 0;
+        }
+
+        .company-overview {
+            margin-top: 0.5rem;
+        }
+
+        .company-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0rem;  // Changed from 0.25rem
+            margin-bottom: 0.5rem;
+            min-width: 175%; // Added to make fields wider
+
+            p, span {
+                margin: 0;
+                line-height: 1.5;
+            }
+        }
+    }
+
+    .designation {
+        color: get-light-color('heading-color');
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+    }
+
+    .horizontal-line {
+        display: none;
+    }
+}
+
+// Dark mode adjustments for experiences
+html[data-theme='dark'] {
+    .experiences-section {
+        .timeline::before {
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.1) 100%);
+        }
+
+        .col-10 {
+            background: get-dark-color('bg-card');
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+
+            &:hover {
+                box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+            }
+
+            &::before {
+                background: get-dark-color('bg-card');
+            }
+        }
+
+        .designation {
+            color: get-dark-color('heading-color');
+        }
+    }
+}
+
+// Education Section Styling (matching experiences)
+.education-section {
+    .timeline {
+        position: relative;
+        padding: 2rem 0;
+    }
+
+    .col-10 {
+        background: get-light-color('bg-card');
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        margin-bottom: 2rem;
+        width: 100%;
+        max-width: 1200px;  // Increased from 1000px
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.12);
+        }
+    }
+
+    .experience-entry-heading {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+
+        .logo-holder {
+            flex-shrink: 0;
+            
+            img {
+                width: 60px;
+                height: 60px;
+                object-fit: contain;
+            }
+        }
+
+        .company-details {
+            flex-grow: 1;
+        }
+    }
+
+    .taken-courses {
+        margin-top: 1.5rem;
+        
+        table {
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .hidden-course {
+            display: none;
+        }
+
+        .show-more-btn {
+            &.hidden {
+                display: none;
+            }
+        }
+    }
+
+    .extracurricular-activities,
+    .custom-sections {
+        margin-top: 1.5rem;
+    }
+}
+
+// Dark mode adjustments for education
+html[data-theme='dark'] {
+    .education-section {
+        .col-10 {
+            background: get-dark-color('bg-card');
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+
+            &:hover {
+                box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        table {
+            color: get-dark-color('text-color');
+
+            th, td {
+                background-color: get-dark-color('bg-card');
+                border-color: rgba(255, 255, 255, 0.1);
+                color: get-dark-color('text-color');
+            }
+        }
+    }
+}
+
+// Navigation buttons styling
+.next-prev-navigator {
+    margin: 2rem 0;
+    
+    .nav-button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        background: get-light-color('bg-card');
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: get-light-color('text-color');
+        gap: 1.5rem;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: get-light-color('bg-card');
+            color: get-light-color('text-color');
+        }
+
+        .nav-text {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;  // Add this line
+            min-height: 2.5rem;
+            
+            .title {
+                font-weight: 600;
+                line-height: 1.3;
+                text-align: center;  // Add this line
+            }
+        }
+
+        i {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+    }
+
+    .prev-button, .next-button {
+        border-radius: 12px;
+        
+        .nav-text {
+            text-align: center;  // Update this line
+        }
+    }
+}
+
+// Dark mode adjustments for navigation buttons
+html[data-theme='dark'] {
+    .next-prev-navigator {
+        .nav-button {
+            background: get-dark-color('bg-card');
+            border-color: rgba(255, 255, 255, 0.1);
+            color: get-dark-color('text-color');
+
+            &:hover {
+                background: get-dark-color('bg-card');
+                color: get-dark-color('text-color');
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+}
+
+// Modern button styling for "Show More" and "Read" buttons
+.recent-posts-section,
+.post-card,
+.education-section {
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        height: 2.5rem;
+        min-width: 120px;
+        line-height: 1;
+        background: get-light-color('bg-card');
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        text-decoration: none !important;
+        color: get-light-color('text-color');
+        border-radius: 12px;
+        font-weight: 600;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: get-light-color('bg-card');
+            color: get-light-color('text-color');
+            text-decoration: none !important;
+        }
+    }
+}
+
+html[data-theme='dark'] {
+    .recent-posts-section,
+    .post-card,
+    .education-section {
+        .btn {
+            background: get-dark-color('bg-card');
+            border-color: rgba(255, 255, 255, 0.1);
+            color: get-dark-color('text-color');
+
+            &:hover {
+                background: get-dark-color('bg-card');
+                color: get-dark-color('text-color');
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+}
+
+.navbar {
+    .nav-link {
+        position: relative;
+        transition: all 0.2s ease;
+        background: transparent !important; // Override Bootstrap background
+        text-decoration: none !important; // Override Bootstrap underline
+        border: none !important; // Ensure no borders
+        outline: none !important; // Remove any outline
+        
+        &:hover,
+        &:focus,
+        &.active {
+            background: transparent !important; // Override Bootstrap background
+            text-decoration: none !important;
+            border: none !important;
+            outline: none !important;
+        }
+        
+        // Only show underline animation for main navbar items
+        &:not(.dropdown-item)::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0.5rem;
+            right: 0.5rem;
+            height: 2px;
+            background-color: currentColor;
+            border-radius: 2px;
+            opacity: 0;
+            transform: scaleX(0);
+            transition: all 0.2s ease;
+        }
+        
+        // Adjust underline for dropdown items
+        &.dropdown-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%; // Start at 25% of the width
+            right: 25%; // End at 75% of the width
+            height: 2px;
+            background-color: currentColor;
+            border-radius: 2px;
+            opacity: 0;
+            transform: scaleX(0);
+            transition: all 0.2s ease;
+        }
+        
+        &:hover::after,
+        &.active::after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+    }
+
+    // Override Bootstrap's default dropdown styles
+    .dropdown-item {
+        text-decoration: none !important;
+        
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            text-decoration: none !important;
+            background: transparent !important;
+        }
+    }
+
+    .dropdown-menu {
+        .dropdown-item {
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: transparent !important;
+            }
+        }
+    }
+
+    // Update dropdown menu styles
+    .dropdown-menu {
+        .nav-link {
+            text-decoration: none !important;
+            position: relative; // Ensure position is relative for the underline
+
+            &:hover {
+                text-decoration: none !important;
+                background: transparent !important;
+            }
+        }
+
+        .dropdown-item {
+            text-decoration: none !important;
+            
+            &:hover,
+            &:active,
+            &:focus {
+                text-decoration: none !important;
+                background: transparent !important;
+            }
+        }
+    }
+}
+
+// Add the hover and active state styles for dark mode
+html[data-theme='dark'] {
+    .navbar {
+        .nav-link {
+            &:hover,
+            &.active {
+                color: get-dark-color('text-color');
+            }
+        }
+    }
+}
+
+// Add the active state styles for dark mode
+html[data-theme='dark'] {
+    .navbar {
+        .nav-link.active {
+            color: get-dark-color('text-color');
+        }
+    }
+}
+
+// Table of Contents Styling
+.toc-holder {
+    position: sticky;
+    top: 2rem;
+    padding: 1.5rem;
+    background: get-light-color('bg-card');
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.12);
+    }
+
+    hr {
+        margin: 1rem 0;
+        opacity: 0.2;
+    }
+
+    nav {
+        max-height: calc(100vh - 200px);
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+
+        ul {
+            padding-left: 1.25rem;
+        }
+    }
+
+    li {
+        margin: 0.5rem 0;
+        
+        a {
+            display: block;
+            padding: 0.25rem 0.5rem;
+            color: get-light-color('text-color');
+            text-decoration: none !important; // Added !important
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            line-height: 1.4;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.1);
+                transform: translateX(3px);
+                text-decoration: none !important; // Added !important
+                color: inherit !important; // Forces the color to stay the same on hover
+            }
+
+            &.active {
+                background-color: rgba(0, 0, 0, 0.15);
+                font-weight: 600;
+                text-decoration: none !important; // Added !important
+                color: inherit !important; // Forces the color to stay the same when active
+            }
+        }
+    }
+}
+
+// Dark mode adjustments for TOC
+html[data-theme='dark'] {
+    .toc-holder {
+        background: get-dark-color('bg-card');
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+
+        &:hover {
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        li a {
+            color: get-dark-color('text-color');
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.05);
+                color: get-dark-color('text-color');
+            }
+        }
+    }
+}
+
+// About section button styling
+.about-buttons {
+    .about-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        height: 2.75rem;
+        min-width: 140px;
+        line-height: 1;
+        background: get-light-color('bg-card');
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        text-decoration: none !important;
+        color: get-light-color('text-color');
+        border-radius: 12px;
+        font-weight: 600;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: get-light-color('bg-card');
+            color: get-light-color('text-color');
+            text-decoration: none !important;
+        }
+
+        &:active, &:focus {
+            text-decoration: none !important;
+        }
+    }
+}
+
+// Dark mode adjustments for about buttons
+html[data-theme='dark'] {
+    .about-buttons {
+        .about-btn {
+            background: get-dark-color('bg-card');
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+
+            &:hover {
+                background: get-dark-color('bg-card');
+                color: #ffffff;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            &:active, &:focus {
+                text-decoration: none !important;
+            }
+        }
+    }
 }

@@ -1,0 +1,108 @@
+{{ $sectionID := replace (lower .section.name) " " "-"  }}
+{{ if .section.id }}
+{{ $sectionID = .section.id }}
+{{ end }}
+
+<div class="container-fluid anchor pb-5 education-section">
+  {{ if not (.section.hideTitle) }}
+    <h1 class="text-center">
+        <span id="{{ $sectionID }}"></span>{{ .section.name }}</h1>
+  {{ else }}
+    <h1 class="text-center" style="display: none">
+        <span id="{{ $sectionID }}"></span>{{ .section.name }}</h1>
+  {{ end }}
+
+  <div class="container timeline text-justify">
+    {{ range .degrees }}
+    <div class="row align-items-center d-flex justify-content-center">
+      <div class="col-10 col-lg-8">
+        <div class="experience-entry-heading">
+          {{ $logoImage:= resources.Get .institution.logo}}
+          {{ $darkLogoImage:= resources.Get .institution.darkLogo}}
+          {{ if $logoImage }}
+          <div class="logo-holder"> 
+              <img class="company-logo light-logo" src="{{ $logoImage.RelPermalink }}" alt="{{ .name }}" />
+              {{ if $darkLogoImage }}
+              <img class="company-logo dark-logo" src="{{ $darkLogoImage.RelPermalink }}" alt="{{ .name }}" />
+              {{ end }}
+          </div>
+          {{ end }}
+          <div class="company-details">
+            <div class="company-heading">
+              {{ if .institution.url }}
+                <h5><a href="{{ .institution.url }}" title="{{ .institution.name }}" target="_blank" rel="noopener">{{ .institution.name }}</a></h5>
+              {{ else }}
+                <h5>{{ .institution.name }}</h5>
+              {{ end }}
+              <h5 class="designation">{{ .name }}</h5>
+              <div class="company-meta text-muted">
+                <p>{{ .timeframe }}</p>
+                {{ if .grade }}
+                <span class="text-heading">{{ .grade.scale }}: </span><span>{{ .grade.achieved }}</span> {{ i18n "out_of"}} <span>{{ .grade.outOf }}</span>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {{ if .takenCourses }}
+        {{ $collapseAfter := .takenCourses.collapseAfter | default 2 }}
+        <div class="taken-courses">
+          {{ if .takenCourses.showGrades }}
+          {{ $hideScale := .takenCourses.hideScale }}
+          <table class="table">
+            <thead>
+              <tr>
+                <th>{{ i18n "course_name"}}</th>
+                {{ if not $hideScale }}<th>{{ i18n "total_credit"}}</th>{{ end }}
+                <th>{{ i18n "obtained_credit"}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ range $index, $course := .takenCourses.courses }}
+              <tr class="course {{ if ge $index $collapseAfter }}hidden-course{{ end }}">
+                <td>{{ .name }}</td>
+                {{ if not $hideScale }}<td>{{ .outOf }}</td>{{ end }}
+                <td>{{ .achieved }}</td>
+              </tr>
+              {{ end }}
+            </tbody>
+          </table>
+          {{ else }}
+          <ul>
+            {{ range $index, $course := .takenCourses.courses }}
+            <li class="course {{ if ge $index $collapseAfter }}hidden-course{{ end }}">{{ .name }}</li>
+            {{ end }}
+          </ul>
+          {{ end }}
+          {{ if gt (len .takenCourses.courses) $collapseAfter }}
+          <button type="button" class="btn show-more-btn pt-0 {{ if .takenCourses.showGrades }}ms-1{{ else }}ms-2{{ end }}" id="show-more-btn">{{ i18n "show_more"}}</button>
+          <button type="button" class="btn show-more-btn hidden pt-0 {{ if .takenCourses.showGrades }}ms-1{{ else }}ms-2{{ end }}" id="show-less-btn">{{ i18n "show_less"}}</button>
+          {{ end }}
+        </div>
+        {{ end }}
+
+        {{ if .extracurricularActivities }}
+        <div class="extracurricular-activities">
+          <h6 class="text-heading">{{ i18n "extracurricular_activities"}}:</h6>
+          <ul>
+          {{ range .extracurricularActivities }}
+            <li>{{ . | markdownify }}</li>
+          {{ end }}
+          </ul>
+        </div>
+        {{ end }}
+
+        {{ if .customSections }}
+        <div class="custom-sections">
+          {{ range .customSections }}
+            <h6 class="text-heading">{{ .name }}:</h6>
+            <div class="custom-content">{{ .content | markdownify }}</div>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>

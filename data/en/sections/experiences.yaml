@@ -14,8 +14,7 @@ experiences:
     name: Build38
     url: "https://build38.com/"
     location: Barcelona, Spain
-    logo: /images/build38.png
-    darkLogo: /images/build38-dark.png
+    logo: /images/build38-short.jpg
     # company overview
     overview: Build38 is the innovative and cutting-edge provider of the next generation AI-based app protection and management platform.
   positions:
