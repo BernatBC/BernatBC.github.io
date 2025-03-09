@@ -20,7 +20,6 @@ $dark-colors: (
 
 body {
     font-weight: 500;
-    background-color: get-light-color('bg-body');
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -254,10 +253,6 @@ button:not(.github-button):not(.project-btn),
 
 // Dark mode adjustments
 html[data-theme='dark'] {
-    body {
-        background-color: get-dark-color('bg-body');
-    }
-
     .card {
         background: get-dark-color('bg-card');
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 
