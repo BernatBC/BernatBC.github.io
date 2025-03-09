@@ -48,16 +48,16 @@
           {{ end }}
         </ul>
       </div>
-      {{ if .resume }}
-      <a href="{{ .resume | relURL }}" title="{{ i18n "resume"}}" target="#"
-        ><button class="btn btn-dark">{{ i18n "resume"}}</button></a
-      >
-      {{ end }}
-      {{ range .resourceLinks }}
-      <a href="{{ .url | relURL }}" title="{{ .title }}" target="#"
-        ><button class="btn btn-dark">{{ .title }}</button></a
-      >
-      {{ end }}
+      <div class="about-buttons mt-4">
+        {{ if .resume }}
+        <a href="{{ .resume | relURL }}" title="{{ i18n "resume"}}" target="_blank" rel="noopener"
+          class="btn about-btn me-3">{{ i18n "resume"}}</a>
+        {{ end }}
+        {{ range .resourceLinks }}
+        <a href="{{ .url | relURL }}" title="{{ .title }}" target="_blank" rel="noopener"
+          class="btn about-btn me-3">{{ .title }}</a>
+        {{ end }}
+      </div>
     </div>
     <!-- soft skills circular-progressbar -->
     <div class="col-sm-6 pt-5 ps-md-4 ps-sm-3 pt-sm-0">

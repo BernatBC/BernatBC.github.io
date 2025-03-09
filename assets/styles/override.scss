@@ -894,3 +894,56 @@ html[data-theme='dark'] {
         }
     }
 }
+
+// About section button styling
+.about-buttons {
+    .about-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        height: 2.75rem;
+        min-width: 140px;
+        line-height: 1;
+        background: get-light-color('bg-card');
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        text-decoration: none !important;
+        color: get-light-color('text-color');
+        border-radius: 12px;
+        font-weight: 600;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: get-light-color('bg-card');
+            color: get-light-color('text-color');
+            text-decoration: none !important;
+        }
+
+        &:active, &:focus {
+            text-decoration: none !important;
+        }
+    }
+}
+
+// Dark mode adjustments for about buttons
+html[data-theme='dark'] {
+    .about-buttons {
+        .about-btn {
+            background: get-dark-color('bg-card');
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+
+            &:hover {
+                background: get-dark-color('bg-card');
+                color: #ffffff;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            &:active, &:focus {
+                text-decoration: none !important;
+            }
+        }
+    }
+}
