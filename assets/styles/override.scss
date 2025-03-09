@@ -588,3 +588,68 @@ html[data-theme='dark'] {
         }
     }
 }
+
+.navbar {
+    .nav-link {
+        position: relative;
+        transition: all 0.2s ease;
+        background: transparent !important; // Override Bootstrap background
+        text-decoration: none !important; // Override Bootstrap underline
+        border: none !important; // Ensure no borders
+        outline: none !important; // Remove any outline
+        
+        &:hover,
+        &:focus,
+        &.active {
+            background: transparent !important; // Override Bootstrap background
+            text-decoration: none !important;
+            border: none !important;
+            outline: none !important;
+        }
+        
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0.5rem;
+            right: 0.5rem;
+            height: 2px;
+            background-color: currentColor;
+            border-radius: 2px;
+            opacity: 0;
+            transform: scaleX(0);
+            transition: all 0.2s ease;
+        }
+        
+        &:hover,
+        &.active {
+            font-weight: 600;
+            
+            &::after {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+        }
+    }
+}
+
+// Add the hover and active state styles for dark mode
+html[data-theme='dark'] {
+    .navbar {
+        .nav-link {
+            &:hover,
+            &.active {
+                color: get-dark-color('text-color');
+            }
+        }
+    }
+}
+
+// Add the active state styles for dark mode
+html[data-theme='dark'] {
+    .navbar {
+        .nav-link.active {
+            color: get-dark-color('text-color');
+        }
+    }
+}
