@@ -299,3 +299,129 @@ html[data-theme='dark'] {
     transform: none !important;
     box-shadow: none !important;
 }
+
+// Modern Experiences Section Styling
+.experiences-section {
+    .timeline {
+        position: relative;
+        padding: 2rem 0;
+    }
+
+    .col-10 {
+        background: get-light-color('bg-card');
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        margin-bottom: 2rem;
+        width: 100%;  // Changed from 90%
+        max-width: 1000px;  // Changed from 800px
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.12);
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: get-light-color('bg-card');
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .justify-content-end .col-10::before {
+        left: -10px;
+    }
+
+    .col-10:not(.justify-content-end .col-10)::before {
+        right: -10px;
+    }
+
+    .experience-entry-heading {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+
+        .logo-holder {
+            flex-shrink: 0;
+            
+            img {
+                width: 60px;
+                height: 60px;
+                object-fit: contain;
+            }
+        }
+
+        .company-details {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;  // Changed from 1rem
+        }
+
+        .company-heading {
+            flex-grow: 0;
+        }
+
+        .company-overview {
+            margin-top: 0.5rem;
+        }
+
+        .company-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            margin-bottom: 0.5rem;  // Changed from 1rem
+            min-width: 175%; // Added to make fields wider
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+
+    .designation {
+        color: get-light-color('heading-color');
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+    }
+
+    .horizontal-line {
+        display: none;
+    }
+}
+
+// Dark mode adjustments for experiences
+html[data-theme='dark'] {
+    .experiences-section {
+        .timeline::before {
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.1) 100%);
+        }
+
+        .col-10 {
+            background: get-dark-color('bg-card');
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+
+            &:hover {
+                box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+            }
+
+            &::before {
+                background: get-dark-color('bg-card');
+            }
+        }
+
+        .designation {
+            color: get-dark-color('heading-color');
+        }
+    }
+}
