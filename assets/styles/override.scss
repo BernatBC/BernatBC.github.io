@@ -254,10 +254,6 @@ button:not(.github-button):not(.project-btn),
 
 // Dark mode adjustments
 html[data-theme='dark'] {
-    body {
-        background-color: get-dark-color('bg-body');
-    }
-
     .card {
         background: get-dark-color('bg-card');
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 
