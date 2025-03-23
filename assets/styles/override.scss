@@ -114,16 +114,20 @@ pre {
     border-radius: 5px;
 }
 
-.copy-code-button {
-    display: flex;
-    justify-content: right;
-    margin-right: 0.2em;
-    margin-bottom: -1.2em;
-    font-size: 20pt;
-}
-
 .highlight pre { 
     margin: 0;
+}
+
+// Copy button styling
+.highlight {
+    position: relative;
+    
+    .copy-code-button {
+        position: absolute;
+        right: -2rem; // Changed from 0.5rem to move it further right
+        top: -0.2rem;
+        z-index: 2;
+    }
 }
 
 // Footer styling for light mode
