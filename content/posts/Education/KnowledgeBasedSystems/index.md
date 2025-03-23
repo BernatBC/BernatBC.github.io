@@ -5,7 +5,7 @@ description: KnowledgeBasedSystems
 theme: Toha
 menu:
   sidebar:
-    name: Knowledge Based Systems
+    name: Workout Planner
     identifier: knowledgebasedsystems
     parent: education
     weight: 500

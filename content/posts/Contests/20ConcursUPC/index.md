@@ -5,7 +5,7 @@ description: Vintè Concurs de Programació de la UPC - Semifinal 2022
 theme: Toha
 menu:
   sidebar:
-    name: Vintè Concurs de Programació de la UPC - Semifinal-2022
+    name: 20th UPC Contest
     identifier: 20concursupc
     parent: contests
     weight: 500
