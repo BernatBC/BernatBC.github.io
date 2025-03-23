@@ -54,7 +54,7 @@
 &lt;h2 id="usage">Usage&lt;/h2>
 &lt;p>This website has a UI with a text field in the middle. Enter the base URL of the website you want to extract information from and it will automatically find all the attached links to it and also extract information from them.&lt;/p>
 &lt;p>To extract this information we get the HTML using the library trafilatura and parse it using BeautifulSoup and html2text.&lt;/p></description></item><item><title>Subtitle Generator</title><link>https://www.bernatbc.tk/posts/education/subtitle-generator/</link><pubDate>Thu, 20 Feb 2025 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/subtitle-generator/</guid><description>&lt;h1 id="subtitle-generator">Subtitle Generator&lt;/h1>
-&lt;video class="video-player" id="video-44" playsinline controls>
+&lt;video class="video-player" id="video-183" playsinline controls>
 &lt;source src="subtitle_generator.mp4" type="video/mp4" />
 &lt;/video>
 &lt;p>This project provides a web application that automatically generates subtitles (in SRT or VTT format) from audio files. It leverages the power of OpenAI&amp;rsquo;s Whisper speech recognition model for transcription and pyannote.audio for speaker diarization, all wrapped in a user-friendly FastAPI web interface.&lt;/p>
