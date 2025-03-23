@@ -5,7 +5,7 @@ description: Lambda Calculus Interpreter
 theme: Toha
 menu:
   sidebar:
-    name: λ-Calculus Telegram Bot
+    name: λ-Calculus Bot
     identifier: lambdacalculusbot
     parent: education
     weight: 500

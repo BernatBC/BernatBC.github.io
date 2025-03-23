@@ -5,7 +5,7 @@ description: Google Hash Code 2022
 theme: Toha
 menu:
   sidebar:
-    name: Google Hash Code 2022
+    name: Google HashCode 2022
     identifier: hashcode2022
     parent: contests
     weight: 500

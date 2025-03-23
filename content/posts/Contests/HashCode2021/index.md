@@ -5,7 +5,7 @@ description: Google Hash Code 2021
 theme: Toha
 menu:
   sidebar:
-    name: Google Hash Code 2021
+    name: Google HashCode 2021
     identifier: hashcode2021
     parent: contests
     weight: 500
