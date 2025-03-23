@@ -13,7 +13,7 @@ function addCopyButtons(clipboard) {
     var pre = codeBlock.parentNode;
     if (pre.parentNode.classList.contains("highlight")) {
       var highlight = pre.parentNode;
-      highlight.parentNode.insertBefore(button, highlight);
+      highlight.insertBefore(button, highlight.firstChild); // Changed this line
     } else {
       pre.parentNode.insertBefore(button, pre);
     }
