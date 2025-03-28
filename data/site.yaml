@@ -3,9 +3,3 @@ copyright: © 2024 Copyright.
 
 # Meta description for your site.  This will help the search engines to find your site.
 description: Personal portfolio of Bernat Borràs Civil.
-
-customMenus:
-- name: Posts
-  url: /posts/
-  hideFromNavbar: false
-  showOnFooter: true

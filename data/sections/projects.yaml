@@ -1,12 +1,3 @@
-section:
-  name: Open Source Projects
-  id: projects
-  enable: true
-  weight: 6
-  showOnNavbar: true
-  # Can optionally hide the title in sections
-  # hideTitle: true
-
 projects:
 - name: Toha
   logo: /images/toha.png

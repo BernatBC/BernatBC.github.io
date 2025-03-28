@@ -1,14 +1,3 @@
-# section information
-section:
-  name: Experiences
-  id: experiences
-  enable: true
-  weight: 3
-  showOnNavbar: true
-  # Can optionally hide the title in sections
-  # hideTitle: true 
-
-# Your experiences
 experiences:
 - company:
     name: Build38
