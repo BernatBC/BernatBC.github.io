@@ -1,8 +1,0 @@
-<div class="tags">
-  <ul style="padding-left: 0;">
-    {{ range . }}
-    {{ $url:= printf "tags/%s/" . }}
-    <li><a href="{{ $url | urlize | relLangURL }}">{{ . }}</a></li>
-    {{ end }}
-  </ul>
-</div>
