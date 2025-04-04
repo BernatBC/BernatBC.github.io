@@ -16,4 +16,10 @@ outputs:
     - RSS
     - JSON
 
-staticDir: ["assets", "static"]
+module:
+  hugoVersion:
+    extended: true
+
+resources:
+  minify:
+    enable: true
