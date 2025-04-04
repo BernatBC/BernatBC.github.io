@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 body.dark-theme {
     background-color: #1e1e1e;
     color: #e0e0e0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif; /* Use Inter font */
     margin: 0;
     padding: 0;
+    text-transform: none; /* Ensure text is not in all caps */
 }
 
 .container {
@@ -56,22 +59,14 @@ body.dark-theme {
     color: #a0a0a0;
 }
 
-.roles a {
-    color: #ff6f61; /* Updated accent color */
-    text-decoration: none;
-}
-
-.roles a:hover {
-    text-decoration: underline;
-}
-
 a {
     color: #ff6f61; /* Updated accent color */
     text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+    color: #ffffff; /* Updated accent color */
+    text-decoration: none;
 }
 
 .bio {
@@ -82,32 +77,8 @@ a:hover {
     color: #d0d0d0;
 }
 
-.bio a {
-    color: inherit; /* Inherit the global anchor color */
-    text-decoration: none;
-}
-
-.bio a:hover {
-    text-decoration: underline;
-}
-
 .contact-links {
     margin-top: 20px;
 }
 
-.contact-link {
-    display: inline-block;
-    margin-right: 15px;
-    font-size: 1rem;
-    color: #ff6f61; /* Updated accent color */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
 
-.contact-link i {
-    margin-right: 8px;
-}
-
-.contact-link:hover {
-    color: #ffffff;
-}
