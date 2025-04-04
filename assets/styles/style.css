@@ -71,21 +71,61 @@ a:hover {
 
 .bio {
     font-size: 1.1rem;
-    line-height: 1.8;
+    line-height: 1.5; /* Reduced line spacing */
     text-align: justify;
     margin-top: 20px;
+    margin-bottom: 30px; /* Added spacing below the bio */
     color: #d0d0d0;
 }
 
-.contact-links {
+.contact-section {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Three columns: left, center, right */
+    align-items: center;
     margin-top: 20px;
 }
 
+.contact-links {
+    display: flex;
+    gap: 15px; /* Add spacing between contact links */
+    justify-content: flex-start; /* Align contact links to the left */
+}
+
 .contact-links a {
-    display: inline-block;
-    margin-right: 15px;
+    display: inline-flex;
+    align-items: center;
     font-size: 1.5rem;
     transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.contact-links a:last-child {
+    font-size: 1.2rem; /* Slightly smaller for the CV button */
+    color: #ff6f61;
+}
+
+.contact-links a:last-child:hover {
+    color: #ffffff;
+}
+
+.cv-download {
+    text-align: center; /* Center-align the button */
+    grid-column: 2; /* Place the button in the center column */
+}
+
+.cv-button {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #ff6f61;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.cv-button:hover {
+    background-color: #e0554f;
 }
 
 

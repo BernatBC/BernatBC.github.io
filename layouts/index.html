@@ -26,12 +26,19 @@
             <div class="bio">
                 {{ .Site.Data.profile.bio | markdownify }}
             </div>
-            <div class="contact-links">
-                {{ range .Site.Data.profile.contactDetails }}
-                    <a href="{{ .url }}" class="contact-link" title="{{ .type }}">
-                        <i class="{{ .icon }}"></i>
+            <div class="contact-section">
+                <div class="contact-links">
+                    {{ range .Site.Data.profile.contactDetails }}
+                        <a href="{{ .url }}" class="contact-link" title="{{ .type }}">
+                            <i class="{{ .icon }}"></i>
+                        </a>
+                    {{ end }}
+                </div>
+                <div class="cv-download">
+                    <a href="{{ (index .Site.Data.profile.resources 0).link }}" class="cv-button" title="My Resume" download>
+                        My Resume
                     </a>
-                {{ end }}
+                </div>
             </div>
         </section>
     </div>
