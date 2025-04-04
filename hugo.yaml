@@ -15,3 +15,5 @@ outputs:
     - HTML
     - RSS
     - JSON
+
+staticDir: ["assets", "static"]

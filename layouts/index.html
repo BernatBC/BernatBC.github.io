@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Site.Title }}</title>
-    <link rel="stylesheet" href="/assets/styles/style.css">
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
-<body>
-    <h1>Hello, World!</h1>
+<body class="dark-theme">
+    <div class="container">
+        <section class="profile-section">
+            <div class="profile-header">
+                <div class="profile-picture-container">
+                    <img src="{{ .Site.Data.profile.personalInfo.profileImage }}" alt="Profile Picture" class="profile-picture">
+                </div>
+                <div class="profile-text">
+                    <h1 class="full-name">{{ .Site.Data.profile.personalInfo.fullName }}</h1>
+                    <h2 class="roles">
+                        {{ range .Site.Data.profile.roles }}
+                            <span>{{ .title }} at <a href="{{ .organization.website }}">{{ .organization.name }}</a></span>
+                        {{ end }}
+                    </h2>
+                </div>
+            </div>
+            <p class="bio">{{ .Site.Data.profile.bio | markdownify }}</p>
+            <div class="contact-links">
+                {{ range .Site.Data.profile.contactDetails }}
+                    <a href="{{ .url }}" class="contact-link">
+                        <i class="{{ .icon }}"></i> {{ .type }}
+                    </a>
+                {{ end }}
+            </div>
+        </section>
+    </div>
 </body>
 </html>
