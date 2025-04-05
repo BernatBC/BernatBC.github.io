@@ -20,7 +20,8 @@
                         <li><a href="#experiences" class="nav-link"><i class="fas fa-briefcase"></i> Experiences</a></li>
                         <li><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
                         <li><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
-                        <li><a href="/posts" class="nav-link"><i class="fas fa-pen"></i> Posts</a></li>
+                        <li><a href="#recent-posts" class="nav-link"><i class="fas fa-newspaper"></i> Recent Posts</a></li>
+                        <li><a href="/posts" class="nav-link"><i class="fas fa-pen"></i> All Posts</a></li>
                     </ul>
                 </div>
             </div>
@@ -228,6 +229,49 @@
                             {{ end }}
                         </div>
                         {{ end }}
+                    </div>
+                </section>
+                
+                <!-- Recent Posts Section -->
+                <section id="recent-posts" class="recent-posts-section">
+                    <h2 class="section-title">Recent Posts</h2>
+                    <div class="recent-posts-container">
+                        {{ range first 3 (where .Site.RegularPages "Section" "posts") }}
+                        <article class="post-card">
+                            {{ if .Params.Description }}
+                            <div class="post-thumbnail">
+                                {{ $section := .CurrentSection.Title }}
+                                {{ $fileName := .File.ContentBaseName }}
+                                {{ $path := printf "posts/%s/%s" $section $fileName }}
+                                {{ with .Resources.GetMatch "thumbnail.*" }}
+                                <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
+                                {{ else }}
+                                <div class="post-thumbnail-placeholder">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                {{ end }}
+                            </div>
+                            {{ end }}
+                            <h3 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                            <div class="post-meta">
+                                <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
+                                {{ if .Params.tags }}
+                                <div class="post-tags">
+                                    {{ range .Params.tags }}
+                                    <span class="post-tag">{{ . }}</span>
+                                    {{ end }}
+                                </div>
+                                {{ end }}
+                            </div>
+                            <div class="post-summary">
+                                {{ .Summary | truncate 150 }}
+                            </div>
+                            <a href="{{ .RelPermalink }}" class="read-more">Read More →</a>
+                        </article>
+                        {{ end }}
+                    </div>
+                    <div class="all-posts-button">
+                        <a href="/posts" class="button">View All Posts</a>
                     </div>
                 </section>
             </div>
