@@ -67,6 +67,53 @@
                 {{ end }}
             </div>
         </section>
+        
+        <!-- Experiences Section -->
+        <section class="experiences-section">
+            <h2 class="section-title">Experiences</h2>
+            <div class="timeline">
+                {{ range .Site.Data.sections.experiences.experiences }}
+                <div class="experience-card">
+                    <div class="experience-header">
+                        {{ if .company.logo }}
+                        <div class="company-logo-container">
+                            <img src="{{ .company.logo }}" alt="{{ .company.name }} logo" class="company-logo">
+                        </div>
+                        {{ end }}
+                        <div class="company-info">
+                            <h3 class="company-name">
+                                <a href="{{ .company.url }}" target="_blank" rel="noopener noreferrer">{{ .company.name }}</a>
+                            </h3>
+                            <p class="company-location">{{ .company.location }}</p>
+                            <p class="company-overview">{{ .company.overview }}</p>
+                        </div>
+                    </div>
+                    <div class="positions-container">
+                        {{ range .positions }}
+                        <div class="position-entry">
+                            <div class="position-header">
+                                <h4 class="position-title">{{ .designation }}</h4>
+                                <div class="position-duration">
+                                    <span>{{ .start }}</span>
+                                    {{ if .end }}
+                                    <span> - {{ .end }}</span>
+                                    {{ else }}
+                                    <span> - Present</span>
+                                    {{ end }}
+                                </div>
+                            </div>
+                            <ul class="position-responsibilities">
+                                {{ range .responsibilities }}
+                                <li>{{ . | markdownify }}</li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </section>
     </div>
     {{ $images := resources.Match "images/*" }}
     {{ range $images }}
