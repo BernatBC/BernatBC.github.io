@@ -21,7 +21,7 @@
                         <li><a href="/#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
                         <li><a href="/#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
                         <li><a href="/#recent-posts" class="nav-link"><i class="fas fa-newspaper"></i> Recent Posts</a></li>
-                        <li><a href="/posts" class="nav-link {{ if eq .Section "posts" }}active{{ end }}"><i class="fas fa-pen"></i> All Posts</a></li>
+                        <li><a href="/posts" class="nav-link active"><i class="fas fa-pen"></i> All Posts</a></li>
                     </ul>
                 </div>
             </div>
@@ -40,13 +40,10 @@
                     {{ end }}
                     
                     <div class="recent-posts-container">
-                        {{ range .Pages }}
+                        {{ range (where .Site.RegularPages "Section" "posts") }}
                         <article class="post-card">
                             {{ if .Params.Description }}
                             <div class="post-thumbnail">
-                                {{ $section := .CurrentSection.Title }}
-                                {{ $fileName := .File.ContentBaseName }}
-                                {{ $path := printf "posts/%s/%s" $section $fileName }}
                                 {{ with .Resources.GetMatch "thumbnail.*" }}
                                 <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
                                 {{ else }}
