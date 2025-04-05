@@ -293,8 +293,8 @@
                         
                         if (targetSection) {
                             // Calculate position with appropriate offset
-                            // Use smaller offset for profile section to ensure it scrolls to top
-                            const offset = targetId === 'profile' ? 20 : 80;
+                            // Use zero offset for profile section to ensure it scrolls fully to top
+                            const offset = targetId === 'profile' ? 120 : 80;
                             const targetPosition = targetSection.offsetTop - offset;
                             
                             // Smooth scroll to the target position

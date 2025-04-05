@@ -15,7 +15,7 @@ body.dark-theme {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    scroll-padding-top: 80px; /* Add scroll padding to account for fixed navbar */
+    scroll-padding-top: 60px; /* Reduced from 80px for better top alignment */
 }
 
 /* Top Navbar Styles */
@@ -103,7 +103,7 @@ body.dark-theme {
     border-radius: $border-radius;
     padding: $large-spacing;
     box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.3); /* 4px 10px equivalent */
-    margin-top: 1rem; /* Add a small margin at the top */
+    margin-top: 0; /* Remove top margin to ensure proper alignment */
 }
 
 .profile-header {
