@@ -43,6 +43,10 @@
             </div>
         </section>
     </div>
+    {{ $images := resources.Match "images/*" }}
+    {{ range $images }}
+        <link rel="preload" href="{{ .Permalink }}" as="image">
+    {{ end }}
     <footer class="footer">
         <div class="footer-contact">
             {{ range .Site.Data.profile.contactDetails }}
