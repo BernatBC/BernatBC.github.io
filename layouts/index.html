@@ -264,7 +264,7 @@
                                 {{ end }}
                             </div>
                             <div class="post-summary">
-                                {{ .Summary | truncate 150 }}
+                                {{ partial "text-only-summary.html" . }}
                             </div>
                             <a href="{{ .RelPermalink }}" class="read-more">Read More →</a>
                         </article>
