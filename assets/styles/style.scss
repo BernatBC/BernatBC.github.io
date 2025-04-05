@@ -350,6 +350,101 @@ a:hover {
     line-height: 1.4;
 }
 
+/* Education Section Styles */
+.education-section {
+    margin-top: $large-spacing;
+}
+
+.education-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: $medium-spacing;
+}
+
+.education-card {
+    background-color: $secondary-background;
+    border-radius: $border-radius;
+    padding: $medium-spacing;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-0.3125rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.education-header {
+    display: flex;
+    gap: $medium-spacing;
+    margin-bottom: $medium-spacing;
+}
+
+.institution-logo-container {
+    flex-shrink: 0;
+}
+
+.institution-logo {
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+    border-radius: 0.5rem;
+}
+
+.education-info {
+    flex-grow: 1;
+}
+
+.degree-name {
+    font-size: 1.3rem;
+    margin: 0 0 $small-spacing;
+    color: $white;
+}
+
+.institution-name {
+    font-size: 1.1rem;
+    margin: 0 0 $small-spacing;
+}
+
+.education-ects {
+    color: $bio-text;
+    font-size: 0.9rem;
+    margin: 0 0 $small-spacing;
+}
+
+.education-timeframe {
+    color: $secondary-text;
+    font-size: 0.9rem;
+    margin: 0 0 $small-spacing;
+}
+
+.education-grade {
+    color: $bio-text;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.education-publications, .education-activities, .education-honors {
+    margin-top: $medium-spacing;
+}
+
+.education-publications h4, .education-activities h4, .education-honors h4 {
+    color: $white;
+    font-size: 1.1rem;
+    margin: 0 0 $small-spacing;
+}
+
+.education-publications ul, .education-activities ul, .education-honors ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: $bio-text;
+}
+
+.education-publications li, .education-activities li, .education-honors li {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
 /* Make the layout responsive */
 @media (max-width: 768px) {
     .skills-container {
@@ -382,5 +477,9 @@ a:hover {
     
     .position-duration {
         margin-top: 0.3rem;
+    }
+
+    .education-header {
+        flex-direction: column;
     }
 }

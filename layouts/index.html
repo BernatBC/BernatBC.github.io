@@ -114,6 +114,67 @@
                 {{ end }}
             </div>
         </section>
+        
+        <!-- Education Section -->
+        <section class="education-section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-timeline">
+                {{ range .Site.Data.sections.education.degrees }}
+                <div class="education-card">
+                    <div class="education-header">
+                        {{ if .institution.logo }}
+                        <div class="institution-logo-container">
+                            <img src="{{ .institution.logo }}" alt="{{ .institution.name }} logo" class="institution-logo">
+                        </div>
+                        {{ end }}
+                        <div class="education-info">
+                            <h3 class="degree-name">{{ .name }}</h3>
+                            <p class="institution-name">
+                                <a href="{{ .institution.url }}" target="_blank" rel="noopener noreferrer">{{ .institution.name }}</a>
+                            </p>
+                            <p class="education-timeframe">{{ .timeframe }}</p>
+                            {{ if .ects }}
+                            <p class="education-ects">{{ .ects }} ects</p>
+                            {{ end }}
+                            {{ if .grade }}
+                            <p class="education-grade">{{ .grade.scale }}: {{ .grade.achieved }}/{{ .grade.outOf }}</p>
+                            {{ end }}
+                        </div>
+                    </div>
+                    {{ if .honors }}
+                    <div class="education-honors">
+                        <h4>Honors & Awards</h4>
+                        <ul>
+                            {{ range .honors }}
+                            <li>{{ . | markdownify }}</li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                    {{ end }}
+                    {{ if .publications }}
+                    <div class="education-publications">
+                        <h4>Publications</h4>
+                        <ul>
+                            {{ range .publications }}
+                            <li><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a></li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                    {{ end }}
+                    {{ if .extracurricularActivities }}
+                    <div class="education-activities">
+                        <h4>Extracurricular Activities</h4>
+                        <ul>
+                            {{ range .extracurricularActivities }}
+                            <li>{{ . | markdownify }}</li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+        </section>
     </div>
     {{ $images := resources.Match "images/*" }}
     {{ range $images }}
