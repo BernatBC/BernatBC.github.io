@@ -11,6 +11,7 @@ menu:
     weight: 500
 draft: false
 tags: ["Contest", "Figma"]
+thumbnail: hero.jpg
 ---
 
 ## About Junction 2023

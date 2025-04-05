@@ -12,6 +12,7 @@ menu:
 draft: false
 tags: ["AI", "PDDL", "Education"]
 math: true
+thumbnail: hero.png
 ---
 
 ## The statement

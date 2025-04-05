@@ -12,6 +12,7 @@ menu:
 draft: false
 tags: ["AI", "Computer Vision", "Matlab", "Python", "Education"]
 math: true
+thumbnail: hero.png
 ---
 
 ## The statement

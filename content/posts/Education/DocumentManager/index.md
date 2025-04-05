@@ -12,6 +12,7 @@ menu:
 draft: false
 tags: ["Education", "Java"]
 math: true
+thumbnail: hero.png
 ---
 
 ## The statement

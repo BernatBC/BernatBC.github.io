@@ -11,6 +11,7 @@ menu:
     weight: 500
 draft: false
 tags: ["Contest", "C#", "Unity", "Videogame"]
+thumbnail: hero.jpg
 ---
 
 <div style="position:relative;padding-bottom:55.66%;     zoom: 0.9;

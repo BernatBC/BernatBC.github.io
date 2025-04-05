@@ -915,3 +915,15 @@ a:hover {
     border-radius: 1rem;
     display: inline-block;
 }
+
+.post-featured-image {
+    margin: $medium-spacing 0;
+    border-radius: $border-radius;
+    overflow: hidden;
+    max-height: 400px;
+}
+
+.post-featured-image img {
+    width: 100%;
+    object-fit: cover;
+}

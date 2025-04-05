@@ -12,6 +12,7 @@ menu:
 draft: false
 tags: ["AI", "Clips", "Education"]
 math: true
+thumbnail: hero.png
 ---
 
 ## The statement

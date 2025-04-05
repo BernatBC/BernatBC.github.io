@@ -12,6 +12,7 @@ menu:
 draft: false
 tags: ["AI", "Education", "Mini-hackathon", "Python"]
 math: true
+thumbnail: hero.png
 ---
 
 # LLM Chat RAG - CLI Interface

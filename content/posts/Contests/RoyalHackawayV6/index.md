@@ -11,6 +11,7 @@ menu:
     weight: 500
 draft: false
 tags: ["AI", "Contest", "C#", "PDDL", "Unity", "Videogame"]
+thumbnail: hero.png
 ---
 
 ## About Royal Hackaway

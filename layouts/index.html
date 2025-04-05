@@ -240,10 +240,7 @@
                         <article class="post-card">
                             {{ if .Params.Description }}
                             <div class="post-thumbnail">
-                                {{ $section := .CurrentSection.Title }}
-                                {{ $fileName := .File.ContentBaseName }}
-                                {{ $path := printf "posts/%s/%s" $section $fileName }}
-                                {{ with .Resources.GetMatch "thumbnail.*" }}
+                                {{ with .Resources.GetMatch (printf "%s*" .Params.thumbnail) }}
                                 <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
                                 {{ else }}
                                 <div class="post-thumbnail-placeholder">

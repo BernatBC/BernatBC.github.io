@@ -44,7 +44,7 @@
                         <article class="post-card">
                             {{ if .Params.Description }}
                             <div class="post-thumbnail">
-                                {{ with .Resources.GetMatch "thumbnail.*" }}
+                                {{ with .Resources.GetMatch (printf "%s*" .Params.thumbnail) }}
                                 <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
                                 {{ else }}
                                 <div class="post-thumbnail-placeholder">

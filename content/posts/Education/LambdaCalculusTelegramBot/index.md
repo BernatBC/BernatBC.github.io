@@ -12,6 +12,7 @@ menu:
 draft: false
 tags: ["ANTLR4", "Bot", "Python", "Telegram", "Education"]
 math: true
+thumbnail: hero.png
 ---
 
 ## The statement

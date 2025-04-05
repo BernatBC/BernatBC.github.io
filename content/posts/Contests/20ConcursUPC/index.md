@@ -11,6 +11,7 @@ menu:
     weight: 500
 draft: false
 tags: ["Contest", "C++"]
+thumbnail: hero.png
 ---
 
 ## About the contest

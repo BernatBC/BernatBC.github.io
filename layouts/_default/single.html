@@ -33,6 +33,11 @@
                 <article class="post-single">
                     <header class="post-header">
                         <h1 class="section-title">{{ .Title }}</h1>
+                        {{ with .Resources.GetMatch (printf "%s*" .Params.thumbnail) }}
+                        <div class="post-featured-image">
+                            <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
+                        </div>
+                        {{ end }}
                         <div class="post-meta">
                             <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
                             {{ if .Params.tags }}
