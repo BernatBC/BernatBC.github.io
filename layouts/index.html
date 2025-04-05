@@ -175,6 +175,41 @@
                 {{ end }}
             </div>
         </section>
+        
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <h2 class="section-title">Open Source Projects</h2>
+            <div class="projects-container">
+                {{ range .Site.Data.sections.projects.projects }}
+                <div class="project-card">
+                    <div class="project-header">
+                        {{ if .logo }}
+                        <div class="project-logo-container">
+                            <img src="{{ .logo }}" alt="{{ .name }} logo" class="project-logo">
+                        </div>
+                        {{ end }}
+                        <div class="project-info">
+                            <h3 class="project-name">
+                                <a href="{{ .repo }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a>
+                            </h3>
+                            <p class="project-role">{{ .role }}</p>
+                            <p class="project-timeline">{{ .timeline }}</p>
+                        </div>
+                    </div>
+                    <div class="project-summary">
+                        <p>{{ .summary | markdownify }}</p>
+                    </div>
+                    {{ if .tags }}
+                    <div class="project-tags">
+                        {{ range .tags }}
+                        <span class="project-tag">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+        </section>
     </div>
     {{ $images := resources.Match "images/*" }}
     {{ range $images }}
