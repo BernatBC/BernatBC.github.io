@@ -124,3 +124,34 @@ a:hover {
     text-align: center; /* Center-align the button */
     grid-column: 2; /* Place the button in the center column */
 }
+
+.footer {
+    background-color: $secondary-background;
+    color: $secondary-text;
+    text-align: center;
+    padding: $medium-spacing;
+    margin-top: $large-spacing;
+    border-top: 0.0625rem solid $accent-color; /* 1px equivalent */
+}
+
+.footer-contact {
+    display: flex;
+    justify-content: center;
+    gap: $small-spacing;
+    margin-bottom: $small-spacing;
+}
+
+.footer-link {
+    font-size: 1.5rem;
+    color: $light-text;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: $accent-color;
+}
+
+.footer-copyright p {
+    margin: 0.25rem 0;
+    font-size: 0.875rem; /* 14px equivalent */
+}

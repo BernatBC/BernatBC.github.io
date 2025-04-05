@@ -43,5 +43,18 @@
             </div>
         </section>
     </div>
+    <footer class="footer">
+        <div class="footer-contact">
+            {{ range .Site.Data.profile.contactDetails }}
+                <a href="{{ .url }}" class="footer-link" title="{{ .type }}">
+                    <i class="{{ .icon }}"></i>
+                </a>
+            {{ end }}
+        </div>
+        <div class="footer-copyright">
+            <p>{{ .Site.Data.site.copyright }}</p>
+            <p>Powered by <a href="https://gohugo.io" target="_blank">gohugo</a></p>
+        </div>
+    </footer>
 </body>
 </html>
