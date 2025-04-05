@@ -155,3 +155,113 @@ a:hover {
     margin: 0.25rem 0;
     font-size: 0.875rem; /* 14px equivalent */
 }
+
+/* Skills Section Styles */
+.skills-section {
+    margin-top: $large-spacing;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: $medium-spacing;
+    color: $white;
+    text-align: center;
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 5rem;
+    height: 0.25rem;
+    background: $accent-color;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: $medium-spacing;
+    margin-top: $medium-spacing;
+}
+
+.skill-card {
+    background-color: $secondary-background;
+    border-radius: $border-radius;
+    padding: $medium-spacing;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-card:hover {
+    transform: translateY(-0.3125rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: $small-spacing;
+}
+
+.skill-logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+    margin-right: $small-spacing;
+}
+
+.skill-name {
+    color: $white;
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.skill-description {
+    color: $bio-text;
+    font-size: 1rem;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+.skill-link {
+    margin-top: $small-spacing;
+    text-align: right;
+}
+
+.skill-link a {
+    color: $accent-color;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.skill-link a:hover {
+    color: $white;
+    text-decoration: underline;
+}
+
+/* Make the layout responsive */
+@media (max-width: 768px) {
+    .skills-container {
+        grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-links, .cv-download {
+        grid-column: 1;
+        justify-content: center;
+        margin-bottom: $small-spacing;
+    }
+}
