@@ -674,6 +674,107 @@ a:hover {
     }
 }
 
+/* Post container with TOC */
+.post-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 17rem;
+    gap: $medium-spacing;
+}
+
+/* TOC styles */
+.toc-container {
+    position: sticky;
+    top: 5rem;
+    height: fit-content;
+    align-self: start;
+}
+
+.toc {
+    background-color: $secondary-background;
+    border-radius: $border-radius;
+    padding: $medium-spacing;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    font-size: 0.95rem;
+    max-height: calc(100vh - 10rem);
+    overflow-y: auto;
+}
+
+.toc-title {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: $medium-spacing;
+    color: $white;
+    border-bottom: 1px solid rgba($accent-color, 0.2);
+    padding-bottom: $small-spacing;
+}
+
+.toc-title i {
+    margin-right: 0.5rem;
+    color: $accent-color;
+}
+
+.toc-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.toc-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.toc-content a {
+    color: $light-text;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.toc-content a:hover, .toc-content a.active {
+    color: $accent-color;
+    background-color: rgba($accent-color, 0.1);
+}
+
+.toc-h2 {
+    font-weight: 600;
+}
+
+.toc-h3 {
+    padding-left: 1rem;
+    font-size: 0.9rem;
+}
+
+.toc-h4 {
+    padding-left: 2rem;
+    font-size: 0.85rem;
+}
+
+/* Post content in TOC layout */
+.post-container .post-single {
+    width: 100%;
+}
+
+/* Responsive layout adjustments for TOC */
+@media (max-width: 992px) {
+    .post-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .toc-container {
+        position: relative;
+        top: 0;
+        margin-bottom: $medium-spacing;
+        order: -1; /* Move TOC above content on mobile */
+    }
+    
+    .toc {
+        max-height: none;
+    }
+}
+
 @media (max-width: 768px) {
     .skills-container, .projects-container {
         grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
@@ -717,6 +818,33 @@ a:hover {
 
     .recent-posts-container {
         grid-template-columns: 1fr;
+    }
+
+    .post-single {
+        padding: $medium-spacing;
+    }
+    
+    .post-meta-top {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .post-author {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .post-navigation {
+        flex-direction: column;
+        gap: $small-spacing;
+    }
+    
+    .prev-post, .next-post {
+        max-width: 100%;
+    }
+    
+    .toc-container {
+        margin-top: 0;
     }
 }
 
@@ -1311,5 +1439,67 @@ a:hover {
     
     .prev-post, .next-post {
         max-width: 100%;
+    }
+}
+
+/* Content wrapper for post page with TOC */
+.content-wrapper {
+    display: flex;
+    position: relative;
+    min-height: calc(100vh - 60px); /* Account for navbar height */
+}
+
+/* Main content adjustments for TOC */
+.content-wrapper .main-content {
+    flex: 1;
+    width: calc(100% - 17rem); /* Subtract TOC width */
+    margin-left: auto;
+}
+
+/* TOC styles - outside main content */
+.toc-container {
+    position: fixed;
+    top: 5rem; /* Positioned below navbar */
+    left: 1.5rem;
+    width: 15rem;
+    z-index: 100;
+    height: calc(100vh - 7rem); /* Subtract navbar and some padding */
+}
+
+.toc {
+    background-color: $secondary-background;
+    border-radius: $border-radius;
+    padding: $medium-spacing;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    font-size: 0.95rem;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+/* Responsive layout adjustments for TOC */
+@media (max-width: 992px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .content-wrapper .main-content {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .toc-container {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        max-width: 62.5rem; /* Match container max-width */
+        padding: 0 $medium-spacing;
+    }
+    
+    .toc {
+        max-height: none;
+        margin-bottom: $medium-spacing;
     }
 }
