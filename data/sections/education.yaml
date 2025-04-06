@@ -1,0 +1,55 @@
+degrees:
+- name: Master's Degree in Informatics Engineering
+  icon: fa-graduation-cap
+  timeframe: September 2024 - Present
+  ects: 90
+  institution:
+    name: Universitat Politècnica de Catalunya - Facultat d'Informàtica de Barcelona
+    url: "https://www.fib.upc.edu/en"
+    logo: /images/upc-short.png 
+  grade: #(optional)
+    scale: Average mark
+    achieved: 8.48
+    outOf: 10
+
+- name: Bachelor's Degree in Informatics Engineering specialization in Computer Science
+  icon: fa-graduation-cap
+  timeframe: "September 2020 - June 2024"
+  ects: 240
+  institution:
+    name: Universitat Politècnica de Catalunya - Facultat d'Informàtica de Barcelona
+    url: "https://www.fib.upc.edu/en"
+    logo: /images/upc-short.png 
+  grade: #(optional)
+    scale: Average mark
+    achieved: 8.28
+    outOf: 10
+
+  honors:
+  - "Bachelor thesis: 10/10 (MH)"
+      
+  publications: #(optional)
+  - title: Creació d'un visualitzador de fotografies en 3D
+    url: "https://upcommons.upc.edu/handle/2117/411671"
+  extracurricularActivities: #(optional)
+  - Contributor of [RepoFIBtori](https://github.com/RepoFIBtori/RepoFIBtori), a platform to share class notes and solved exercises.
+  - Contestant in [II UPC Online  Chess Tournament](https://www.chess.com/tournament/ii-torneig-esports-upc).
+  - Contestant in [III UPC Online  Chess Tournament](https://www.chess.com/tournament/iii-torneig-esports-upc).
+  - Contestant in [Vintè Concurs de Programació de la UPC](posts/competitions/20concursupc/).
+
+- name: Exchange studies (Erasmus+ Programme)
+  icon: fa-graduation-cap
+  timeframe: August 2023 - December 2023
+  ects: 30
+  institution:
+    name: Aalto University - School of Science
+    url: "https://www.aalto.fi/en/school-of-science"
+    logo: /images/aalto-dark-short.png
+    darkLogo: /images/aalto-dark-short.png
+  grade: #(optional)
+    scale: Average mark
+    achieved: 4.8
+    outOf: 5
+ 
+  extracurricularActivities:
+  - Contestant in [Nordic Collegiate Programming Contest](https://nordic.icpc.io/ncpc2023/).

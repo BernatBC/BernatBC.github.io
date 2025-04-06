@@ -12,6 +12,7 @@ menu:
 draft: false
 tags: ["Education", "Mini-hackathon", "Python"]
 math: true
+thumbnail: hero.png
 ---
 
 # Web-to-Markdown

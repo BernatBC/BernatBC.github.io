@@ -12,6 +12,7 @@ menu:
 draft: false
 tags: ["Education", "JavaScript", "OpenSeaDragon", "ThreeJS"]
 math: true
+thumbnail: hero.png
 ---
 
 ## Introduction

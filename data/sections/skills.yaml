@@ -1,0 +1,46 @@
+skills:
+
+- name: C, C++, C#
+  logo: /images/c++.png
+  summary: "Using it as the main programming language. Used in Build38, college, contest programming and for game developing."
+  url: "https://isocpp.org/"
+
+- name: Java & Kotlin
+  logo: /images/java.png
+  summary: "Used mainly for developing Android wrappers and apps in Build38. Also used in side projects."
+  url: "https://kotlinlang.org/"
+
+- name: Swift
+  logo: /images/swift.png
+  summary: "Used for developing iOS wrappers and apps in Build38."
+  url: "https://swift.org/"
+
+- name: Python
+  logo: /images/python.png
+  summary: "I've use it in many college subjects. I created a Telegram Bot, used for various machine learning models, and some scripting for a Neural Network."
+  url: "https://www.python.org/"
+
+- name: Unity
+  logo: /images/unity.png
+  summary: "Medium understanding. Used to develop some video games, as well as a VR and an AR app."
+  url: "https://unity.com/"
+
+- name: Web development
+  logo: /images/web.webp
+  summary: "Created some websites with it, including this one. Also contributed to the theme of this site."
+  url: "https://developer.mozilla.org/en-US/docs/Web"
+
+- name: PostgreSQL
+  logo: /images/postgresql.png
+  summary: "Basic knowledge of this object-relational database system. I have used it in college in Data Bases courses."
+  url: "https://www.postgresql.org/"
+
+- name: Git
+  logo: /images/git.png
+  summary: "Experienced with git-based development. Mostly, use GitHub and Bitbucket. Also, have experience in working with GitLab."
+  url: "https://git-scm.com/"
+
+- name: Linux
+  logo: /images/linux.png
+  summary: "Using as the main operating system. I'm used to interact with it via the command line. Shell scripting is also one of my strengths."
+  url: "https://www.kernel.org/"

@@ -1,0 +1,18 @@
+{{ $content := .Content }}
+{{ $paragraphs := findRE "<p>(.|\n)*?</p>" $content }}
+{{ $foundText := false }}
+{{ $textSummary := "" }}
+
+{{ range $paragraphs }}
+  {{ $plainText := . | plainify | htmlUnescape | strings.TrimSpace }}
+  {{ if and (not $foundText) (ne $plainText "") }}
+    {{ $textSummary = $plainText }}
+    {{ $foundText = true }}
+  {{ end }}
+{{ end }}
+
+{{ if $foundText }}
+  {{ $textSummary | truncate 150 }}
+{{ else }}
+  {{ .Summary | plainify | htmlUnescape | truncate 150 }}
+{{ end }}

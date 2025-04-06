@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} - {{ .Site.Title }}</title>
+    {{ $style := resources.Get "styles/style.scss" | css.Sass | resources.Minify }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <div class="page-wrapper">
+        <!-- Top Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-nav" id="navbar-nav">
+                    <ul>
+                        <li><a href="/#profile" class="nav-link"><i class="fas fa-user"></i> Profile</a></li>
+                        <li><a href="/#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a></li>
+                        <li><a href="/#experiences" class="nav-link"><i class="fas fa-briefcase"></i> Experiences</a></li>
+                        <li><a href="/#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                        <li><a href="/#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                        <li><a href="/#recent-posts" class="nav-link"><i class="fas fa-newspaper"></i> Recent Posts</a></li>
+                        <li><a href="/posts" class="nav-link active"><i class="fas fa-pen"></i> All Posts</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="container">
+                <section class="posts-section">
+                    <h1 class="section-title">{{ .Title }}</h1>
+                    
+                    {{ if .Content }}
+                    <div class="posts-introduction">
+                        {{ .Content }}
+                    </div>
+                    {{ end }}
+                    
+                    <div class="recent-posts-container">
+                        {{ range (where .Site.RegularPages "Section" "posts") }}
+                        <article class="post-card">
+                            {{ if .Params.Description }}
+                            <div class="post-thumbnail">
+                                {{ with .Resources.GetMatch (printf "%s*" .Params.thumbnail) }}
+                                <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
+                                {{ else }}
+                                <div class="post-thumbnail-placeholder">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                {{ end }}
+                            </div>
+                            {{ end }}
+                            <h3 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                            <div class="post-meta">
+                                <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
+                                {{ if .Params.tags }}
+                                <div class="post-tags">
+                                    {{ range .Params.tags }}
+                                    <span class="post-tag">{{ . }}</span>
+                                    {{ end }}
+                                </div>
+                                {{ end }}
+                            </div>
+                            <div class="post-summary">
+                                {{ partial "text-only-summary.html" . }}
+                            </div>
+                            <a href="{{ .RelPermalink }}" class="read-more">Read More →</a>
+                        </article>
+                        {{ end }}
+                    </div>
+                </section>
+            </div>
+            
+            <footer class="footer">
+                <div class="footer-contact">
+                    {{ range .Site.Data.profile.contactDetails }}
+                        <a href="{{ .url }}" class="footer-link" title="{{ .type }}">
+                            <i class="{{ .icon }}"></i>
+                        </a>
+                    {{ end }}
+                </div>
+                <div class="footer-copyright">
+                    <p>{{ .Site.Data.site.copyright }}</p>
+                    <p>Powered by <a href="https://gohugo.io" target="_blank">gohugo</a></p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Mobile navigation toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbarToggle = document.getElementById('navbar-toggle');
+            const navbarNav = document.getElementById('navbar-nav');
+            
+            if (navbarToggle) {
+                navbarToggle.addEventListener('click', function() {
+                    navbarNav.classList.toggle('show');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

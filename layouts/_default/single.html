@@ -1,180 +1,255 @@
-{{ define "header" }}
-<meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Title }}{{ end }}" />
-{{ with .Params.relcanonical }}
-<link rel="canonical" href="{{ . | relLangURL }}" itemprop="url" />
-{{ end }}
-{{ end }}
-
-{{ define "navbar" }}
-    {{ partial "navigators/navbar.html" . }}
-{{ end }}
-
-{{ define "sidebar" }}
-  <section class="sidebar-section" id="sidebar-section">
-    <div class="sidebar-holder">
-      <div class="sidebar" id="sidebar">
-        <form class="mx-auto" method="get" action="{{ "search" | relLangURL }}">
-          <input type="text" name="keyword" value="" placeholder="{{ i18n "search" }}" data-search="" id="search-box" />
-        </form>
-        <div class="sidebar-tree">
-          <ul class="tree" id="tree">
-            <li id="list-heading"><a href="{{ "/posts/" | relLangURL }}" data-filter="all">{{ i18n "posts" }}</a></li>
-            <div class="subtree">
-                {{ partial "navigators/sidebar.html" (dict "menuName" "sidebar" "menuItems" site.Menus.sidebar "ctx" .) }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} - {{ .Site.Title }}</title>
+    {{ $style := resources.Get "styles/style.scss" | css.Sass | resources.Minify }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!--katex-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</head>
+<body class="dark-theme">
+    <div class="page-wrapper">
+        <!-- Top Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <button id="navbar-toggle" class="navbar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="navbar-nav" id="navbar-nav">
+                    <ul>
+                        <li><a href="/#profile" class="nav-link"><i class="fas fa-user"></i> Profile</a></li>
+                        <li><a href="/#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a></li>
+                        <li><a href="/#experiences" class="nav-link"><i class="fas fa-briefcase"></i> Experiences</a></li>
+                        <li><a href="/#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                        <li><a href="/#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                        <li><a href="/#recent-posts" class="nav-link"><i class="fas fa-newspaper"></i> Recent Posts</a></li>
+                        <li><a href="/posts" class="nav-link {{ if eq .Section "posts" }}active{{ end }}"><i class="fas fa-pen"></i> All Posts</a></li>
+                    </ul>
+                </div>
             </div>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-{{ end }}
-
-{{ define "content" }}
-<section class="content-section" id="content-section">
-  <div class="content">
-    <div class="container p-0 read-area">
-      <!--Hero Area-->
-      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url({{ partial "helpers/get-hero.html" . }});'>
-      </div>
-
-      <!--Content Start-->
-      <div class="page-content">
-        {{ if site.Params.features.blog.showAuthor | default true }}
-        <div class="author-profile ms-auto align-self-lg-center">
-          <img class="rounded-circle" src='{{ partial "helpers/get-author-image.html" . }}' alt="Author Image">
-          <h5 class="author-name">{{ partial "helpers/get-author-name.html" . }}</h5>
-          <p class="text-muted">{{ .Page.Date | time.Format ":date_full" }}{{ if site.Params.features.readingTime }} | {{ .ReadingTime }} {{i18n "minute" .ReadingTime }}{{ end }}</p>
-        </div>
-        {{ else }}
-        <div style="margin-bottom: 80px;"></div>
-        {{ end }}
-
-        <div class="title">
-          <h1>{{ .Page.Title }}</h1>
-        </div>
-
-        {{ if not (site.Params.features.blog.showAuthor | default true) }}
-        <div class="author-profile ms-auto align-self-lg-center">
-          <p class="text-muted">{{ .Page.Date | time.Format ":date_full" }}{{ if site.Params.features.readingTime }} | {{ .ReadingTime }} {{i18n "minute" .ReadingTime }}{{ end }}</p>
-        </div>
-        {{ end }}
-
-        {{ if site.Params.features.tags.enable }}
-          <div class="tags-centered">
-            {{partial "misc/tags.html" .Params.tags }}
-          </div>
-        {{ end }}
-        <div class="post-content" id="post-content">
-          {{ .Page.Content }}
-        </div>
-
-        <!-- Share or Contribute -->
-        <div class="row ps-3 pe-3">
-        <!--Social Media Share Buttons-->
-          <div class="col-md-6 share-buttons">
-          {{ if site.Params.features.blog.shareButtons }}
-            <strong>{{ i18n "share_on" }}:</strong>
-            {{ if site.Params.features.blog.shareButtons.facebook }}
-            <a class="btn icon-button bg-facebook" href="https://www.facebook.com/sharer.php?u={{ .Permalink }}" target="_blank">
-              <i class="fab fa-facebook"></i>
-            </a>
-            {{ end }}
-            {{ if site.Params.features.blog.shareButtons.twitter }}
-                <a class="btn icon-button bg-twitter" href="https://twitter.com/share?url={{ .Permalink }}&text={{ .Title }}&via={{- site.Title -}}" target="_blank">
-                  <i class="fab fa-twitter"></i>
-                </a>
-            {{ end }}
-            {{ if site.Params.features.blog.shareButtons.reddit }}
-                <a  class="btn icon-button bg-reddit" href="https://reddit.com/submit?url={{ .Permalink }}&title={{ .Title }}" target="_blank">
-                  <i class="fab fa-reddit"></i>
-                </a>
-            {{ end }}
-            {{ if site.Params.features.blog.shareButtons.tumblr }}
-                <a class="btn icon-button bg-tumblr" href="https://www.tumblr.com/share/link?url={{ .Permalink }}&name={{ .Title }}{{- with .Params.description -}}&description={{- . -}}{{- end -}}" target="_blank">
-                  <i class="fab fa-tumblr"></i>
-                </a>
-            {{ end }}
-            {{ if site.Params.features.blog.shareButtons.pocket }}
-                <a class="btn icon-button bg-pocket" href="https://getpocket.com/save?url={{ .Permalink }}&title={{ .Title }}" target="_blank">
-                  <i class="fab fa-get-pocket"></i>
-                </a>
-            {{ end }}
-            {{ if site.Params.features.blog.shareButtons.linkedin }}
-                <a class="btn icon-button bg-linkedin" href="https://www.linkedin.com/shareArticle?url={{ .Permalink }}&title={{ .Title }}" target="_blank">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-            {{ end }}
-            {{ if site.Params.features.blog.shareButtons.diaspora }}
-                <a class="btn icon-button bg-diaspora" href="https://share.diasporafoundation.org/?title={{ .Title }}&url={{ .Permalink }}" rel="nofollow" target="_blank">
-                  <i class="fab fa-diaspora"></i>
-                </a>
-            {{ end }}
-             {{ if site.Params.features.blog.shareButtons.mastodon }}
-                <a class="btn icon-button bg-mastodon" href="https://mastodon.social/share?text={{ .Title }} - {{ .Permalink }}" target="_blank">
-                  <i class="fab fa-mastodon"></i>
-                </a>
-            {{ end }}
-            {{ if site.Params.features.blog.shareButtons.whatsapp }}
-                 <a class="btn icon-button bg-whatsapp" href="https://api.whatsapp.com/send?text={{ .Title }} {{ .Permalink }}" target="_blank">
-                  <i class="fab fa-whatsapp"></i>
-                </a>
-            {{ end }}
-            {{ if site.Params.features.blog.shareButtons.email }}
-                <a class="btn icon-button" href="mailto:?subject={{ .Title }}&body={{ .Permalink }}" target="_blank">
-                  <i class="fas fa-envelope-open-text"></i>
-                </a>
-            {{ end }}
-          {{ end }}
-          </div>
-
-        <!--- Improve this page button --->
-        {{ if site.Params.GitRepo }}
-          {{ if site.Params.GitBranch }}
-            {{ .Scratch.Set "GitBranch" site.Params.GitBranch }}
-          {{ else }}
-            {{ .Scratch.Set "GitBranch" "main" }}
-          {{ end }}
-          <div class="col-md-6 btn-improve-page">
-            {{ if ( eq site.Params.GitForge "gitlab" ) }}
-              <a href="{{ site.Params.GitRepo }}/-/edit/{{ .Scratch.Get "GitBranch" }}/content/{{ .File.Path }}" title="{{ i18n "improve_this_page" }}" target="_blank" rel="noopener">
-            {{ else if ( eq site.Params.GitForge "gitea" ) }}
-              <a href="{{ site.Params.GitRepo }}/_edit/{{ .Scratch.Get "GitBranch" }}/content/{{ .File.Path }}" title="{{ i18n "improve_this_page" }}" target="_blank" rel="noopener">
-            {{ else }} <!--- Make Github-style the default -->
-               <a href="{{ site.Params.GitRepo }}/edit/{{ .Scratch.Get "GitBranch" }}/content/{{ .File.Path }}" title="{{ i18n "improve_this_page" }}" target="_blank" rel="noopener">
-            {{ end }}
-                <i class="fas fa-code-branch"></i>
-                {{ i18n "improve_this_page" }}
-              </a>
-          </div>
-        {{ end }}
-        </div>
-
-
-
-      <!---Next and Previous Navigator -->
-        {{ partial "navigators/next-prev-navigator.html" . }}
-      </div>
-    </div>
-  </div>
-  <!--scroll back to top-->
-  <a id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Scroll to top">
-    <i class="fas fa-chevron-circle-up"></i>
-  </a>
-</section>
-{{ end }}
-
-{{ define "toc" }}
-  <section class="toc-section" id="toc-section">
-    {{ if and site.Params.features.toc.enable ( .Params.enableTOC | default true ) }}
-    <div class="toc-holder">
-      <h5 class="text-center ps-3">{{ i18n "toc_heading" }}</h5>
-      <hr>
-      <div class="toc">
-        <nav id="TableOfContents">
-          {{ .TableOfContents }}
         </nav>
-      </div>
+
+        <div class="content-wrapper">
+            <!-- Table of Contents - Now outside main-content -->
+            <aside class="toc-container">
+                <div class="toc">
+                    <h3 class="toc-title"><i class="fas fa-list"></i> Table of Contents</h3>
+                    <div id="toc-content" class="toc-content">
+                        <!-- TOC will be generated by JavaScript -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <div class="container">
+                    <article class="post-single">
+                        <header class="post-header">
+                            <h1 class="section-title">{{ .Title }}</h1>
+                            <div class="post-meta">
+                                <div class="post-meta-top">
+                                    <span class="post-date"><i class="far fa-calendar-alt"></i> {{ .Date.Format "January 2, 2006" }}</span>
+                                </div>
+                                {{ if .Params.tags }}
+                                <div class="post-tags">
+                                    {{ range .Params.tags }}
+                                    <span class="post-tag">{{ . }}</span>
+                                    {{ end }}
+                                </div>
+                                {{ end }}
+                            </div>
+                            
+                            {{ with .Resources.GetMatch (printf "%s*" .Params.thumbnail) }}
+                            <div class="post-featured-image">
+                                <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
+                            </div>
+                            {{ end }}
+                        </header>
+                        
+                        <div class="post-content">
+                            {{ .Content }}
+                        </div>
+                        
+                        <div class="post-footer">
+                            <div class="post-navigation">
+                                {{ with .Prev }}
+                                <a href="{{ .RelPermalink }}" class="prev-post">
+                                    <i class="fas fa-arrow-left"></i>
+                                    <span>
+                                        <small>Previous</small>
+                                        <strong>{{ .Title }}</strong>
+                                    </span>
+                                </a>
+                                {{ end }}
+                                {{ with .Next }}
+                                <a href="{{ .RelPermalink }}" class="next-post">
+                                    <span>
+                                        <small>Next</small>
+                                        <strong>{{ .Title }}</strong>
+                                    </span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                                {{ end }}
+                            </div>
+                            
+                            <a href="/posts" class="back-to-posts"><i class="fas fa-th-list"></i> Back to all posts</a>
+                        </div>
+                    </article>
+                </div>
+                
+                <footer class="footer">
+                    <div class="footer-contact">
+                        {{ range .Site.Data.profile.contactDetails }}
+                            <a href="{{ .url }}" class="footer-link" title="{{ .type }}">
+                                <i class="{{ .icon }}"></i>
+                            </a>
+                        {{ end }}
+                    </div>
+                    <div class="footer-copyright">
+                        <p>{{ .Site.Data.site.copyright }}</p>
+                        <p>Powered by <a href="https://gohugo.io" target="_blank">gohugo</a></p>
+                    </div>
+                </footer>
+            </div>
+        </div>
     </div>
-    {{ end }}
-  </section>
-{{ end }}
+
+    <script>
+        // Mobile navigation toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbarToggle = document.getElementById('navbar-toggle');
+            const navbarNav = document.getElementById('navbar-nav');
+            
+            navbarToggle.addEventListener('click', function() {
+                navbarNav.classList.toggle('show');
+            });
+            
+            // Add copy button to code blocks
+            document.querySelectorAll('pre > code').forEach(function(codeBlock) {
+                // Create button element
+                const button = document.createElement('button');
+                button.className = 'copy-code-button';
+                button.type = 'button';
+                button.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                
+                // Add button to pre element (parent of code)
+                const pre = codeBlock.parentNode;
+                const wrapper = document.createElement('div');
+                wrapper.className = 'code-block-wrapper';
+                
+                // Get language from class if available
+                const codeClass = codeBlock.className;
+                if (codeClass && codeClass.startsWith('language-')) {
+                    const lang = codeClass.replace('language-', '');
+                    wrapper.setAttribute('data-lang', lang);
+                }
+                
+                // Replace the pre with our wrapper
+                pre.parentNode.insertBefore(wrapper, pre);
+                wrapper.appendChild(pre);
+                wrapper.appendChild(button);
+                
+                // Add click event
+                button.addEventListener('click', function() {
+                    navigator.clipboard.writeText(codeBlock.textContent).then(
+                        function() {
+                            // Success
+                            button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                            setTimeout(function() {
+                                button.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                            }, 2000);
+                        },
+                        function() {
+                            // Failure
+                            button.innerHTML = '<i class="fas fa-times"></i> Error';
+                            setTimeout(function() {
+                                button.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                            }, 2000);
+                        }
+                    );
+                });
+            });
+            
+            // Generate Table of Contents
+            const postContent = document.querySelector('.post-content');
+            const tocContent = document.getElementById('toc-content');
+            
+            if (postContent && tocContent) {
+                const headings = postContent.querySelectorAll('h2, h3, h4');
+                
+                if (headings.length > 0) {
+                    const toc = document.createElement('ul');
+                    
+                    headings.forEach((heading, index) => {
+                        // Add an ID to the heading if it doesn't have one
+                        if (!heading.id) {
+                            heading.id = 'heading-' + index;
+                        }
+                        
+                        const listItem = document.createElement('li');
+                        listItem.className = 'toc-' + heading.tagName.toLowerCase();
+                        
+                        const link = document.createElement('a');
+                        link.href = '#' + heading.id;
+                        link.textContent = heading.textContent;
+                        
+                        listItem.appendChild(link);
+                        toc.appendChild(listItem);
+                        
+                        // Add click event for smooth scrolling
+                        link.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            
+                            document.getElementById(heading.id).scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                            
+                            // Update URL without refreshing page
+                            history.pushState(null, null, '#' + heading.id);
+                        });
+                    });
+                    
+                    tocContent.appendChild(toc);
+                } else {
+                    // Hide TOC if no headings
+                    document.querySelector('.toc-container').style.display = 'none';
+                }
+            }
+            
+            // Highlight active TOC item while scrolling
+            const tocLinks = document.querySelectorAll('.toc-content a');
+            if (tocLinks.length) {
+                window.addEventListener('scroll', function() {
+                    let currentActiveLink = null;
+                    const scrollPosition = window.scrollY;
+                    
+                    // Find which heading is currently visible
+                    document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3, .post-content h4').forEach(heading => {
+                        const headingTop = heading.offsetTop;
+                        if (headingTop - 100 <= scrollPosition) {
+                            // This heading is above the current scroll position
+                            currentActiveLink = document.querySelector(`.toc-content a[href="#${heading.id}"]`);
+                        }
+                    });
+                    
+                    // Remove active class from all links
+                    tocLinks.forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    // Add active class to current link
+                    if (currentActiveLink) {
+                        currentActiveLink.classList.add('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

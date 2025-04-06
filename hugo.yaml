@@ -1,0 +1,25 @@
+baseURL: https://www.bernatbc.tk/
+
+languageCode: en-us
+title: "BernatBC"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+# At least HTML and JSON are required for the main HTML content and
+# client-side JavaScript search
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+module:
+  hugoVersion:
+    extended: true
+
+resources:
+  minify:
+    enable: true

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>
+    {{ $style := resources.Get "styles/style.scss" | css.Sass | resources.Minify }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <div class="page-wrapper">
+        <!-- Top Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-nav" id="navbar-nav">
+                    <ul>
+                        <li><a href="#profile" class="nav-link active"><i class="fas fa-user"></i> Profile</a></li>
+                        <li><a href="#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a></li>
+                        <li><a href="#experiences" class="nav-link"><i class="fas fa-briefcase"></i> Experiences</a></li>
+                        <li><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                        <li><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                        <li><a href="#recent-posts" class="nav-link"><i class="fas fa-newspaper"></i> Recent Posts</a></li>
+                        <li><a href="/posts" class="nav-link"><i class="fas fa-pen"></i> All Posts</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="container">
+                <!-- Profile Section -->
+                <section id="profile" class="profile-section">
+                    <div class="profile-header">
+                        <div class="profile-picture-container">
+                            <img src="{{ .Site.Data.profile.personalInfo.profileImage }}" alt="Profile Picture" class="profile-picture">
+                        </div>
+                        <div class="profile-text">
+                            <h1 class="full-name">{{ .Site.Data.profile.personalInfo.fullName }}</h1>
+                            <h2 class="roles">
+                                {{ range .Site.Data.profile.roles }}
+                                    <span>{{ .title }} @ <a href="{{ .organization.website }}">{{ .organization.name }}</a></span>
+                                {{ end }}
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="bio">
+                        {{ .Site.Data.profile.bio | markdownify }}
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-links">
+                            {{ range .Site.Data.profile.contactDetails }}
+                                <a href="{{ .url }}" class="contact-link" title="{{ .type }}">
+                                    <i class="{{ .icon }}"></i>
+                                </a>
+                            {{ end }}
+                        </div>
+                        <div class="cv-download">
+                            <a href="{{ (index .Site.Data.profile.resources 0).link }}" class="button" title="My Resume" download>
+                                My Resume
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Skills Section -->
+                <section id="skills" class="skills-section">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills-container">
+                        {{ range .Site.Data.sections.skills.skills }}
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                {{ if .logo }}
+                                <img src="{{ .logo }}" alt="{{ .name }} logo" class="skill-logo">
+                                {{ end }}
+                                <h3 class="skill-name">{{ .name }}</h3>
+                            </div>
+                            <div class="skill-description">
+                                <p>{{ .summary | markdownify }}</p>
+                            </div>
+                            {{ if .url }}
+                            <div class="skill-link">
+                                <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">Learn more</a>
+                            </div>
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </div>
+                </section>
+                
+                <!-- Experiences Section -->
+                <section id="experiences" class="experiences-section">
+                    <h2 class="section-title">Experiences</h2>
+                    <div class="timeline">
+                        {{ range .Site.Data.sections.experiences.experiences }}
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                {{ if .company.logo }}
+                                <div class="company-logo-container">
+                                    <img src="{{ .company.logo }}" alt="{{ .company.name }} logo" class="company-logo">
+                                </div>
+                                {{ end }}
+                                <div class="company-info">
+                                    <h3 class="company-name">
+                                        <a href="{{ .company.url }}" target="_blank" rel="noopener noreferrer">{{ .company.name }}</a>
+                                    </h3>
+                                    <p class="company-location">{{ .company.location }}</p>
+                                    <p class="company-overview">{{ .company.overview }}</p>
+                                </div>
+                            </div>
+                            <div class="positions-container">
+                                {{ range .positions }}
+                                <div class="position-entry">
+                                    <div class="position-header">
+                                        <h4 class="position-title">{{ .designation }}</h4>
+                                        <div class="position-duration">
+                                            <span>{{ .start }}</span>
+                                            {{ if .end }}
+                                            <span> - {{ .end }}</span>
+                                            {{ else }}
+                                            <span> - Present</span>
+                                            {{ end }}
+                                        </div>
+                                    </div>
+                                    <ul class="position-responsibilities">
+                                        {{ range .responsibilities }}
+                                        <li>{{ . | markdownify }}</li>
+                                        {{ end }}
+                                    </ul>
+                                </div>
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+                    </div>
+                </section>
+                
+                <!-- Education Section -->
+                <section id="education" class="education-section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-timeline">
+                        {{ range .Site.Data.sections.education.degrees }}
+                        <div class="education-card">
+                            <div class="education-header">
+                                {{ if .institution.logo }}
+                                <div class="institution-logo-container">
+                                    <img src="{{ .institution.logo }}" alt="{{ .institution.name }} logo" class="institution-logo">
+                                </div>
+                                {{ end }}
+                                <div class="education-info">
+                                    <h3 class="degree-name">{{ .name }}</h3>
+                                    <p class="institution-name">
+                                        <a href="{{ .institution.url }}" target="_blank" rel="noopener noreferrer">{{ .institution.name }}</a>
+                                    </p>
+                                    <p class="education-timeframe">{{ .timeframe }}</p>
+                                    {{ if .ects }}
+                                    <p class="education-ects">{{ .ects }} ects</p>
+                                    {{ end }}
+                                    {{ if .grade }}
+                                    <p class="education-grade">{{ .grade.scale }}: {{ .grade.achieved }}/{{ .grade.outOf }}</p>
+                                    {{ end }}
+                                </div>
+                            </div>
+                            {{ if .honors }}
+                            <div class="education-honors">
+                                <h4>Honors & Awards</h4>
+                                <ul>
+                                    {{ range .honors }}
+                                    <li>{{ . | markdownify }}</li>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                            {{ end }}
+                            {{ if .publications }}
+                            <div class="education-publications">
+                                <h4>Publications</h4>
+                                <ul>
+                                    {{ range .publications }}
+                                    <li><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a></li>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                            {{ end }}
+                            {{ if .extracurricularActivities }}
+                            <div class="education-activities">
+                                <h4>Extracurricular Activities</h4>
+                                <ul>
+                                    {{ range .extracurricularActivities }}
+                                    <li>{{ . | markdownify }}</li>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </div>
+                </section>
+                
+                <!-- Projects Section -->
+                <section id="projects" class="projects-section">
+                    <h2 class="section-title">Open Source Projects</h2>
+                    <div class="projects-container">
+                        {{ range .Site.Data.sections.projects.projects }}
+                        <div class="project-card">
+                            <div class="project-header">
+                                {{ if .logo }}
+                                <div class="project-logo-container">
+                                    <img src="{{ .logo }}" alt="{{ .name }} logo" class="project-logo">
+                                </div>
+                                {{ end }}
+                                <div class="project-info">
+                                    <h3 class="project-name">
+                                        <a href="{{ .repo }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a>
+                                    </h3>
+                                    <p class="project-role">{{ .role }}</p>
+                                    <p class="project-timeline">{{ .timeline }}</p>
+                                </div>
+                            </div>
+                            <div class="project-summary">
+                                <p>{{ .summary | markdownify }}</p>
+                            </div>
+                            {{ if .tags }}
+                            <div class="project-tags">
+                                {{ range .tags }}
+                                <span class="project-tag">{{ . }}</span>
+                                {{ end }}
+                            </div>
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </div>
+                </section>
+                
+                <!-- Recent Posts Section -->
+                <section id="recent-posts" class="recent-posts-section">
+                    <h2 class="section-title">Recent Posts</h2>
+                    <div class="recent-posts-container">
+                        {{ range first 3 (where .Site.RegularPages "Section" "posts") }}
+                        <article class="post-card">
+                            {{ if .Params.Description }}
+                            <div class="post-thumbnail">
+                                {{ with .Resources.GetMatch (printf "%s*" .Params.thumbnail) }}
+                                <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
+                                {{ else }}
+                                <div class="post-thumbnail-placeholder">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                {{ end }}
+                            </div>
+                            {{ end }}
+                            <h3 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                            <div class="post-meta">
+                                <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
+                                {{ if .Params.tags }}
+                                <div class="post-tags">
+                                    {{ range .Params.tags }}
+                                    <span class="post-tag">{{ . }}</span>
+                                    {{ end }}
+                                </div>
+                                {{ end }}
+                            </div>
+                            <div class="post-summary">
+                                {{ partial "text-only-summary.html" . }}
+                            </div>
+                            <a href="{{ .RelPermalink }}" class="read-more">Read More →</a>
+                        </article>
+                        {{ end }}
+                    </div>
+                    <div class="all-posts-button">
+                        <a href="/posts" class="button">View All Posts</a>
+                    </div>
+                </section>
+            </div>
+            <footer class="footer">
+                <div class="footer-contact">
+                    {{ range .Site.Data.profile.contactDetails }}
+                        <a href="{{ .url }}" class="footer-link" title="{{ .type }}">
+                            <i class="{{ .icon }}"></i>
+                        </a>
+                    {{ end }}
+                </div>
+                <div class="footer-copyright">
+                    <p>{{ .Site.Data.site.copyright }}</p>
+                    <p>Powered by <a href="https://gohugo.io" target="_blank">gohugo</a></p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    {{ $images := resources.Match "images/*" }}
+    {{ range $images }}
+        <link rel="preload" href="{{ .Permalink }}" as="image">
+    {{ end }}
+
+    <script>
+        // JavaScript for active links and smooth scrolling
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Highlight the active navigation link based on scroll position
+            function highlightNavLink() {
+                const scrollY = window.pageYOffset;
+                
+                sections.forEach(section => {
+                    const sectionHeight = section.offsetHeight;
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if(link.getAttribute('href') === '#' + sectionId) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightNavLink);
+            highlightNavLink(); // Call once on load
+            
+            // Add smooth scrolling to nav links
+            navLinks.forEach(link => {
+                if(link.hash) { // Only for links with hash/anchor
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Get the target section
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetSection = document.getElementById(targetId);
+                        
+                        if (targetSection) {
+                            // Calculate position with appropriate offset
+                            // Use zero offset for profile section to ensure it scrolls fully to top
+                            const offset = targetId === 'profile' ? 120 : 80;
+                            const targetPosition = targetSection.offsetTop - offset;
+                            
+                            // Smooth scroll to the target position
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Update URL without scrolling (optional)
+                            history.pushState(null, null, this.getAttribute('href'));
+                        }
+                        
+                        // Close mobile menu if open
+                        if (navbarNav.classList.contains('show')) {
+                            navbarNav.classList.remove('show');
+                        }
+                    });
+                }
+            });
+            
+            // Mobile navigation toggle
+            const navbarToggle = document.getElementById('navbar-toggle');
+            const navbarNav = document.getElementById('navbar-nav');
+            
+            if (navbarToggle) {
+                navbarToggle.addEventListener('click', function() {
+                    navbarNav.classList.toggle('show');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

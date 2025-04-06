@@ -12,6 +12,7 @@ menu:
 draft: false
 tags: ["C#", "Education", "Unity", "VR"]
 math: true
+thumbnail: hero.png
 ---
 
 ## The statement

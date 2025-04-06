@@ -1,0 +1,13 @@
+{{ $src := .Get "src" }}
+{{ $type := .Get "type" }}
+{{/*
+  A page can have multiple videos. We are now using the current timestamp
+  to generate a unique ID for each video. This ensures no collisions.
+*/}}
+{{ $uniqueID := now.UnixNano }}
+
+<div class="video-container">
+  <video class="video-player" id="video-{{ $uniqueID }}" playsinline controls>
+    <source src="{{ $src }}" type="{{ $type | default "video/mp4" }}" />
+  </video>
+</div>
