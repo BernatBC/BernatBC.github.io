@@ -73,7 +73,7 @@
                         
                         <div class="post-footer">
                             <div class="post-navigation">
-                                {{ with .PrevInSection }}
+                                {{ with .Prev }}
                                 <a href="{{ .RelPermalink }}" class="prev-post">
                                     <i class="fas fa-arrow-left"></i>
                                     <span>
@@ -82,7 +82,7 @@
                                     </span>
                                 </a>
                                 {{ end }}
-                                {{ with .NextInSection }}
+                                {{ with .Next }}
                                 <a href="{{ .RelPermalink }}" class="next-post">
                                     <span>
                                         <small>Next</small>
