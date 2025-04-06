@@ -13,6 +13,9 @@
         <!-- Top Navigation Bar -->
         <nav class="navbar">
             <div class="navbar-container">
+                <button id="navbar-toggle" class="navbar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <div class="navbar-nav" id="navbar-nav">
                     <ul>
                         <li><a href="/#profile" class="nav-link"><i class="fas fa-user"></i> Profile</a></li>
@@ -33,13 +36,11 @@
                 <article class="post-single">
                     <header class="post-header">
                         <h1 class="section-title">{{ .Title }}</h1>
-                        {{ with .Resources.GetMatch (printf "%s*" .Params.thumbnail) }}
-                        <div class="post-featured-image">
-                            <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
-                        </div>
-                        {{ end }}
                         <div class="post-meta">
-                            <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
+                            <div class="post-meta-top">
+                                <span class="post-date"><i class="far fa-calendar-alt"></i> {{ .Date.Format "January 2, 2006" }}</span>
+                                <span class="post-reading-time"><i class="far fa-clock"></i> {{ math.Round (div (countwords .Content) 220.0) }} min read</span>
+                            </div>
                             {{ if .Params.tags }}
                             <div class="post-tags">
                                 {{ range .Params.tags }}
@@ -48,6 +49,12 @@
                             </div>
                             {{ end }}
                         </div>
+                        
+                        {{ with .Resources.GetMatch (printf "%s*" .Params.thumbnail) }}
+                        <div class="post-featured-image">
+                            <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
+                        </div>
+                        {{ end }}
                     </header>
                     
                     <div class="post-content">
@@ -57,14 +64,26 @@
                     <div class="post-footer">
                         <div class="post-navigation">
                             {{ with .PrevInSection }}
-                            <a href="{{ .RelPermalink }}" class="prev-post">← {{ .Title }}</a>
+                            <a href="{{ .RelPermalink }}" class="prev-post">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>
+                                    <small>Previous</small>
+                                    <strong>{{ .Title }}</strong>
+                                </span>
+                            </a>
                             {{ end }}
                             {{ with .NextInSection }}
-                            <a href="{{ .RelPermalink }}" class="next-post">{{ .Title }} →</a>
+                            <a href="{{ .RelPermalink }}" class="next-post">
+                                <span>
+                                    <small>Next</small>
+                                    <strong>{{ .Title }}</strong>
+                                </span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                             {{ end }}
                         </div>
                         
-                        <a href="/posts" class="back-to-posts">Back to all posts</a>
+                        <a href="/posts" class="back-to-posts"><i class="fas fa-th-list"></i> Back to all posts</a>
                     </div>
                 </article>
             </div>
