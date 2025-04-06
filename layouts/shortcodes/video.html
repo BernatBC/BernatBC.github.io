@@ -6,6 +6,8 @@
 */}}
 {{ $uniqueID := now.UnixNano }}
 
-<video class="video-player" id="video-{{ $uniqueID }}" playsinline controls>
-  <source src="{{ $src }}" type="{{ $type | default "video/mp4" }}" />
-</video>
+<div class="video-container">
+  <video class="video-player" id="video-{{ $uniqueID }}" playsinline controls>
+    <source src="{{ $src }}" type="{{ $type | default "video/mp4" }}" />
+  </video>
+</div>

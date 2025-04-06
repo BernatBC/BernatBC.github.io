@@ -1503,3 +1503,35 @@ a:hover {
         margin-bottom: $medium-spacing;
     }
 }
+
+/* Video responsiveness styles */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: $medium-spacing 0;
+    overflow: hidden;
+    border-radius: $border-radius;
+}
+
+.video-player {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Fix for post content videos (when not using the shortcode) */
+.post-content video {
+    max-width: 100%;
+    height: auto;
+    border-radius: $border-radius;
+    margin: $medium-spacing 0;
+}
+
+/* Ensure all media (including iframes) is responsive */
+.post-content iframe {
+    max-width: 100%;
+    border-radius: $border-radius;
+    margin: $medium-spacing 0;
+}
