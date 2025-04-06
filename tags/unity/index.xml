@@ -1,10 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Unity on BernatBC</title><link>https://www.bernatbc.tk/tags/unity/</link><description>Recent content in Unity on BernatBC</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 19 Dec 2024 06:00:23 +0600</lastBuildDate><atom:link href="https://www.bernatbc.tk/tags/unity/index.xml" rel="self" type="application/rss+xml"/><item><title>MiniChef AR</title><link>https://www.bernatbc.tk/posts/education/minichef-ar/</link><pubDate>Thu, 19 Dec 2024 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/minichef-ar/</guid><description>&lt;h2 id="the-statement">The statement&lt;/h2>
-&lt;p>We were asked to develop an Augmented Reality application using
-&lt;a href="https://unity.com/" target="_blank" rel="noopener">Unity&lt;/a> and either
-&lt;a href="https://www.artoolkitx.org/" target="_blank" rel="noopener">AR Toolkit&lt;/a>,
-&lt;a href="https://developer.vuforia.com/" target="_blank" rel="noopener">Vuforia&lt;/a>,
-&lt;a href="https://www.easyar.com/" target="_blank" rel="noopener">EasyAR&lt;/a> or
-&lt;a href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@6.0/manual/index.html" target="_blank" rel="noopener">ARFoundation&lt;/a>. The app needed to have the following features:&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Unity on BernatBC</title><link>https://www.bernatbc.tk/tags/unity/</link><description>Recent content in Unity on BernatBC</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 19 Dec 2024 06:00:23 +0600</lastBuildDate><atom:link href="https://www.bernatbc.tk/tags/unity/index.xml" rel="self" type="application/rss+xml"/><item><title>MiniChef AR</title><link>https://www.bernatbc.tk/posts/education/minichef-ar/</link><pubDate>Thu, 19 Dec 2024 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/minichef-ar/</guid><description>&lt;h2 id="the-statement">The statement&lt;/h2>
+&lt;p>We were asked to develop an Augmented Reality application using &lt;a href="https://unity.com/">Unity&lt;/a> and either &lt;a href="https://www.artoolkitx.org/">AR Toolkit&lt;/a>, &lt;a href="https://developer.vuforia.com/">Vuforia&lt;/a>, &lt;a href="https://www.easyar.com/">EasyAR&lt;/a> or &lt;a href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@6.0/manual/index.html">ARFoundation&lt;/a>. The app needed to have the following features:&lt;/p>
 &lt;ul>
 &lt;li>Possibility of detection of more than one marker at the same time, or the use of more than one virtual object recorded in the real world.&lt;/li>
 &lt;li>The user must be able to apply some geometric transformations to each of them virtual objects relative to their initial position (or marker). You can apply these geometric transformations, if you want, doing some animation with (or between) the virtual objects, as long as this animation has been programmed by you.&lt;/li>
@@ -12,13 +7,9 @@
 &lt;li>Offer the user some interaction mechanism (apart from the already included tracking), both with the virtual objects (directly or indirectly) as with application control.&lt;/li>
 &lt;/ul>
 &lt;h2 id="what-weve-made">What we&amp;rsquo;ve made&lt;/h2>
-&lt;p>We&amp;rsquo;ve decided to go with
-&lt;a href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@6.0/manual/index.html" target="_blank" rel="noopener">ARFoundation&lt;/a> as it seemed to be the recommended one by
-&lt;a href="https://unity.com/" target="_blank" rel="noopener">Unity&lt;/a>, as it was already preinstalled when selecting the AR template.
+&lt;p>We&amp;rsquo;ve decided to go with &lt;a href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@6.0/manual/index.html">ARFoundation&lt;/a> as it seemed to be the recommended one by &lt;a href="https://unity.com/">Unity&lt;/a>, as it was already preinstalled when selecting the AR template.
 In the video below you can take a look at the resulting app. To sum it up, we&amp;rsquo;re tracking a Menu, where you can check the available dishes alongside its information. Afterwards, you can tell the chef to cook a certain dish, and a few seconds later, the dish will appear in a 3rd tracker.&lt;/p></description></item><item><title>VR Battlefield</title><link>https://www.bernatbc.tk/posts/education/vr-battlefield/</link><pubDate>Fri, 15 Nov 2024 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/vr-battlefield/</guid><description>&lt;h2 id="the-statement">The statement&lt;/h2>
-&lt;p>We were asked to develop a Virtual Reality application using
-&lt;a href="https://unity.com/" target="_blank" rel="noopener">Unity&lt;/a> and
-&lt;a href="https://arvr.google.com/cardboard/" target="_blank" rel="noopener">Google Cardboard&lt;/a>. The app needed to have the following features:&lt;/p>
+&lt;p>We were asked to develop a Virtual Reality application using &lt;a href="https://unity.com/">Unity&lt;/a> and &lt;a href="https://arvr.google.com/cardboard/">Google Cardboard&lt;/a>. The app needed to have the following features:&lt;/p>
 &lt;ul>
 &lt;li>A virtual reality environment with various objects that can be interacted with.&lt;/li>
 &lt;li>Navigation: you can use either the reticle pointer provided by GoogleVR or the data entry from the mobile phone&amp;rsquo;s accelerometer, to move the camera within the environment virtual. You can implement any of the metaphors that we have seen in the classes of theory (constant movement, plane route selection, teleportation, etc.)&lt;/li>
@@ -27,17 +18,15 @@ In the video below you can take a look at the resulting app. To sum it up, we&am
 &lt;/ul>
 &lt;h2 id="what-weve-made">What we&amp;rsquo;ve made&lt;/h2>
 &lt;p>In the video below you can take a look at the resulting app. To sum it up, we created a battleground environment where you can interact with several objects, such as grenades, mines and guns.&lt;/p></description></item><item><title>Royal Hackaway v6</title><link>https://www.bernatbc.tk/posts/contests/royalhackawayv6/</link><pubDate>Tue, 07 Feb 2023 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/contests/royalhackawayv6/</guid><description>&lt;h2 id="about-royal-hackaway">About Royal Hackaway&lt;/h2>
-&lt;p>
-&lt;a href="https://royalhackaway.com/" target="_blank" rel="noopener">Royal Hackaway&lt;/a> is
-&lt;a href="https://www.royalholloway.ac.uk/" target="_blank" rel="noopener">Royal Holloway&amp;rsquo;s&lt;/a> annual hackathon.
+&lt;p>&lt;a href="https://royalhackaway.com/">Royal Hackaway&lt;/a> is &lt;a href="https://www.royalholloway.ac.uk/">Royal Holloway&amp;rsquo;s&lt;/a> annual hackathon.
 Open to students from all around the world, in this two-day hackathon you&amp;rsquo;ll work as a team to build a project. You&amp;rsquo;ll pick up new skills, try out new tech, and meet new people.&lt;/p>
 &lt;p>This is our sixth time running this event, and we&amp;rsquo;re excited to create a more inclusive and rewarding event for all. You can join us in-person, or online!&lt;/p></description></item><item><title>Europoly</title><link>https://www.bernatbc.tk/posts/videogames/europoly/</link><pubDate>Sat, 26 Nov 2022 06:00:22 +0600</pubDate><guid>https://www.bernatbc.tk/posts/videogames/europoly/</guid><description>&lt;div style="position:relative;padding-bottom:55.66%; zoom: 0.6;
--webkit-transform: scale(0.6);
--moz-transform: scale(0.6);
-transform: scale(0.6)">
-&lt;iframe style="width:166%;height:174%;position:absolute; margin-left: -33%; marginheight: -50%"
-frameborder="0"
-src="
+ -webkit-transform: scale(0.6);
+ -moz-transform: scale(0.6);
+ transform: scale(0.6)">
+ &lt;iframe style="width:166%;height:174%;position:absolute; margin-left: -33%; marginheight: -50%"
+ frameborder="0"
+ src="
 /webgl/Europoly_WebGL/index.html
 "
 mozallowfullscreen="true" allow="autoplay; fullscreen" style="border:0px #000000 none;" name="Monopoly" scrolling="no" msallowfullscreen="true" allowfullscreen="true" webkitallowfullscreen="true" allowtransparency="true"
@@ -53,16 +42,15 @@ mozallowfullscreen="true" allow="autoplay; fullscreen" style="border:0px #000000
 &lt;br />
 &lt;br />&lt;/p>
 &lt;h2 id="the-project">The project&lt;/h2>
-&lt;p>After making the
-&lt;a href="https://www.bernatbc.tk/posts/videogames/minesweeper/">Minesweeper&lt;/a>, I wanted to create something more elaborated. I decided to make a clone of Monopoly. Almost everybody has played at least one time to Monopoly, so I don&amp;rsquo;t need to make an introduction.&lt;/p>
+&lt;p>After making the &lt;a href="https://www.bernatbc.tk/posts/videogames/minesweeper/">Minesweeper&lt;/a>, I wanted to create something more elaborated. I decided to make a clone of Monopoly. Almost everybody has played at least one time to Monopoly, so I don&amp;rsquo;t need to make an introduction.&lt;/p>
 &lt;h2 id="how-it-works">How it works&lt;/h2>
 &lt;p>I started with the player movement and the dice. When everything was smooth and playable, I started to make the cards. One thing I like about them is the fact that they aren&amp;rsquo;t images. Cards are rendered based in the info assigned to its cell. With this method I don&amp;rsquo;t need to be hours making each card, and if I want to change a value, I just do it once and the card will change automatically. The cash flow of each player is pretty easy to implement. The jail cell has given me headaches with the go to jail movement and several bugs I&amp;rsquo;ve already fixed. Houses and hotels were also very buggy, especially when you sold them. I also had troubles implementing the functionality of some Chance and Community Chest cards, as I had to change the way I made some functions. With the functionality of mortgages/unmortgages I learnt to access to a child object parameter in Unity. It&amp;rsquo;s a little different from most common programming languages. Be in mind that now you can have negative cash due to testing.&lt;/p></description></item><item><title>Minesweeper</title><link>https://www.bernatbc.tk/posts/videogames/minesweeper/</link><pubDate>Fri, 11 Feb 2022 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/videogames/minesweeper/</guid><description>&lt;div style="position:relative;padding-bottom:55.66%; zoom: 0.6;
--webkit-transform: scale(0.6);
--moz-transform: scale(0.6);
-transform: scale(0.6)">
-&lt;iframe style="width:166%;height:174%;position:absolute; margin-left: -33%; marginheight: -50%"
-frameborder="0"
-src="
+ -webkit-transform: scale(0.6);
+ -moz-transform: scale(0.6);
+ transform: scale(0.6)">
+ &lt;iframe style="width:166%;height:174%;position:absolute; margin-left: -33%; marginheight: -50%"
+ frameborder="0"
+ src="
 /webgl/MinesweeperWebGL/index.html
 "
 mozallowfullscreen="true" allow="autoplay; fullscreen" style="border:0px #000000 none;" name="MinesWeeper" scrolling="no" msallowfullscreen="true" allowfullscreen="true" webkitallowfullscreen="true" allowtransparency="true"
@@ -78,16 +66,13 @@ mozallowfullscreen="true" allow="autoplay; fullscreen" style="border:0px #000000
 &lt;br />
 &lt;br />&lt;/p>
 &lt;h2 id="the-project">The project&lt;/h2>
-&lt;p>Before making this project, I&amp;rsquo;d used
-&lt;a href="https://unity.com/" target="_blank" rel="noopener">&lt;i class="fa-brands fa-unity">&lt;/i>Unity&lt;/a> game engine for making a couple of games like Tetris by following some Youtube tutorials. Also, I made
-&lt;a href="https://www.bernatbc.tk/posts/competitions/hackupc2021/">Space Shooter&lt;/a> during
-&lt;a href="https://hackupc.com/" target="_blank" rel="noopener">HackUPC2021&lt;/a>, but I wasn&amp;rsquo;t on my own. Now I wanted to do a project on my own and decided to start with a simple game. Minesweeper was a good candidate as it didn&amp;rsquo;t seem too complex. I didn&amp;rsquo;t reinvent the wheel and made a clone of minesweeper.&lt;/p></description></item><item><title>HackUPC 2021</title><link>https://www.bernatbc.tk/posts/contests/hackupc2021/</link><pubDate>Sun, 16 May 2021 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/contests/hackupc2021/</guid><description>&lt;div style="position:relative;padding-bottom:55.66%; zoom: 0.9;
--webkit-transform: scale(0.9);
--moz-transform: scale(0.9);
-transform: scale(0.9)">
-&lt;iframe style="width:110%;height:118%;position:absolute; margin-left: -5%; marginheight: px"
-frameborder="0"
-src="
+&lt;p>Before making this project, I&amp;rsquo;d used &lt;a href="https://unity.com/">&lt;i class="fa-brands fa-unity">&lt;/i>Unity&lt;/a> game engine for making a couple of games like Tetris by following some Youtube tutorials. Also, I made &lt;a href="https://www.bernatbc.tk/posts/competitions/hackupc2021/">Space Shooter&lt;/a> during &lt;a href="https://hackupc.com/">HackUPC2021&lt;/a>, but I wasn&amp;rsquo;t on my own. Now I wanted to do a project on my own and decided to start with a simple game. Minesweeper was a good candidate as it didn&amp;rsquo;t seem too complex. I didn&amp;rsquo;t reinvent the wheel and made a clone of minesweeper.&lt;/p></description></item><item><title>HackUPC 2021</title><link>https://www.bernatbc.tk/posts/contests/hackupc2021/</link><pubDate>Sun, 16 May 2021 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/contests/hackupc2021/</guid><description>&lt;div style="position:relative;padding-bottom:55.66%; zoom: 0.9;
+ -webkit-transform: scale(0.9);
+ -moz-transform: scale(0.9);
+ transform: scale(0.9)">
+ &lt;iframe style="width:110%;height:118%;position:absolute; margin-left: -5%; marginheight: px"
+ frameborder="0"
+ src="
 /webgl/SpaceShooterWebGL/index.html
 "
 mozallowfullscreen="true" allow="autoplay; fullscreen" style="border:0px #000000 none;" name="SpaceShooter" scrolling="no" msallowfullscreen="true" allowfullscreen="true" webkitallowfullscreen="true" allowtransparency="true"
@@ -100,5 +85,4 @@ mozallowfullscreen="true" allow="autoplay; fullscreen" style="border:0px #000000
 &lt;br />
 &lt;br />&lt;/p>
 &lt;h2 id="about-hackupc">About HackUPC&lt;/h2>
-&lt;p>
-&lt;a href="https://hackupc.com/" target="_blank" rel="noopener">HackUPC&lt;/a> is the first student hackathon in Spain. Once a year, we aim to provide a space for students of all experience levels from all around the world where they can improve and learn new skills, meet awesome people, and overall have a great experience! This year&amp;rsquo;s edition will be held in a hybrid format, meaning that you can come in person but also participate from home.&lt;/p></description></item></channel></rss>
+&lt;p>&lt;a href="https://hackupc.com/">HackUPC&lt;/a> is the first student hackathon in Spain. Once a year, we aim to provide a space for students of all experience levels from all around the world where they can improve and learn new skills, meet awesome people, and overall have a great experience! This year&amp;rsquo;s edition will be held in a hybrid format, meaning that you can come in person but also participate from home.&lt;/p></description></item></channel></rss>

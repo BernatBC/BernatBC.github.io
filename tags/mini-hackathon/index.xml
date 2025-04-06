@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mini-Hackathon on BernatBC</title><link>https://www.bernatbc.tk/tags/mini-hackathon/</link><description>Recent content in Mini-Hackathon on BernatBC</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 13 Mar 2025 06:00:23 +0600</lastBuildDate><atom:link href="https://www.bernatbc.tk/tags/mini-hackathon/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM Chat RAG</title><link>https://www.bernatbc.tk/posts/education/llm-chat-rag/</link><pubDate>Thu, 13 Mar 2025 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/llm-chat-rag/</guid><description>&lt;h1 id="llm-chat-rag---cli-interface">LLM Chat RAG - CLI Interface&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mini-Hackathon on BernatBC</title><link>https://www.bernatbc.tk/tags/mini-hackathon/</link><description>Recent content in Mini-Hackathon on BernatBC</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 13 Mar 2025 06:00:23 +0600</lastBuildDate><atom:link href="https://www.bernatbc.tk/tags/mini-hackathon/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM Chat RAG</title><link>https://www.bernatbc.tk/posts/education/llm-chat-rag/</link><pubDate>Thu, 13 Mar 2025 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/llm-chat-rag/</guid><description>&lt;h1 id="llm-chat-rag---cli-interface">LLM Chat RAG - CLI Interface&lt;/h1>
 &lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>The &lt;strong>LLM Chat RAG&lt;/strong> (Retriever-Augmented Generation) is a Command Line Interface (CLI) tool that allows you to interact with documents stored in a ChromaDB database using OpenAI&amp;rsquo;s GPT-4o-mini model. This system provides a way to query documents for relevant information, retrieve context, and generate AI-driven responses based on that context.&lt;/p>
 &lt;h2 id="features">Features&lt;/h2>
@@ -54,9 +54,16 @@
 &lt;h2 id="usage">Usage&lt;/h2>
 &lt;p>This website has a UI with a text field in the middle. Enter the base URL of the website you want to extract information from and it will automatically find all the attached links to it and also extract information from them.&lt;/p>
 &lt;p>To extract this information we get the HTML using the library trafilatura and parse it using BeautifulSoup and html2text.&lt;/p></description></item><item><title>Subtitle Generator</title><link>https://www.bernatbc.tk/posts/education/subtitle-generator/</link><pubDate>Thu, 20 Feb 2025 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/subtitle-generator/</guid><description>&lt;h1 id="subtitle-generator">Subtitle Generator&lt;/h1>
-&lt;video class="video-player" id="video-183" playsinline controls>
-&lt;source src="subtitle_generator.mp4" type="video/mp4" />
-&lt;/video>
+
+
+
+
+
+&lt;div class="video-container">
+ &lt;video class="video-player" id="video-1743923820486402820" playsinline controls>
+ &lt;source src="subtitle_generator.mp4" type="video/mp4" />
+ &lt;/video>
+&lt;/div>
 &lt;p>This project provides a web application that automatically generates subtitles (in SRT or VTT format) from audio files. It leverages the power of OpenAI&amp;rsquo;s Whisper speech recognition model for transcription and pyannote.audio for speaker diarization, all wrapped in a user-friendly FastAPI web interface.&lt;/p>
 &lt;h2 id="features">Features&lt;/h2>
 &lt;ul>

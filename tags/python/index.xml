@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on BernatBC</title><link>https://www.bernatbc.tk/tags/python/</link><description>Recent content in Python on BernatBC</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 13 Mar 2025 06:00:23 +0600</lastBuildDate><atom:link href="https://www.bernatbc.tk/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM Chat RAG</title><link>https://www.bernatbc.tk/posts/education/llm-chat-rag/</link><pubDate>Thu, 13 Mar 2025 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/llm-chat-rag/</guid><description>&lt;h1 id="llm-chat-rag---cli-interface">LLM Chat RAG - CLI Interface&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on BernatBC</title><link>https://www.bernatbc.tk/tags/python/</link><description>Recent content in Python on BernatBC</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 13 Mar 2025 06:00:23 +0600</lastBuildDate><atom:link href="https://www.bernatbc.tk/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM Chat RAG</title><link>https://www.bernatbc.tk/posts/education/llm-chat-rag/</link><pubDate>Thu, 13 Mar 2025 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/llm-chat-rag/</guid><description>&lt;h1 id="llm-chat-rag---cli-interface">LLM Chat RAG - CLI Interface&lt;/h1>
 &lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>The &lt;strong>LLM Chat RAG&lt;/strong> (Retriever-Augmented Generation) is a Command Line Interface (CLI) tool that allows you to interact with documents stored in a ChromaDB database using OpenAI&amp;rsquo;s GPT-4o-mini model. This system provides a way to query documents for relevant information, retrieve context, and generate AI-driven responses based on that context.&lt;/p>
 &lt;h2 id="features">Features&lt;/h2>
@@ -54,9 +54,16 @@
 &lt;h2 id="usage">Usage&lt;/h2>
 &lt;p>This website has a UI with a text field in the middle. Enter the base URL of the website you want to extract information from and it will automatically find all the attached links to it and also extract information from them.&lt;/p>
 &lt;p>To extract this information we get the HTML using the library trafilatura and parse it using BeautifulSoup and html2text.&lt;/p></description></item><item><title>Subtitle Generator</title><link>https://www.bernatbc.tk/posts/education/subtitle-generator/</link><pubDate>Thu, 20 Feb 2025 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/subtitle-generator/</guid><description>&lt;h1 id="subtitle-generator">Subtitle Generator&lt;/h1>
-&lt;video class="video-player" id="video-183" playsinline controls>
-&lt;source src="subtitle_generator.mp4" type="video/mp4" />
-&lt;/video>
+
+
+
+
+
+&lt;div class="video-container">
+ &lt;video class="video-player" id="video-1743923820486402820" playsinline controls>
+ &lt;source src="subtitle_generator.mp4" type="video/mp4" />
+ &lt;/video>
+&lt;/div>
 &lt;p>This project provides a web application that automatically generates subtitles (in SRT or VTT format) from audio files. It leverages the power of OpenAI&amp;rsquo;s Whisper speech recognition model for transcription and pyannote.audio for speaker diarization, all wrapped in a user-friendly FastAPI web interface.&lt;/p>
 &lt;h2 id="features">Features&lt;/h2>
 &lt;ul>
@@ -71,9 +78,6 @@
 &lt;/ul>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;p>Before you get started, make sure you have the following:&lt;/p></description></item><item><title>Object Tracker</title><link>https://www.bernatbc.tk/posts/education/objecttracker/</link><pubDate>Fri, 23 Jun 2023 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/objecttracker/</guid><description>&lt;h2 id="the-statement">The statement&lt;/h2>
-&lt;p>
-&lt;a href="https://amoudgl.github.io/tlp/" target="_blank" rel="noopener">Long-Term Visual Object Tracking Benchmark&lt;/a> is a dataset to benchmark object tracking algorithms. We were asked to implement four different algorithms. Two using tracking techniques, and two using recognition. For each technique, we had to implement one from scratch (an algorithm made for us) and another one extracted from the internet.&lt;/p>
+&lt;p>&lt;a href="https://amoudgl.github.io/tlp/">Long-Term Visual Object Tracking Benchmark&lt;/a> is a dataset to benchmark object tracking algorithms. We were asked to implement four different algorithms. Two using tracking techniques, and two using recognition. For each technique, we had to implement one from scratch (an algorithm made for us) and another one extracted from the internet.&lt;/p>
 &lt;p>Given a series of frames and a bounding box corresponding to the object to track, the algorithm should follow the object. To evaluate the precision, we used the overlapping ratio between the computed bounding box and the optimal bounding box (which was given via a txt file).&lt;/p></description></item><item><title>λ-Calculus Telegram Bot</title><link>https://www.bernatbc.tk/posts/education/lambdacalculustelegrambot/</link><pubDate>Tue, 13 Jun 2023 06:00:23 +0600</pubDate><guid>https://www.bernatbc.tk/posts/education/lambdacalculustelegrambot/</guid><description>&lt;h2 id="the-statement">The statement&lt;/h2>
-&lt;p>We were asked to make a lambda-calculus interpreter created by
-&lt;a href="https://en.wikipedia.org/wiki/Alonzo_Church" target="_blank" rel="noopener">Alonzo Church&lt;/a>. This interpreter had also to support the definition and use of macros, a variable name for another expression. Those macros had to be evaluated in an infix (if it&amp;rsquo;s a symbol) or a prefix mode (otherwise). On top of that, our interpreter had to run in a
-&lt;a href="https://telegram.org/" target="_blank" rel="noopener">Telegram&lt;/a> chat. Finally, we had to add the capability to print our expression as a tree in an image.&lt;/p></description></item></channel></rss>
+&lt;p>We were asked to make a lambda-calculus interpreter created by &lt;a href="https://en.wikipedia.org/wiki/Alonzo_Church">Alonzo Church&lt;/a>. This interpreter had also to support the definition and use of macros, a variable name for another expression. Those macros had to be evaluated in an infix (if it&amp;rsquo;s a symbol) or a prefix mode (otherwise). On top of that, our interpreter had to run in a &lt;a href="https://telegram.org/">Telegram&lt;/a> chat. Finally, we had to add the capability to print our expression as a tree in an image.&lt;/p></description></item></channel></rss>
