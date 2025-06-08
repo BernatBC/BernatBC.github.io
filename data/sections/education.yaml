@@ -31,6 +31,8 @@ degrees:
   publications: #(optional)
   - title: Creació d'un visualitzador de fotografies en 3D
     url: "https://upcommons.upc.edu/handle/2117/411671"
+  - title: Bidirectional Exploration of 3D Cultural Heritage Models and Photo Collections
+    url: "https://diglib.eg.org/items/8b6f19a5-564f-4715-b582-62f3b92bd58c"
   extracurricularActivities: #(optional)
   - Contributor of [RepoFIBtori](https://github.com/RepoFIBtori/RepoFIBtori), a platform to share class notes and solved exercises.
   - Contestant in [II UPC Online  Chess Tournament](https://www.chess.com/tournament/ii-torneig-esports-upc).
