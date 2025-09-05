@@ -9,7 +9,7 @@ degrees:
     logo: /images/upc-short.png 
   grade: #(optional)
     scale: Average mark
-    achieved: 8.48
+    achieved: 8.81
     outOf: 10
 
 - name: Bachelor's Degree in Informatics Engineering specialization in Computer Science
