@@ -7,29 +7,21 @@ experiences:
     # company overview
     overview: Build38 is the innovative and cutting-edge provider of the next generation AI-based app protection and management platform.
   positions:
-  - designation: SDK Software Engineer Junior
-    start: June 2025
+  - designation: SDK Software Engineer
+    start: October 2024
     # don't provide end date if you are currently working there. It will be replaced by "Present"
     # end: Dec 2020
     # give some points about what was your responsibilities at the company.
     responsibilities:
-      - Developing cybersecurity SDK using C
-      - Developing wrappers for Android & iOS using Swift, Java and Ionic
-  - designation: SDK Software Engineer Intern
-    start: October 2024
-    # don't provide end date if you are currently working there. It will be replaced by "Present"
-    end: May 2025
-    # give some points about what was your responsibilities at the company.
-    responsibilities:
-      - Developing cybersecurity SDK using C
-      - Developing wrappers for Android & iOS using Swift, Java and Ionic
+      - Led the development of many security improvements over a cybersecurity SDK module using C.
+      - Engineered and maintained wrappers for Android & iOS using Swift, Java, and Ionic, ensuring cross-platform compatibility.
+      - Set up and maintained CI/CD pipelines for the SDK using Jenkins, automating build, test, and deployment processes.
+      - Mentored new interns, providing guidance on code standards and development practices.
   - designation: Solutions Engineer Intern
     start: February 2024
     end: September 2024
     # give some points about what was your responsibilities at the company.
     responsibilities:
-      - Integrating cybersecurity SDK to Android & iOS apps
-      - Developing apps using Kotlin, Swift, React Native and Flutter
-      - Developing security tools such as obfuscator
-      - Testing SpringBoot backend
-      - Writing techinchal documentation
+      - Integrated cybersecurity SDK into customer applications on Android & iOS platforms.
+      - Developed proof-of-concept applications using Kotlin, Swift, React Native, and Flutter.
+      - Created security tools, including a code obfuscator, to protect client applications.
