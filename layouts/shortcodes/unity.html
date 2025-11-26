@@ -1,0 +1,26 @@
+{{- $src := .Get "src" -}}
+{{- if not $src -}}
+  {{- errorf "unity shortcode: missing required param 'src'" -}}
+{{- end -}}
+
+{{- $title := .Get "title" | default "Unity WebGL Game" -}}
+{{- $scale := .Get "scale" | default "0.75" -}}
+{{- $aspect := .Get "aspect" | default "0.5625" -}}
+{{- $scrolling := .Get "scrolling" | default "no" -}}
+
+<div class="unity-embed" style="--unity-aspect: {{ $aspect }}; --unity-scale: {{ $scale }};">
+  <div class="unity-embed__inner">
+    <iframe
+      src="{{ $src }}"
+      title="{{ $title }}"
+      loading="lazy"
+      scrolling="{{ $scrolling }}"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+      mozallowfullscreen="true"
+      webkitallowfullscreen="true"
+      msallowfullscreen="true"
+    ></iframe>
+  </div>
+</div>
+
