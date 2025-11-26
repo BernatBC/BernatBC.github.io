@@ -14,29 +14,7 @@ tags: ["C#", "Unity", "Videogame"]
 thumbnail: hero.png
 ---
 
-<div style="position:relative;padding-bottom:55.66%;     zoom: 0.6;
-    -webkit-transform: scale(0.6);
-    -moz-transform: scale(0.6);
-    transform: scale(0.6)">
- <iframe style="width:166%;height:174%;position:absolute; margin-left: -33%; marginheight: -50%"
- frameborder="0"
- src="
-/webgl/MinesweeperWebGL/index.html
-"
-mozallowfullscreen="true" allow="autoplay; fullscreen" style="border:0px #000000 none;" name="MinesWeeper" scrolling="no" msallowfullscreen="true" allowfullscreen="true" webkitallowfullscreen="true" allowtransparency="true"
->
-</iframe>
-</div>
-
-{{< line_break >}}
-{{< line_break >}}
-{{< line_break >}}
-{{< line_break >}}
-{{< line_break >}}
-{{< line_break >}}
-{{< line_break >}}
-{{< line_break >}}
-
+{{< unity src="/webgl/MinesweeperWebGL/index.html" title="Minesweeper" scale="0.48" aspect="0.62" >}}
 
 ## The project
 Before making this project, I'd used [<i class="fa-brands fa-unity"></i>Unity](https://unity.com/) game engine for making a couple of games like Tetris by following some Youtube tutorials. Also, I made [Space Shooter](/posts/competitions/hackupc2021/) during [HackUPC2021](https://hackupc.com/), but I wasn't on my own. Now I wanted to do a project on my own and decided to start with a simple game. Minesweeper was a good candidate as it didn't seem too complex. I didn't reinvent the wheel and made a clone of minesweeper.

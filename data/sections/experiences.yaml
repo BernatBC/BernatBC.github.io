@@ -13,7 +13,8 @@ experiences:
     # end: Dec 2020
     # give some points about what was your responsibilities at the company.
     responsibilities:
-      - Led the development of many security improvements over a cybersecurity SDK module using C.
+      - Led the development of many security improvements over a cybersecurity SDK module using C and C++.
+      - Developed a Retrieval-Augmented Generation AI system using the company's codebase documentation to power semantic search and developer assistance.
       - Engineered and maintained wrappers for Android & iOS using Swift, Java, and Ionic, ensuring cross-platform compatibility.
       - Set up and maintained CI/CD pipelines for the SDK using Jenkins, automating build, test, and deployment processes.
       - Mentored new interns, providing guidance on code standards and development practices.

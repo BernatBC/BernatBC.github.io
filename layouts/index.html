@@ -43,7 +43,7 @@
                             <h1 class="full-name">{{ .Site.Data.profile.personalInfo.fullName }}</h1>
                             <h2 class="roles">
                                 {{ range .Site.Data.profile.roles }}
-                                    <span>{{ .title }} @ <a href="{{ .organization.website }}">{{ .organization.name }}</a></span>
+                                    <span>{{ .title }}{{ if .organization }} @ <a href="{{ .organization.website }}">{{ .organization.name }}</a>{{ end }}</span>
                                 {{ end }}
                             </h2>
                         </div>
