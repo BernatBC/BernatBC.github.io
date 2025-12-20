@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI on BernatBC</title><link>https://bernatbc.tk/tags/ai/</link><description>Recent content in AI on BernatBC</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 13 Mar 2025 06:00:23 +0600</lastBuildDate><atom:link href="https://bernatbc.tk/tags/ai/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM Chat RAG</title><link>https://bernatbc.tk/posts/education/llm-chat-rag/</link><pubDate>Thu, 13 Mar 2025 06:00:23 +0600</pubDate><guid>https://bernatbc.tk/posts/education/llm-chat-rag/</guid><description>&lt;h1 id="llm-chat-rag---cli-interface">LLM Chat RAG - CLI Interface&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI on BernatBC</title><link>https://bernatbc.tk/tags/ai/</link><description>Recent content in AI on BernatBC</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 18 Dec 2025 06:00:23 +0600</lastBuildDate><atom:link href="https://bernatbc.tk/tags/ai/index.xml" rel="self" type="application/rss+xml"/><item><title>Cloud Picture Platform</title><link>https://bernatbc.tk/posts/education/cloudpp/</link><pubDate>Thu, 18 Dec 2025 06:00:23 +0600</pubDate><guid>https://bernatbc.tk/posts/education/cloudpp/</guid><description>&lt;h1 id="cloud-picture-platform">Cloud Picture Platform&lt;/h1>
+
+ &lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ &lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/RZVncjA2P1o?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video">&lt;/iframe>
+ &lt;/div>
+
+&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>We live in a world saturated with digital media, making us struggle to maintain a centralized and secure repository for our ever-growing personal image libraries. Finding specific memories has become a daunting task, as traditional storage methods lack the intelligence to retrieve photos based on their actual content or context.Additionally, it is common to face a disconnect between our private collections and the wider web, lacking the tools to easily discover similar imagery or visually related images online.&lt;/p></description></item><item><title>LLM Chat RAG</title><link>https://bernatbc.tk/posts/education/llm-chat-rag/</link><pubDate>Thu, 13 Mar 2025 06:00:23 +0600</pubDate><guid>https://bernatbc.tk/posts/education/llm-chat-rag/</guid><description>&lt;h1 id="llm-chat-rag---cli-interface">LLM Chat RAG - CLI Interface&lt;/h1>
 &lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>The &lt;strong>LLM Chat RAG&lt;/strong> (Retriever-Augmented Generation) is a Command Line Interface (CLI) tool that allows you to interact with documents stored in a ChromaDB database using OpenAI&amp;rsquo;s GPT-4o-mini model. This system provides a way to query documents for relevant information, retrieve context, and generate AI-driven responses based on that context.&lt;/p>
 &lt;h2 id="features">Features&lt;/h2>
@@ -56,7 +63,7 @@
 
 
 &lt;div class="video-container">
- &lt;video class="video-player" id="video-1764168265162705695" playsinline controls>
+ &lt;video class="video-player" id="video-1766226393140561902" playsinline controls>
  &lt;source src="subtitle_generator.mp4" type="video/mp4" />
  &lt;/video>
 &lt;/div>
