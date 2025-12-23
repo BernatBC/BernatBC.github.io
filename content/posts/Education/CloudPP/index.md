@@ -10,7 +10,7 @@ menu:
     parent: education
     weight: 500
 draft: false
-tags: ["Education", "AI", "AWS", "Cloud Computinh", "Python"]
+tags: ["Education", "AI", "AWS", "Cloud Computing", "Python"]
 math: true
 thumbnail: hero.png
 ---
