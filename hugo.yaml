@@ -19,6 +19,25 @@ outputs:
 module:
   hugoVersion:
     extended: true
+  mounts:
+    - source: assets
+      target: assets
+    - source: content
+      target: content
+    - source: data
+      target: data
+    - source: layouts
+      target: layouts
+    - source: static
+      target: static
+    - source: node_modules/@fortawesome/fontawesome-free/css
+      target: assets/vendor/fontawesome/css
+    - source: node_modules/@fortawesome/fontawesome-free/webfonts
+      target: static/vendor/fontawesome/webfonts
+    - source: node_modules/katex/dist
+      target: assets/vendor/katex
+    - source: node_modules/katex/dist/fonts
+      target: static/vendor/katex/fonts
 
 resources:
   minify:

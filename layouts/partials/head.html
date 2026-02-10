@@ -8,14 +8,18 @@
 
 {{ $style := resources.Get "styles/style.scss" | css.Sass | resources.Minify }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a" crossorigin="anonymous">
+{{ $fa := resources.Get "vendor/fontawesome/css/all.min.css" | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $fa.Permalink }}" integrity="{{ $fa.Data.Integrity }}">
 
 {{ $script := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $script.Permalink }}" integrity="{{ $script.Data.Integrity }}"></script>
 
 {{ if .IsPage }}
 <!-- KaTeX -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+{{ $katexCss := resources.Get "vendor/katex/katex.min.css" | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $katexCss.Permalink }}" integrity="{{ $katexCss.Data.Integrity }}">
+{{ $katexJs := resources.Get "vendor/katex/katex.min.js" | resources.Fingerprint }}
+<script defer src="{{ $katexJs.Permalink }}" integrity="{{ $katexJs.Data.Integrity }}"></script>
+{{ $katexAuto := resources.Get "vendor/katex/contrib/auto-render.min.js" | resources.Fingerprint }}
+<script defer src="{{ $katexAuto.Permalink }}" integrity="{{ $katexAuto.Data.Integrity }}"></script>
 {{ end }}
