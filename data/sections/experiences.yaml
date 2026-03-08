@@ -1,6 +1,22 @@
 experiences:
 - company:
-    name: Build38
+    name: OneSpan
+    url: "https://onespan.com/"
+    location: Barcelona, Spain
+    logo: /images/onespan.jpg
+    # company overview
+    overview: OneSpan's cybersecurity solutions protect users, devices and apps. Its digital agreements solutions speed business processes via electronic signature.
+  positions:
+  - designation: SDK Software Engineer
+    start: March 2026
+    # don't provide end date if you are currently working there. It will be replaced by "Present"
+    # end: Dec 2020
+    # give some points about what was your responsibilities at the company.
+    responsibilities:
+      - Joined OneSpan via the acquisition of Build38.
+
+- company:
+    name: Build38 (now OneSpan)
     url: "https://build38.com/"
     location: Barcelona, Spain
     logo: /images/build38-short.jpg
@@ -9,9 +25,7 @@ experiences:
   positions:
   - designation: SDK Software Engineer
     start: October 2024
-    # don't provide end date if you are currently working there. It will be replaced by "Present"
-    # end: Dec 2020
-    # give some points about what was your responsibilities at the company.
+    end: February 2026
     responsibilities:
       - Led the development of many security improvements over a cybersecurity SDK module using C and C++.
       - Developed a Retrieval-Augmented Generation AI system using the company's codebase documentation to power semantic search and developer assistance.
