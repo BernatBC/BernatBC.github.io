@@ -26,8 +26,8 @@ contactDetails:
 roles:
   - title: Cybersecurity Software Engineer
     organization:
-      name: Build38
-      website: "https://build38.com/"
+      name: OneSpan
+      website: "https://onespan.com/"
   - title: Computer Science Student
     organization:
       name: Universitat Politècnica de Catalunya
@@ -40,4 +40,4 @@ resources:
     link: "pdfs/Bernat_Borras_CV.pdf"
 
 # A detailed summary about the user
-bio: "I am a cybersecurity software engineer at [Build38](https://build38.com/) developing a security SDK to protect various apps. In my day to day, I use C and C++ to program the core SDK, as well as some Java, Kotlin, Swift and Flutter for creating wrappers that help integrate the SDK to costumer apps. \n\n I am also a student pursuing a masters degree in Computer Engineering at [Universitat Politècnica de Catalunya](https://www.fib.upc.edu/). During my free time I compete in coding competitions like [Google Hash Code](https://codingcompetitions.withgoogle.com/hashcode/), [Google Code Jam](https://codingcompetitions.withgoogle.com/codejam), [HackUPC](https://hackupc.com/), etc. I also develop video games using [Unity](https://unity.com) game engine for fun. Additionally, I'm an AI hobbyist and have built several Retrieval-Augmented Generation (RAG) systems exploring vector databases, embedding pipelines, and LLM orchestration."
+bio: "I am a cybersecurity software engineer at [OneSpan](https://onespan.com/) developing a security SDK to protect various apps. In my day to day, I use C and C++ to program the core SDK, as well as some Java, Kotlin, Swift and Flutter for creating wrappers that help integrate the SDK to costumer apps. \n\n I am also a student pursuing a masters degree in Computer Engineering at [Universitat Politècnica de Catalunya](https://www.fib.upc.edu/). During my free time I compete in coding competitions like [Google Hash Code](https://codingcompetitions.withgoogle.com/hashcode/), [Google Code Jam](https://codingcompetitions.withgoogle.com/codejam), [HackUPC](https://hackupc.com/), etc. I also develop video games using [Unity](https://unity.com) game engine for fun. Additionally, I'm an AI hobbyist and have built several Retrieval-Augmented Generation (RAG) systems exploring vector databases, embedding pipelines, and LLM orchestration."

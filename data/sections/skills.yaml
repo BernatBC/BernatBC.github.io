@@ -2,17 +2,17 @@ skills:
 
 - name: C, C++, C#
   logo: /images/c++.png
-  summary: "Using it as the main programming language. Used in Build38, college, contest programming and for game developing."
+  summary: "Using it as the main programming language. Used in Build38, OneSpan, college, contest programming and for game developing."
   url: "https://isocpp.org/"
 
 - name: Java & Kotlin
   logo: /images/java.png
-  summary: "Used mainly for developing Android wrappers and apps in Build38. Also used in side projects."
+  summary: "Used mainly for developing Android wrappers and apps in Build38 and OneSpan. Also used in side projects."
   url: "https://kotlinlang.org/"
 
 - name: Swift
   logo: /images/swift.png
-  summary: "Used for developing iOS wrappers and apps in Build38."
+  summary: "Used for developing iOS wrappers and apps in Build38 and OneSpan."
   url: "https://swift.org/"
 
 - name: Python
