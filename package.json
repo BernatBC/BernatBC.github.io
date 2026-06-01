@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
-    "katex": "^0.16.28"
+    "katex": "^0.17.0"
   }
 }
