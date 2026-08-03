@@ -519,24 +519,30 @@ a:hover {
     margin: 0;
 }
 
-.education-publications, .education-activities, .education-honors {
+.education-publications, .education-activities, .education-thesis {
     margin-top: $medium-spacing;
 }
 
-.education-publications h4, .education-activities h4, .education-honors h4 {
+.education-publications h4, .education-activities h4, .education-thesis h4 {
     color: $white;
     font-size: 1.1rem;
     margin: 0 0 $small-spacing;
 }
 
-.education-publications ul, .education-activities ul, .education-honors ul {
+.education-publications ul, .education-activities ul {
     margin: 0;
     padding-left: 1.25rem;
     color: $bio-text;
 }
 
-.education-publications li, .education-activities li, .education-honors li {
+.education-publications li, .education-activities li {
     margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.education-thesis p {
+    margin: 0;
+    color: $bio-text;
     line-height: 1.4;
 }
 

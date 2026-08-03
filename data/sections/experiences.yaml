@@ -1,42 +1,26 @@
 experiences:
 - company:
-    name: OneSpan
+    name: OneSpan (formerly Build38)
     url: "https://onespan.com/"
     location: Barcelona, Spain
     logo: /images/onespan.jpg
     # company overview
     overview: OneSpan's cybersecurity solutions protect users, devices and apps. Its digital agreements solutions speed business processes via electronic signature.
   positions:
-  - designation: SDK Software Engineer
-    start: March 2026
+  - designation: Junior Software Engineer
+    start: October 2024
     # don't provide end date if you are currently working there. It will be replaced by "Present"
     # end: Dec 2020
     # give some points about what was your responsibilities at the company.
     responsibilities:
-      - Joined OneSpan via the acquisition of Build38.
-
-- company:
-    name: Build38 (now OneSpan)
-    url: "https://build38.com/"
-    location: Barcelona, Spain
-    logo: /images/build38-short.jpg
-    # company overview
-    overview: Build38 is the innovative and cutting-edge provider of the next generation AI-based app protection and management platform.
-  positions:
-  - designation: SDK Software Engineer
-    start: October 2024
-    end: February 2026
-    responsibilities:
-      - Led the development of many security improvements over a cybersecurity SDK module using C and C++.
-      - Developed a Retrieval-Augmented Generation AI system using the company's codebase documentation to power semantic search and developer assistance.
-      - Engineered and maintained wrappers for Android & iOS using Swift, Java, and Ionic, ensuring cross-platform compatibility.
-      - Set up and maintained CI/CD pipelines for the SDK using Jenkins, automating build, test, and deployment processes.
-      - Mentored new interns, providing guidance on code standards and development practices.
+      - Develop Digipass One Protect, a mobile RASP SDK in C/C++ (runtime threat detection, cryptography, secure TLS) with a companion backend for visibility, remote enable/disable of checks, and certificate updates; ship Kotlin, Swift, Flutter, and Ionic wrappers for customer apps.
+      - Plan and implement roadmap features such as detection of accessibility services and untrusted keyboards, from design through delivery with the team.
+      - Automate release workflows with Jenkins and AWS Bedrock, including changelog generation and automated updates to SDK wrappers.
+      - Extend Jenkins CI/CD (new and existing pipelines), including SDK size and performance reporting to Grafana.
   - designation: Solutions Engineer Intern
     start: February 2024
     end: September 2024
     # give some points about what was your responsibilities at the company.
     responsibilities:
-      - Integrated cybersecurity SDK into customer applications on Android & iOS platforms.
-      - Developed proof-of-concept applications using Kotlin, Swift, React Native, and Flutter.
-      - Created security tools, including a code obfuscator, to protect client applications.
+      - Integrated the cybersecurity SDK into customer Android and iOS applications.
+      - Designed and built an end-to-end code obfuscator (Gradle + JVM) to harden client applications against reverse engineering.
