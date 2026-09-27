@@ -17,7 +17,7 @@ experiences:
       - Plan and implement roadmap features such as detection of accessibility services and untrusted keyboards, from design through delivery with the team.
       - Automate release workflows with Jenkins and AWS Bedrock, including changelog generation and automated updates to SDK wrappers.
       - Extend Jenkins CI/CD (new and existing pipelines), including SDK size and performance reporting to Grafana.
-  - designation: Solutions Engineer Intern
+  - designation: Software Engineer Intern
     start: February 2024
     end: September 2024
     # give some points about what was your responsibilities at the company.
