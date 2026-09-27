@@ -24,7 +24,7 @@ contactDetails:
 
 # Professional designations and affiliations
 roles:
-  - title: Cybersecurity Software Engineer
+  - title: Software Engineer
     organization:
       name: OneSpan
       website: "https://onespan.com/"
@@ -40,4 +40,4 @@ resources:
     link: "pdfs/Bernat_Borras_CV.pdf"
 
 # A detailed summary about the user
-bio: "I am a cybersecurity software engineer at [OneSpan](https://onespan.com/) developing a security SDK to protect various apps. In my day to day, I use C and C++ to program the core SDK, as well as some Java, Kotlin, Swift and Flutter for creating wrappers that help integrate the SDK to costumer apps. \n\n I am also a student pursuing a masters degree in Computer Engineering at [Universitat Politècnica de Catalunya](https://www.fib.upc.edu/). During my free time I compete in coding competitions like [Google Hash Code](https://codingcompetitions.withgoogle.com/hashcode/), [Google Code Jam](https://codingcompetitions.withgoogle.com/codejam), [HackUPC](https://hackupc.com/), etc. I also develop video games using [Unity](https://unity.com) game engine for fun. Additionally, I'm an AI hobbyist and have built several Retrieval-Augmented Generation (RAG) systems exploring vector databases, embedding pipelines, and LLM orchestration."
+bio: "I'm a Software Engineer at [OneSpan](https://www.onespan.com/), where I develop a mobile  cybersecurity SDK that protects applications against runtime threats and  other attacks. I work primarily with C/C++, building the core SDK, with  Kotlin, Swift, Flutter, and other technologies for cross-platform  integration.\n\nI'm interested in software engineering broadly, particularly systems  programming, cybersecurity, and building reliable developer-facing  products. I also enjoy competitive programming and solving algorithmic  problems.\n\nOutside of work, I explore AI and LLM applications, having built  several RAG systems involving vector databases, embedding pipelines, and  LLM orchestration. I also develop games with Unity for fun."
