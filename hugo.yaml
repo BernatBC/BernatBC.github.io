@@ -8,6 +8,16 @@ markup:
     renderer:
       unsafe: true
 
+# Lanczos resampling avoids the jagged edges browsers produce when they
+# shrink a large image in CSS.
+imaging:
+  resampleFilter: Lanczos
+  anchor: Smart
+  jpeg:
+    quality: 90
+  webp:
+    quality: 90
+
 # At least HTML and JSON are required for the main HTML content and
 # client-side JavaScript search
 outputs:

@@ -1,0 +1,7 @@
+{{- $path := .path | strings.TrimPrefix "/" -}}
+{{- $img := resources.Get $path -}}
+{{- if $img -}}
+  {{- partial "img-srcset.html" (merge . (dict "img" $img)) -}}
+{{- else -}}
+<img src="/{{ $path }}" alt="{{ .alt }}" {{- with .class }} class="{{ . }}"{{ end }}>
+{{- end -}}

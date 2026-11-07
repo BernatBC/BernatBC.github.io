@@ -1,0 +1,17 @@
+{{- $page := . -}}
+{{- if $page.Params.description -}}
+<div class="post-thumbnail">
+  {{- with $page.Resources.GetMatch (printf "%s*" $page.Params.thumbnail) -}}
+    {{- partial "img-srcset.html" (dict
+      "img" .
+      "alt" $page.Title
+      "sizes" "(max-width: 640px) calc(100vw - 3rem), (max-width: 1000px) calc(50vw - 2.5rem), 360px"
+      "widths" (slice 360 540 720 1080 1440)
+    ) -}}
+  {{- else -}}
+    <div class="post-thumbnail-placeholder">
+      <i class="fas fa-file-alt"></i>
+    </div>
+  {{- end -}}
+</div>
+{{- end -}}

@@ -1,0 +1,21 @@
+{{- $dest := .Destination -}}
+{{- $alt := .PlainText | default "" -}}
+{{- $u := urls.Parse $dest -}}
+{{- $img := "" -}}
+{{- if not $u.IsAbs -}}
+  {{- $img = .Page.Resources.Get $u.Path -}}
+  {{- if not $img -}}
+    {{- $img = resources.Get (strings.TrimPrefix "/" $u.Path) -}}
+  {{- end -}}
+{{- end -}}
+{{- if $img -}}
+  {{- partial "img-srcset.html" (dict
+    "img" $img
+    "alt" $alt
+    "class" "content-image"
+    "sizes" "(max-width: 768px) calc(100vw - 3rem), 900px"
+    "widths" (slice 640 960 1280 1600 2000 2400)
+  ) -}}
+{{- else -}}
+<img src="{{ $dest | safeURL }}" alt="{{ $alt }}" {{- with .Title }} title="{{ . }}"{{ end }} class="content-image">
+{{- end -}}

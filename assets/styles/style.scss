@@ -2,6 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
 
+img {
+    /* Any scale still done by the browser should stay anti-aliased. */
+    image-rendering: auto;
+    image-rendering: smooth;
+}
+
 body.dark-theme {
     background-color: $dark-background;
     color: $light-text;
@@ -1071,6 +1077,7 @@ a:hover {
 
 .post-featured-image img {
     width: 100%;
+    height: auto;
     object-fit: cover;
 }
 
@@ -1133,6 +1140,7 @@ a:hover {
 
 .post-content img {
     max-width: 100%;
+    height: auto;
     border-radius: $border-radius;
     margin: $medium-spacing 0;
 }

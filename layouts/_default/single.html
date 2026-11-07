@@ -55,9 +55,16 @@
                                 {{ end }}
                             </div>
                             
+                            {{ $page := . }}
                             {{ with .Resources.GetMatch (printf "%s*" .Params.thumbnail) }}
                             <div class="post-featured-image">
-                                <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
+                                {{ partial "img-srcset.html" (dict
+                                    "img" .
+                                    "alt" $page.Title
+                                    "sizes" "(max-width: 992px) calc(100vw - 4rem), 900px"
+                                    "widths" (slice 640 960 1280 1600 2000)
+                                    "loading" "eager"
+                                ) }}
                             </div>
                             {{ end }}
                         </header>

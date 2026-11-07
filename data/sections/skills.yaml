@@ -6,7 +6,7 @@ skills:
   url: "https://isocpp.org/"
 
 - name: Java & Kotlin
-  logo: /images/java.png
+  logo: /images/java.svg
   summary: "Used mainly for developing Android wrappers and apps in Build38 and OneSpan. Also used in side projects."
   url: "https://kotlinlang.org/"
 

@@ -1,0 +1,23 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default (.Get "caption") | default "" -}}
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+  {{- $u := urls.Parse $src -}}
+  {{- if not $u.IsAbs -}}
+    {{- with or (.Page.Resources.Get $u.Path) (resources.Get (strings.TrimPrefix "/" $u.Path)) -}}
+      {{- partial "img-srcset.html" (dict
+        "img" .
+        "alt" $alt
+        "class" "content-image"
+        "sizes" "(max-width: 768px) calc(100vw - 3rem), 900px"
+        "widths" (slice 640 960 1280 1600 2000 2400)
+      ) -}}
+    {{- else -}}
+      <img src="{{ $src | safeURL }}" alt="{{ $alt }}" class="content-image">
+    {{- end -}}
+  {{- else -}}
+    <img src="{{ $src | safeURL }}" alt="{{ $alt }}" class="content-image">
+  {{- end -}}
+  {{- with .Get "caption" -}}
+    <figcaption>{{ . | markdownify }}</figcaption>
+  {{- end -}}
+</figure>
