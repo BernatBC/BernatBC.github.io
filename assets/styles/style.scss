@@ -971,7 +971,7 @@ a:hover {
 
 .post-thumbnail {
     margin-bottom: $small-spacing;
-    border-radius: calc($border-radius - 0.25rem);
+    border-radius: calc(#{$border-radius} - 0.25rem);
     overflow: hidden;
     max-height: 150px;
 }
