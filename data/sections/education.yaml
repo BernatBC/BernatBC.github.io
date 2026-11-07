@@ -1,7 +1,7 @@
 degrees:
 - name: Master's Degree in Informatics Engineering
   icon: fa-graduation-cap
-  timeframe: September 2024 - Present (Expected October 2026)
+  timeframe: September 2024 - October 2026
   ects: 90
   institution:
     name: Universitat Politècnica de Catalunya - Facultat d'Informàtica de Barcelona
@@ -9,9 +9,9 @@ degrees:
     logo: /images/upc-short.png 
   grade: #(optional)
     scale: Average mark
-    achieved: 8.77
+    achieved: 8.75
     outOf: 10
-  thesis: "Interactive Trail Erosion Editor (in progress)"
+  thesis: "Interactive Trail Erosion Editor"
 
 - name: Bachelor's Degree in Informatics Engineering specialization in Computer Science
   icon: fa-graduation-cap

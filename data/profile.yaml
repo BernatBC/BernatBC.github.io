@@ -28,10 +28,6 @@ roles:
     organization:
       name: OneSpan
       website: "https://onespan.com/"
-  - title: Computer Science Student
-    organization:
-      name: Universitat Politècnica de Catalunya
-      website: "https://www.fib.upc.edu/"
   - title: AI Hobbyist
 
 # Links to resources like resumes

@@ -1,0 +1,42 @@
+{{- $img := .img -}}
+{{- $alt := .alt | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $sizes := .sizes | default "100vw" -}}
+{{- $widths := .widths | default (slice 640 960 1280 1600) -}}
+{{- $fillSquare := .fillSquare | default false -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $fetchpriority := .fetchpriority | default "" -}}
+{{- $subtype := $img.MediaType.SubType -}}
+{{- if or (eq $subtype "svg") (eq $subtype "svg+xml") (strings.HasSuffix $img.Name ".svg") -}}
+<img src="{{ $img.RelPermalink }}" alt="{{ $alt }}" {{- with $class }} class="{{ . }}"{{ end }} loading="{{ $loading }}" decoding="async" {{- with $fetchpriority }} fetchpriority="{{ . }}"{{ end }}>
+{{- else -}}
+  {{- $maxW := index $widths (sub (len $widths) 1) -}}
+  {{- $candidates := slice -}}
+  {{- $fallback := $img -}}
+  {{- $producedW := 0 -}}
+  {{- range $widths -}}
+    {{- $w := . -}}
+    {{- if ge $img.Width $w -}}
+      {{- $spec := printf "%dx Lanczos q90" $w -}}
+      {{- $resized := $img -}}
+      {{- if $fillSquare -}}
+        {{- $spec = printf "%dx%d Lanczos q90" $w $w -}}
+        {{- $resized = $img.Fill $spec -}}
+      {{- else -}}
+        {{- $resized = $img.Resize $spec -}}
+      {{- end -}}
+      {{- $candidates = $candidates | append (printf "%s %dw" $resized.RelPermalink $resized.Width) -}}
+      {{- $fallback = $resized -}}
+      {{- $producedW = $resized.Width -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if and (lt $producedW $img.Width) (le $img.Width $maxW) -}}
+    {{- $candidates = $candidates | append (printf "%s %dw" $img.RelPermalink $img.Width) -}}
+    {{- $fallback = $img -}}
+  {{- end -}}
+  {{- if not $candidates -}}
+    {{- $candidates = slice (printf "%s %dw" $img.RelPermalink $img.Width) -}}
+    {{- $fallback = $img -}}
+  {{- end -}}
+<img src="{{ $fallback.RelPermalink }}" srcset="{{ delimit $candidates ", " }}" sizes="{{ $sizes }}" alt="{{ $alt }}" {{- with $class }} class="{{ . }}"{{ end }} width="{{ $fallback.Width }}" height="{{ $fallback.Height }}" loading="{{ $loading }}" decoding="async" {{- with $fetchpriority }} fetchpriority="{{ . }}"{{ end }}>
+{{- end -}}

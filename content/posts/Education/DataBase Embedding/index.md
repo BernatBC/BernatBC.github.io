@@ -12,7 +12,7 @@ menu:
 draft: false
 tags: ["AI", "Education", "Mini-hackathon", "Python"]
 math: true
-thumbnail: hero.png
+thumbnail: hero.webp
 ---
 
 # Markdown to ChromaDB Indexer

@@ -32,30 +32,39 @@
                 <section id="profile" class="profile-section">
                     <div class="profile-header">
                         <div class="profile-picture-container">
-                            <img src="{{ .Site.Data.profile.personalInfo.profileImage }}" alt="Profile Picture" class="profile-picture">
+                            {{ partial "asset-img.html" (dict
+                                "path" hugo.Data.profile.personalInfo.profileImage
+                                "alt" "Profile Picture"
+                                "class" "profile-picture"
+                                "sizes" "9.375rem"
+                                "widths" (slice 192 384 576)
+                                "fillSquare" true
+                                "loading" "eager"
+                                "fetchpriority" "high"
+                            ) }}
                         </div>
                         <div class="profile-text">
-                            <h1 class="full-name">{{ .Site.Data.profile.personalInfo.fullName }}</h1>
+                            <h1 class="full-name">{{ hugo.Data.profile.personalInfo.fullName }}</h1>
                             <h2 class="roles">
-                                {{ range .Site.Data.profile.roles }}
+                                {{ range hugo.Data.profile.roles }}
                                     <span>{{ .title }}{{ if .organization }} @ <a href="{{ .organization.website }}">{{ .organization.name }}</a>{{ end }}</span>
                                 {{ end }}
                             </h2>
                         </div>
                     </div>
                     <div class="bio">
-                        {{ .Site.Data.profile.bio | markdownify }}
+                        {{ hugo.Data.profile.bio | markdownify }}
                     </div>
                     <div class="contact-section">
                         <div class="contact-links">
-                            {{ range .Site.Data.profile.contactDetails }}
+                            {{ range hugo.Data.profile.contactDetails }}
                                 <a href="{{ .url }}" class="contact-link" title="{{ .type }}">
                                     <i class="{{ .icon }}"></i>
                                 </a>
                             {{ end }}
                         </div>
                         <div class="cv-download">
-                            <a href="{{ (index .Site.Data.profile.resources 0).link }}" class="button" title="My Resume" download>
+                            <a href="{{ (index hugo.Data.profile.resources 0).link }}" class="button" title="My Resume" download>
                                 My Resume
                             </a>
                         </div>
@@ -66,11 +75,17 @@
                 <section id="skills" class="skills-section">
                     <h2 class="section-title">Skills</h2>
                     <div class="skills-container">
-                        {{ range .Site.Data.sections.skills.skills }}
+                        {{ range hugo.Data.sections.skills.skills }}
                         <div class="skill-card">
                             <div class="skill-header">
                                 {{ if .logo }}
-                                <img src="{{ .logo }}" alt="{{ .name }} logo" class="skill-logo">
+                                {{ partial "asset-img.html" (dict
+                                    "path" .logo
+                                    "alt" (printf "%s logo" .name)
+                                    "class" "skill-logo"
+                                    "sizes" "2.5rem"
+                                    "widths" (slice 80 160 240)
+                                ) }}
                                 {{ end }}
                                 <h3 class="skill-name">{{ .name }}</h3>
                             </div>
@@ -91,12 +106,18 @@
                 <section id="experiences" class="experiences-section">
                     <h2 class="section-title">Experiences</h2>
                     <div class="timeline">
-                        {{ range .Site.Data.sections.experiences.experiences }}
+                        {{ range hugo.Data.sections.experiences.experiences }}
                         <div class="experience-card">
                             <div class="experience-header">
                                 {{ if .company.logo }}
                                 <div class="company-logo-container">
-                                    <img src="{{ .company.logo }}" alt="{{ .company.name }} logo" class="company-logo">
+                                    {{ partial "asset-img.html" (dict
+                                        "path" .company.logo
+                                        "alt" (printf "%s logo" .company.name)
+                                        "class" "company-logo"
+                                        "sizes" "5rem"
+                                        "widths" (slice 160 320 480)
+                                    ) }}
                                 </div>
                                 {{ end }}
                                 <div class="company-info">
@@ -138,12 +159,18 @@
                 <section id="education" class="education-section">
                     <h2 class="section-title">Education</h2>
                     <div class="education-timeline">
-                        {{ range .Site.Data.sections.education.degrees }}
+                        {{ range hugo.Data.sections.education.degrees }}
                         <div class="education-card">
                             <div class="education-header">
                                 {{ if .institution.logo }}
                                 <div class="institution-logo-container">
-                                    <img src="{{ .institution.logo }}" alt="{{ .institution.name }} logo" class="institution-logo">
+                                    {{ partial "asset-img.html" (dict
+                                        "path" .institution.logo
+                                        "alt" (printf "%s logo" .institution.name)
+                                        "class" "institution-logo"
+                                        "sizes" "5rem"
+                                        "widths" (slice 160 320 480)
+                                    ) }}
                                 </div>
                                 {{ end }}
                                 <div class="education-info">
@@ -195,12 +222,18 @@
                 <section id="projects" class="projects-section">
                     <h2 class="section-title">Open Source Projects</h2>
                     <div class="projects-container">
-                        {{ range .Site.Data.sections.projects.projects }}
+                        {{ range hugo.Data.sections.projects.projects }}
                         <div class="project-card">
                             <div class="project-header">
                                 {{ if .logo }}
                                 <div class="project-logo-container">
-                                    <img src="{{ .logo }}" alt="{{ .name }} logo" class="project-logo">
+                                    {{ partial "asset-img.html" (dict
+                                        "path" .logo
+                                        "alt" (printf "%s logo" .name)
+                                        "class" "project-logo"
+                                        "sizes" "3.5rem"
+                                        "widths" (slice 112 224 336)
+                                    ) }}
                                 </div>
                                 {{ end }}
                                 <div class="project-info">
@@ -232,17 +265,7 @@
                     <div class="recent-posts-container">
                         {{ range first 3 (where .Site.RegularPages "Section" "posts") }}
                         <article class="post-card">
-                            {{ if .Params.Description }}
-                            <div class="post-thumbnail">
-                                {{ with .Resources.GetMatch (printf "%s*" .Params.thumbnail) }}
-                                <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
-                                {{ else }}
-                                <div class="post-thumbnail-placeholder">
-                                    <i class="fas fa-file-alt"></i>
-                                </div>
-                                {{ end }}
-                            </div>
-                            {{ end }}
+                            {{ partial "post-thumbnail.html" . }}
                             <h3 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
                             <div class="post-meta">
                                 <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
@@ -268,23 +291,19 @@
             </div>
             <footer class="footer">
                 <div class="footer-contact">
-                    {{ range .Site.Data.profile.contactDetails }}
+                    {{ range hugo.Data.profile.contactDetails }}
                         <a href="{{ .url }}" class="footer-link" title="{{ .type }}">
                             <i class="{{ .icon }}"></i>
                         </a>
                     {{ end }}
                 </div>
                 <div class="footer-copyright">
-                    <p>{{ .Site.Data.site.copyright }}</p>
+                    <p>{{ hugo.Data.site.copyright }}</p>
                     <p>Powered by <a href="https://gohugo.io" target="_blank">gohugo</a></p>
                 </div>
             </footer>
         </div>
     </div>
 
-    {{ $images := resources.Match "images/*" }}
-    {{ range $images }}
-        <link rel="preload" href="{{ .Permalink }}" as="image">
-    {{ end }}
 </body>
 </html>

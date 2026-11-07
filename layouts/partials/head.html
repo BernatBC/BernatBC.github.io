@@ -7,19 +7,19 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 {{ $style := resources.Get "styles/style.scss" | css.Sass | resources.Minify }}
-<link rel="stylesheet" href="{{ $style.Permalink }}">
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
 {{ $fa := resources.Get "vendor/fontawesome/css/all.min.css" | resources.Fingerprint }}
-<link rel="stylesheet" href="{{ $fa.Permalink }}" integrity="{{ $fa.Data.Integrity }}">
+<link rel="stylesheet" href="{{ $fa.RelPermalink }}" integrity="{{ $fa.Data.Integrity }}">
 
 {{ $script := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint }}
-<script defer src="{{ $script.Permalink }}" integrity="{{ $script.Data.Integrity }}"></script>
+<script defer src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
 
 {{ if .IsPage }}
 <!-- KaTeX -->
 {{ $katexCss := resources.Get "vendor/katex/katex.min.css" | resources.Fingerprint }}
-<link rel="stylesheet" href="{{ $katexCss.Permalink }}" integrity="{{ $katexCss.Data.Integrity }}">
+<link rel="stylesheet" href="{{ $katexCss.RelPermalink }}" integrity="{{ $katexCss.Data.Integrity }}">
 {{ $katexJs := resources.Get "vendor/katex/katex.min.js" | resources.Fingerprint }}
-<script defer src="{{ $katexJs.Permalink }}" integrity="{{ $katexJs.Data.Integrity }}"></script>
+<script defer src="{{ $katexJs.RelPermalink }}" integrity="{{ $katexJs.Data.Integrity }}"></script>
 {{ $katexAuto := resources.Get "vendor/katex/contrib/auto-render.min.js" | resources.Fingerprint }}
-<script defer src="{{ $katexAuto.Permalink }}" integrity="{{ $katexAuto.Data.Integrity }}"></script>
+<script defer src="{{ $katexAuto.RelPermalink }}" integrity="{{ $katexAuto.Data.Integrity }}"></script>
 {{ end }}
