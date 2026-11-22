@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js';
+import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 
 const canvas = document.getElementById('workshop-canvas');
 const status = document.getElementById('workshop-status');
@@ -160,7 +161,14 @@ try {
     controls.maxAzimuthAngle = Math.PI / 2.8;
     controls.update();
 
-    scene.add(new THREE.HemisphereLight(0xe3edda, 0x48513f, 1.8));
+    // A soft studio environment adds believable reflections on glossy and metallic surfaces.
+    const environment = new THREE.PMREMGenerator(renderer);
+    scene.environment = environment.fromScene(new RoomEnvironment(), 0.04).texture;
+    scene.environmentIntensity = 0.18;
+    environment.dispose();
+    const maxAnisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 8);
+
+    scene.add(new THREE.HemisphereLight(0xe3edda, 0x48513f, 1.25));
     const sun = new THREE.DirectionalLight(0xffe5bf, 3.0);
     sun.position.set(-4, 10, 7);
     sun.castShadow = true;
@@ -179,7 +187,7 @@ try {
 
     const materials = {};
     function material(color, extra = {}) {
-        const key = `${color}-${JSON.stringify(extra)}`;
+        const key = `${color}-${JSON.stringify(extra, (name, value) => (value && value.isTexture ? value.uuid : value))}`;
         if (!materials[key]) materials[key] = new THREE.MeshStandardMaterial({ color, roughness: 0.8, ...extra });
         return materials[key];
     }
@@ -207,50 +215,187 @@ try {
         parent.add(mesh);
         return mesh;
     }
-    function canvasPlane(parent, width, height, position, draw) {
+    function canvasPlane(parent, width, height, position, draw, { lit = false, resolution = [512, 320] } = {}) {
         const textureCanvas = document.createElement('canvas');
-        textureCanvas.width = 512;
-        textureCanvas.height = 320;
+        [textureCanvas.width, textureCanvas.height] = resolution;
         const ctx = textureCanvas.getContext('2d');
         draw(ctx);
         const texture = new THREE.CanvasTexture(textureCanvas);
         texture.colorSpace = THREE.SRGBColorSpace;
-        const mesh = new THREE.Mesh(new THREE.PlaneGeometry(width, height), new THREE.MeshBasicMaterial({ map: texture }));
+        texture.anisotropy = maxAnisotropy;
+        const surface = lit ? new THREE.MeshStandardMaterial({ map: texture, roughness: 0.95 }) : new THREE.MeshBasicMaterial({ map: texture });
+        const mesh = new THREE.Mesh(new THREE.PlaneGeometry(width, height), surface);
         mesh.position.set(...position);
         parent.add(mesh);
         return mesh;
     }
+    // Deterministic noise keeps procedural textures identical between visits.
+    function random(seed) {
+        let state = seed;
+        return () => {
+            state = (state * 1664525 + 1013904223) >>> 0;
+            return state / 4294967296;
+        };
+    }
+    function proceduralTexture(size, draw, { repeat = [1, 1], rotation = 0, color = true } = {}) {
+        const textureCanvas = document.createElement('canvas');
+        textureCanvas.width = textureCanvas.height = size;
+        draw(textureCanvas.getContext('2d'), size);
+        const texture = new THREE.CanvasTexture(textureCanvas);
+        if (color) texture.colorSpace = THREE.SRGBColorSpace;
+        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set(...repeat);
+        texture.anisotropy = maxAnisotropy;
+        if (rotation) {
+            texture.center.set(0.5, 0.5);
+            texture.rotation = rotation;
+        }
+        return texture;
+    }
+    // Light wood grain that tints with the material colour; streaks run along the texture's vertical axis.
+    function drawWoodGrain(ctx, size) {
+        const rand = random(7);
+        ctx.fillStyle = '#f4f4f4';
+        ctx.fillRect(0, 0, size, size);
+        for (let i = 0; i < 160; i++) {
+            const x = rand() * size;
+            const width = 0.6 + rand() * 2.2;
+            ctx.fillStyle = `rgba(70,45,25,${0.03 + rand() * 0.1})`;
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            for (let y = 0; y <= size; y += 32) ctx.lineTo(x + Math.sin(y * 0.03 + i) * 2.5, y);
+            for (let y = size; y >= 0; y -= 32) ctx.lineTo(x + width + Math.sin(y * 0.03 + i) * 2.5, y);
+            ctx.fill();
+        }
+        for (let i = 0; i < 5; i++) {
+            const x = rand() * size;
+            const y = rand() * size;
+            const knot = ctx.createRadialGradient(x, y, 0, x, y, 10 + rand() * 8);
+            knot.addColorStop(0, 'rgba(80,50,28,.3)');
+            knot.addColorStop(1, 'rgba(80,50,28,0)');
+            ctx.fillStyle = knot;
+            ctx.fillRect(x - 24, y - 24, 48, 48);
+        }
+    }
+    function drawPlaster(ctx, size) {
+        const rand = random(11);
+        ctx.fillStyle = '#f2f2f2';
+        ctx.fillRect(0, 0, size, size);
+        for (let i = 0; i < 2600; i++) {
+            const shade = rand() > 0.5 ? 255 : 90;
+            ctx.fillStyle = `rgba(${shade},${shade},${shade},${rand() * 0.07})`;
+            const dot = 1 + rand() * 3;
+            ctx.fillRect(rand() * size, rand() * size, dot, dot);
+        }
+    }
+    const woodMapAcross = proceduralTexture(256, drawWoodGrain, { rotation: Math.PI / 2 });
+    const plasterMap = proceduralTexture(256, drawPlaster, { repeat: [4, 2] });
+    const floorMap = proceduralTexture(256, drawWoodGrain, { repeat: [1, 3] });
+    const woodFloor = { map: floorMap, bumpMap: floorMap, bumpScale: 1.2, roughness: 0.62 };
+    const woodTop = { map: woodMapAcross, bumpMap: woodMapAcross, bumpScale: 1, roughness: 0.55 };
+    const plaster = { map: plasterMap, bumpMap: plasterMap, bumpScale: 0.6, roughness: 0.92 };
+    function glowTexture(color) {
+        return proceduralTexture(64, (ctx, size) => {
+            const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+            gradient.addColorStop(0, `rgba(${color},1)`);
+            gradient.addColorStop(0.35, `rgba(${color},0.35)`);
+            gradient.addColorStop(1, `rgba(${color},0)`);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+        });
+    }
+    const glowMap = glowTexture('255,226,170');
+    function glow(parent, position, size, opacity, map = glowMap) {
+        const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map, transparent: true, opacity, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false }));
+        sprite.position.set(...position);
+        sprite.scale.setScalar(size);
+        sprite.raycast = () => {};
+        parent.add(sprite);
+        return sprite;
+    }
+    // Soft dark gradients stand in for ambient occlusion where furniture meets the floor and wall.
+    const contactTexture = proceduralTexture(128, (ctx, size) => {
+        const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+        gradient.addColorStop(0, 'rgba(20,12,6,.55)');
+        gradient.addColorStop(0.6, 'rgba(20,12,6,.2)');
+        gradient.addColorStop(1, 'rgba(20,12,6,0)');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, size, size);
+    });
+    function contactShadow(parent, width, depth, position, opacity = 1) {
+        const mesh = new THREE.Mesh(new THREE.PlaneGeometry(width, depth), new THREE.MeshBasicMaterial({ map: contactTexture, transparent: true, opacity, depthWrite: false }));
+        mesh.rotation.x = -Math.PI / 2;
+        mesh.position.set(...position);
+        parent.add(mesh);
+        return mesh;
+    }
+    const swayLeaves = [];
+    const ambientUpdates = [];
     // Architectural trim and a shallow plinth give the open room a finished edge.
     roundedBox(scene, [10.55, 0.4, 6.85], [0, -0.22, 0], 0x675342, 0.08);
     box(scene, [10.5, 0.12, 6.8], [0, 0, 0], 0x9d805f);
     box(scene, [10.45, 0.035, 0.035], [0, -0.13, 3.42], 0xb49167);
     for (let x = -4.8; x <= 4.8; x += 0.8) {
         const index = Math.round((x + 4.8) / 0.8);
-        box(scene, [0.78, 0.02, 6.7], [x, 0.07, 0], [0xc5a67c, 0xb99872, 0xc3a17a, 0xb3926d][index % 4]);
+        box(scene, [0.78, 0.02, 6.7], [x, 0.07, 0], [0xc5a67c, 0xb99872, 0xc3a17a, 0xb3926d][index % 4], woodFloor);
         box(scene, [0.012, 0.006, 1.3], [x - 0.23, 0.083, -1.7 + (index % 3)], 0xa58461);
         box(scene, [0.78, 0.005, 0.014], [x, 0.083, index % 2 ? 0.8 : -1.4], 0xa58461);
     }
-    box(scene, [10.5, 4.7, 0.22], [0, 2.35, -3.3], 0x657961);
+    box(scene, [10.5, 4.7, 0.22], [0, 2.35, -3.3], 0x657961, plaster);
     box(scene, [10.5, 0.18, 0.3], [0, 0.16, -3.16], 0x405644);
     box(scene, [10.5, 0.18, 0.3], [0, 4.65, -3.16], 0x405644);
     for (let x = -4.9; x <= 4.9; x += 1.22) box(scene, [0.035, 4.3, 0.03], [x, 2.35, -3.17], 0x71866c);
     box(scene, [10.6, 0.09, 0.14], [0, 1.05, -3.13], 0x536d53);
-    box(scene, [10.5, 0.035, 0.08], [0, 1.13, -3.11], 0x91a386);
+    box(scene, [10.5, 0.035, 0.08], [0, 1.13, -3.11], 0x91a386, { metalness: 0.15, roughness: 0.45 });
+    // Faux ambient occlusion where the floor meets the wall, under the rug and beneath each piece of furniture.
+    const wallShade = canvasPlane(scene, 10.4, 1.1, [0, 0.62, -3.0], ctx => {
+        const gradient = ctx.createLinearGradient(0, 0, 0, 128);
+        gradient.addColorStop(0, 'rgba(12,22,14,0)');
+        gradient.addColorStop(1, 'rgba(12,22,14,.42)');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, 8, 128);
+    }, { resolution: [8, 128] });
+    wallShade.material.transparent = true;
+    wallShade.material.depthWrite = false;
+    contactShadow(scene, 10.4, 1.3, [0, 0.0855, -2.65], 0.9);
+    contactShadow(scene, 4, 2.1, [0, 0.0855, 1.65], 0.55);
+    contactShadow(scene, 3, 2.2, [-3.15, 0.0855, 0.55], 0.9);
+    contactShadow(scene, 3, 2.2, [3.15, 0.0855, 0.55], 0.9);
+    contactShadow(scene, 2.2, 1.8, [0, 0.0855, 0], 1);
 
     const rug = canvasPlane(scene, 3.5, 1.65, [0, 0.09, 1.65], ctx => {
+        const rand = random(23);
         ctx.fillStyle = '#9b7c65';
-        ctx.fillRect(0, 0, 512, 320);
-        ctx.strokeStyle = '#d6c6a9';
-        ctx.lineWidth = 8;
-        ctx.strokeRect(20, 20, 472, 280);
-        ctx.strokeRect(34, 34, 444, 252);
-        ctx.lineWidth = 3;
-        for (let x = 70; x < 470; x += 62) {
-            ctx.beginPath();
-            ctx.moveTo(x, 58); ctx.lineTo(x + 25, 160); ctx.lineTo(x, 262); ctx.stroke();
+        ctx.fillRect(0, 0, 1024, 512);
+        // Woven threads in both directions give the rug a fabric feel.
+        for (let y = 0; y < 512; y += 3) {
+            ctx.fillStyle = `rgba(${rand() > 0.5 ? '255,235,210' : '40,22,14'},${0.03 + rand() * 0.06})`;
+            ctx.fillRect(0, y, 1024, 1.5);
         }
-    });
+        for (let x = 0; x < 1024; x += 3) {
+            ctx.fillStyle = `rgba(${rand() > 0.5 ? '255,235,210' : '40,22,14'},${0.02 + rand() * 0.05})`;
+            ctx.fillRect(x, 0, 1.5, 512);
+        }
+        ctx.strokeStyle = '#d6c6a9';
+        ctx.lineWidth = 16;
+        ctx.strokeRect(40, 40, 944, 432);
+        ctx.strokeRect(68, 68, 888, 376);
+        ctx.lineWidth = 6;
+        for (let x = 140; x < 940; x += 124) {
+            ctx.beginPath();
+            ctx.moveTo(x, 116); ctx.lineTo(x + 50, 256); ctx.lineTo(x, 396); ctx.stroke();
+        }
+        ctx.fillStyle = '#c77e64';
+        for (let x = 202; x < 900; x += 124) {
+            ctx.beginPath(); ctx.moveTo(x, 236); ctx.lineTo(x + 14, 256); ctx.lineTo(x, 276); ctx.lineTo(x - 14, 256); ctx.fill();
+        }
+    }, { lit: true, resolution: [1024, 512] });
     rug.rotation.x = -Math.PI / 2;
+    rug.receiveShadow = true;
+    rug.material.color.setScalar(0.72);
+    for (const x of [-1.75, 1.75]) {
+        for (let z = 0.86; z <= 2.45; z += 0.055) box(scene, [0.1, 0.012, 0.022], [x + Math.sign(x) * 0.04, 0.088, z], 0xd6c6a9, { roughness: 1 });
+    }
 
     const stations = {};
     function station(name, x, z = 0) {
@@ -277,6 +422,99 @@ try {
     box(scene, [2.65, 0.12, 0.3], [0, 1.99, -2.95], 0xbca887);
     for (const x of [-1.18, 1.18]) box(scene, [0.12, 2.08, 0.12], [x, 3.05, -2.99], 0xcbb998);
     box(scene, [2.48, 0.12, 0.12], [0, 4.04, -2.99], 0xcbb998);
+
+    // Drifting clouds and a pulsing sun glow keep the view outside alive.
+    const clouds = canvasPlane(scene, 2.27, 0.9, [0, 3.45, -2.99], ctx => {
+        const rand = random(5);
+        for (let i = 0; i < 7; i++) {
+            const x = rand() * 512;
+            const y = 18 + rand() * 90;
+            const width = 50 + rand() * 60;
+            for (const offset of [-512, 0, 512]) {
+                ctx.fillStyle = 'rgba(255,250,232,.5)';
+                for (let puff = 0; puff < 5; puff++) {
+                    ctx.beginPath();
+                    ctx.ellipse(x + offset + (puff - 2) * width * 0.28, y + Math.abs(puff - 2) * 3, width * (0.32 - Math.abs(puff - 2) * 0.05), 11 + (2 - Math.abs(puff - 2)) * 5, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+        }
+    }, { resolution: [512, 128] });
+    clouds.material.map.wrapS = THREE.RepeatWrapping;
+    clouds.material.transparent = true;
+    clouds.material.depthWrite = false;
+    const sunGlow = glow(scene, [0.57, 3.55, -2.98], 1.3, 0.5);
+    ambientUpdates.push(now => {
+        clouds.material.map.offset.x = (now * 0.000004) % 1;
+        sunGlow.material.opacity = 0.42 + Math.sin(now * 0.0011) * 0.08;
+    });
+
+    // Sunbeams through the window: a faint volume, a patch of light on the floor and floating dust.
+    const beamDirection = new THREE.Vector3(0.5, -1, 1.4);
+    function beamPoint(x, y, target = new THREE.Vector3()) {
+        const drop = y - 0.1;
+        return target.set(x + beamDirection.x * drop, 0.1, -3.0 + beamDirection.z * drop);
+    }
+    const beamTop = [[-1.05, 3.88], [1.05, 3.88], [1.05, 2.22], [-1.05, 2.22]];
+    const beamPositions = [];
+    const beamColors = [];
+    const beamUvs = [];
+    const floorCorners = beamTop.map(([x, y]) => beamPoint(x, y));
+    for (let i = 0; i < 4; i++) {
+        const j = (i + 1) % 4;
+        const quad = [
+            [beamTop[i][0], beamTop[i][1], -3.0, 1], [beamTop[j][0], beamTop[j][1], -3.0, 1],
+            [floorCorners[j].x, 0.1, floorCorners[j].z, 0], [floorCorners[i].x, 0.1, floorCorners[i].z, 0]
+        ];
+        for (const index of [0, 1, 2, 0, 2, 3]) {
+            const [x, y, z, strength] = quad[index];
+            beamPositions.push(x, y, z);
+            beamColors.push(0.04 * strength, 0.032 * strength, 0.017 * strength);
+        }
+    }
+    const beamGeometry = new THREE.BufferGeometry();
+    beamGeometry.setAttribute('position', new THREE.Float32BufferAttribute(beamPositions, 3));
+    beamGeometry.setAttribute('color', new THREE.Float32BufferAttribute(beamColors, 3));
+    const beamMaterial = new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide });
+    scene.add(new THREE.Mesh(beamGeometry, beamMaterial));
+    const patchTexture = proceduralTexture(128, (ctx, size) => {
+        ctx.fillStyle = '#fff';
+        ctx.filter = 'blur(2px)';
+        for (const [x, y] of [[8, 8], [68, 8], [8, 68], [68, 68]]) ctx.fillRect(x, y, 52, 52);
+    });
+    patchTexture.wrapS = patchTexture.wrapT = THREE.ClampToEdgeWrapping;
+    const patchGeometry = new THREE.BufferGeometry();
+    patchGeometry.setAttribute('position', new THREE.Float32BufferAttribute(floorCorners.flatMap(corner => [corner.x, 0.0925, corner.z]), 3));
+    patchGeometry.setAttribute('uv', new THREE.Float32BufferAttribute([0, 1, 1, 1, 1, 0, 0, 0], 2));
+    patchGeometry.setIndex([0, 2, 1, 0, 3, 2]);
+    const patchMaterial = new THREE.MeshBasicMaterial({ map: patchTexture, color: 0x54462a, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide });
+    scene.add(new THREE.Mesh(patchGeometry, patchMaterial));
+    const dustCount = 70;
+    const dustSeeds = Array.from({ length: dustCount }, (_, i) => {
+        const rand = random(100 + i);
+        return { t: rand(), x: rand() * 2 - 1, y: rand(), speed: 0.4 + rand() * 0.8, phase: rand() * 10 };
+    });
+    const dustPositions = new Float32Array(dustCount * 3);
+    const dust = new THREE.Points(new THREE.BufferGeometry(), new THREE.PointsMaterial({ map: glowMap, size: 7, sizeAttenuation: false, transparent: true, opacity: 0.55, depthWrite: false, blending: THREE.AdditiveBlending, color: 0xffeec4 }));
+    dust.geometry.setAttribute('position', new THREE.BufferAttribute(dustPositions, 3));
+    dust.frustumCulled = false;
+    scene.add(dust);
+    const dustPoint = new THREE.Vector3();
+    function updateDust(now) {
+        for (let i = 0; i < dustCount; i++) {
+            const seed = dustSeeds[i];
+            const windowY = 2.25 + seed.y * 1.6;
+            const progress = (seed.t + now * 0.00002 * seed.speed) % 1;
+            beamPoint(seed.x * 1.05, windowY, dustPoint);
+            const x = seed.x * 1.05 + (dustPoint.x - seed.x * 1.05) * progress;
+            dustPositions[i * 3] = x + Math.sin(now * 0.0004 + seed.phase) * 0.1;
+            dustPositions[i * 3 + 1] = windowY + (0.1 - windowY) * progress + Math.sin(now * 0.0006 + seed.phase) * 0.06;
+            dustPositions[i * 3 + 2] = -3.0 + (dustPoint.z + 3.0) * progress + Math.cos(now * 0.0005 + seed.phase) * 0.1;
+        }
+        dust.geometry.attributes.position.needsUpdate = true;
+    }
+    updateDust(0);
+    ambientUpdates.push(updateDust);
     const profile = station('profile', -3.35, -3.13);
     roundedBox(profile, [1.35, 1.05, 0.1], [0, 3.35, 0], 0x3c5143, 0.025);
     canvasPlane(profile, 1.13, 0.83, [0, 3.35, 0.11], ctx => {
@@ -302,7 +540,7 @@ try {
     box(scene, [0.3, 0.1, 0.25], [-3.8, 2.83, -2.9], 0xe9d6ad);
     plant(scene, [-2.9, 2.61, -2.88], 0.42, 0xbc866b);
     function table(group, width, depth) {
-        roundedBox(group, [width, 0.18, depth], [0, 1.28, 0], 0xb9926e, 0.055);
+        roundedBox(group, [width, 0.18, depth], [0, 1.28, 0], 0xb9926e, 0.055, woodTop);
         box(group, [width - 0.15, 0.035, 0.035], [0, 1.2, depth / 2 - 0.01], 0x725942);
         for (const x of [-width / 2 + 0.16, width / 2 - 0.16]) {
             for (const z of [-depth / 2 + 0.16, depth / 2 - 0.16]) box(group, [0.16, 1.22, 0.16], [x, 0.65, z], 0x785943);
@@ -348,6 +586,28 @@ try {
     bench.add(lampJoint);
     const benchLamp = cylinder(bench, 0.07, 0.19, 0.16, [-0.7, 2.05, -0.46], 0xc6a16c, 20);
     benchLamp.rotation.z = -0.25;
+    const lampBulb = new THREE.Mesh(new THREE.SphereGeometry(0.06, 12, 8), new THREE.MeshBasicMaterial({ color: 0xfff0c4, toneMapped: false }));
+    lampBulb.position.set(-0.68, 1.99, -0.46);
+    bench.add(lampBulb);
+    glow(bench, [-0.68, 1.97, -0.4], 0.7, 0.5);
+    const deskLight = new THREE.PointLight(0xffd6a0, 0.7, 2.4);
+    deskLight.position.set(-0.66, 1.9, -0.3);
+    bench.add(deskLight);
+    const steamMap = glowTexture('240,240,230');
+    const steam = Array.from({ length: 4 }, (_, i) => {
+        const puff = new THREE.Sprite(new THREE.SpriteMaterial({ map: steamMap, transparent: true, opacity: 0, depthWrite: false }));
+        bench.add(puff);
+        puff.raycast = () => {};
+        return { puff, phase: i / 4 };
+    });
+    ambientUpdates.push(now => {
+        for (const { puff, phase } of steam) {
+            const progress = (now * 0.00028 + phase) % 1;
+            puff.position.set(0.89 + Math.sin(progress * 7 + phase * 9) * 0.045, 1.64 + progress * 0.5, 0.25);
+            puff.scale.setScalar(0.1 + progress * 0.22);
+            puff.material.opacity = Math.sin(progress * Math.PI) * 0.3;
+        }
+    });
     roundedBox(bench, [0.68, 0.12, 0.58], [-0.25, 0.75, 1.48], 0x526d5b, 0.08);
     roundedBox(bench, [0.68, 0.62, 0.12], [-0.25, 1.18, 1.75], 0x526d5b, 0.06);
     cylinder(bench, 0.055, 0.055, 0.62, [-0.25, 0.41, 1.48], 0x3b4d40);
@@ -486,6 +746,19 @@ try {
         }
         ctx.fillStyle = 'rgba(255,255,255,.035)';
         for (let y = 0; y < 320; y += 6) ctx.fillRect(0, y, 512, 2);
+        const vignette = ctx.createRadialGradient(256, 160, 120, 256, 160, 330);
+        vignette.addColorStop(0, 'rgba(0,0,0,0)');
+        vignette.addColorStop(1, 'rgba(4,14,12,.55)');
+        ctx.fillStyle = vignette;
+        ctx.fillRect(0, 0, 512, 320);
+        // A slow rolling band mimics the refresh sweep of an old CRT.
+        const bandY = (time * 55) % 420 - 50;
+        const band = ctx.createLinearGradient(0, bandY, 0, bandY + 50);
+        band.addColorStop(0, 'rgba(200,255,230,0)');
+        band.addColorStop(0.5, 'rgba(200,255,230,.06)');
+        band.addColorStop(1, 'rgba(200,255,230,0)');
+        ctx.fillStyle = band;
+        ctx.fillRect(0, bandY, 512, 50);
     }
     const arcadeScreen = canvasPlane(monitor, 1.02, 0.85, [0, 0, 0.081], ctx => {
         arcadeScreenContext = ctx;
@@ -495,6 +768,27 @@ try {
     arcadeScreenTexture.minFilter = THREE.NearestFilter;
     arcadeScreenTexture.magFilter = THREE.NearestFilter;
     arcadeScreenTexture.generateMipmaps = false;
+    const glassSheen = new THREE.Mesh(new THREE.PlaneGeometry(1.02, 0.85), new THREE.MeshBasicMaterial({
+        map: proceduralTexture(128, (ctx, size) => {
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, 'rgba(255,255,255,.16)');
+            gradient.addColorStop(0.35, 'rgba(255,255,255,.04)');
+            gradient.addColorStop(0.5, 'rgba(255,255,255,0)');
+            gradient.addColorStop(1, 'rgba(255,255,255,.05)');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+        }),
+        transparent: true,
+        depthWrite: false
+    }));
+    glassSheen.position.set(0, 0, 0.085);
+    monitor.add(glassSheen);
+    const screenGlow = glow(monitor, [0, 0, 0.3], 2.4, 0.2, glowTexture('130,230,200'));
+    const screenLight = new THREE.PointLight(0x8fd6c0, 1.0, 3.2);
+    screenLight.position.set(0, 0.1, 0.9);
+    monitor.add(screenLight);
+    const marqueeGlow = glow(arcade, [0, 2.75, 0.55], 1.7, 0.22, glowTexture('255,214,150'));
+    const arcadeButtons = [];
     const controlsPanel = new THREE.Group();
     controlsPanel.position.set(0, 1.38, 0.73);
     controlsPanel.rotation.x = 0.13;
@@ -513,7 +807,18 @@ try {
         button.position.set(x, 0.103, z);
         button.castShadow = true;
         controlsPanel.add(button);
+        arcadeButtons.push(button);
     }
+    // Controls and glow follow the on-screen game: the joystick sways with the player and the button presses on each jump.
+    ambientUpdates.push(now => {
+        const time = now * 0.001;
+        joystick.position.x = -0.37 + Math.cos(time * 0.75) * 0.02;
+        arcadeButtons[0].position.y = Math.sin(time * 2.5) > 0 ? 0.088 : 0.103;
+        const flicker = 1 + Math.sin(time * 31) * 0.03 + Math.sin(time * 7.3) * 0.05;
+        screenLight.intensity = 1.0 * flicker;
+        screenGlow.material.opacity = 0.2 * flicker;
+        marqueeGlow.material.opacity = 0.2 + Math.sin(time * 1.6) * 0.05;
+    });
     roundedBox(arcade, [0.64, 0.55, 0.035], [0, 0.72, 0.616], 0x223b32, 0.035);
     roundedBox(arcade, [0.27, 0.19, 0.025], [-0.14, 0.76, 0.64], 0x9c8b69, 0.02);
     box(arcade, [0.16, 0.022, 0.012], [-0.14, 0.79, 0.659], 0x273b32);
@@ -556,12 +861,20 @@ try {
     box(research, [0.8, 0.06, 0.6], [-0.42, 1.4, 0.1], 0xe7d9b8);
     box(research, [0.65, 0.025, 0.43], [-0.42, 1.45, 0.1], 0xf3ebd3);
     box(research, [0.25, 0.06, 0.25], [0.55, 1.41, -0.1], 0x445c4a);
-    const sculpture = new THREE.Mesh(new THREE.IcosahedronGeometry(0.39, 1), material(0xa6c989, { flatShading: true }));
+    const sculpture = new THREE.Mesh(new THREE.IcosahedronGeometry(0.39, 1), material(0xa6c989, { flatShading: true, emissive: 0x1d3a22, roughness: 0.3, metalness: 0.1 }));
     sculpture.position.set(0.55, 1.85, -0.1);
     sculpture.castShadow = true;
     research.add(sculpture);
+    const sculptureGlow = glow(research, [0.55, 1.85, -0.1], 1.4, 0.16, glowTexture('166,230,150'));
     const wire = new THREE.LineSegments(new THREE.EdgesGeometry(sculpture.geometry), new THREE.LineBasicMaterial({ color: 0x4d6c53 }));
     sculpture.add(wire);
+    ambientUpdates.push(now => {
+        const bob = Math.sin(now * 0.0012) * 0.035;
+        sculpture.position.y = 1.85 + bob;
+        sculptureGlow.position.y = 1.85 + bob;
+        sculpture.rotation.x = Math.sin(now * 0.0007) * 0.12;
+        sculptureGlow.material.opacity = 0.14 + Math.sin(now * 0.0018) * 0.04;
+    });
     box(research, [0.35, 0.09, 0.48], [-0.85, 1.42, -0.25], 0xd89170);
     box(research, [0.35, 0.09, 0.48], [-0.85, 1.52, -0.25], 0xd8cba3);
     for (let i = 0; i < 3; i++) box(research, [0.4 - i * 0.07, 0.012, 0.015], [-0.48, 1.473, 0.02 + i * 0.1], 0x93a68c);
@@ -575,14 +888,28 @@ try {
     pencil.rotation.x = Math.PI / 2;
 
     // Warm pendant lights and a little noticeboard frame the workspace.
+    const pendants = [];
     for (const x of [-1.8, 1.8]) {
-        cylinder(scene, 0.018, 0.018, 0.7, [x, 4.35, -1.6], 0x3e5545, 8);
-        cylinder(scene, 0.08, 0.3, 0.25, [x, 3.91, -1.6], 0xd1a66e);
-        cylinder(scene, 0.18, 0.18, 0.02, [x, 3.77, -1.6], 0xf2dda4, 16);
+        const pendant = new THREE.Group();
+        pendant.position.set(x, 4.7, -1.6);
+        scene.add(pendant);
+        cylinder(pendant, 0.018, 0.018, 0.7, [0, -0.35, 0], 0x3e5545, 8);
+        cylinder(pendant, 0.08, 0.3, 0.25, [0, -0.79, 0], 0xd1a66e);
+        const bulb = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.02, 16), new THREE.MeshBasicMaterial({ color: 0xfff0c4, toneMapped: false }));
+        bulb.position.set(0, -0.93, 0);
+        pendant.add(bulb);
         const light = new THREE.PointLight(0xffdba8, 0.8, 3.2);
-        light.position.set(x, 3.72, -1.6);
-        scene.add(light);
+        light.position.set(0, -0.98, 0);
+        pendant.add(light);
+        glow(pendant, [0, -1.0, 0], 1.25, 0.55);
+        pendants.push(pendant);
     }
+    ambientUpdates.push(now => {
+        pendants.forEach((pendant, i) => {
+            pendant.rotation.z = Math.sin(now * 0.0009 + i * 2.1) * 0.022;
+            pendant.rotation.x = Math.cos(now * 0.0007 + i * 1.3) * 0.016;
+        });
+    });
     box(scene, [1.2, 0.72, 0.08], [4.1, 2.5, -3.11], 0x806e50);
     box(scene, [1.04, 0.56, 0.04], [4.1, 2.5, -3.04], 0xcbb88d);
     box(scene, [0.32, 0.36, 0.02], [3.85, 2.52, -3.01], 0xf1e8ca);
@@ -606,10 +933,96 @@ try {
             leaf.rotation.set(0, -angle, i < 3 ? -0.18 : -0.5);
             leaf.castShadow = true;
             group.add(leaf);
+            swayLeaves.push({ leaf, base: leaf.rotation.z, phase: i * 1.7 + position[0] });
         }
     }
     plant(scene, [4.6, 0.08, 2.2], 1, 0xa9755f);
     plant(scene, [-4.6, 0.08, 2.3], 0.55, 0xc2a082);
+    ambientUpdates.push(now => {
+        for (const { leaf, base, phase } of swayLeaves) leaf.rotation.z = base + Math.sin(now * 0.0012 + phase) * 0.035;
+    });
+
+    // A sleeping cat curled up on the rug breathes slowly.
+    const cat = new THREE.Group();
+    cat.position.set(-1.05, 0.1, 1.75);
+    cat.rotation.y = 0.55;
+    scene.add(cat);
+    const fur = { roughness: 0.95 };
+    const catBody = new THREE.Mesh(new THREE.SphereGeometry(0.3, 20, 14), material(0xd8924f, fur));
+    catBody.scale.set(1.15, 0.62, 0.95);
+    catBody.position.y = 0.17;
+    const catHead = new THREE.Mesh(new THREE.SphereGeometry(0.15, 16, 12), material(0xe0a063, fur));
+    catHead.position.set(0.36, 0.13, 0.2);
+    const catTail = new THREE.Mesh(new THREE.TorusGeometry(0.32, 0.055, 8, 28, Math.PI * 1.15), material(0xc9823f, fur));
+    catTail.rotation.x = Math.PI / 2;
+    catTail.rotation.z = 0.5;
+    catTail.position.y = 0.06;
+    const tailTip = new THREE.Mesh(new THREE.SphereGeometry(0.058, 10, 8), material(0xf1deb8, fur));
+    tailTip.position.set(Math.cos(0.5 + Math.PI * 1.15) * 0.32, 0.06, Math.sin(0.5 + Math.PI * 1.15) * 0.32);
+    const paws = new THREE.Mesh(new THREE.SphereGeometry(0.075, 10, 8), material(0xf1deb8, fur));
+    paws.scale.set(1.5, 0.7, 1);
+    paws.position.set(0.5, 0.05, 0.1);
+    cat.add(catBody, catHead, catTail, tailTip, paws);
+    for (const side of [-1, 1]) {
+        const ear = new THREE.Mesh(new THREE.ConeGeometry(0.05, 0.1, 4), material(0xc9823f, fur));
+        ear.position.set(0.33, 0.26, 0.2 + side * 0.09);
+        ear.rotation.x = side * 0.25;
+        const eye = new THREE.Mesh(new THREE.BoxGeometry(0.035, 0.008, 0.02), material(0x3a2a20));
+        eye.position.set(0.485, 0.15, 0.2 + side * 0.065);
+        eye.rotation.y = Math.PI / 2;
+        cat.add(ear, eye);
+    }
+    const nose = new THREE.Mesh(new THREE.SphereGeometry(0.018, 8, 6), material(0xd98a86));
+    nose.position.set(0.5, 0.115, 0.2);
+    cat.add(nose);
+    cat.traverse(child => { child.castShadow = true; });
+    ambientUpdates.push(now => {
+        const breath = Math.sin(now * 0.0016);
+        catBody.scale.set(1.15 + breath * 0.012, 0.62 + breath * 0.025, 0.95 + breath * 0.012);
+        catHead.position.y = 0.13 + breath * 0.004;
+    });
+
+    // A wall clock that keeps the visitor's local time.
+    const clock = new THREE.Group();
+    clock.position.set(2.3, 2.6, -3.1);
+    scene.add(clock);
+    const clockRim = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.035, 8, 32), material(0x8a6a4c, { roughness: 0.5, metalness: 0.1 }));
+    clockRim.castShadow = true;
+    clock.add(clockRim);
+    const clockFace = new THREE.Mesh(new THREE.CircleGeometry(0.3, 32), material(0xf0e6cc));
+    clockFace.position.z = -0.02;
+    clockFace.receiveShadow = true;
+    clock.add(clockFace);
+    for (let i = 0; i < 12; i++) {
+        const tick = new THREE.Mesh(new THREE.BoxGeometry(0.015, i % 3 ? 0.03 : 0.06, 0.01), material(0x3b4d40));
+        const angle = i * Math.PI / 6;
+        tick.position.set(Math.sin(angle) * 0.23, Math.cos(angle) * 0.23, -0.005);
+        tick.rotation.z = -angle;
+        clock.add(tick);
+    }
+    function clockHand(length, width, color, z) {
+        const pivot = new THREE.Group();
+        const hand = new THREE.Mesh(new THREE.BoxGeometry(width, length, 0.008), material(color));
+        hand.position.y = length / 2 - length * 0.12;
+        pivot.add(hand);
+        pivot.position.z = z;
+        clock.add(pivot);
+        return pivot;
+    }
+    const hourHand = clockHand(0.15, 0.022, 0x3b4d40, 0.0);
+    const minuteHand = clockHand(0.23, 0.015, 0x3b4d40, 0.01);
+    const secondHand = clockHand(0.25, 0.006, 0xc9765e, 0.02);
+    function updateClock() {
+        const date = new Date();
+        const seconds = date.getSeconds() + date.getMilliseconds() / 1000;
+        const minutes = date.getMinutes() + seconds / 60;
+        const hours = date.getHours() % 12 + minutes / 60;
+        hourHand.rotation.z = -hours * Math.PI / 6;
+        minuteHand.rotation.z = -minutes * Math.PI / 30;
+        secondHand.rotation.z = -Math.floor(seconds) * Math.PI / 30;
+    }
+    updateClock();
+    ambientUpdates.push(updateClock);
 
     let transition = null;
     const hotspotHeights = { profile: 3.75, workbench: 2.4, arcade: 3.05, research: 2.3, library: 4.25 };
@@ -727,6 +1140,7 @@ try {
         if (ambientPaused()) return;
         if (now - lastAmbientRender >= 42) {
             sculpture.rotation.y = now * 0.00025;
+            for (const update of ambientUpdates) update(now);
             if (now - lastScreenFrame >= 100) {
                 drawArcadeScreen(arcadeScreenContext, now);
                 arcadeScreenTexture.needsUpdate = true;
