@@ -1,21 +1,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ hugo.Data.site.description }}">
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
-
-<!-- Security Headers -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data:; frame-src 'self' https://www.youtube.com https://youtube.com; frame-ancestors 'self';">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-
-{{ $style := resources.Get "styles/style.scss" | css.Sass | resources.Minify }}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{ $style := resources.Get "styles/workshop.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 {{ $fa := resources.Get "vendor/fontawesome/css/all.min.css" | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $fa.RelPermalink }}" integrity="{{ $fa.Data.Integrity }}">
-
+{{ $workshopScript := resources.Get "js/workshop.js" | js.Build (dict "minify" true) | resources.Fingerprint }}
+<script type="module" src="{{ $workshopScript.RelPermalink }}" integrity="{{ $workshopScript.Data.Integrity }}"></script>
+{{ if .IsPage }}
 {{ $script := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
-
-{{ if .IsPage }}
-<!-- KaTeX -->
 {{ $katexCss := resources.Get "vendor/katex/katex.min.css" | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $katexCss.RelPermalink }}" integrity="{{ $katexCss.Data.Integrity }}">
 {{ $katexJs := resources.Get "vendor/katex/katex.min.js" | resources.Fingerprint }}
