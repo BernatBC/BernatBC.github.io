@@ -275,6 +275,8 @@ try {
     box(scene, [0.09, 1.85, 0.1], [0, 3.05, -2.96], 0xe9d5af);
     box(scene, [2.3, 0.09, 0.1], [0, 3.05, -2.96], 0xe9d5af);
     box(scene, [2.65, 0.12, 0.3], [0, 1.99, -2.95], 0xbca887);
+    for (const x of [-1.18, 1.18]) box(scene, [0.12, 2.08, 0.12], [x, 3.05, -2.99], 0xcbb998);
+    box(scene, [2.48, 0.12, 0.12], [0, 4.04, -2.99], 0xcbb998);
     const profile = station('profile', -3.35, -3.13);
     roundedBox(profile, [1.35, 1.05, 0.1], [0, 3.35, 0], 0x3c5143, 0.025);
     canvasPlane(profile, 1.13, 0.83, [0, 3.35, 0.11], ctx => {
@@ -332,10 +334,20 @@ try {
     const mugHandle = new THREE.Mesh(new THREE.TorusGeometry(0.08, 0.025, 6, 12), material(0xe7d2a6));
     mugHandle.position.set(1.02, 1.48, 0.25);
     bench.add(mugHandle);
-    box(bench, [0.22, 0.06, 0.22], [-0.82, 1.4, -0.45], 0x384f3f);
-    cylinder(bench, 0.035, 0.035, 0.62, [-0.82, 1.75, -0.45], 0x4c634e);
-    const benchLamp = cylinder(bench, 0.08, 0.22, 0.18, [-0.82, 2.08, -0.45], 0xd8b877);
-    benchLamp.rotation.z = -0.35;
+    cylinder(bench, 0.14, 0.16, 0.06, [-0.86, 1.4, -0.46], 0x43594a, 20);
+    function lampArm(from, to) {
+        const start = new THREE.Vector3(...from);
+        const end = new THREE.Vector3(...to);
+        const arm = cylinder(bench, 0.025, 0.025, start.distanceTo(end), start.clone().add(end).multiplyScalar(0.5).toArray(), 0x526b58);
+        arm.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), end.sub(start).normalize());
+    }
+    lampArm([-0.86, 1.43, -0.46], [-0.91, 1.86, -0.46]);
+    lampArm([-0.91, 1.86, -0.46], [-0.7, 2.1, -0.46]);
+    const lampJoint = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 8), material(0xc9ad80, { metalness: 0.3 }));
+    lampJoint.position.set(-0.91, 1.86, -0.46);
+    bench.add(lampJoint);
+    const benchLamp = cylinder(bench, 0.07, 0.19, 0.16, [-0.7, 2.05, -0.46], 0xc6a16c, 20);
+    benchLamp.rotation.z = -0.25;
     roundedBox(bench, [0.68, 0.12, 0.58], [-0.25, 0.75, 1.48], 0x526d5b, 0.08);
     roundedBox(bench, [0.68, 0.62, 0.12], [-0.25, 1.18, 1.75], 0x526d5b, 0.06);
     cylinder(bench, 0.055, 0.055, 0.62, [-0.25, 0.41, 1.48], 0x3b4d40);
@@ -347,47 +359,99 @@ try {
 
     const arcade = station('arcade', 0);
     const cabinetShape = new THREE.Shape();
-    cabinetShape.moveTo(-0.67, 0.1);
-    cabinetShape.lineTo(0.67, 0.1);
-    cabinetShape.lineTo(0.67, 2.95);
-    cabinetShape.lineTo(-0.43, 2.95);
-    cabinetShape.lineTo(-0.67, 2.55);
-    cabinetShape.lineTo(-0.67, 1.4);
-    cabinetShape.lineTo(-0.83, 1.3);
-    cabinetShape.lineTo(-0.83, 1.08);
-    cabinetShape.lineTo(-0.67, 1.02);
+    cabinetShape.moveTo(0.6, 0.12);
+    cabinetShape.lineTo(0.6, 2.86);
+    cabinetShape.quadraticCurveTo(0.6, 2.95, 0.5, 2.95);
+    cabinetShape.lineTo(-0.34, 2.95);
+    cabinetShape.quadraticCurveTo(-0.39, 2.95, -0.43, 2.89);
+    cabinetShape.lineTo(-0.58, 2.65);
+    cabinetShape.lineTo(-0.41, 2.45);
+    cabinetShape.lineTo(-0.55, 1.5);
+    cabinetShape.lineTo(-0.94, 1.39);
+    cabinetShape.lineTo(-0.94, 1.12);
+    cabinetShape.lineTo(-0.62, 1.05);
+    cabinetShape.lineTo(-0.62, 0.12);
     cabinetShape.closePath();
-    const cabinet = new THREE.Mesh(new THREE.ExtrudeGeometry(cabinetShape, { depth: 1.47, bevelEnabled: true, bevelSize: 0.04, bevelThickness: 0.04, bevelSegments: 3 }), material(0x496b5a));
-    cabinet.rotation.y = Math.PI / 2;
-    cabinet.position.x = -0.735;
-    cabinet.castShadow = true;
-    cabinet.receiveShadow = true;
-    arcade.add(cabinet);
-    roundedBox(arcade, [1.65, 0.35, 1.45], [0, 2.85, 0], 0x334a3c, 0.05);
-    canvasPlane(arcade, 1.42, 0.25, [0, 2.86, 0.733], ctx => {
-        ctx.fillStyle = '#d8c29a'; ctx.fillRect(0, 0, 512, 320);
-        ctx.strokeStyle = '#6e826c'; ctx.lineWidth = 8; ctx.strokeRect(20, 25, 472, 270);
-        ctx.fillStyle = '#344b3b'; ctx.textAlign = 'center'; ctx.font = 'bold 120px Georgia';
+    const sideGeometry = new THREE.ExtrudeGeometry(cabinetShape, { depth: 0.12, bevelEnabled: true, bevelSize: 0.015, bevelThickness: 0.015, bevelSegments: 2 });
+    for (const x of [-0.75, 0.63]) {
+        const side = new THREE.Mesh(sideGeometry, material(0x496b5a));
+        side.rotation.y = Math.PI / 2;
+        side.position.x = x;
+        side.castShadow = true;
+        side.receiveShadow = true;
+        arcade.add(side);
+        const edge = new THREE.CurvePath();
+        const points = [[0.38, 2.95], [0.58, 2.65], [0.41, 2.45], [0.55, 1.5], [0.94, 1.39], [0.94, 1.12], [0.62, 1.05], [0.62, 0.12]];
+        for (let i = 1; i < points.length; i++) {
+            edge.add(new THREE.LineCurve3(new THREE.Vector3(x + 0.06, points[i - 1][1], points[i - 1][0]), new THREE.Vector3(x + 0.06, points[i][1], points[i][0])));
+        }
+        const trim = new THREE.Mesh(new THREE.TubeGeometry(edge, 48, 0.018, 6, false), material(0xc0a276, { metalness: 0.35 }));
+        arcade.add(trim);
+    }
+    box(arcade, [1.25, 1.05, 1.2], [0, 0.64, 0], 0x365447);
+    box(arcade, [1.25, 1.5, 0.85], [0, 1.9, -0.16], 0x304b40);
+    roundedBox(arcade, [1.3, 0.33, 0.98], [0, 2.75, -0.1], 0x263e34, 0.035);
+    canvasPlane(arcade, 1.18, 0.23, [0, 2.75, 0.395], ctx => {
+        ctx.fillStyle = '#e1c69b'; ctx.fillRect(0, 0, 512, 320);
+        ctx.strokeStyle = '#7b8d73'; ctx.lineWidth = 8; ctx.strokeRect(16, 22, 480, 276);
+        ctx.fillStyle = '#344d40'; ctx.textAlign = 'center'; ctx.font = 'bold 115px Georgia';
         ctx.fillText('ARCADE', 256, 205);
     });
-    box(arcade, [1.28, 1.15, 0.08], [0, 2.05, 0.7], 0x28372f);
-    canvasPlane(arcade, 1.08, 0.94, [0, 2.05, 0.75], ctx => {
-        ctx.fillStyle = '#203b37'; ctx.fillRect(0, 0, 512, 320);
-        ctx.fillStyle = '#90ab94';
-        for (const [x, y] of [[48, 48], [135, 90], [370, 45], [450, 110], [80, 210], [420, 230]]) ctx.fillRect(x, y, 4, 4);
-        ctx.fillStyle = '#e1c99b';
-        const pixels = [[2, 0], [5, 0], [3, 1], [4, 1], [2, 2], [3, 2], [4, 2], [5, 2], [1, 3], [2, 3], [4, 3], [5, 3], [6, 3], [1, 4], [2, 4], [3, 4], [4, 4], [5, 4], [6, 4], [1, 5], [6, 5], [2, 6], [5, 6]];
-        for (const [x, y] of pixels) ctx.fillRect(175 + x * 20, 58 + y * 20, 18, 18);
-        ctx.textAlign = 'center'; ctx.font = '18px monospace'; ctx.fillText('PRESS START', 256, 265);
+
+    const monitor = new THREE.Group();
+    monitor.position.set(0, 2.05, 0.49);
+    monitor.rotation.x = -0.15;
+    arcade.add(monitor);
+    roundedBox(monitor, [1.26, 1.14, 0.12], [0, 0, 0], 0x1e332d, 0.045);
+    roundedBox(monitor, [1.12, 0.96, 0.025], [0, 0, 0.066], 0x0f211f, 0.035);
+    canvasPlane(monitor, 1.02, 0.85, [0, 0, 0.081], ctx => {
+        const glow = ctx.createLinearGradient(0, 0, 0, 320);
+        glow.addColorStop(0, '#284e4b'); glow.addColorStop(1, '#132f30');
+        ctx.fillStyle = glow; ctx.fillRect(0, 0, 512, 320);
+        ctx.fillStyle = '#91b5a4';
+        for (const [x, y] of [[42, 54], [122, 91], [207, 42], [355, 60], [462, 104]]) ctx.fillRect(x, y, 5, 5);
+        ctx.fillStyle = '#d8c69b'; ctx.fillRect(350, 78, 42, 42);
+        ctx.fillStyle = '#527e73';
+        ctx.beginPath(); ctx.moveTo(0, 245); ctx.lineTo(92, 152); ctx.lineTo(160, 215); ctx.lineTo(258, 125); ctx.lineTo(382, 235); ctx.lineTo(457, 174); ctx.lineTo(512, 223); ctx.lineTo(512, 320); ctx.lineTo(0, 320); ctx.fill();
+        ctx.fillStyle = '#315f55'; ctx.fillRect(0, 248, 512, 72);
+        ctx.fillStyle = '#e6d3ac'; ctx.fillRect(215, 187, 42, 42); ctx.fillRect(205, 200, 62, 20);
+        ctx.fillStyle = '#284e4b'; ctx.fillRect(223, 199, 6, 6); ctx.fillRect(244, 199, 6, 6);
+        ctx.fillStyle = '#f1dfb6'; ctx.textAlign = 'center'; ctx.font = 'bold 22px monospace'; ctx.fillText('PRESS START', 256, 292);
+        ctx.fillStyle = 'rgba(255,255,255,.035)';
+        for (let y = 0; y < 320; y += 6) ctx.fillRect(0, y, 512, 2);
     });
-    roundedBox(arcade, [1.5, 0.15, 0.55], [0, 1.25, 0.85], 0xd0b28a, 0.04);
-    cylinder(arcade, 0.08, 0.08, 0.2, [-0.4, 1.42, 0.9], 0x3d4b37);
-    cylinder(arcade, 0.12, 0.12, 0.12, [-0.4, 1.57, 0.9], 0xe08c71);
-    for (let i = 0; i < 3; i++) cylinder(arcade, 0.07, 0.07, 0.05, [0.15 + i * 0.2, 1.36, 0.92], [0xcfe59d, 0xe4ab77, 0xd78d78][i]);
-    box(arcade, [0.65, 0.09, 0.08], [0, 0.65, 0.7], 0xd0bc91);
-    box(arcade, [0.28, 0.22, 0.035], [0, 0.85, 0.69], 0x304b3e);
-    box(arcade, [0.12, 0.025, 0.025], [0, 0.87, 0.72], 0xe0c99b);
-    for (let i = 0; i < 5; i++) box(arcade, [0.12, 0.025, 0.025], [-0.31 + i * 0.16, 0.4, 0.7], 0x314b3f);
+    const controlsPanel = new THREE.Group();
+    controlsPanel.position.set(0, 1.38, 0.73);
+    controlsPanel.rotation.x = 0.13;
+    arcade.add(controlsPanel);
+    roundedBox(controlsPanel, [1.3, 0.12, 0.58], [0, 0, 0], 0xc8ad83, 0.035);
+    cylinder(controlsPanel, 0.13, 0.13, 0.025, [-0.37, 0.07, 0], 0x40574a, 24);
+    cylinder(controlsPanel, 0.025, 0.025, 0.18, [-0.37, 0.16, 0], 0x647365, 16);
+    const joystick = new THREE.Mesh(new THREE.SphereGeometry(0.09, 16, 12), material(0xc9765e, { roughness: 0.35 }));
+    joystick.position.set(-0.37, 0.27, 0);
+    joystick.castShadow = true;
+    controlsPanel.add(joystick);
+    for (const [x, z, color] of [[0.16, -0.08, 0x8caa88], [0.37, -0.08, 0xd6ac74], [0.26, 0.1, 0xc97f67], [0.47, 0.1, 0xd9c89e]]) {
+        cylinder(controlsPanel, 0.075, 0.075, 0.025, [x, 0.073, z], 0x47594b, 16);
+        cylinder(controlsPanel, 0.055, 0.055, 0.04, [x, 0.095, z], color, 16);
+    }
+    roundedBox(arcade, [0.64, 0.55, 0.035], [0, 0.72, 0.616], 0x223b32, 0.035);
+    roundedBox(arcade, [0.27, 0.19, 0.025], [-0.14, 0.76, 0.64], 0x9c8b69, 0.02);
+    box(arcade, [0.16, 0.022, 0.012], [-0.14, 0.79, 0.659], 0x273b32);
+    box(arcade, [0.1, 0.045, 0.012], [-0.14, 0.71, 0.659], 0xb8795f);
+    for (let i = 0; i < 4; i++) box(arcade, [0.2, 0.018, 0.012], [0.16, 0.82 - i * 0.07, 0.64], 0x83937b);
+    for (const x of [-0.58, 0.58]) roundedBox(arcade, [0.28, 0.12, 1.2], [x, 0.1, 0], 0x263c32, 0.03);
+    const sideArt = canvasPlane(arcade, 0.82, 1.14, [0.767, 1.87, 0], ctx => {
+        ctx.strokeStyle = '#d4bd96'; ctx.lineWidth = 15;
+        ctx.beginPath(); ctx.arc(260, 145, 87, 0, Math.PI * 2); ctx.stroke();
+        ctx.strokeStyle = '#c77e64'; ctx.lineWidth = 18;
+        ctx.beginPath(); ctx.moveTo(38, 253); ctx.lineTo(181, 181); ctx.stroke();
+        ctx.strokeStyle = '#e1cfaa'; ctx.lineWidth = 10;
+        ctx.beginPath(); ctx.moveTo(43, 281); ctx.lineTo(199, 203); ctx.stroke();
+        ctx.fillStyle = '#d4bd96'; ctx.beginPath(); ctx.moveTo(260, 100); ctx.lineTo(298, 145); ctx.lineTo(260, 190); ctx.lineTo(222, 145); ctx.closePath(); ctx.fill();
+    });
+    sideArt.rotation.y = Math.PI / 2;
+    sideArt.material.transparent = true;
 
     const research = station('research', 3.15);
     table(research, 2.35, 1.5);
@@ -417,6 +481,9 @@ try {
         cylinder(scene, 0.018, 0.018, 0.7, [x, 4.35, -1.6], 0x3e5545, 8);
         cylinder(scene, 0.08, 0.3, 0.25, [x, 3.91, -1.6], 0xd1a66e);
         cylinder(scene, 0.18, 0.18, 0.02, [x, 3.77, -1.6], 0xf2dda4, 16);
+        const light = new THREE.PointLight(0xffdba8, 0.8, 3.2);
+        light.position.set(x, 3.72, -1.6);
+        scene.add(light);
     }
     box(scene, [1.2, 0.72, 0.08], [4.1, 2.5, -3.11], 0x806e50);
     box(scene, [1.04, 0.56, 0.04], [4.1, 2.5, -3.04], 0xcbb88d);
@@ -473,7 +540,7 @@ try {
         camera.right = halfHeight * aspect;
         camera.top = halfHeight;
         camera.bottom = -halfHeight;
-        if (aspect < 0.8) camera.setViewOffset(width, height, 0, -height * (height < 700 ? 0.25 : 0.2), width, height);
+        if (aspect < 0.8) camera.setViewOffset(width, height, 0, -height * (height < 700 ? 0.13 : 0.1), width, height);
         else camera.clearViewOffset();
         camera.updateProjectionMatrix();
         render();

@@ -29,12 +29,9 @@ button { font: inherit; }
 .view-reset i { margin-right: 5px; }
 .view-reset[hidden] { display: none; }
 .welcome { position: relative; z-index: 1; width: min(390px, 85%); margin: clamp(80px, 15vh, 170px) 0 0 5%; pointer-events: none; }
-.eyebrow, .panel-eyebrow { color: var(--lime); font-size: 10px; font-weight: 800; letter-spacing: .16em; }
-.eyebrow span { font-size: 15px; margin-right: 5px; }
-.welcome h1 { margin: 20px 0; font: 400 clamp(46px, 4vw, 66px)/1.01 Georgia, serif; letter-spacing: -.045em; }
-.welcome h1 em, .content-panel h2 em { color: var(--lime); font-weight: 400; }
-.heading-dot { color: #d7a47e; }
-.welcome > p:not(.eyebrow) { max-width: 330px; color: #d0dbcc; font-size: 13px; line-height: 1.8; }
+.panel-eyebrow { color: var(--lime); font-size: 10px; font-weight: 800; letter-spacing: .16em; }
+.content-panel h2 em { color: var(--lime); font-weight: 400; }
+.welcome > p { max-width: 290px; color: #e2eadc; font-size: 15px; line-height: 1.8; }
 .welcome-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 24px; pointer-events: auto; }
 .welcome-actions a { font-size: 11px; font-weight: 700; text-decoration: none; }
 .welcome-primary { padding: 14px 17px; border-radius: 5px; color: #21301e; background: var(--lime); box-shadow: 0 8px 25px #12211755; }
@@ -178,8 +175,7 @@ button { font: inherit; }
     .view-reset span { display: none; }
     .header-right { gap: 8px; }
     .welcome { margin: 68px 5% 0; width: 90%; }
-    .welcome h1 { margin: 12px 0; font-size: clamp(38px, 9.5vw, 48px); line-height: .96; }
-    .welcome > p:not(.eyebrow) { max-width: 270px; font-size: 12px; }
+    .welcome > p { max-width: 270px; font-size: 12px; }
     .welcome-actions { gap: 12px; margin-top: 14px; }
     .welcome-primary { padding: 11px 12px; }
     .welcome-prompt { margin-top: 18px; }
@@ -199,8 +195,7 @@ button { font: inherit; }
 }
 @media (max-width: 600px) and (max-height: 700px) {
     .welcome { margin-top: 63px; }
-    .welcome h1 { margin: 8px 0; font-size: 34px; }
-    .welcome > p:not(.eyebrow) { line-height: 1.5; }
+    .welcome > p { line-height: 1.5; }
     .welcome-actions { margin-top: 10px; }
     .welcome-prompt { display: none; }
 }
