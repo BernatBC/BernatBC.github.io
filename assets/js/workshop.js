@@ -391,6 +391,9 @@ try {
     box(arcade, [1.25, 1.05, 1.2], [0, 0.64, 0], 0x365447);
     box(arcade, [1.25, 1.5, 0.85], [0, 1.9, -0.16], 0x304b40);
     roundedBox(arcade, [1.3, 0.33, 0.98], [0, 2.75, -0.1], 0x263e34, 0.035);
+    for (const [y, z] of [[2.9, 0.405], [2.6, 0.405]]) {
+        roundedBox(arcade, [1.24, 0.025, 0.025], [0, y, z], 0xb99a72, 0.01);
+    }
     canvasPlane(arcade, 1.18, 0.23, [0, 2.75, 0.395], ctx => {
         ctx.fillStyle = '#e1c69b'; ctx.fillRect(0, 0, 512, 320);
         ctx.strokeStyle = '#7b8d73'; ctx.lineWidth = 8; ctx.strokeRect(16, 22, 480, 276);
@@ -404,22 +407,94 @@ try {
     arcade.add(monitor);
     roundedBox(monitor, [1.26, 1.14, 0.12], [0, 0, 0], 0x1e332d, 0.045);
     roundedBox(monitor, [1.12, 0.96, 0.025], [0, 0, 0.066], 0x0f211f, 0.035);
-    canvasPlane(monitor, 1.02, 0.85, [0, 0, 0.081], ctx => {
+    for (const [size, position] of [
+        [[1.06, 0.035, 0.025], [0, 0.45, 0.092]],
+        [[1.06, 0.035, 0.025], [0, -0.45, 0.092]],
+        [[0.035, 0.88, 0.025], [-0.53, 0, 0.092]],
+        [[0.035, 0.88, 0.025], [0.53, 0, 0.092]]
+    ]) {
+        roundedBox(monitor, size, position, 0xb99a72, 0.012);
+    }
+    for (const x of [-0.57, 0.57]) {
+        for (const y of [-0.49, 0.49]) {
+            const screw = new THREE.Mesh(new THREE.SphereGeometry(0.018, 12, 8), material(0xd0b88e));
+            screw.position.set(x, y, 0.092);
+            monitor.add(screw);
+        }
+    }
+    const powerLight = new THREE.Mesh(new THREE.SphereGeometry(0.018, 12, 8), material(0xc9765e));
+    powerLight.position.set(0.48, -0.51, 0.094);
+    monitor.add(powerLight);
+    let arcadeScreenContext;
+    function drawArcadeScreen(ctx, now) {
+        const time = now * 0.001;
         const glow = ctx.createLinearGradient(0, 0, 0, 320);
-        glow.addColorStop(0, '#284e4b'); glow.addColorStop(1, '#132f30');
+        glow.addColorStop(0, '#315955'); glow.addColorStop(1, '#142d2e');
         ctx.fillStyle = glow; ctx.fillRect(0, 0, 512, 320);
-        ctx.fillStyle = '#91b5a4';
-        for (const [x, y] of [[42, 54], [122, 91], [207, 42], [355, 60], [462, 104]]) ctx.fillRect(x, y, 5, 5);
-        ctx.fillStyle = '#d8c69b'; ctx.fillRect(350, 78, 42, 42);
-        ctx.fillStyle = '#527e73';
-        ctx.beginPath(); ctx.moveTo(0, 245); ctx.lineTo(92, 152); ctx.lineTo(160, 215); ctx.lineTo(258, 125); ctx.lineTo(382, 235); ctx.lineTo(457, 174); ctx.lineTo(512, 223); ctx.lineTo(512, 320); ctx.lineTo(0, 320); ctx.fill();
-        ctx.fillStyle = '#315f55'; ctx.fillRect(0, 248, 512, 72);
-        ctx.fillStyle = '#e6d3ac'; ctx.fillRect(215, 187, 42, 42); ctx.fillRect(205, 200, 62, 20);
-        ctx.fillStyle = '#284e4b'; ctx.fillRect(223, 199, 6, 6); ctx.fillRect(244, 199, 6, 6);
-        ctx.fillStyle = '#f1dfb6'; ctx.textAlign = 'center'; ctx.font = 'bold 22px monospace'; ctx.fillText('PRESS START', 256, 292);
+        ctx.fillStyle = '#a8c9a9';
+        for (let i = 0; i < 18; i++) {
+            const x = (i * 83 - time * (18 + i % 4 * 5) % 550 + 550) % 550;
+            ctx.fillRect(x, 42 + (i * 37) % 112, 4, 4);
+        }
+        ctx.fillStyle = '#406b63';
+        ctx.beginPath();
+        ctx.moveTo(0, 219); ctx.lineTo(78, 142); ctx.lineTo(147, 204); ctx.lineTo(245, 130);
+        ctx.lineTo(341, 210); ctx.lineTo(430, 150); ctx.lineTo(512, 213); ctx.lineTo(512, 320); ctx.lineTo(0, 320);
+        ctx.fill();
+        ctx.fillStyle = '#638671';
+        ctx.fillRect(0, 244, 512, 76);
+        ctx.fillStyle = '#94a17b';
+        const groundOffset = (time * 42) % 64;
+        for (let x = -64 + groundOffset; x < 512; x += 64) {
+            ctx.fillRect(x, 258, 34, 4);
+            ctx.fillRect(x + 24, 282, 20, 4);
+        }
+        const jump = Math.max(0, Math.sin(time * 2.5)) * 48;
+        const playerX = 112 + Math.sin(time * 0.75) * 20;
+        const playerY = 205 - jump;
+        ctx.fillStyle = 'rgba(20,35,31,.38)';
+        ctx.beginPath(); ctx.ellipse(playerX + 16, 246, 17 - jump * 0.08, 4, 0, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#e5d5ad';
+        ctx.fillRect(playerX + 5, playerY, 22, 17);
+        ctx.fillRect(playerX, playerY + 17, 32, 24);
+        ctx.fillStyle = '#39574b';
+        ctx.fillRect(playerX + 11, playerY + 7, 4, 4);
+        ctx.fillRect(playerX + 21, playerY + 7, 4, 4);
+        ctx.fillRect(playerX + 9, playerY + 20, 14, 4);
+        ctx.fillStyle = '#c77e64';
+        const step = Math.sin(time * 12) > 0 ? 5 : 0;
+        ctx.fillRect(playerX + 2, playerY + 38, 11, 6 + step);
+        ctx.fillRect(playerX + 21, playerY + 38, 11, 11 - step);
+        ctx.fillStyle = '#b87861';
+        const obstacleX = 540 - (time * 64 % 590);
+        if (obstacleX > -32) {
+            ctx.fillRect(obstacleX + 10, 222, 14, 23);
+            ctx.fillRect(obstacleX, 231, 34, 12);
+            ctx.fillRect(obstacleX - 4, 235, 8, 5);
+            ctx.fillRect(obstacleX + 30, 226, 8, 5);
+        }
+        ctx.fillStyle = '#e1c69b';
+        ctx.font = 'bold 17px monospace';
+        ctx.textAlign = 'left';
+        ctx.fillText('DEMO GAME', 20, 18);
+        ctx.textAlign = 'right';
+        ctx.fillText(`1UP ${String(1200 + Math.floor(time * 9) % 8800).padStart(5, '0')}`, 492, 18);
+        if (Math.floor(time * 2) % 2 === 0) {
+            ctx.textAlign = 'center';
+            ctx.font = 'bold 18px monospace';
+            ctx.fillText('PRESS START', 256, 296);
+        }
         ctx.fillStyle = 'rgba(255,255,255,.035)';
         for (let y = 0; y < 320; y += 6) ctx.fillRect(0, y, 512, 2);
+    }
+    const arcadeScreen = canvasPlane(monitor, 1.02, 0.85, [0, 0, 0.081], ctx => {
+        arcadeScreenContext = ctx;
+        drawArcadeScreen(ctx, 0);
     });
+    const arcadeScreenTexture = arcadeScreen.material.map;
+    arcadeScreenTexture.minFilter = THREE.NearestFilter;
+    arcadeScreenTexture.magFilter = THREE.NearestFilter;
+    arcadeScreenTexture.generateMipmaps = false;
     const controlsPanel = new THREE.Group();
     controlsPanel.position.set(0, 1.38, 0.73);
     controlsPanel.rotation.x = 0.13;
@@ -433,14 +508,37 @@ try {
     controlsPanel.add(joystick);
     for (const [x, z, color] of [[0.16, -0.08, 0x8caa88], [0.37, -0.08, 0xd6ac74], [0.26, 0.1, 0xc97f67], [0.47, 0.1, 0xd9c89e]]) {
         cylinder(controlsPanel, 0.075, 0.075, 0.025, [x, 0.073, z], 0x47594b, 16);
-        cylinder(controlsPanel, 0.055, 0.055, 0.04, [x, 0.095, z], color, 16);
+        const button = new THREE.Mesh(new THREE.SphereGeometry(0.055, 16, 12), material(color));
+        button.scale.y = 0.55;
+        button.position.set(x, 0.103, z);
+        button.castShadow = true;
+        controlsPanel.add(button);
     }
     roundedBox(arcade, [0.64, 0.55, 0.035], [0, 0.72, 0.616], 0x223b32, 0.035);
     roundedBox(arcade, [0.27, 0.19, 0.025], [-0.14, 0.76, 0.64], 0x9c8b69, 0.02);
     box(arcade, [0.16, 0.022, 0.012], [-0.14, 0.79, 0.659], 0x273b32);
     box(arcade, [0.1, 0.045, 0.012], [-0.14, 0.71, 0.659], 0xb8795f);
     for (let i = 0; i < 4; i++) box(arcade, [0.2, 0.018, 0.012], [0.16, 0.82 - i * 0.07, 0.64], 0x83937b);
+    roundedBox(arcade, [0.22, 0.22, 0.035], [-0.43, 0.67, 0.64], 0x344c40, 0.025);
+    for (let row = 0; row < 3; row++) {
+        for (let col = 0; col < 4; col++) {
+            const vent = cylinder(arcade, 0.008, 0.008, 0.012, [-0.48 + col * 0.04, 0.61 + row * 0.05, 0.665], 0x1c3029, 8);
+            vent.rotation.x = Math.PI / 2;
+        }
+    }
+    roundedBox(arcade, [0.18, 0.27, 0.035], [0.46, 0.75, 0.64], 0x405447, 0.025);
+    roundedBox(arcade, [0.09, 0.012, 0.012], [0.46, 0.82, 0.665], 0x1c3029, 0.004);
+    const coinReturn = cylinder(arcade, 0.035, 0.035, 0.014, [0.46, 0.66, 0.666], 0xc0a276, 16);
+    coinReturn.rotation.x = Math.PI / 2;
+    box(arcade, [0.82, 0.05, 0.025], [0, 0.16, 0.615], 0x8e715a);
     for (const x of [-0.58, 0.58]) roundedBox(arcade, [0.28, 0.12, 1.2], [x, 0.1, 0], 0x263c32, 0.03);
+    for (const x of [-0.82, 0.82]) {
+        for (const y of [0.28, 2.68]) {
+            const rivet = new THREE.Mesh(new THREE.SphereGeometry(0.025, 12, 8), material(0xc0a276));
+            rivet.position.set(x, y, 0.46);
+            arcade.add(rivet);
+        }
+    }
     const sideArt = canvasPlane(arcade, 0.82, 1.14, [0.767, 1.87, 0], ctx => {
         ctx.strokeStyle = '#d4bd96'; ctx.lineWidth = 15;
         ctx.beginPath(); ctx.arc(260, 145, 87, 0, Math.PI * 2); ctx.stroke();
@@ -606,6 +704,10 @@ try {
         if (name) selectStation(name);
     });
     let contextLost = false;
+    const arcadePanel = document.getElementById('arcade-panel');
+    function ambientPaused() {
+        return document.hidden || reducedMotion.matches || contextLost || (document.body.classList.contains('has-panel') && arcadePanel.hidden);
+    }
     canvas.addEventListener('webglcontextlost', event => {
         event.preventDefault();
         contextLost = true;
@@ -619,18 +721,24 @@ try {
     });
     let ambientFrame = 0;
     let lastAmbientRender = 0;
+    let lastScreenFrame = 0;
     function animateAmbient(now) {
         ambientFrame = 0;
-        if (document.hidden || reducedMotion.matches || contextLost || document.body.classList.contains('has-panel')) return;
+        if (ambientPaused()) return;
         if (now - lastAmbientRender >= 42) {
             sculpture.rotation.y = now * 0.00025;
+            if (now - lastScreenFrame >= 100) {
+                drawArcadeScreen(arcadeScreenContext, now);
+                arcadeScreenTexture.needsUpdate = true;
+                lastScreenFrame = now;
+            }
             lastAmbientRender = now;
             render();
         }
-        ambientFrame = requestAnimationFrame(animateAmbient);
+        if (!ambientPaused()) ambientFrame = requestAnimationFrame(animateAmbient);
     }
     function syncAmbient() {
-        if (document.hidden || reducedMotion.matches || contextLost || document.body.classList.contains('has-panel')) {
+        if (ambientPaused()) {
             cancelAnimationFrame(ambientFrame);
             ambientFrame = 0;
         } else if (!ambientFrame) ambientFrame = requestAnimationFrame(animateAmbient);
