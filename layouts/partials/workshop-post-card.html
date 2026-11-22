@@ -1,0 +1,14 @@
+{{- $directory := .File.Dir | lower -}}
+{{- $types := slice -}}
+{{- if in .Params.tags "Videogame" }}{{ $types = $types | append "games" }}{{ end -}}
+{{- if in $directory "/contests/" }}{{ $types = $types | append "contests" }}{{ else if not (in $directory "/videogames/") }}{{ $types = $types | append "projects" }}{{ end -}}
+<a class="story-card" href="{{ .RelPermalink }}" data-types="{{ delimit $types " " }}" data-search="{{ .Title }} {{ .Description }} {{ delimit .Params.tags " " }}">
+    <span class="story-image">
+        {{- $page := . -}}
+        {{- with .Resources.GetMatch (printf "%s*" .Params.thumbnail) -}}
+        {{ partial "img-srcset.html" (dict "img" . "alt" "" "sizes" "112px" "widths" (slice 160 320)) }}
+        {{- else -}}<span aria-hidden="true">✳</span>{{- end -}}
+    </span>
+    <span class="story-copy"><small>{{ .Date.Format "Jan 2006" | upper }}{{ with .Params.tags }} <span> / </span> {{ index . 0 }}{{ end }}</small><strong>{{ .Title }}</strong><span class="story-description">{{ if and $page.Description (ne $page.Description $page.Title) }}{{ $page.Description }}{{ else }}{{ delimit $page.Params.tags " · " }}{{ end }}</span></span>
+    <span class="story-arrow" aria-hidden="true">↗</span>
+</a>

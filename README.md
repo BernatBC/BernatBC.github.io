@@ -1,10 +1,12 @@
 # BernatBC portfolio
 
-The portfolio is a full-screen Three.js workshop. Click an object or choose a
-destination to open its content panel, drag to look around, and use Escape or
-the close button to return to the room. Articles, media and games open in the
-same workshop. The content remains available when JavaScript or WebGL is
-unavailable.
+The portfolio is a full-screen Three.js workshop. Click an object, its marker,
+or a destination to open its content panel; drag to look around and use the
+reset button to restore the view. Keyboard shortcuts 1–5 select destinations,
+R resets the view, and Escape or the close button returns to the room. Articles,
+media and games open in the same workshop. The library can be searched and
+filtered by project type. Reduced-motion preferences are respected, and the
+content remains available when JavaScript or WebGL is unavailable.
 
 ## Development
 

@@ -5,20 +5,31 @@
     <div class="world">
         <canvas id="workshop-canvas" aria-hidden="true"></canvas>
         <div class="world-glow" aria-hidden="true"></div>
+        <div class="hotspots" id="hotspots" hidden>
+            <a class="hotspot" href="{{ .Site.Home.RelPermalink }}#profile-panel" data-station="profile" aria-label="About me"><span class="hotspot-dot"><i class="fa-regular fa-user" aria-hidden="true"></i></span><span class="hotspot-label">About me</span></a>
+            <a class="hotspot" href="{{ .Site.Home.RelPermalink }}#workbench-panel" data-station="workbench" aria-label="The workbench"><span class="hotspot-dot"><i class="fa-solid fa-code" aria-hidden="true"></i></span><span class="hotspot-label">Workbench</span></a>
+            <a class="hotspot" href="{{ .Site.Home.RelPermalink }}#arcade-panel" data-station="arcade" aria-label="The arcade"><span class="hotspot-dot"><i class="fa-solid fa-gamepad" aria-hidden="true"></i></span><span class="hotspot-label">Arcade</span></a>
+            <a class="hotspot" href="{{ .Site.Home.RelPermalink }}#research-panel" data-station="research" aria-label="Research desk"><span class="hotspot-dot"><i class="fa-solid fa-cube" aria-hidden="true"></i></span><span class="hotspot-label">Research</span></a>
+            <a class="hotspot" href="{{ .Site.Home.RelPermalink }}#library-panel" data-station="library" aria-label="The library"><span class="hotspot-dot"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span><span class="hotspot-label">Library</span></a>
+        </div>
         <div class="world-status" id="workshop-status" role="status">The 3D workshop requires JavaScript. The portfolio is available below.</div>
     </div>
 
     <header class="hud-header">
-        <a class="brand" href="{{ .Site.Home.RelPermalink }}" aria-label="Bernat's workshop home"><span class="brand-icon">b<span>.</span></span><span>BERNAT BORRÀS<small>THE INTERACTIVE PORTFOLIO</small></span></a>
-        <div class="header-right"><span class="world-indicator"><i></i> THE WORKSHOP IS OPEN</span><a class="resume-link" href="{{ (index hugo.Data.profile.resources 0).link | relURL }}">Résumé <span>↗</span></a></div>
+        <a class="brand" href="{{ .Site.Home.RelPermalink }}" aria-label="Bernat's workshop home"><span>BERNAT BORRÀS<small>THE INTERACTIVE PORTFOLIO</small></span></a>
+        <div class="header-right"><span class="world-indicator"><i></i> AVAILABLE TO EXPLORE</span><button type="button" class="view-reset" id="view-reset" hidden aria-label="Reset workshop view" aria-keyshortcuts="R"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> <span>Reset view</span></button><a class="resume-link" href="{{ (index hugo.Data.profile.resources 0).link | relURL }}">Résumé <span>↗</span></a></div>
     </header>
 
     <main>
         <div class="welcome" id="welcome">
             <p class="eyebrow"><span>✳</span> A LITTLE SPACE ON THE INTERNET</p>
-            <h1>Welcome to my<br><em>workshop.</em></h1>
-            <p>I’m Bernat, a software engineer who likes building things, exploring ideas, and occasionally breaking them along the way.</p>
-            <div class="welcome-prompt"><span>✧</span> Click an object to explore <br><small>or choose a destination below</small></div>
+            <h1>Come on in<span class="heading-dot">.</span><br><em>Make yourself<br>at home.</em></h1>
+            <p>I’m Bernat, a software engineer with a curiosity for how things work. This is my little corner of the internet.</p>
+            <div class="welcome-actions">
+                <a class="welcome-primary" href="{{ .Site.Home.RelPermalink }}#workbench-panel" data-station="workbench">Explore my work <span>↗</span></a>
+                <a class="welcome-secondary" href="{{ .Site.Home.RelPermalink }}#profile-panel" data-station="profile">A bit about me <span>→</span></a>
+            </div>
+            <div class="welcome-prompt"><span>✧</span> YOUR VISIT STARTS HERE <small>Click a marker or pick a destination below.</small></div>
         </div>
 
         <div class="panels" id="panels">
@@ -42,12 +53,12 @@
                 <p class="panel-lede">A closer look at the work I do and the open-source projects I contribute to.</p>
                 <h3>Experience</h3>
                 {{ range hugo.Data.sections.experiences.experiences }}
-                <div class="entry"><h4><a href="{{ .company.url }}">{{ .company.name }} ↗</a></h4><p class="entry-meta">{{ .company.location }}</p><p>{{ .company.overview }}</p>
+                <div class="entry"><div class="entry-heading">{{ with .company.logo }}{{ partial "asset-img.html" (dict "path" . "alt" "" "class" "entry-logo" "sizes" "48px" "widths" (slice 96 192)) }}{{ end }}<div><h4><a href="{{ .company.url }}">{{ .company.name }} ↗</a></h4><p class="entry-meta">{{ .company.location }}</p></div></div><p>{{ .company.overview }}</p>
                     {{ range .positions }}<div class="entry-sub"><strong>{{ .designation }}</strong><p class="entry-meta">{{ .start }} — {{ .end | default "Present" }}</p><ul>{{ range .responsibilities }}<li>{{ . | markdownify }}</li>{{ end }}</ul></div>{{ end }}
                 </div>
                 {{ end }}
                 <h3>Open source</h3>
-                {{ range hugo.Data.sections.projects.projects }}<div class="entry"><h4><a href="{{ .repo }}">{{ .name }} ↗</a></h4><p class="entry-meta">{{ .role }} · {{ .timeline }}</p><p>{{ .summary | markdownify }}</p><div class="tags">{{ range .tags }}<span>{{ . }}</span>{{ end }}</div></div>{{ end }}
+                {{ range hugo.Data.sections.projects.projects }}<div class="entry"><div class="entry-heading">{{ with .logo }}{{ partial "asset-img.html" (dict "path" . "alt" "" "class" "entry-logo" "sizes" "48px" "widths" (slice 96 192)) }}{{ end }}<div><h4><a href="{{ .repo }}">{{ .name }} ↗</a></h4><p class="entry-meta">{{ .role }} · {{ .timeline }}</p></div></div><p>{{ .summary | markdownify }}</p><div class="tags">{{ range .tags }}<span>{{ . }}</span>{{ end }}</div></div>{{ end }}
             </section>
 
             <section class="content-panel" id="arcade-panel" tabindex="-1" aria-labelledby="arcade-title">
@@ -55,9 +66,9 @@
                 <p class="panel-eyebrow">GAMES &amp; EXPERIMENTS</p>
                 <h2 id="arcade-title">Press <em>play.</em></h2>
                 <p class="panel-lede">Little worlds and experiments made for the fun of figuring out how games work.</p>
-                <div class="post-list">
+                <div class="post-list showcase-list">
                 {{ range where .Site.RegularPages "Section" "posts" }}{{ if in .Params.tags "Videogame" }}
-                    <a href="{{ .RelPermalink }}"><span><strong>{{ .Title }}</strong><small>{{ .Date.Format "January 2006" }} · {{ delimit .Params.tags " / " }}</small></span><span>↗</span></a>
+                    {{ partial "workshop-post-card.html" . }}
                 {{ end }}{{ end }}
                 </div>
                 <p>Explore the stories; playable builds are embedded where available.</p>
@@ -69,7 +80,7 @@
                 <h2 id="research-title">Always <em>learning.</em></h2>
                 <p class="panel-lede">Ideas, research and the places where I’ve learned to make things.</p>
                 {{ range hugo.Data.sections.education.degrees }}
-                <div class="entry"><h4>{{ .name }}</h4><p><a href="{{ .institution.url }}">{{ .institution.name }} ↗</a></p><p class="entry-meta">{{ .timeframe }}{{ with .ects }} · {{ . }} ECTS{{ end }}{{ with .grade }} · {{ .scale }}: {{ .achieved }}/{{ .outOf }}{{ end }}</p>
+                <div class="entry"><div class="entry-heading">{{ with .institution.logo }}{{ partial "asset-img.html" (dict "path" . "alt" "" "class" "entry-logo" "sizes" "48px" "widths" (slice 96 192)) }}{{ end }}<div><h4>{{ .name }}</h4><p><a href="{{ .institution.url }}">{{ .institution.name }} ↗</a></p></div></div><p class="entry-meta">{{ .timeframe }}{{ with .ects }} · {{ . }} ECTS{{ end }}{{ with .grade }} · {{ .scale }}: {{ .achieved }}/{{ .outOf }}{{ end }}</p>
                     {{ with .thesis }}<p><strong>Thesis:</strong> {{ . | markdownify }}</p>{{ end }}
                     {{ with .publications }}<h5>Publications</h5><ul>{{ range . }}<li><a href="{{ .url }}">{{ .title }} ↗</a></li>{{ end }}</ul>{{ end }}
                     {{ with .extracurricularActivities }}<h5>Activities</h5><ul>{{ range . }}<li>{{ replace . "](posts/" (printf "](%sposts/" $.Site.Home.RelPermalink) | markdownify }}</li>{{ end }}</ul>{{ end }}
@@ -82,16 +93,26 @@
                 <div class="panel-top"><span>05 / THE LIBRARY</span><button type="button" class="panel-close" aria-label="Close panel">×</button></div>
                 <p class="panel-eyebrow">TOOLS, STORIES &amp; PROJECTS</p>
                 <h2 id="library-title">The <em>library.</em></h2>
-                <p class="panel-lede">A collection of the tools I use and things I’ve written about.</p>
+                <p class="panel-lede">Projects, experiments and stories from along the way. Pick something off the shelf.</p>
+                <h3>Stories &amp; projects <span class="section-count">{{ len (where .Site.RegularPages "Section" "posts") }}</span></h3>
+                <div class="library-tools" id="library-tools" hidden>
+                    <label class="library-search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span class="sr-only">Search stories and projects</span><input id="library-search" type="search" placeholder="Search the library…" autocomplete="off"></label>
+                    <div class="library-filters" role="group" aria-label="Filter stories and projects">
+                        <button type="button" data-filter="all" aria-pressed="true">All</button>
+                        <button type="button" data-filter="projects" aria-pressed="false">Projects</button>
+                        <button type="button" data-filter="games" aria-pressed="false">Games</button>
+                        <button type="button" data-filter="contests" aria-pressed="false">Contests</button>
+                    </div>
+                    <p class="library-results" id="library-results" aria-live="polite"></p>
+                </div>
+                <div class="post-list showcase-list" id="library-posts">{{ range where .Site.RegularPages "Section" "posts" }}{{ partial "workshop-post-card.html" . }}{{ end }}</div>
                 <h3>Skills &amp; tools</h3>
-                {{ range hugo.Data.sections.skills.skills }}<div class="entry"><h4>{{ if .url }}<a href="{{ .url }}">{{ .name }} ↗</a>{{ else }}{{ .name }}{{ end }}</h4><p>{{ .summary | markdownify }}</p></div>{{ end }}
-                <h3>All stories &amp; projects</h3>
-                <div class="post-list">{{ range where .Site.RegularPages "Section" "posts" }}<a href="{{ .RelPermalink }}"><span><strong>{{ .Title }}</strong><small>{{ .Date.Format "January 2006" }}{{ with .Params.tags }} · {{ delimit . " / " }}{{ end }}</small></span><span>↗</span></a>{{ end }}</div>
+                <div class="skill-grid">{{ range hugo.Data.sections.skills.skills }}<div class="skill-card">{{ if .logo }}{{ partial "asset-img.html" (dict "path" .logo "alt" "" "class" "skill-icon" "sizes" "40px" "widths" (slice 80 160)) }}{{ end }}<div><h4>{{ if .url }}<a href="{{ .url }}">{{ .name }} ↗</a>{{ else }}{{ .name }}{{ end }}</h4><p>{{ .summary | markdownify }}</p></div></div>{{ end }}</div>
             </section>
 
             {{ if .IsPage }}
             <article class="content-panel article-panel" id="post-panel" tabindex="-1" aria-labelledby="post-title">
-                <div class="panel-top"><span>FROM THE LIBRARY / {{ .Date.Format "JANUARY 2006" }}</span><button type="button" class="panel-close" aria-label="Close article">×</button></div>
+                <div class="panel-top"><span>FROM THE LIBRARY / {{ .Date.Format "January 2006" | upper }}</span><button type="button" class="panel-close" aria-label="Close article">×</button></div>
                 <a class="back-link" href="{{ .Site.Home.RelPermalink }}#library-panel" data-station="library">← Back to the library</a>
                 <h2 id="post-title">{{ .Title }}</h2>
                 {{ with .Params.tags }}<div class="tags">{{ range . }}<span>{{ . }}</span>{{ end }}</div>{{ end }}
@@ -105,12 +126,12 @@
 
     <nav class="hud-nav" aria-label="Explore the workshop">
         <span class="nav-label">EXPLORE <span>↗</span></span>
-        <a href="{{ .Site.Home.RelPermalink }}#profile-panel" data-station="profile"><span>01</span> About</a>
-        <a href="{{ .Site.Home.RelPermalink }}#workbench-panel" data-station="workbench"><span>02</span> Workbench</a>
-        <a href="{{ .Site.Home.RelPermalink }}#arcade-panel" data-station="arcade"><span>03</span> Arcade</a>
-        <a href="{{ .Site.Home.RelPermalink }}#research-panel" data-station="research"><span>04</span> Research</a>
-        <a href="{{ .Site.Home.RelPermalink }}#library-panel" data-station="library"><span>05</span> Library</a>
+        <a href="{{ .Site.Home.RelPermalink }}#profile-panel" data-station="profile" aria-keyshortcuts="1"><i class="fa-regular fa-user" aria-hidden="true"></i><span>About</span></a>
+        <a href="{{ .Site.Home.RelPermalink }}#workbench-panel" data-station="workbench" aria-keyshortcuts="2"><i class="fa-solid fa-code" aria-hidden="true"></i><span>Workbench</span></a>
+        <a href="{{ .Site.Home.RelPermalink }}#arcade-panel" data-station="arcade" aria-keyshortcuts="3"><i class="fa-solid fa-gamepad" aria-hidden="true"></i><span>Arcade</span></a>
+        <a href="{{ .Site.Home.RelPermalink }}#research-panel" data-station="research" aria-keyshortcuts="4"><i class="fa-solid fa-cube" aria-hidden="true"></i><span>Research</span></a>
+        <a href="{{ .Site.Home.RelPermalink }}#library-panel" data-station="library" aria-keyshortcuts="5"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Library</span></a>
     </nav>
-    <div class="hud-hint" id="workshop-hint"><span>◉</span> DRAG TO LOOK AROUND <i></i> CLICK OBJECTS TO EXPLORE</div>
+    <div class="hud-hint" id="workshop-hint"><span>◉</span> DRAG TO LOOK AROUND <i></i> 1–5 EXPLORE <i></i> R RESET</div>
 </body>
 </html>
