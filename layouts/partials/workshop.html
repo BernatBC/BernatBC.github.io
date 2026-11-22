@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{{ partial "head.html" . }}</head>
+<body data-home="{{ .Site.Home.RelPermalink }}" data-page="{{ if .IsPage }}post{{ else if not .IsHome }}library{{ end }}">
+    <div class="world">
+        <canvas id="workshop-canvas" aria-hidden="true"></canvas>
+        <div class="world-glow" aria-hidden="true"></div>
+        <div class="world-status" id="workshop-status" role="status">The 3D workshop requires JavaScript. The portfolio is available below.</div>
+    </div>
+
+    <header class="hud-header">
+        <a class="brand" href="{{ .Site.Home.RelPermalink }}" aria-label="Bernat's workshop home"><span class="brand-icon">b<span>.</span></span><span>BERNAT BORRÀS<small>THE INTERACTIVE PORTFOLIO</small></span></a>
+        <div class="header-right"><span class="world-indicator"><i></i> THE WORKSHOP IS OPEN</span><a class="resume-link" href="{{ (index hugo.Data.profile.resources 0).link | relURL }}">Résumé <span>↗</span></a></div>
+    </header>
+
+    <main>
+        <div class="welcome" id="welcome">
+            <p class="eyebrow"><span>✳</span> A LITTLE SPACE ON THE INTERNET</p>
+            <h1>Welcome to my<br><em>workshop.</em></h1>
+            <p>I’m Bernat, a software engineer who likes building things, exploring ideas, and occasionally breaking them along the way.</p>
+            <div class="welcome-prompt"><span>✧</span> Click an object to explore <br><small>or choose a destination below</small></div>
+        </div>
+
+        <div class="panels" id="panels">
+            <section class="content-panel" id="profile-panel" tabindex="-1" aria-labelledby="profile-title">
+                <div class="panel-top"><span>01 / ABOUT ME</span><button type="button" class="panel-close" aria-label="Close panel">×</button></div>
+                <p class="panel-eyebrow">THE PERSON BEHIND THE WORKSHOP</p>
+                <h2 id="profile-title">Hello, I’m <em>Bernat.</em></h2>
+                <div class="profile-intro">
+                    {{ partial "asset-img.html" (dict "path" hugo.Data.profile.personalInfo.profileImage "alt" "Bernat Borràs" "class" "profile-photo" "sizes" "100px" "widths" (slice 192 384) "fillSquare" true) }}
+                    <div><strong>{{ hugo.Data.profile.personalInfo.fullName }}</strong>{{ range hugo.Data.profile.roles }}<p>{{ .title }}{{ with .organization }} @ <a href="{{ .website }}">{{ .name }}</a>{{ end }}</p>{{ end }}</div>
+                </div>
+                <div class="rich-content">{{ hugo.Data.profile.bio | markdownify }}</div>
+                <h3>Find me elsewhere</h3>
+                <div class="contact-grid">{{ range hugo.Data.profile.contactDetails }}<a href="{{ .url }}">{{ .type }} <span>↗</span></a>{{ end }}{{ range hugo.Data.profile.resources }}<a href="{{ .link | relURL }}">{{ .name }} <span>↗</span></a>{{ end }}</div>
+            </section>
+
+            <section class="content-panel" id="workbench-panel" tabindex="-1" aria-labelledby="workbench-title">
+                <div class="panel-top"><span>02 / THE WORKBENCH</span><button type="button" class="panel-close" aria-label="Close panel">×</button></div>
+                <p class="panel-eyebrow">BUILDING THINGS THAT MATTER</p>
+                <h2 id="workbench-title">The <em>workbench.</em></h2>
+                <p class="panel-lede">A closer look at the work I do and the open-source projects I contribute to.</p>
+                <h3>Experience</h3>
+                {{ range hugo.Data.sections.experiences.experiences }}
+                <div class="entry"><h4><a href="{{ .company.url }}">{{ .company.name }} ↗</a></h4><p class="entry-meta">{{ .company.location }}</p><p>{{ .company.overview }}</p>
+                    {{ range .positions }}<div class="entry-sub"><strong>{{ .designation }}</strong><p class="entry-meta">{{ .start }} — {{ .end | default "Present" }}</p><ul>{{ range .responsibilities }}<li>{{ . | markdownify }}</li>{{ end }}</ul></div>{{ end }}
+                </div>
+                {{ end }}
+                <h3>Open source</h3>
+                {{ range hugo.Data.sections.projects.projects }}<div class="entry"><h4><a href="{{ .repo }}">{{ .name }} ↗</a></h4><p class="entry-meta">{{ .role }} · {{ .timeline }}</p><p>{{ .summary | markdownify }}</p><div class="tags">{{ range .tags }}<span>{{ . }}</span>{{ end }}</div></div>{{ end }}
+            </section>
+
+            <section class="content-panel" id="arcade-panel" tabindex="-1" aria-labelledby="arcade-title">
+                <div class="panel-top"><span>03 / THE ARCADE</span><button type="button" class="panel-close" aria-label="Close panel">×</button></div>
+                <p class="panel-eyebrow">GAMES &amp; EXPERIMENTS</p>
+                <h2 id="arcade-title">Press <em>play.</em></h2>
+                <p class="panel-lede">Little worlds and experiments made for the fun of figuring out how games work.</p>
+                <div class="post-list">
+                {{ range where .Site.RegularPages "Section" "posts" }}{{ if in .Params.tags "Videogame" }}
+                    <a href="{{ .RelPermalink }}"><span><strong>{{ .Title }}</strong><small>{{ .Date.Format "January 2006" }} · {{ delimit .Params.tags " / " }}</small></span><span>↗</span></a>
+                {{ end }}{{ end }}
+                </div>
+                <p>Explore the stories; playable builds are embedded where available.</p>
+            </section>
+
+            <section class="content-panel" id="research-panel" tabindex="-1" aria-labelledby="research-title">
+                <div class="panel-top"><span>04 / THE RESEARCH DESK</span><button type="button" class="panel-close" aria-label="Close panel">×</button></div>
+                <p class="panel-eyebrow">LEARNING, RESEARCH &amp; CURIOSITY</p>
+                <h2 id="research-title">Always <em>learning.</em></h2>
+                <p class="panel-lede">Ideas, research and the places where I’ve learned to make things.</p>
+                {{ range hugo.Data.sections.education.degrees }}
+                <div class="entry"><h4>{{ .name }}</h4><p><a href="{{ .institution.url }}">{{ .institution.name }} ↗</a></p><p class="entry-meta">{{ .timeframe }}{{ with .ects }} · {{ . }} ECTS{{ end }}{{ with .grade }} · {{ .scale }}: {{ .achieved }}/{{ .outOf }}{{ end }}</p>
+                    {{ with .thesis }}<p><strong>Thesis:</strong> {{ . | markdownify }}</p>{{ end }}
+                    {{ with .publications }}<h5>Publications</h5><ul>{{ range . }}<li><a href="{{ .url }}">{{ .title }} ↗</a></li>{{ end }}</ul>{{ end }}
+                    {{ with .extracurricularActivities }}<h5>Activities</h5><ul>{{ range . }}<li>{{ replace . "](posts/" (printf "](%sposts/" $.Site.Home.RelPermalink) | markdownify }}</li>{{ end }}</ul>{{ end }}
+                </div>
+                {{ end }}
+                {{ with .Site.GetPage "posts/Education/3DImageViewer" }}<a class="panel-action" href="{{ .RelPermalink }}">Explore the 3D Image Viewer <span>↗</span></a>{{ end }}
+            </section>
+
+            <section class="content-panel" id="library-panel" tabindex="-1" aria-labelledby="library-title">
+                <div class="panel-top"><span>05 / THE LIBRARY</span><button type="button" class="panel-close" aria-label="Close panel">×</button></div>
+                <p class="panel-eyebrow">TOOLS, STORIES &amp; PROJECTS</p>
+                <h2 id="library-title">The <em>library.</em></h2>
+                <p class="panel-lede">A collection of the tools I use and things I’ve written about.</p>
+                <h3>Skills &amp; tools</h3>
+                {{ range hugo.Data.sections.skills.skills }}<div class="entry"><h4>{{ if .url }}<a href="{{ .url }}">{{ .name }} ↗</a>{{ else }}{{ .name }}{{ end }}</h4><p>{{ .summary | markdownify }}</p></div>{{ end }}
+                <h3>All stories &amp; projects</h3>
+                <div class="post-list">{{ range where .Site.RegularPages "Section" "posts" }}<a href="{{ .RelPermalink }}"><span><strong>{{ .Title }}</strong><small>{{ .Date.Format "January 2006" }}{{ with .Params.tags }} · {{ delimit . " / " }}{{ end }}</small></span><span>↗</span></a>{{ end }}</div>
+            </section>
+
+            {{ if .IsPage }}
+            <article class="content-panel article-panel" id="post-panel" tabindex="-1" aria-labelledby="post-title">
+                <div class="panel-top"><span>FROM THE LIBRARY / {{ .Date.Format "JANUARY 2006" }}</span><button type="button" class="panel-close" aria-label="Close article">×</button></div>
+                <a class="back-link" href="{{ .Site.Home.RelPermalink }}#library-panel" data-station="library">← Back to the library</a>
+                <h2 id="post-title">{{ .Title }}</h2>
+                {{ with .Params.tags }}<div class="tags">{{ range . }}<span>{{ . }}</span>{{ end }}</div>{{ end }}
+                {{ $page := . }}{{ with .Resources.GetMatch (printf "%s*" .Params.thumbnail) }}{{ partial "img-srcset.html" (dict "img" . "alt" $page.Title "class" "article-hero" "sizes" "(max-width: 768px) 90vw, 700px" "widths" (slice 640 960 1280) "loading" "eager") }}{{ end }}
+                {{ if .Fragments.Headings }}<details class="article-toc"><summary>In this article</summary>{{ .TableOfContents }}</details>{{ end }}
+                <div class="post-content rich-content">{{ .Content }}</div>
+            </article>
+            {{ end }}
+        </div>
+    </main>
+
+    <nav class="hud-nav" aria-label="Explore the workshop">
+        <span class="nav-label">EXPLORE <span>↗</span></span>
+        <a href="{{ .Site.Home.RelPermalink }}#profile-panel" data-station="profile"><span>01</span> About</a>
+        <a href="{{ .Site.Home.RelPermalink }}#workbench-panel" data-station="workbench"><span>02</span> Workbench</a>
+        <a href="{{ .Site.Home.RelPermalink }}#arcade-panel" data-station="arcade"><span>03</span> Arcade</a>
+        <a href="{{ .Site.Home.RelPermalink }}#research-panel" data-station="research"><span>04</span> Research</a>
+        <a href="{{ .Site.Home.RelPermalink }}#library-panel" data-station="library"><span>05</span> Library</a>
+    </nav>
+    <div class="hud-hint" id="workshop-hint"><span>◉</span> DRAG TO LOOK AROUND <i></i> CLICK OBJECTS TO EXPLORE</div>
+</body>
+</html>
